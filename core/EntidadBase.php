@@ -24,7 +24,7 @@ class EntidadBase{
         $query=$this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
 
         //SE DEVUELVE EL RESULTSET EN FORMA DE ARREGLO DE OBJETOS
-        while ($row = $query->fetch_object()) {//AQUI ESTA MI ERROR
+        while ($row = $query->fetch_object()) {
            $resultSet[]=$row;
         }
 

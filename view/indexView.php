@@ -27,7 +27,7 @@
           <script>
           $( document ).ready(function(){
             $(".button-collapse").sideNav();
-            $('.fixed-action-btn').openFAB();
+            $('.fixed-action-btn').openFAB('toolbar');
             $('.fixed-action-btn').closeFAB();
             $('.fixed-action-btn.toolbar').openToolbar();
             $('.fixed-action-btn.toolbar').closeToolbar();
@@ -41,13 +41,8 @@
              });
 
            });
-           $(document).ready(function(){
-              // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-              $('.modal').modal();
-            });
-
-          </script>
-          <header>
+           </script>
+           <header>
                 <div class="container"><a href="#" data-activates="nav-mobile"
                   class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only">
                   </a></div>
@@ -71,16 +66,11 @@
       <div class="nav-wrapper">
         <form class="z-depth-2" id="buscador" name="buscador" method="post" action="">
           <div class="buscador">
-
             <nav>
-
               <div class="nav-wrapper">
-
                 <a href="#" data-activates="mobile-demo" class="button-collapse">
                   <i class="medium material-icons" style="color:white">menu</i>Menu</a>
                 <!--   <input id="buscar" style="color:white" name="buscar" type="search" placeholder="Seccion Registros" autofocus >-->
-
-
                 <ul class="side-nav" id="mobile-demo">
                   <li><div class="userView">
                     <img class="background" src="assets/img/CasonaSantaRosa.jpg">
@@ -91,7 +81,7 @@
                   <hr>
                   <a><b>Lista de opciones para los registros*:</b></a>
                   <li><a href="">Registro Sector </a></li>
-                  <li><a href=""><img class="circle" src="assets/img/sendero-indio-desnudo.jpg">Registro Sendero </a></li>
+                  <li><a href="">Registro Sendero </a></li>
                   <li><a href="">Registro Pais </a></li>
                   <li><a href="">Registro Provincia </a></li>
                   <li><a href="">Registro Area Sivestre Protegida(ASP) </a></li>
@@ -99,9 +89,8 @@
               </div>
             </nav>
           </div><!--Fin de div bs=uscador-->
-        <div class="input-field">
       </form>
-
+  <div class="input-field">
         </div>
     </div>
   </nav>
@@ -110,14 +99,12 @@
 <!--=====================================FIN DE LINEA PARA BUSCADOR==============================================================-->
 
 <!--=========================================INICIO DE LINEAS PARA LAS OPCIONES DEL MENU=======================================-->
-                    <li class="bold"><a href="http://www.acguanacaste.ac.cr/" class="waves-effect waves-teal">
-                      <img class="circle" src="assets/img/logoACG.png"> Area Conservacion Guanacaste</a> </a></li>
-
-                    <ul class="collapsible" data-collapsible="accordion">
-                    <li>
-                    <li class="bold"><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-rosa" class="waves-effect waves-teal">
-                      <img class="circle" src="assets/img/SantaRosaLogo.jpg"> Informacion del Sector</a></a></li>
-
+        <li class="bold"><a href="http://www.acguanacaste.ac.cr/" class="waves-effect waves-teal">
+        <img class="circle" src="assets/img/logoACG.png"> Area Conservacion Guanacaste</a> </a></li>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+            <li class="bold"><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-rosa" class="waves-effect waves-teal">
+              <img class="circle" src="assets/img/SantaRosaLogo.jpg"> Informacion del Sector</a></a></li>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
                         <li class="bold"><a class="collapsible-header  waves-effect waves-teal">
@@ -138,7 +125,7 @@
                         <li class="bold"><a href="http://www.acguanacaste.ac.cr/biodesarrollo/programa-de-ecoturismo"
                             class="collapsible-header  waves-effect waves-teal"><img class="circle" src="assets/img/tortuga.jpg"> Programa Ecoturismo</a></a>
 
-                        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">
+                        <li class="bold ative"><a class="collapsible-header  waves-effect waves-teal">
                                                                                 <i class="small material-icons">perm_identity</i>Sesion</a>
                           <div class="collapsible-body" style="display: block;">
                             <ul>
@@ -162,24 +149,31 @@
 
      <a href="#!" class="brand-logo">&nbsp; SIREVI</a>
      <ul class="right hide-on-med-and-down" class="fixed-action-btn toolbar">
-       <div class="fixed-action-btn toolbar">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons ">add</i><!--BOTON FLOTANTE-->
-        </a>
-        <ul>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">insert_chart</i></a></li>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">format_quote</i></a></li>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">publish</i></a></li>
-          <li class="waves-effect waves-light"><a href="#!"><i class="material-icons">attach_file</i></a></li>
-        </ul>
-      </div>
-             <li><a href="http://localhost/Registro_Responsive_usuarios_v2/view/menu_principal.php"><i class="material-icons right">view_module</i>Inicio</a></li>
+
+      <!--Estructura de dropdown-->
+            <ul id="dropdown1"  class="dropdown-content"   >
+
+            <li><a href="#" >Seleccionar opcion</a></li>
+            <li class="divider"></li>
+            <li><a href="#" data-activates="slide-out_2" class="button-collapse">Registrar Usuario</a></li>
+            <li><a href="Referencia de la pagina de modificar usuario">Modificar Usuario</a></li>
+
+          </ul>
+          <ul class="right hide-on-med-and-down">
+
+           <!-- Dropdown Trigger -->
+           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Modulos Usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+         </ul>
+            <li><a href=""><i class="material-icons right">view_module</i>Inicio</a></li>
+
            </ul>
              <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:white" class="medium material-icons">toc</i></a>
          </div>
 
 
  </nav>
+ <!--<li><a href="#" data-activates="slide-out_2" class="button-collapse"><i  style="color:white" class="material-icons">menu</i>Registrar Usuario</a></li>
+-->
 <!--======================================================================================================================-->
 
 
@@ -236,222 +230,277 @@
            </li>
            <li class="bold"><a href="http://www.acguanacaste.ac.cr/biodesarrollo/programa-de-ecoturismo"
                class="collapsible-header  waves-effect waves-teal"><img class="circle" src="assets/img/tortuga.jpg"> Programa Ecoturismo</a></a>
-
-           <li class="bold active"><a class="collapsible-header active waves-effect waves-teal">
+           <li class="active"><a class="collapsible-header active waves-effect waves-teal">
                                                                   <i class="small material-icons">perm_identity</i>Sesion</a>
-
              <div class="collapsible-body" style="display: block;">
                <ul>
-                 <li><a href="http://localhost/Registro_Responsive_usuarios_v2/view/menu_principal.php"> Pagina inicio</a></li>
-
+                 <li><a href="/SIREVI/view/menu_principal.php"> Pagina inicio</a></li>
                  <li><a href="">Cerrar sesion</a></li>
                </ul>
              </div>
            </li>
          </ul>
        </li>
-     <li class="bold"><a href="REFERENCIA A LA PAGINA DE LISTADO USUARIOS" class="waves-effect waves-teal">Opcion Registros*</a></li>
-     </ul>
+       <li class="no-padding">
+         <ul class="collapsible collapsible-accordion">
+           <li class="bold"><a class="collapsible-header  waves-effect waves-teal">
+              <i class="small material-icons">input</i>Opciones de Registro</a>
 
-   </div>
+             <div class="collapsible-body" style="display: block;">
+               <ul>
+
+                 <li><a href="#!" data-activates="slide-out_2" class="button-collapse" >Registrar Usuario</a></li>
+                 <li><a href="#!">Registrar ...</a></li>
+                 <li><a href="#!">Registrar ...</a></li>
+                 <li><a href="#!">Registrar ...</a></li>
+                 <li><a href="#!">Registrar ...</a></li>
+                 <li><a href="#!">Registrar ...</a></li>
+               </ul>
+             </div>
+           </li>
+           <li></li>
+   </ul>
+ </div>
 <!--     <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:red" class="medium material-icons">toc</i></a> -->
 <!--=====================================FIN DE MENU LATERAL DESPLEGABLE RESPONSIVE ==================================================-->
 
+
+
+
 <!--======================================INICIO DEL EL CUERPO DEL REGISTRO =========================================================-->
- <div class="container contact">
-  <br>
-  <h5>Registro Usuarios </h5>
-  <h6>Completar la informacion con los datos correspondientes</h6>
-  <hr>
-
-        <div class="row">
-          <div class="col s6 m7 l7">
-            <div class="row">
-
-            <form id="formulario" action="<?php echo $helper->url("usuarios","crear"); ?>" method="post" class="col s18" >
-            <div>
-
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 l6">
-                    <input id="first_name" type="text" name="nombre" class="form-control"  class="validate">
-                    <label for="first_name"> <i class="small material-icons">face</i> &nbsp;Nombre</label>
-                  </div>
 
 
 
-  <!--INICIO DE COLUMNA APELLIDO-->
-              <div class="input-field col s6">
-                <input  id="last_name" type="text" name="apellido" class="validate" class="form-control">
-                <label for="last_name" >  <i class="small material-icons">recent_actors</i>Apellido</label>
-              </div>
-            </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+<!--==========Inicio de el sideNav para el Registro de usuarios ==========================================-->
+<ul id="slide-out_2"  class="side-nav" style="width:800px" >
 
-
-  <!--INICIO DE LA FILA 2-->
-  <!--INICION DE COLUMNA DEL CEDULA-->
-                <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
-                  <div class="input-field col s6">
-                    <input id="cedula"  type="text" name="cedula" class="validate"  class="form-control"/>
-                    <label for="cedula"  ><i class="small material-icons">picture_in_picture</i>&nbsp; Cedula</label>
-                  </div>
-  <!--INICIO DE COLUMNA CONTRASENA-->
-              <div class="input-field col s6">
-                <input id="password" type="password" name="contrasena" class="form-control" class="validate">
-                <label for="password" > <i class="small material-icons">perm_identity</i>&nbsp; Contraseña</label> </label>
-              </div>
-            </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
-
-
-  <!--INICIO DE LA TERCERA FILA-->
-  <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-          <div class="row"><!--INICIO DE TERCERA FILA-->
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="puesto" type="text" name="puesto" class="form-control" class="validate">
-                  <label for="puesto"><i class="small material-icons">description</i>&nbsp;Puesto en institucion </label>
-                </div>
-              </div>
-            </div><!--FIN DE LA TERCERA FILA-->
-
-  <!--INICIO DE LINEAS PARA EL CORREO-->
-    <div class="row">
-      <div class="col s12">
-        Escriba su correo electronico correctamente:
-              <div class="row">
-                <div class="input-field">
-           <input id="email" type="email" name="email" class="validate" class="form-control">
-           <label for="email" data-error="wrong" data-success="right"><i class="small material-icons"> email </i></label>
-         </div>
+  <li>
+    <div class="userView" class="col s6 m7 l12">
+       <div class="background" class="col s6 m7 l12">
+         <img src="assets/img/bannerRegistro1.jpg">
        </div>
-     </div>
-    </div>
+<!--Las dos lineas siguientes es para colocar el nombre de usurio en sesion-->
+       <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
+       <a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a>
+     </div></li>
+     <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo" >Logo</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+      </nav>
+    <div  class="container contact">
 
+     <br>
+     <h5>Registro Usuarios </h5>
+     <h6>Completar con los datos correspondientes</h6>
+     <hr>
 
-<!--BOTON QUE ME ENVIA EL FORMULARIO-->
-            <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-            <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+         <div class="row">
+           <div class="col s6 m10 l9">
+             <div class="row">
+
+             <form id="formulario" action="<?php echo $helper->url("usuarios","crear"); ?>" method="post" class="col s7 m10 l9" >
+             <div >
+                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                   <div class="input-field col s6 m5 l6 ">
+                     <input id="first_name" type="text" name="nombre" class="form-control"  class="validate">
+                     <label for="first_name"> <i class="small material-icons">face</i> &nbsp;Nombre</label>
+                   </div>
+
+   <!--INICIO DE COLUMNA APELLIDO-->
+               <div class="input-field col s6 m5 l6  ">
+                 <input  id="last_name" type="text" name="apellido" class="validate" class="form-control">
+                 <label for="last_name" >  <i class="small material-icons">recent_actors</i>&nbsp;Apellido</label>
+               </div>
+             </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+
+   <!--INICIO DE LA FILA 2-->
+   <!--INICION DE COLUMNA DEL CEDULA-->
+                 <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+                   <div class="input-field col s6 m5 l6 ">
+                     <input id="cedula"  type="text" name="cedula" class="validate"  class="form-control"/>
+                     <label for="cedula"  ><i class="small material-icons">picture_in_picture</i>&nbsp; Cedula</label>
+                   </div>
+
+   <!--INICIO DE COLUMNA CONTRASENA-->
+               <div class="input-field col s6 m5 l6 ">
+                 <input id="password" type="password" name="contrasena" class="form-control" class="validate">
+                 <label for="password" > <i class="small material-icons">perm_identity</i>&nbsp; Contraseña</label> </label>
+               </div>
+             </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
+
+   <!--INICIO DE LA TERCERA FILA-->
+   <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
+           <div class="row"><!--INICIO DE TERCERA FILA-->
+               <div class="row">
+                 <div class="input-field col s12 m10 l12">
+                   <input id="puesto" type="text" name="puesto" class="form-control" class="validate">
+                   <label for="puesto"><i class="small material-icons">description</i>&nbsp;Puesto en institucion </label>
+                 </div>
+               </div>
+             </div><!--FIN DE LA TERCERA FILA-->
+
+   <!--INICIO DE LINEAS PARA EL CORREO-->
+     <div class="row">
+       <div class="col s12 m10 l12">
+         Escriba su correo electronico correctamente:
+               <div class="row">
+                 <div class="input-field">
+            <input id="email" type="email" name="email" class="validate" class="form-control">
+            <label for="email" data-error="wrong" data-success="right"><i class="small material-icons"> email </i></label>
           </div>
-        </form>
-          </div>
-
         </div>
       </div>
-
-  <!--INICIO DE LOS USUARIOS REGISTRADOS-->
-  <div class="col-lg-18">
-  <ul class="collapsible popout" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">recent_actors</i>Listado de usuarios registrados en el sistema</div>
-
-      <div class="collapsible-body">
-        <h5><i class="tiny material-icons">visibility</i> Lista de Usuarios </h5>
-        <section class="col-lg-18 usuario" style="height:400px;overflow-y:scroll;">
-
-             <br>
-               <?php foreach($allusers as $user) { //RECORREMOS EL ARRAY DE OBJETOS Y OBTENEMOS EL VALOR DE LAS PROPIEADES ?>
-                <?php echo $user->id; ?> ----
-                <?php echo $user->nombre; ?>
-                <?php echo $user->apellido; ?> ---
-                <?php echo $user->cedula; ?> ---
-                <?php echo $user->email; ?>
+     </div>
 
 
-      <div class="right">
-<!--=======================================Inicio de la barra lateral para el formulario de modificar========================================================================================-->
-              <ul id="slide-out_1" class="side-nav" style="width:400px" class="col s9 m9 l4" >
-                <li><div class="userView" >
-                  <img class="background" style="width:400px" src="assets/img/CasonaSantaRosa.jpg">
-                  <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-                  <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-                  <a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
-                </li>
+  <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+             <button class="waves-effect waves-light btn" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
+
+             <button  class="waves-effect waves-light btn " value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
 
 
-                <div class="col-lg-10" >
-                <h5>Modificar Usuarios</h5>
-                <hr>
-
-                        <form id="formulario" action="<?php echo $helper->url("usuarios","modificar"); ?>" method="post" class="col s14" >
-                          <div class="">
-                            <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                              <div class="input-field col s6 ">
-                                <input id="first_name_side" type="text" name="nombre" class="form-control"  class="validate" >
-                                <label for="first_name_side"> <i class="small material-icons">face</i><?php echo $user->nombre;?></label>
-                              </div>
-          <!--INICIO DE COLUMNA APELLIDO-->
-                    <div class="input-field col s6">
-                      <input  id="last_name_side" type="text" name="apellido" class="validate" class="form-control">
-                      <label for="last_name_side" >  <i class="small material-icons">recent_actors</i><?php echo $user->apellido; ?></label>
-                  </div>
-                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-          <!--INICIO DE LA FILA 2-->
-          <!--INICION DE COLUMNA DEL CEDULA-->
-                    <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
-                      <div class="input-field col s6">
-                        <input id="cedula_side"  type="text" name="cedula" class="validate"  class="form-control"/>
-                        <label for="cedula_side"  ><i class="small material-icons">picture_in_picture</i><?php echo $user->cedula; ?></label>
-                      </div>
-          <!--INICIO DE COLUMNA CONTRASENA-
-                  <div class="input-field col s4">
-                    <input id="password" type="password" name="contrasena" class="form-control" class="validate">
-                    <label for="password" > <i class="small material-icons">perm_identity</i>&nbsp; Contraseña</label> </label>
-                  </div>-->
-                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
-          <!--INICIO DE LA TERCERA FILA-->
-          <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-              <div class="row"><!--INICIO DE TERCERA FILA-->
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="puesto_side" type="text" name="puesto" class="form-control" class="validate">
-                      <label for="puesto_side"><i class="small material-icons">description</i> <?php echo $user->puesto; ?></label>
-                    </div>
-                  </div>
-                </div><!--FIN DE LA TERCERA FILA-->
-          <!--INICIO DE LINEAS PARA EL CORREO-->
-          <div class="row">
-          <div class="col s12">
-            Escriba su nuevo correo electronico:
-                  <div class="row">
-                    <div class="input-field">
-               <input id="email_side" type="email" name="email" class="validate" class="form-control">
-               <label for="email_side" data-error="wrong" data-success="right"><i class="small material-icons"> email </i></label>
-             </div>
            </div>
-          </div>
-          </div>
 
+         </form>
+           </div>
 
-    <!--==========BOTON QUE ME ENVIA EL FORMULARIO MODIFICADO-->
-                <button href="<?php echo $helper->url("usuarios","modificar"); ?>&id=<?php echo $user->id; ?>"
-                  class="btn waves-effect waves-light" value="modificar" type="submit" name="action"><i class="small material-icons">done</i></button>
+         </div>
+       </div>
 
-  <!--==========================================================================================================================-->
-  <!--==========================================Fin de modal para modificar==============================================================================-->
-
-
-                <button class="btn waves-effect waves-light" value="reset" type="submit" name="action"><i class="small material-icons">delete</i></button>
-              </div>
-            </form>
-          </div>
-
-   </ul>
- <a href="/Registro_Responsive_usuarios_v2/view/pruebaModulo.php"><i class="material-icons right">view_module</i>Inicio</a>
-
-                    <a href="<?php echo $helper->url("usuarios","borrar"); ?>&id=<?php echo $user->id; ?>"><i class="small material-icons">delete</i></a>
-    </div>
-    <hr>
-    <?php } ?>
-  </section>
-      </div>
-    </li>
+  </div><!--FIN DE container-contact-->
   </ul>
-</div>
 
-</div><!--FIN DE container-contact-->
+<!--======================= Fin de lineas de Registro Usuarios  ==========================================================-->
+
+
+
+
+
+
+<!--========================================= Inicio del listado de Usuarios ================================-->
+    <div class="container contact">
+        <div class="collection">
+
+
+    <a href="" class="collection-item">
+      <!--===posible prevista para generar un numero que me indica cuantos usuarios hay registrados en la base de datos =====-->
+      <h5><i class="tiny material-icons">visibility</i><span class="new badge">4</span> Lista de Usuarios </h5></a>
+    </div>
+    <section class="z-depth-5" class="col-lg-18 usuario" style="height:400px;overflow-y:scroll;">
+     <br>
+
+     <div class="row">
+     <div class="col s12">
+       <ul class="tabs">
+         <li class="tab col s1"><a href="#test1">ID</a></li>
+         <li class="tab col s2"><a class="active" href="#test2">Nombre y Apellido</a></li>
+         <li class="tab col s2"><a href="#test3">Cedula/Pasaporte</a></li>
+         <li class="tab col s2"><a href="#test4">Email</a></li>
+       </ul>
+     </div>
+  <!--   <div id="test1" class="col s12">Test 1</div>
+     <div id="test2" class="col s12">Test 2</div>
+     <div id="test3" class="col s12">Test 3</div>
+     <div id="test4" class="col s12">Test 4</div> -->
+   </div>
+
+    <?php foreach($allusers as $user) { //RECORREMOS EL ARRAY DE OBJETOS Y OBTENEMOS EL VALOR DE LAS PROPIEADES ?>
+      &nbsp;&nbsp;<?php echo $user->id; ?> -------
+      <?php echo $user->nombre; ?>
+      <?php echo $user->apellido; ?> -------
+      <?php echo $user->cedula; ?> -------
+      <?php echo $user->email; ?>
+        <a href="<?php echo $helper->url("usuarios","borrar"); ?>&id=<?php echo $user->id; ?>"><i class="small material-icons right">delete</i></a>
+    <hr>
+      <?php } ?>
+    </section>
+</div><!--fin del contenedor de los usuarios-->
+
+<!--============================================= Fin del cuerpo del codigo =======================================================-->
+
+<!--============================================= PROBANDO TABLA CON DATOS =======================================================-->
+<table class="responsive-table">
+        <thead>
+          <tr>
+              <th data-field="id">ID</th>
+              <th data-field="name"> Nombre </th>
+              <th data-field="last name"> Apellido</th>
+              <th data-field="identity"> Cedula/Pasaporte</th>
+              <th data-field="email"> Email</th>
+          </tr>
+        </thead>
+<?php
+require_once ('core/Conectar.php');
+$query=("SELECT * FROM usuarios ORDER BY id DESC");
+$result = mysql_query($query);
+
+while($registro = mysql_fetch_array($result)){
+  echo"
+  <tr>
+    <td>".$registro['id']."</td>
+    <td>".$registro['nombre']."</td>
+    <td>".$registro['apellido']."</td>
+    <td>".$registro['cedula']."</td>
+    <td>".$registro['email']."</td>
+  </tr>
+";
+}
+?>
+<?php
+$numero = mysql_num_rows($result);
+echo"
+  <thead>
+    <th>
+      Usuarios registrados actualmente: $numero.
+    </th>
+  </thead>
+";
+ ?>
+<!--
+        <tbody>
+          <tr>
+            <td>123</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Cedula/Pasaporte</td>
+            <td>Email</td>
+          </tr>
+          <tr>
+            <td>124</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Cedula/Pasaporte</td>
+            <td>Email</td>
+          </tr>
+          <tr>
+            <td>125</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Cedula/Pasaporte</td>
+            <td>Email</td>
+          </tr>
+        </tbody>
+      </table>-->
+<!--============================================= PROBANDO TABLA CON DATOS =======================================================-->
+
 <footer class="page-footer">
      <div class="container">
        <div class="row">
-         <div class="col l6 s12">
+         <div class="col s12 m7 l6 ">
            <h5 class="white-text">INFORMACION PARA EL FOOTER</h5>
            <p class="grey-text text-lighten-4">Puedo usar columnas y otras cosas aqui para hacer mejor el footer</p>
          </div>
@@ -466,9 +515,9 @@
          </div>
        </div>
      </div>
-     <div style="align-items:center"class="footer-copyright">
+     <div style="align-items:center" class="footer-copyright">
        <div style=""class="container">
-       © 2016 Copyright<br> Sistema Registro Visitacion, Area Conservacion Guanacaste
+       © 2016 Copyright Sistema Registro Visitacion, Area Conservacion Guanacaste
        <a class="grey-text text-lighten-4 right" href="#!">Mas Links</a>
        </div>
      </div>

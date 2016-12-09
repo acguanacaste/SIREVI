@@ -4,12 +4,9 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
         <title>SIREVI Principal</title>
-<!--        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
         <link href="//estilos.php" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="../assets/js/jquery.anexsoft-validator.js"></script>
-      <!--  <script type="text/javascript" src="../assets/js/indexUsuarios.js"></script> -->
-    <!--    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min."></script>
     <!--  <link rel="stylesheet" type="text/css" href="assets/css/estilos.css" />
     <!--    <link rel="stylesheet" href="assets/css/style1.css" /> -->
@@ -154,9 +151,9 @@
 
        <!-- Dropdown Structure -->
            <ul id='dropdown1' class='dropdown-content' >
-             <li><a href="http://localhost/Registro_Responsive_usuarios_v2/"> Registrar Usuarios</a></li><!--Recordar la ortografia-->
+             <li><a href=""> Registrar Usuarios</a></li><!--Recordar la ortografia-->
              <li class="divider"></li>
-             <li><a href="http://localhost/Registro_Responsive_usuarios_v2/registroPais.php"> Registar Pais</a></li><!--Recordar la ortografia-->
+             <li><a href=""> Registar Pais</a></li><!--Recordar la ortografia-->
              <li><a href="#!">Registrar Provincia</a></li>
              <li><a href="#!">Registrar Sector</a></li>
              <li><a href="#!"> Registro Sendero </a></li>
@@ -231,24 +228,15 @@
                                                                         <i class="small material-icons">perm_identity</i>Sesion</a>
 
                    <div class="collapsible-body" style="display: block;">
-                  <!--   <ul>
-                       <li><a href=""> Pagina inicio</a></li>
-                       <li><a href="">Iniciar sesion con otra cuenta</a></li>
-                       <li><a href="">Cerrar sesion</a></li>
-                     </ul>-->
-                   </div>
+                 </div>
                  </li>
                </ul>
              </li>
            <li class="bold"><a href="#" class="waves-effect waves-teal">Opcion Registros*</a></li>
            </ul>
 
-         </div><!--Fin de codigo Alex
-      <nav class="z-depth-3" id="navegador">
-         <div class="nav-wrapper">
-             <a href="#!" class="brand-logo center">&nbsp; </a>
-        <!--     <a href="#" data-activates="mobile-demo" class="button-collapse">Menu<i class="material-icons">menu</i></a>-->
-             <ul id="dropdown1" class="dropdown-content">
+         </div>
+            <ul id="dropdown1" class="dropdown-content">
               <li><a href="#!">Reiniciar</a></li>
               <li class="divider"></li>
               <li><a href="REFERENCIA A LOGIN"></i>Cerrar</a></li>
@@ -337,7 +325,7 @@
                     <div class=>
                       <div class="large card" >
                         <div class="card-image">
-                          <img src="../assets/img/yo.jpg">
+                          <img src="../assets/img/junquillal.jpg">
                           <span class="card-title">Foto con un titulo</span>
                         </div>
                         <div class="card-content">

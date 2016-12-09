@@ -29,12 +29,12 @@ if($row = mysql_fetch_array($result)){
 		header("Location: menu_principal.php");
 	}else{
 		echo "Primer else";
-/*		header("Location: index.html");*/
+		header("Location: indexLogin.php");
 		exit();
 	}
 }else{
 	echo "segundo else";
-/*	header("Location: index.html"); */
+	header("Location: indexLogin.php");
 	exit();
 }
 

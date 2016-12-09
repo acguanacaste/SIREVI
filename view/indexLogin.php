@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min."></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/estilos.css" />
-<!--    <link rel="stylesheet" href="assets/css/style1.css" /> -->
+    <link rel="stylesheet" href="assets/css/style1.css" /> -->
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"/>
 		<link rel="stylesheet" href="https://cdn.rawgit.com/Dogfalo/materialize/master/dist/js/materialize.min.js"/>
