@@ -141,41 +141,31 @@
               </header>
 
 <body class="body" >
-
 <!--INICIO DEL side nav-->
 <!--==============================================MENU HORIZONTAL BOTON ROJA=================================================================-->
 <nav>
-   <div class="nav-wrapper">
-
-     <a href="#!" class="brand-logo">&nbsp; SIREVI</a>
-     <ul class="right hide-on-med-and-down" class="fixed-action-btn toolbar">
-
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">&nbsp; SIREVI</a>
+      <ul class="right hide-on-med-and-down" class="fixed-action-btn toolbar">
       <!--Estructura de dropdown-->
-            <ul id="dropdown1"  class="dropdown-content"   >
-
-            <li><a href="#" >Seleccionar opcion</a></li>
-            <li class="divider"></li>
-            <li><a href="#" data-activates="slide-out_2" class="button-collapse">Registrar Usuario</a></li>
-            <li><a href="Referencia de la pagina de modificar usuario">Modificar Usuario</a></li>
-
-          </ul>
-          <ul class="right hide-on-med-and-down">
-
-           <!-- Dropdown Trigger -->
-           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Modulos Usuario<i class="material-icons right">arrow_drop_down</i></a></li>
-         </ul>
-            <li><a href=""><i class="material-icons right">view_module</i>Inicio</a></li>
-
-           </ul>
-             <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:white" class="medium material-icons">toc</i></a>
-         </div>
-
-
- </nav>
+      <ul id="dropdown1"  class="dropdown-content"   >
+        <li><a href="#" >Seleccionar opcion</a></li>
+        <li class="divider"></li>
+        <li><a href="#" data-activates="slide-out_2" class="button-collapse">Registrar Usuario</a></li>
+        <li><a href="Referencia de la pagina de modificar usuario">Modificar Usuario</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+         <!-- Dropdown Trigger -->
+         <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Modulos Usuario<i class="material-icons right">arrow_drop_down</i></a></li>
+       </ul>
+      <li><a href=""><i class="material-icons right">view_module</i>Inicio</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:white" class="medium material-icons">toc</i></a>
+  </div>
+</nav>
  <!--<li><a href="#" data-activates="slide-out_2" class="button-collapse"><i  style="color:white" class="material-icons">menu</i>Registrar Usuario</a></li>
 -->
 <!--======================================================================================================================-->
-
 
 <!--==========================================================OPCIONES PARA EL MENU LATERAL DEL RESPONSIVE-->
 <!--================================== MENU LATERAL DESPLEGABLE <> INFORMACION DENTRO DEL SIDENAV-->
@@ -264,12 +254,7 @@
 <!--     <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:red" class="medium material-icons">toc</i></a> -->
 <!--=====================================FIN DE MENU LATERAL DESPLEGABLE RESPONSIVE ==================================================-->
 
-
-
-
 <!--======================================INICIO DEL EL CUERPO DEL REGISTRO =========================================================-->
-
-
 
 <!--==========Inicio de el sideNav para el Registro de usuarios ==========================================-->
 <ul id="slide-out_2"  class="side-nav" style="width:800px" >
@@ -365,30 +350,19 @@
         </div>
       </div>
      </div>
-
-
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
              <button class="waves-effect waves-light btn" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
 
              <button  class="waves-effect waves-light btn " value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
-
-
            </div>
-
          </form>
-           </div>
-
-         </div>
        </div>
-
+      </div>
+    </div>
   </div><!--FIN DE container-contact-->
-  </ul>
+</ul>
 
 <!--======================= Fin de lineas de Registro Usuarios  ==========================================================-->
-
-
-
-
 
 
 <!--========================================= Inicio del listado de Usuarios ================================-->
@@ -412,10 +386,6 @@
          <li class="tab col s2"><a href="#test4">Email</a></li>
        </ul>
      </div>
-  <!--   <div id="test1" class="col s12">Test 1</div>
-     <div id="test2" class="col s12">Test 2</div>
-     <div id="test3" class="col s12">Test 3</div>
-     <div id="test4" class="col s12">Test 4</div> -->
    </div>
 
     <?php foreach($allusers as $user) { //RECORREMOS EL ARRAY DE OBJETOS Y OBTENEMOS EL VALOR DE LAS PROPIEADES ?>
@@ -428,48 +398,61 @@
     <hr>
       <?php } ?>
     </section>
+
+
+
+<!---============================================================================================================================-->
+
+    <table class="responsive-table">
+            <thead>
+              <tr>
+
+                  <th data-field="id">ID</th>
+                  <th data-field="name"> Nombre </th>
+                  <th data-field="last name"> Apellido</th>
+                  <th data-field="identity"> Cedula/Pasaporte</th>
+                  <th data-field="email"> Email</th>
+              </tr>
+            </thead>
+    <?php
+    require_once ('core/Conectar.php');
+    $query=("SELECT * FROM usuarios ORDER BY id DESC");
+    $usuarios = mysql_query($query);
+
+    while($registro = mysql_fetch_array($usuarios)){
+      echo"
+      <tr>
+        <td>".$registro['id']."</td>
+        <td>".$registro['nombre']."</td>
+        <td>".$registro['apellido']."</td>
+        <td>".$registro['cedula']."</td>
+        <td>".$registro['email']."</td>
+      </tr>
+    ";
+    }
+
+
+    ?>
+    <?php
+    $numero = mysql_num_rows($usuarios);
+    echo"
+      <thead>
+        <th>
+          Usuarios registrados actualmente: $numero.
+        </th>
+      </thead>
+    ";
+     ?>
+<!---============================================================================================================================-->
+
+
+
 </div><!--fin del contenedor de los usuarios-->
 
 <!--============================================= Fin del cuerpo del codigo =======================================================-->
 
 <!--============================================= PROBANDO TABLA CON DATOS =======================================================-->
-<table class="responsive-table">
-        <thead>
-          <tr>
-              <th data-field="id">ID</th>
-              <th data-field="name"> Nombre </th>
-              <th data-field="last name"> Apellido</th>
-              <th data-field="identity"> Cedula/Pasaporte</th>
-              <th data-field="email"> Email</th>
-          </tr>
-        </thead>
-<?php
-require_once ('core/Conectar.php');
-$query=("SELECT * FROM usuarios ORDER BY id DESC");
-$result = mysql_query($query);
 
-while($registro = mysql_fetch_array($result)){
-  echo"
-  <tr>
-    <td>".$registro['id']."</td>
-    <td>".$registro['nombre']."</td>
-    <td>".$registro['apellido']."</td>
-    <td>".$registro['cedula']."</td>
-    <td>".$registro['email']."</td>
-  </tr>
-";
-}
-?>
-<?php
-$numero = mysql_num_rows($result);
-echo"
-  <thead>
-    <th>
-      Usuarios registrados actualmente: $numero.
-    </th>
-  </thead>
-";
- ?>
 <!--
         <tbody>
           <tr>
