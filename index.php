@@ -1,23 +1,27 @@
-<!--El controlador frontal es donde se cargan todos los ficheros de la aplicación
-y por tanto la única pagína que visita el usuario realmente es esta,
-en este caso index.php.-->
 <?php
-//Configuración global
-require_once 'config/global.php';
+require_once 'model/database.php';
 
-//Base para los controladores
-require_once 'core/ControladorBase.php';
+$controller = 'MenuPrincipal';
 
-//Funciones para el controlador frontal
-require_once 'core/ControladorFrontal.func.php';
-
-//Cargamos controladores y acciones
-if(isset($_GET["controller"])){
-    $controllerObj=cargarControlador($_GET["controller"]);
-//    lanzarAccion($controllerObj);
-}else{
-    $controllerObj=cargarControlador(CONTROLADOR_DEFECTO);
-//    lanzarAccion($controllerObj);
+// Todo esta lógica hara el papel de un FrontController
+if(!isset($_REQUEST['c']))
+{
+    require_once "controller/$controller.controller.php";
+    $controller = ucwords($controller) . 'Controller';
+    $controller = new $controller;
+    $controller->Index();
 }
- lanzarAccion($controllerObj);
-?>
+else
+{
+    // Obtenemos el controlador que queremos cargar
+    $controller = strtolower($_REQUEST['c']);
+    $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
+
+    // Instanciamos el controlador
+    require_once "controller/$controller.controller.php";
+    $controller = ucwords($controller) . 'Controller';
+    $controller = new $controller;
+
+    // Llama la accion
+    call_user_func( array( $controller, $accion ) );
+}
