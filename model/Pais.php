@@ -1,53 +1,112 @@
 <?php
-/*HEREDA DE LA CLASE ENTIDADBASE*/
-class Pais extends EntidadBase{
-    private $id;
-    private $nombre;
-    private $codigo;
+class Pais{
+	private $pdo;
+
+    public $id;
+    public $nombre;
+    public $codigo;
 
 
-/**CONSTRUCTOR DONDE SE DECLARA CON QUE TABAL SE VA A TRABAJAR*/
-    public function __construct() {
-        $table="pais";/*TABLA CON LA QUE SE TRABAJA*/
-        parent::__construct($table);
-    }
+	public function __CONSTRUCT()
+	{
+		try
+		{
+			$this->pdo = Database::StartUp();
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
-    public function getId() {
-        return $this->id;
-    }
+	public function Listar()
+	{
+		try
+		{
+			$result = array();
 
-    public function setId($id) {
-        $this->id = $id;
-    }
+			$stm = $this->pdo->prepare("SELECT * FROM pais");
+			$stm->execute();
 
-    public function getNombre() {
-        return $this->nombre;
-    }
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    public function getCodigo() {
-        return $this->codigo;
-    }
-
-    public function setCodigo($codigo) {
-        $this->codigo = $codigo;
-    }
+	public function Obtener($id)
+	{
+		try
+		{
+			$stm = $this->pdo
+			          ->prepare("SELECT * FROM pais WHERE id = ?");
 
 
-    public function save(){
-        $query="INSERT INTO pais (id,nombre,codigo)
-                VALUES(NULL,
-                       '".$this->nombre   ."',
-                       '".$this->codigo   ."');";
+			$stm->execute(array($id));
+			return $stm->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
-      //SE INVOCA EL METODO DB QUE LO HEREDAMOS DE ENTIDAD BASE
-        $save=$this->db()->query($query);
-        //$this->db()->error;
-        return $save;
-    }
+	public function Eliminar($id)
+	{
+		try
+		{
+			$stm = $this->pdo
+			            ->prepare("DELETE FROM pais WHERE id = ?");
 
+			$stm->execute(array($id));
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Actualizar($data)
+	{
+		try
+		{
+			$sql = "UPDATE pais SET
+						nombre          = ?,
+					  codigo          = ?
+				    WHERE id = ?";
+
+			$this->pdo->prepare($sql)
+			     ->execute(
+				    array(
+                        $data->nombre,
+                        $data->codigo,
+                        $data->id
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Registrar(Pais $data)
+	{
+		try
+		{
+		$sql = "INSERT INTO pais (nombre,codigo)
+		        VALUES (?, ?)";
+
+		$this->pdo->prepare($sql)
+		     ->execute(
+				array(
+                    $data->nombre,
+                    $data->codigo
+
+                )
+			);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 }
-?>

@@ -1,6 +1,6 @@
 <?php
 //El nombre de usuario va a aser el email que se almacena en lla BD
-$usuario = $_POST['nnombre'];/*es igual a lo que nos envian desde el post*/
+$usuario = $_POST['nnombre'];/*es igual a lo que nos envian desde el post el cual es el correo*/
 
 $pass = $_POST['npassword'];/*es igual a lo que nos envian desde el post*/
 
@@ -26,15 +26,15 @@ if($row = mysql_fetch_array($result)){
 	if($row['password'] ==  $pass){
 		session_start();
 		$_SESSION['usuario'] = $usuario;
-		header("Location: menu_principal.php");
+		header("Location: Index.php");
 	}else{
-		echo "Primer else";
-		header("Location: indexLogin.php");
+echo "primer else";
+	/*	header("Location: index.html");*/
 		exit();
 	}
 }else{
-	echo "segundo else";
-	header("Location: indexLogin.php");
+echo "segundo else";
+/*	header("Location: index.html"); */
 	exit();
 }
 

@@ -1,92 +1,126 @@
 <?php
-class Usuario extends EntidadBase{
-    private $id;
-    private $nombre;
-    private $apellido;
-    private $cedula;
-    private $contrasena;
-    private $puesto;
-    private $email;
+class Usuario{
+	private $pdo;
+
+    public $id;
+    public $nombre;
+    public $apellido;
+    public $cedula;
+    public $contrasena;
+    public $puesto;
+    public $email;
+
+	public function __CONSTRUCT()
+	{
+		try
+		{
+			$this->pdo = Database::StartUp();
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Listar()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT * FROM usuarios");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+	public function Obtener($id)
+	{
+		try
+		{
+			$stm = $this->pdo
+			          ->prepare("SELECT * FROM usuarios WHERE id = ?");
 
 
-    public function __construct() {
-        $table="usuarios";
-        parent::__construct($table);
-    }
-
-    public function getId() {
-        return $this->id;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function getNombre() {
-        return $this->nombre;
-    }
-
-    public function setNombre($nombre) {
-        $this->nombre = $nombre;
-    }
-
-    public function getApellido() {
-        return $this->apellido;
-    }
-
-    public function setApellido($apellido) {
-        $this->apellido = $apellido;
-    }
+			$stm->execute(array($id));
+			return $stm->fetch(PDO::FETCH_OBJ);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
 
-    function getCedula() {
-        return $this->cedula;
-    }
+	public function Eliminar($id)
+	{
+		try
+		{
+			$stm = $this->pdo
+			            ->prepare("DELETE FROM usuarios WHERE id = ?");
 
-    function setCedula($cedula) {
-        $this->cedula = $cedula;
-    }
+			$stm->execute(array($id));
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
-    function getContrasena() {
-        return $this->contrasena;
-    }
+	public function Actualizar($data)
+	{
+		try
+		{
+			$sql = "UPDATE usuarios SET
+						nombre          = ?,
+						apellido        = ?,
+            contrasena      = ?,
+            puesto          = ?,
+						email           = ?
+				    WHERE id = ?";
 
-    function setContrasena($contrasena) {
-        $this->contrasena = $contrasena;
-    }
+			$this->pdo->prepare($sql)
+			     ->execute(
+				    array(
+                        $data->nombre,
+                        $data->apellido,
+                        $data->contrasena,
+                        $data->puesto,
+                        $data->email,
+                        $data->id
+					)
+				);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 
-    function getPuesto() {
-        return $this->puesto;
-    }
+	public function Registrar(Usuario $data)
+	{
+		try
+		{
+		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email)
+		        VALUES (?, ?, ?, ?, ?, ?)";
 
-    function setPuesto($puesto) {
-        $this->puesto = $puesto;
-    }
+		$this->pdo->prepare($sql)
+		     ->execute(
+				array(
+                    $data->nombre,
+                    $data->apellido,
+                    $data->cedula,
+                    $data->contrasena,
+                    $data->puesto,
+                    $data->email
 
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-
-    public function save(){
-$query="INSERT INTO usuarios (id,nombre,apellido,cedula,contrasena,puesto,email)
-              VALUES(NULL,
-                  '".$this->nombre       ."',
-                  '".$this->apellido     ."',
-                  '".$this->cedula       ."',
-                  '".$this->contrasena   ."',
-                  '".$this->puesto       ."',
-                  '".$this->email      ."');";
-
-      //SE INVOCA EL METODO DB QUE LO HEREDAMOS DE ENTIDAD BASE
-        $save=$this->db()->query($query);
-        //$this->db()->error;
-        return $save;
-    }
-
+                )
+			);
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
 }
-?>
