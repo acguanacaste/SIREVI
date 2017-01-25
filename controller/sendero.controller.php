@@ -1,54 +1,52 @@
 <?php
-require_once 'model/Sector.php';
+require_once 'model/Sendero.php';
 
-class SectorController{
+class SenderoController{
 
     private $model;
 
     public function __CONSTRUCT(){
-        $this->model = new Sector();
+        $this->model = new Sendero();
     }
 
 
     public function Index(){
         require_once 'view/includes/header.php';
-        require_once 'view/sector/sector.php';
+        require_once 'view/sendero/sendero.php';
         require_once 'view/includes/footer.php';
     }
 
 
     public function Modificar(){
-        $sector = new Sector();
+        $sendero = new Sendero();
 
         if(isset($_REQUEST['id'])){
-            $sector = $this->model->Obtener($_REQUEST['id']);
+            $sendero = $this->model->Obtener($_REQUEST['id']);
         }
 
         require_once 'view/includes/header.php';
-        require_once 'view/sector/sectorModificar.php';
+        require_once 'view/sendero/senderoModificar.php';
         require_once 'view/includes/footer.php';
     }
 
 
     public function agregarRegistro(){
-        $sector = new Sector();
+        $sendero = new Sendero();
 
         require_once 'view/includes/header.php';
-        require_once 'view/sector/sectorRegistro.php';
+        require_once 'view/sendero/senderoRegistro.php';
         require_once 'view/includes/footer.php';
     }
 
 
     public function Guardar(){
+        $sendero = new Sendero();
 
-
-        $sector = new Sector();
-
-
-        $sector->id = $_REQUEST['id'];
-        $sector->nombre = $_REQUEST['nombre'];
-        $sector->capacidad_diaria = $_REQUEST['capacidad_diaria'];
-        $sector->capacidad_acampar= $_REQUEST['capacidad_acampar'];
+        $sendero->id = $_REQUEST['id'];
+        $sendero->nombre = $_REQUEST['nombre'];
+        $sendero->distancia = $_REQUEST['distancia'];
+        $sendero->longitud= $_REQUEST['longitud'];
+        $sendero->longitud= $_REQUEST['latitud'];
 
 
 
@@ -56,13 +54,13 @@ class SectorController{
             ? $this->model->Actualizar($sector)
             : $this->model->Registrar($sector);
 
-        header('Location: index.php?c=Sector');
+        header('Location: index.php?c=Sendero');
     }
 
 
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=Sector');
+        header('Location: index.php?c=Sendero');
     }
 }

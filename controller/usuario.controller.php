@@ -47,13 +47,13 @@ class UsuarioController{
     public function Guardar(){
         $user = new Usuario();
 
-        $user->id = $_REQUEST['id'];
-        $user->nombre = $_REQUEST['nombre'];
-        $user->apellido = $_REQUEST['apellido'];
-        $user->cedula= $_REQUEST['cedula'];
+        $user->id         = $_REQUEST['id'];
+        $user->nombre     = $_REQUEST['nombre'];
+        $user->apellido   = $_REQUEST['apellido'];
+        $user->cedula     = $_REQUEST['cedula'];
         $user->contrasena = $_REQUEST['contrasena'];
-        $user->puesto = $_REQUEST['puesto'];
-        $user->email = $_REQUEST['email'];
+        $user->puesto     = $_REQUEST['puesto'];
+        $user->email      = $_REQUEST['email'];
 
         $user->id > 0
             ? $this->model->Actualizar($user)
