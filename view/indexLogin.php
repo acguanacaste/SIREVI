@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-	<meta charset="utf-8">
-</head>
-<head>
-
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<title>Log-in SIREVI</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 		<link href="//estilos.php" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="assets/js/jquery.anexsoft-validator.js"></script>
-		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min."></script>
-	<link rel="stylesheet" type="text/css" href="assets/css/estilos.css" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
+
 <!--    <link rel="stylesheet" href="assets/css/style1.css" /> -->
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"/>
@@ -22,81 +20,201 @@
 		<!-- Compiled and minified JavaScript -->
 		<!--ME DA LA PROPIEDAD DE HACER MAS PEQUENO EL AREA DONDE ESCRIBO -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 </head>
-	<title>Login</title></head>
-	<style>
-
-.parra{
-	font-style: oblique;
-	font-weight: bolder;
+<style>
+form {
+    border: 3px solid #f1f1f1;
 }
-	</style>
+
+button {
+    width: 100%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+</style>
 <body>
+<!--======================================================================================================================-->
+	<header>
+		<nav  class="teal darken-4 top-nav z-depth-3" style="height: 75px;" >
+			<div  class="container" >
 
-	<div class="container">
-	    <div class="row">
-	        <div class="col m6">
-	            <h4>Bienvenido al Area de Conservacion Guanacaste </h4>
-	            <p class="parra"> El Programa de Ecoturismo (PET) es el encargado de facilitar a los visitantes la exploración y disfrute de los atractivos
-								 naturales y culturales dentro el ACG, promoviendo un uso no destructivo de los recursos,
-								  y tratando que el impacto negativo sea el menor.</p><br>
+					<div class="nav-wrapper">
+						<a style="top: -7px;" href="#" class="brand-logo left"><img  class="circle" src="assets/img/acg_personalized_icon.png">
+							<span style="top:-15px;" class=""><a class="right hide-on-med-and-up" href="#"><h4>&nbsp;SIREVI </h4></a></span></a>
 
-							<h5>Objetivos del Programa de Ecoturismo </h5><br>
-							<p class="parra">
-							1.Dar la oportunidad al visitante de interactuar con la biodiversidad de los ecosistemas presentes en el ACG.<br><br>
-							2.Facilitar la apreciación de los atractivos a través de la información e interpretación de la naturaleza.<br><br>
-							3.Evaluar y organizar los sitios turísticos para minimizar los impactos y propiciar una mejor oferta turística en el área protegida del ACG.<br><br>
-							4.Buscar mecanismos de generación de recursos para contribuir a la sostenibilidad financiera del ACG.<br><br>
-							<p>
+							<ul class="right hide-on-small-only">
+			    			<li>
+									<a><span class=" right hide-on-small-only">
+										<h5>Área de Conservación Guanacaste (ACG)<h5></span>
+									</a>
+						 		</a>
+							</li>
+		       	</ul>
 					</div>
-	        <div class="col m6">
-	            <h2 class="center-align">Login</h2>
-	            <div class="row">
-	                <form class="col s12" method="POST" action="validar.php">
-	                    <div class="row">
-	                        <div class="input-field col s12">
-	                            <input id="email"  name="nnombre" type="email" class="validate">
-	                            <label for="email" data-error="wrong" data-success="right" >Usuario@ejemplo.com</label>
-	                        </div>
-	                    </div>
-	                    <div class="row">
-	                        <div class="input-field col s12">
-	                            <input id="pass" name="npassword" type="password" class="validate">
-	                            <label for="pass">Contrasena</label>
-	                        </div>
-	                    </div>
-	                    <div class="row">
-	                        <div class="col s12">
-	                            <p>
-	                                <input type="checkbox" id="remember">
-	                                <label for="remember">Recordar cocntrasena</label>
-	                            </p>
-	                        </div>
-	                    </div>
-	                    <div class="divider"></div>
-	                    <div class="row">
-	                        <div class="col m12">
-	                            <p class="right-align">
-	                                <button  class="btn btn-large waves-effect waves-light" type="submit" name="action">Login</button>
-	                            </p>
-	                        </div>
-	                    </div>
-	                </form>
-	            </div>
-	        </div>
-	    </div>
-	</div>
 
-<!--<div>
-	<center>
-		<form method="POST" action="validar.php">
-			<input type="text" name="nnombre" placeholder="Usuario" />
-			<br />
-			<input type="password" name="npassword" placeholder="Contraseña" />
-			<br />
-			<button type="submit">Inicar Sesion</button>
-		</form>
-	</center>
-</div>-->
+			</div>
+		</nav>
+	</header>
+
+<!--============================================================================================-->
+	<div class="container contact black white-text"><!--Contenerdor principal del formulario de acceso-->
+		<h5><span class="hide-on-small-only">Sistema de Información para el Registro de Visitación (SIREVI)</span> </h5>
+			<div class="row col s10 m12 l10"><!--Inicio de el div que contiene el formulario-->
+
+			<!--Lineas del background del formulario de acceso-->
+				<div class="col s12 m12 l12  light-green darken-4">
+					<hr>
+				<!---INICIO DE LA PRIMERA FILA-->
+					<div class="row blue-grey lighten-2">
+
+						<div>
+							<div class="">
+
+								<!--Inicio de lineas de codigo para el lado izquierdo de la pantalla-->
+								<div  class="input-field col m5 l3 hide-on-small-only" style="height:450px;">
+								<div class="col m12 l9 " style="width:215px; height:450px;"><!--Div que contieneestan el ancho donde  las dos imaganes-->
+									<div class=""><!--Div que contiene las dos imagenes-->
+
+<!--==================================================================================================================================-->
+										<div class=" hide-on-small-only "><!--Div que contiene la imagen del logo ACG-->
+											<div id="" class="center">
+												<ul>
+													<li>
+														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/acgPrincipal.png"></a>
+														<br>
+													</li>
+												</ul>
+											</div>
+										</div>
+	<!--===================================================================================================================================-->
+										<div class="" style="height:300px;"><!--Div que contiene un espacio entre las imagenes y tambien contiene imagen dl SINAC-->
+											<hr>
+											<ul class="">
+											<!--Espacio entre imagenes altura=misma del fieldset-->
+												<li style="height: 120px;" class=""></li>
+													<hr class="">
+													<div id="" class="center"><!--Div que contiene laa imagen del SINAC-->
+														<ul>
+															<li>
+																<a class="center" href=""><img class="circle z-depth-2" src="assets/img/sinac.jpg"></a>
+															<br>
+														</li>
+													</ul>
+												</div>
+											</ul>
+										</div>
+
+		<!--=====================================================================================================================================-->
+									</div>
+							</div>
+						</div><!--Fin de codigo para lineas de la izquierda de la pantalla-->
+
+			<!--=============================================================================================================-->
+			<!--Inicio de lines para el formulario de acceso-->
+						 <div class="input-field col s12 m6 l6 blue-grey lighten-5 z-depth-5 "  style="top: -7px;" ><!--Div que me contiene el formulario-->
+
+							 <form class="col s12 black-text" method="POST" action="validar.php" >
+							 	<div class="row "> <!--Div que me contiene los dotos de ingreso y el botn de login-->
+								 	<fieldset style="width:100">
+								  	<legend>&nbsp;Formulario de Acceso &nbsp;</legend>
+								 		<div class=""><!--Div que me contiene las lineas del avatar-->
+
+									 	<form action="action_page.php" class=""><!--Div que me contiene el fieldset de el avatar-->
+						  		 		<div class="imgcontainer "><!--Div que me contiene la linea donde estara ubicada la imagen-->
+										 		<a href="#"   class="circle waves-effect waves-teal active z-depth-3 " >
+								 				<i class=" large material-icons blue-grey darken-4 ">account_circle</i></a>
+				  				 		</div>
+
+<!--===============================================================================================================================================-->
+										 	<div class="container"><!--Contenerdor de las lineas para escribir informacion-->
+											 <div class="input-field col s12 m12 l12 ">
+												 <i class="material-icons prefix">account_circle</i>
+						 					   <input id="usuario" name="nnombre"  type="email" class="validate " required>
+						 					 	 <label for="usuario"  data-error="wrong" data-success="right" >&nbsp;Usuario</label>
+					 				 		 </div>
+
+											 <div class="input-field col s12 m12 l12 ">
+												 <i class="material-icons prefix">vpn_key</i>
+												 <input id="pass" name="npassword" type="password" class="validate " required>
+												 <label for="pass">&nbsp;Contraseña</label>
+											</div>
+
+											<div class="input-field col s12 m12 l12">
+												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 z-depth-2" name="action" type="submit">Iniciar sesión</button>
+											</div>
+							  		</div>
+	<!--=============================================================================================================================-->
+					  				<div class="container col s12 m12 l12" style="background-color:#cfd8dc ">
+											<span class="psw" style="height:50px;">Olvido <a href="#">contraseña?</a></span>
+										</div>
+									</form>
+								</div>
+								</fieldset>
+							</div>
+							</form>
+						</div>
+
+
+				<!--==================================================================================================================================-->
+					<!--Inicio de codigo para las lineas e imagenes de la derecha de la pantalla-->
+					  <div  class="input-field col l3 hide-on-med-and-down" style="height:450px;">
+							<div class="col l9 " style="width:215px; height:450px;"><!--Div que contieneestan el ancho donde  las dos imaganes-->
+								<div class=""><!--Div que contiene las dos imagenes-->
+								<!--==================================================================================================================================-->
+						 			<div class=""><!--Div que contiene la imagen del logo -->
+									 	<div id="" class="center">
+								 		<ul>
+										 	<li>
+											 	<a class="center" href=""><img class="circle z-depth-2" src="assets/img/acgPrincipal.png"></a>
+								 		  </li>
+								 		</ul>
+									</div>
+								</div>
+	<!--===================================================================================================================================-->
+								<div class="" style="height:300px;"><!--Div que contiene un espacio entre las imagenes y tambien contiene imagen dl SINAC-->
+									<hr>
+									<ul class="">
+										<!--Espacio entre imagenes altura=misma del fieldset-->
+										<li style="height: 120px;" class=""></li>
+										 	<hr>
+										 	<div id="" class="center"><!--Div que contiene laa imagen del MINAE-->
+												<ul>
+													<li>
+														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/minae_small_icon.jpg"></a>
+															<br>
+													</li>
+												</ul>
+								 			</div>
+										</ul>
+									</div>
+	<!--=====================================================================================================================================-->
+								</div>
+							</div>
+						</div><!--Fin de codigo para lineas de la derecha de la pantalla-->
+					</div>
+				</div><!--Fin del blue grey lighten-4-->
+
+			</div>
+			<hr>
+			</div><!--Fin del blue grey-->
+		</div><!--FIN DE DIV QUE ME DECLARA EL TAMANO-->
+	</div><!--FIN DE LA PREVISTA DE LOS DIV'S-->
 </body>
 </html>

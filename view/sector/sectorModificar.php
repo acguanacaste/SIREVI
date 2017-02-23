@@ -1,15 +1,17 @@
 <main>
   <div class="container">
     <div class="row">
+
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
 
+
 <!--===========================================================================================================-->
 
 <fieldset>
-  <legend><h5>Formulario para Registros</h5>
+  <legend><h5>Sector: <?php echo $sector->nombre; ?></h5>
    <h6>Utilice los campos habilitados para modificar información</h6></legend>
     <div class="container contact">
       <br>
@@ -65,9 +67,18 @@
 
 
 
-    <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-               <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-               <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+               <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+               <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                 value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+                      <i class="mdi-content-send material-icons right">done</i>
+               </button>
+
+             <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+             <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+               value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+                    <i class="mdi-content-send material-icons right">delete</i>
+             </button>
+
              </div>
            </form>
              </div>
@@ -75,7 +86,7 @@
            </div>
          </div>
 </fieldset>
-<hr>
+
 
 <!--================================================================================================================================-->
         </div>
@@ -115,7 +126,7 @@
                     </div>
                     <li>Puedo poner lista de items</li>
                     <li>Otro link por aqui...</li>
-                    <li>Sectores...</li>
+                    <li><h5>Sectores...</h5></li>
 
                   </ul>
                 </div>
@@ -125,10 +136,10 @@
             </div>
           </div>
         </main>
-
+  </body>
   <script>
       $(document).ready(function(){
-          $("#frm-sector").submit(function(){
+          $("#frm-pais").submit(function(){
               return $(this).validate();
           });
       })

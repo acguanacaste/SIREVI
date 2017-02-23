@@ -27,7 +27,7 @@
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s6 m5 l6  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $asp->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" ><i class="small material-icons">turned_in_not</i>Area Silvestre</label>
+                    <label for="name" ><i class="small material-icons">turned_in_not</i>Área Silvestre</label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
@@ -39,15 +39,24 @@
 
 
         <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-          <div class="input-field col s12 m5 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+          <div class="input-field col s12 m10 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
             <input  id="last_name" type="text" name="area_conservacion" value="<?php echo $asp->area_conservacion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-            <label for="last_name" >  <i class="small material-icons">location_on</i>Area de Conservacion</label>
+            <label for="last_name" >  <i class="small material-icons">location_on</i>Área de Conservacion</label>
           </div>
         </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
-    <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-               <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-               <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+               <i class="mdi-content-send material-icons right">done</i>
+        </button>
+
+      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+      <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+        value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+             <i class="mdi-content-send material-icons right">delete</i>
+      </button>
+
              </div>
            </form>
           </div>
@@ -86,16 +95,16 @@
                     <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
                     <hr>
-                  
+
                     <div class="">
 
-                      <a style="color:#00b0ff" href="index.php?c=Sector&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Agregar Sector</a>
+                      <a style="color:#00b0ff" href="index.php?c=Sector&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Agregar Área Protegida</a>
 
                       <hr>
                     </div>
                     <li>Puedo poner lista de items</li>
                     <li>Otro link por aqui...</li>
-                    <li>Area Protegida...</li>
+                    <li><h5>Area Protegida</h5></li>
 
                   </ul>
                 </div>

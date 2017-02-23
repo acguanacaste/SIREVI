@@ -8,7 +8,9 @@ class Usuario{
     public $cedula;
     public $contrasena;
     public $puesto;
+
     public $email;
+		public $imagen;
 
 	public function __CONSTRUCT()
 	{
@@ -22,7 +24,7 @@ class Usuario{
 		}
 	}
 
-	public function Listar()
+	public function Listar()/*Metodo que me muestra los datos qye hay en la bd*/
 	{
 		try
 		{
@@ -39,7 +41,7 @@ class Usuario{
 		}
 	}
 
-	public function Obtener($id)
+	public function Obtener($id)/*Metodo que me obtiene los datos que hay en la bd*/
 	{
 		try
 		{
@@ -56,7 +58,7 @@ class Usuario{
 	}
 
 
-	public function Eliminar($id)
+	public function Eliminar($id)/*Metodo que me borra los datos en la bd*/
 	{
 		try
 		{
@@ -70,7 +72,7 @@ class Usuario{
 		}
 	}
 
-	public function Actualizar($data)
+	public function Actualizar($data)/*Metodo que me modifica los datos en la bd*/
 	{
 		try
 		{
@@ -79,7 +81,9 @@ class Usuario{
 						apellido        = ?,
             contrasena      = ?,
             puesto          = ?,
-						email           = ?
+
+						email           = ?,
+						imagen          = ?
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
@@ -89,7 +93,9 @@ class Usuario{
                         $data->apellido,
                         $data->contrasena,
                         $data->puesto,
+
                         $data->email,
+												$data->imagen,
                         $data->id
 					)
 				);
@@ -99,12 +105,12 @@ class Usuario{
 		}
 	}
 
-	public function Registrar(Usuario $data)
+	public function Registrar(Usuario $data)/*Metodo que me registra los datos en la bd*/
 	{
 		try
 		{
-		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email)
-		        VALUES (?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email,imagen)
+		        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -114,7 +120,8 @@ class Usuario{
                     $data->cedula,
                     $data->contrasena,
                     $data->puesto,
-                    $data->email
+                    $data->email,
+										$data->imagen,
 
                 )
 			);

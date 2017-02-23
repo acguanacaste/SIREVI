@@ -4,11 +4,9 @@
     <div class="row">
 
       <div class="col s12 m9 l10">
-<!-- Inicio de mi codigo -->
+        <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
-
-
 <!--===========================================================================================================-->
 
 
@@ -19,7 +17,7 @@
       <hr>
       <br>
       <div class="row">
-        <div class="col s14 m14 l11">
+        <div class="col col s12 m12 l11">
           <div class="row">
             <form id="frm-asp" action="?c=Sector&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
@@ -27,45 +25,48 @@
               <div>
 
                 <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                  <div class="input-field col s6 m5 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                    <input  id="" type="text" name="capacidad_acampar" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="last_name" >  <i class="small material-icons">perm_media</i>Nombre del Sendero</label>
+                  <div class="input-field col s12 m12 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <label for="nombre" >  <i class="small material-icons">perm_media</i><span class="hide-on-small-only">Nombre del Sendero</label>
                   </div>
                 </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
 
 
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m5 l6  ">
-                    <input  id="sector" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="sector" >  <i class="small material-icons">supervisor_account</i> Capacidad acampar</label>
-                  </div>
+                  <div class="input-field col s6 m6 l6  ">
+                    <input  id="last_name" type="text" name="latitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <label for="last_name" >  <i class="small material-icons">supervisor_account</i>Latitud</label>
+                   </div>
 
 
                <!--INICIO DE COLUMNA CODIGO-->
-               <div class="input-field col s6 m5 l6  ">
-                 <input  id="last_name" type="text" name="capacidad_diaria" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                 <label for="last_name" >  <i class="small material-icons">supervisor_account</i>Capacidad diaria</label>
+               <div class="input-field col s6 m6 l6  ">
+                 <input  id="last_name" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                 <label for="last_name" >  <i class="small material-icons">supervisor_account</i>Longitud</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
-              <div class="">
-                <div class="input-field col s12 m12 l12">
-                 <select>
-                   <option value="" disabled selected>Elija una opcion</option>
-                   <option value="1">Opcion 1</option>
-                   <option value="2">Opcion 2</option>
-                   <option value="3">Opcion 3</option>
-                 </select>
-                 <label>Selecione Area Silvestre</label>
-               </div>
+
+              <div class="row">
+                 <div class="input-field col s110 m10 l10  ">
+                   <input  id="sector" type="text" name="distancia" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <label for="sector" >  <i class="small material-icons">supervisor_account</i>Distancia</label>
+                 </div>
               </div>
 
 
+              <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+              <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+                     <i class="mdi-content-send material-icons right">done</i>
+              </button>
 
-  <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-             <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-             <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+            <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+            <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+              value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+                   <i class="mdi-content-send material-icons right">delete</i>
+            </button>
 
 					 </div>
          </form>
@@ -104,12 +105,12 @@
                     <hr>
                     <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                    <hr>
-                  
+
+                    <li></li>
 
                     <li>Puedo poner lista de items</li>
                     <li>Otro link por aqui...</li>
-                    <li>Sendero...</li>
+                    <li><h5>Senderos...</h5></li>
 
                   </ul>
                 </div>

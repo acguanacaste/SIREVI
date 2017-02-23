@@ -6,43 +6,17 @@
     $('.collapsible').collapsible();
 
   })
-
   </script>
 
-  <body class="body" >
-    <!--INICIO DEL side nav-->
-    <!--==============================================MENU HORIZONTAL BOTON ROJA=================================================================-->
-    <nav>
-       <div class="nav-wrapper">
-         <a href="#!"  class="brand-logo"><span class="hide-on-med-and-down">&nbsp;Sistema de Informacion para el Registro de Visitacion</span> </a>
-         <ul class="right hide-on-med-and-down" >
-
-           <!-- Dropdown Trigger -->
-<a class=' dropdown-button btn' href='#' style="color:white;" data-activates='dropdown1' > Menu Registros</a>
-     <!-- Dropdown Structure -->
-         <ul id='dropdown1' class='dropdown-content' >
-
-           <li><a href="index.php?c=Usuario"   > Modulo Usuarios</a></li>
-           <li class="divider"></li>
-           <li><a href="index.php?c=Sector"    > Modulo Sector</a></li>
-           <li><a href="index.php?c=Sendero"   > Modulo Sendero </a></li>
-           <li><a href="index.php?c=ASP"       > Modulo Area Protegida(asp)</a></li><!--Recordar la ortografia-->
-         </ul>
-      <!--  <li><a href=""><i class="material-icons right">view_module</i>Inicio</a></li> -->
-        </ul>
-          <!--    <a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:white" class="medium material-icons">toc</i></a> -->
-       </div>
-     </nav>
-    <!--======================================================================================================================-->
+  <body>
+  <!--======================================================================================================================-->
     <header>
+
         <div class="slider">
             <ul class="slides">
                 <li>
-                    <img src=""> <!-- Imagen tomada de la pagina oficial de el ACG -->
-                    <div class="caption center-align">
-                        <h3>Bienvenido Area de Conservacion Guanacaste</h3>
-                        <h5 class="light grey-text ">Sistema Registro de Visitacion</h5>
-                    </div>
+                    <img class="background"src="assets/img/mapaACG.jpg"> <!-- Imagen tomada de la pagina oficial de el ACG -->
+
                 </li>
                 <!--===============================================================================================================-->
                 <li>
@@ -70,7 +44,7 @@
 
                 <li>
                     <img src="assets/img/junquillal3.jpg"> <!-- random image -->
-                    <div class="caption left-align">
+                    <div class="caption right-align">
                         <h3>Refugio Nacional de Vida Silvestre Bahía Junquillal</h3>
                         <h5 class="light grey-text text-lighten-3">
                             <p>Sitio rodeado de una gran riqueza biológica al contar con 7 diferentes ecosistemas costeros,
@@ -116,113 +90,11 @@
                     </div>
                 </li>
             </ul>
+            <nav class="blue-grey darken-4">
+
+            </nav>
         </div>
     </header>
-
-    <!--==========================================================OPCIONES PARA EL MENU LATERAL DEL RESPONSIVE-->
-    <!--================================== MENU LATERAL DESPLEGABLE <> INFORMACION DENTRO DEL SIDENAV-->
-    <div  class="z-depth-2">
-         <ul id="slide-out" class="side-nav" >
-           <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0px);">
-             <li><div class="userView">
-               <img class="background" src="assets/img/CasonaSantaRosa.jpg">
-               <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-               <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-               <a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
-             </li>
-
-    <!--============================================>> INICIO DE LA BARRA DE BUSCADOR side nav <<===================================================================-->
-             <li class="search">
-               <nav>
-                 <div class="nav-wrapper">
-                     <form class="z-depth-2" >
-                       <div class="input-field">
-                         <input id="search" type="search" required>
-                         <label for="search"><i href="#!" class="material-icons">search</i></label>
-                         <i class="material-icons">close</i>
-                       </div>
-                     </form>
-                   </div>
-               </nav>
-             </li>
-           <li class="bold"><a href="http://www.acguanacaste.ac.cr/" class="waves-effect waves-teal">
-             <img class="circle" src="assets/img/logoACG.png"> Area Conservacion Guanacaste</a> </a></li>
-
-           <ul class="collapsible" data-collapsible="accordion">
-           <li>
-           <li class="bold"><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-rosa" class="waves-effect waves-teal">
-             <img class="circle" src="assets/img/SantaRosaLogo.jpg"> Informacion del Sector</a></a></li>
-
-           <li class="no-padding">
-             <ul class="collapsible collapsible-accordion">
-               <li class="bold"><a class="collapsible-header  waves-effect waves-teal">
-                   <img class="circle" src="assets/img/logoSitio.png"> Sitios Turisticos</a></a>
-
-                 <div class="collapsible-body" style="display: block;">
-                   <ul>
-                     <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-rosa"  >Sector Santa Rosa</a></li>
-                     <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-pailas"      >Sector Pailas</a></li>
-                     <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-junquillal"  >Sector Junquillal</a></li>
-                      <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-murcielago" >Sector Murcielago</a></li>
-                     <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-maria" >Sector Santa Maria</a></li>
-                     <li><a href="http://www.acguanacaste.ac.cr/turismo/sector-santa-maria" >Sector Horizontes</a></li>
-
-                   </ul>
-                 </div>
-               </li>
-
-               <li class="bold"><a href="http://www.acguanacaste.ac.cr/biodesarrollo/programa-de-ecoturismo"
-                   class="collapsible-header  waves-effect waves-teal"><img class="circle" src="assets/img/tortuga.jpg"> Programa Ecoturismo</a></a>
-
-               <li class="bold active"><a class="collapsible-header active waves-effect waves-teal">
-                                                                      <i class="small material-icons">perm_identity</i>Sesion</a>
-
-                 <div class="collapsible-body" style="display: block;">
-               </div>
-               </li>
-             </ul>
-           </li>
-         <li class="bold"><a href="#" class="waves-effect waves-teal">Opcion Registros*</a></li>
-         </ul>
-
-       </div>
-          <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Reiniciar</a></li>
-            <li class="divider"></li>
-            <li><a href="REFERENCIA A LOGIN"></i>Cerrar</a></li>
-          </ul>
-
-<a href="#" data-activates="slide-out" class="button-collapse"><i  style="color:White" class="medium material-icons">toc</i></a>
-         </div>
-
-       </nav>
-
-  <!--OPCIONES PARA EL MENU LATERAL DEL RESPONSIVE-->
-  <!--INFORMACION DENTRO DEL SIDENAV-->
-  <div  class="z-depth-2">
-       <ul id="slide-out" class="side-nav">
-         <li><div class="userView">
-           <img class="background" src="assets/img/CasonaSantaRosa.jpg">
-           <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-           <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-           <a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div></li>
-
-         <li><img class="circle" src="assets/img/logoACG.webp"></a></i>&nbsp;Sector Santa Rosa</a></li>
-         <li><a href="http://www.acguanacaste.ac.cr/">Area Conservacion Guanacaste</a></li>
-         <li><div class="divider"></div></li>
-         <li><a href="http://www.acguanacaste.ac.cr/biodesarrollo/programa-de-ecoturismo">Informacion Ecoturismo</a></li>
-
-         <li><div class="divider"></div></li>
-         <li><a class="subheader">Visitenos</a></li>
-         <li><a class="waves-effect" href="Referencia a pagina principal sirevi">Pagina Inicio</a></li>
-
-         <li><a class="waves-effect" href="http://www.acguanacaste.ac.cr/turismo">Sitios Turisticos</a></li>
-
-         <li><div class="divider"></div></li>
-         <li><a class="subheader">Sesion</a></li>
-       </ul>
-
-  </div>
 
   <!--============================================================================================-->
     <div class="container contact">
@@ -236,7 +108,7 @@
 
 
                  <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                 <div class="input-field col s4"><!--INICIO DE LA PRIMERA COLUMNA-->
+                 <div class="input-field col s4 hide-on-small-only"><!--INICIO DE LA PRIMERA COLUMNA-->
                 Estoy flotando!!
 
 
@@ -249,7 +121,7 @@
 <!--=============================================================================================================-->
 
 
-                 <div class="input-field col s4"><!--INICIO DE SEGUNDA COLUMNA-->
+                 <div class="input-field col s4 hide-on-small-only"><!--INICIO DE SEGUNDA COLUMNA-->
                   <div class="row">
                   <div class=>
                     <div class="large card" >
@@ -270,7 +142,7 @@
               </div><!--Fin de la segunda columna-->
 
   <!--INICIO DE LA TERCERA COLUMNA-->
-      <div  class="input-field col s4">
+      <div  class="input-field col s2">
         <fieldset>
           <table class="striped">
             <thead>

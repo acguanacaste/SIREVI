@@ -12,8 +12,8 @@
 <!--===========================================================================================================-->
 
 <fieldset>
-  <legend><h5>Formulario para Registros</h5>
-   <h6>Utilice los campos habilitados para modificar información</h6></legend>
+  <legend><h5> Usuario: <?php echo $user->email; ?></h5>
+   <h6>Utilice los campos habilitados para modificar información </h6></legend>
     <div class="container contact">
       <br>
       <hr>
@@ -28,13 +28,13 @@
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s6 m5 l6  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $user->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" >  <i class="small material-icons">face</i>Nombre</label>
+                    <label  for="name" >  <i class="small material-icons">face</i><span class="hide-on-small-only">Nombre</span></label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
                 <div class="input-field col s6 m5 l6  ">
                   <input  id="last_name" type="text" name="apellido" value="<?php echo $user->apellido; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                  <label for="last_name" >  <i class="small material-icons">recent_actors</i>Apellido</label>
+                  <label for="last_name" >  <i class="small material-icons">recent_actors</i><span class="hide-on-small-only">Apellido</span></label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
@@ -45,14 +45,15 @@
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m5 l6 ">
-                       <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>" class="form-control"  class="validate" data-validacion-tipo="requerido|min:15">
-                       <label for="cedula"> <i class="small material-icons">picture_in_picture</i>Cédula</label>
+                       <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                       <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
+
 
                    <!--INICIO DE COLUMNA CONTRASENA-->
                    <div class="input-field col s6 m5 l6  ">
-                   <input  id="contrasena" type="text" name="contrasena" disabled value="<?php echo $user->contrasena; ?>"  value="<?php echo $user->contrasena; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                   <label for="contrasena" >  <i class="small material-icons">perm_identity</i>Contraseña</label>
+                   <input  id="contrasena" type="text" name="contrasena"  value="<?php echo $user->contrasena; ?>"  class="validate form-control" data-validacion-tipo="requerido|min:10">
+                   <label for="contrasena" >  <i class="small material-icons">perm_identity</i><span class="hide-on-small-only">Contraseña</span></label>
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
@@ -71,23 +72,48 @@
                </div>
                </div><!--FIN DE LA TERCERA FILA-->
 
+
  <!--INICIO DE LINEAS PARA EL CORREO-->
        <div class="row">
          <div class="col s12">
            Escriba su correo electrónico correctamente:
                  <div class="row">
                    <div class="input-field">
-              <input id="email" type="email" name="email" value="<?php echo $user->email; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|email">
+              <input id="email" type="email" name="email" value="<?php echo $user->email; ?>" class="validate"
+              class="form-control" data-validacion-tipo="requerido|email">
               <label for="email" data-error="wrong" data-success="right"><i class="small material-icons"> email </i></label>
             </div>
           </div>
         </div>
        </div>
 
+       <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+         <div class="file-field input-field">
+           <div class="btn waves-effect waves-light teal darken-4" title="Subir imagenes">
+             <i class="mdi-content-send material-icons right">perm_media</i>
+             <span class="hide-on-small-only ">Subir Imagen</span>
+             <input type="file">
+           </div>
+           <div class="file-path-wrapper">
+             <input name="imagen" disabled value="<?php echo $user->imagen; ?>"
+              value="<?php echo $user->imagen; ?>" class="file-path validate" type="text">
+           </div>
+         </div>
+      </div>
 
-    <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-               <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-               <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+       <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+       <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+         value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+              <i class="mdi-content-send material-icons right">done</i>
+       </button>
+
+     <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+     <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
+       value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+            <i class="mdi-content-send material-icons right">delete</i>
+     </button>
+
+
              </div>
            </form>
              </div>
@@ -95,13 +121,13 @@
            </div>
          </div>
 </fieldset>
-<hr>
+
 
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
 
-        <div class="col hide-on-small-only m3 l2">
+        <div class="col m3 l2 hide-on-small-only">
           <div class="toc-wrapper pin-top" style="top: -15px;">
             <div class="buysellads hide-on-small-only">
               <!-- CarbonAds Zone Code -->
@@ -123,23 +149,23 @@
                     <ul class="section table-of-contents">
 
                       <hr>
-                      <li><a  href="index.php?c=Usuario" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
+                      <li><a  href="index.php?c=Usuario" >
+                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">refresh</i></a></li>
 
 
                       <li>
                         <hr>
                         <div class="right">
-
-                          <a style="color:#00b0ff" href="index.php?c=Usuario&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Nuevo Usuario</a>
-
+                          <a style="color:#00b0ff" href="index.php?c=Usuario&a=agregarRegistro">
+                             <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Nuevo Usuario</a>
                           <hr>
                         </div>
-
+                        <hr>
                       </li>
 
-                      <li>Puedo poner lista de items</li>
-                      <li>Otro link por aqui...</li>
-                      <li>Usuarios...</li>
+                          <li>Puedo poner lista de items</li>
+                          <li>Otro link por aqui...</li>
+                            <li><h5>Usuarios</h5></li>
 
 
                     </ul>
@@ -149,7 +175,7 @@
             </div>
           </div>
         </main>
-  </body>
+
   <script>
       $(document).ready(function(){
           $("#frm-usuario").submit(function(){

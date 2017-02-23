@@ -34,50 +34,49 @@
                 });
 				</script>
 <body>
-<header>
+	<header>
+		<div class="container">
+			<nav class="brown top-nav z-depth-3">
+				<div class="nav-wrapper">
+					<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>
+					<a href="#" class="brand-logo right">SIREVI</a>
+					<ul id="nav-mobile" class="left hide-on-small-only">
+						<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
+						<li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
+            <li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
+            <li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
+            <li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
+            <li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 
-        <div class="container">
-            <nav class="top-nav">
-                <div class="nav-wrapper">
-                    <a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>
-                    <a href="#" class="brand-logo right">SIREVI</a>
-                    <ul id="nav-mobile" class="left hide-on-small-only">
-                        <li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-                        <li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-                        <li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-                        <li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-                        <li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-                        <li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
-                        <li><a href="#" title="Pendiente..."> <i class="small material-icons">settings</i></a></li>
-                        <li><a href="" title="Pendiente..."> <i class="small material-icons">settings_power</i></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-    <!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
-    <ul id="slide-out" class="side-nav fixed hide-on-large-only">
-        <li>
-            <div class="userView"><!-- Imagen avatar e informacion -->
-                <img class="background" src="assets/img/CasonaSantaRosa.jpg">
-                <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-                <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-                <a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
-        </li>
-        <!--============================= Fin de la Barra del buscador ===========================================================-->
-        <hr>
-        <li class="divider"></li>
-        <!--============================= Inicio de los modulos del sistemas ====================================================-->
-        <li><a href="index.php" title="Inicio"><i class="small material-icons">home</i> <span class="">Inicio</span></a></li>
-        <li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="">Visitación</span></a></li>
-        <li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="">Reportes</span></a></li>
-        <li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="">Usuarios</span></a></li>
-        <li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons">view_quilt</i><span class="">Sectores</span></a></li>
-        <li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="">Senderos</span></a></li>
-        <li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="">Áreas Protegidas</span></a></li>
-        <li><a href="#"> <i class="small material-icons">settings</i><span class="">Perfil</span></a></li>
-        <li><a href=""> <i class="small material-icons">settings_power</i><span class="">Cerrar sesión</span></a></li>
-    </ul><!--Fin del slide out-->
-
-    <!--============================= Fin de la lista de links para informacion ===========================================================-->
+						<!--PROBEMA PENDIENTE DE SOLUCIONAR-->
+						<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i></a></li>
+            <li><a href="" title="Pendiente..." class="hide-on-med-and-down"> <i class="small material-icons">settings_power</i></a></li>
+      	</ul>
+			</div>
+		</nav>
+	</div>
+<!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
+	<ul id="slide-out" class="side-nav fixed hide-on-large-only">
+  	<li>
+    	<div class="userView"><!-- Imagen avatar e informacion -->
+				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
+  		<a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
+			<a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
+			<a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
+		</li>
+		<!--============================= Fin de la Barra del buscador ===========================================================-->
+		<hr>
+		<li class="divider"></li>
+		<!--============================= Inicio de los modulos del sistemas ====================================================-->
+		<li><a href="index.php" title="Inicio"><i class="small material-icons">home</i> <span class="">Inicio</span></a></li>
+		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="">Visitación</span></a></li>
+		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="">Reportes</span></a></li>
+		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="">Usuarios</span></a></li>
+		<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons">view_quilt</i><span class="">Sectores</span></a></li>
+		<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="">Senderos</span></a></li>
+		<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="">Áreas Protegidas</span></a></li>
+		<li><a href="#"> <i class="small material-icons">settings</i><span class="">Perfil</span></a></li>
+		<li><a href=""> <i class="small material-icons">settings_power</i><span class="">Cerrar sesión</span></a></li>
+	</ul><!--Fin del slide out-->
+<!--============================= Fin de la lista de links para informacion ===========================================================-->
 </header>

@@ -14,8 +14,8 @@
             <!-- Inicio de mi codigo -->
             <div id="search-docs" class="section scrollspy">
                 <section class="col-lg-18 usuario">
-                    <table class="responsive-table striped">
-                      <!--  <thead>
+                    <table class="responsive-table striped z-depth-5">
+                      <!--  <thead class="z-depth-2">
 <==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
 <!--
                         <tr>

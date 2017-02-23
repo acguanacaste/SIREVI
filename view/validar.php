@@ -1,41 +1,56 @@
 <?php
-//El nombre de usuario va a aser el email que se almacena en lla BD
-$usuario = $_POST['nnombre'];/*es igual a lo que nos envian desde el post el cual es el correo*/
 
-$pass = $_POST['npassword'];/*es igual a lo que nos envian desde el post*/
-
+/*VARIABLES QUE LES INGRESA EL VALOR DE LO QUE TIENE EL FORMULARIO LOGIN DE INGRASO*/
+$usuario = $_POST['nnombre'];
+$pass = $_POST['npassword'];
+/*=============================================================================================================*/
+echo $usuario;/*VALIDANDO LOS DATOS DE INGRESO*/
+echo  $pass;
+/*SI!!*/
 /*============================================================================================================*/
 /*METODO QUE ME VALIDA SI ALGUNO DE LOS CAMPOS ESTA VACIO QUE ME REDIRECCIONE A LA PAGINA DESCRITA EN LA FUNCION header*/
 if(empty($usuario) || empty($pass)){
-	header("Location: indexLogin.php");/*PAGINA A LA QUE ME REDIRECCIONA*/
+	header("Location: .php");/*PAGINA A LA QUE ME REDIRECCIONA*/
 	exit();
 }
 /*===========================================================================================================*/
+//echo $usuario;/*VALIDANDO AMBOS DATOS DE INGRESO*/
+//echo  $pass;
+/*SI!!*/
+/*==================================================================================================*/
+/*SE REALIZA LA CONEXION EN CASO DE QUE AMBAS VARIABLES HAYAN SIDO ENVIADAS*/
+			mysql_connect('localhost','root') or die("Error al conectar " . mysql_error());
+			echo $usuario;/*VALIDANDO AMBOS DATOS DE INGRESO*/
+			echo  $pass;
+			/*SI!!*/
+/*====================================================================================================*/
 
+/*PARA SELECCIONAR LA BASE DE DATOS*/
+			mysql_select_db('sirevi') or die ("Error al seleccionar la Base de datos: " . mysql_error());
+/**DELCRACION DE LA VARIABLE $result PARA LA CONSULTA*/
+echo $usuario;/*VALIDANDO AMBOS DATOS DE INGRESO*/
+echo  $pass;
 
+			$result = mysql_query("SELECT * from usuarios where email ='" . $usuario . "'");
+			/*LINEA QUE ME REVISA SI EL USUARIO ESTA EN LA BASE DE DATOS*/
+			if($row = mysql_fetch_array($result)){
 
-//Este metodo requiere 3 parametros el host donde esta la base de datos el usuario y la contrasena
-mysql_connect('localhost','root','') or die("Error al conectar " . mysql_error());//password de BD vacia
-
-//Aqui es donde se le da el nombre a la base de datos que se quiere conectar
-mysql_select_db('login') or die ("Error al seleccionar la Base de datos: " . mysql_error());
-
-$result = mysql_query("SELECT * from usuarios where username='" . $usuario . "'");
-
-if($row = mysql_fetch_array($result)){
-	if($row['password'] ==  $pass){
-		session_start();
-		$_SESSION['usuario'] = $usuario;
-		header("Location: Index.php");
-	}else{
-echo "primer else";
-	/*	header("Location: index.html");*/
-		exit();
-	}
-}else{
-echo "segundo else";
-/*	header("Location: index.html"); */
-	exit();
-}
+		/*SI LA XONTRASENA ES CORRECTA INGRESA*/
+				if($row['password'] ==  $pass){
+					echo "La contrasena es correcta";
+					session_start();
+					$_SESSION['email'] = $usuario;
+					/*header("Location: contenido.php");*/
+					header("Location: index.php?c=menuPrincipal");
+				}else{
+          echo "primer else nombre de usuario";
+				//	header("Location: index.html");
+					exit();
+				}
+			}else{
+        echo "segundo else contrasena";
+			//	header("Location: i");
+				exit();
+			}
 
 ?>

@@ -5,21 +5,19 @@
 
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
-        <div id="search-docs" class="section scrollspy">
+        <div id="" class="">
           <hr>
-
 
 <!--===========================================================================================================-->
 
-
 <fieldset>
   <legend><h5>Formulario para Registros</h5>
-    <h6>Completar la informacion con los datos correspondientes</h6></legend>
+    <h6>Completar la información con los datos correspondientes</h6></legend>
     <div class="container contact">
       <hr>
       <br>
       <div class="row">
-        <div class="col s14 m14 l11">
+        <div class="col s12 m12 l11">
           <div class="row">
             <form id="frm-asp" action="?c=ASP&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
@@ -27,27 +25,35 @@
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s6 m5 l6  ">
                     <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" ><i class="small material-icons">turned_in_not</i>Area Silvestre</label>
+                    <label for="name" ><i class="small material-icons">turned_in_not</i><span class="hide-on-small-only">Área Protegida</span></label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
                  <div class="input-field col s6 m5 l6  ">
-                   <input  id="last_name" type="text" name="tipo" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="last_name" >  <i class="small material-icons">receipt</i>Tipo ASP</label>
+                   <input  id="tipo" type="text" name="tipo" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <label for="tipo" >  <i class="small material-icons">receipt</i><span class="hide-on-small-only">Tipo ASP</span></label>
                  </div>
                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
 
         <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
           <div class="input-field col s12 m5 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-            <input  id="last_name" type="text" name="area_conservacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-            <label for="last_name" >  <i class="small material-icons">location_on</i>Area de Conservacion</label>
+            <input  id="area_conservacion" type="text" name="area_conservacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+            <label for="area_conservacion" >  <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Conservación</span></label>
           </div>
         </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
-    <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-               <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-               <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+               <i class="mdi-content-send material-icons right">done</i>
+        </button>
+
+      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+      <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+        value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+             <i class="mdi-content-send material-icons right">delete</i>
+      </button>
              </div>
            </form>
           </div>
@@ -87,10 +93,10 @@
                     <hr>
                     <hr>
 
-                  
+
                     <li>Puedo poner lista de items</li>
                     <li>Otro link por aqui...</li>
-                    <li>Area Protegida...</li>
+                    <li><h5>Area Protegida</h5></li>
 
                   </ul>
                 </div>
