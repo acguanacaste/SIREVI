@@ -11,7 +11,7 @@ class SenderoController{
 
 
     public function Index(){
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sendero/sendero.php';
         require_once 'view/includes/footer.php';
     }

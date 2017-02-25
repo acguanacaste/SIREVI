@@ -8,7 +8,6 @@ class Usuario{
     public $cedula;
     public $contrasena;
     public $puesto;
-
     public $email;
 		public $imagen;
 

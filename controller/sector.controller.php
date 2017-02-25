@@ -11,7 +11,7 @@ class SectorController{
 
 
     public function Index(){
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sector/sector.php';
         require_once 'view/includes/footer.php';
     }

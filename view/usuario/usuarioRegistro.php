@@ -1,16 +1,11 @@
 <main>
   <div class="container">
-
     <div class="row">
-
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
         <div id="" class="">
           <hr>
-
-
 <!--===========================================================================================================-->
-
 <fieldset>
   <legend><h5> Usuario: <?php echo $user->email; ?></h5>
    <h6>Utilice los campos habilitados para modificar información </h6></legend>

@@ -19,10 +19,11 @@
 	$(document).ready(function() {
 
 		$('select').material_select('destroy');
+		$('.datepicker').pickadate({
+	 	selectMonths: true, // Creates a dropdown to control month
+	 	selectYears: 15 // Creates a dropdown of 15 years to control year
+ 		});
 
-		$('.collapsible').collapsible({
-		 accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-	 	})
 		$(".button-collapse").sideNav({
 		//		menuWidth: 400, // Ancho del sideNav
 	//  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
@@ -37,13 +38,13 @@
 
 <body>
 
-	<div class="container grey lighten-3 col s12 m12 l12" >
+	<div class="container  grey lighten-3 col s12 m12 l12" >
 
 		<header >
-			<div>
+			<div class="container grey lighten-3 col s12 m12 l12">
 	  	<nav  class="brown top-nav z-depth-3"  >
 	    	<div  class="container" >
-	      	<div class="nav-wrapper"><a  class="page-title"></a>
+	      	<div class="nav-wrapper">
 						<ul>
 							<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
 							<li><a href="" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>

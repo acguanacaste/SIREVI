@@ -9,7 +9,6 @@
           <hr>
 <!--===========================================================================================================-->
 
-
 <fieldset>
   <legend><h5>Formulario para Registros</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>

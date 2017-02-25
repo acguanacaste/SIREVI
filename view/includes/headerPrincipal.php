@@ -35,23 +35,30 @@
 				</script>
 <body>
 	<header>
-		<div class="container">
+		<div class="container grey lighten-3 col s12 m12 l1">
 			<nav class="brown top-nav z-depth-3">
 				<div class="nav-wrapper">
-					<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>
-					<a href="#" class="brand-logo right">SIREVI</a>
-					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-            <li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-            <li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-            <li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-            <li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 
-						<!--PROBEMA PENDIENTE DE SOLUCIONAR-->
-						<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i></a></li>
-            <li><a href="" title="Pendiente..." class="hide-on-med-and-down"> <i class="small material-icons">settings_power</i></a></li>
-      	</ul>
+			<!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->
+<!--=========================================================================-->
+<ul>
+	<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
+	<li><a href="" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
+</ul>
+<!--=========================================================================-->
+					<a href="#" class="brand-logo right ">SIREVI</a>
+					<ul id="nav-mobile" class="left hide-on-small-only">
+						<li><a href="index.php" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
+						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
+						<li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
+						<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
+						<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
+						<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
+						<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+				</ul>
+					<a href="#" data-activates="slide-out" title="Menú"  class="button-collapse"><i title="Menu" style="color:white" class=" small material-icons">toc</i></a>
+			</div>
+
 			</div>
 		</nav>
 	</div>

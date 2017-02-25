@@ -87,7 +87,7 @@
         </div>
        </div>
 
-       <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+       <div class="row"><!--INICIO DEL DIV PARA LA IMAGEN-->
          <div class="file-field input-field">
            <div class="btn waves-effect waves-light teal darken-4" title="Subir imagenes">
              <i class="mdi-content-send material-icons right">perm_media</i>
@@ -95,12 +95,15 @@
              <input type="file">
            </div>
            <div class="file-path-wrapper">
-             <input name="imagen" disabled value="<?php echo $user->imagen; ?>"
-              value="<?php echo $user->imagen; ?>" class="file-path validate" type="text">
+             <input id="imagen" name="imagen" disabled value="<?php echo $user->imagen; ?>"
+              value="<?php echo $user->imagen; ?>" data-validacion-tipo="requerido|min:15" class="file-path validate validate form-control" type="text">
            </div>
          </div>
       </div>
-
+<!--<div class="input-field col s6 m5 l6 ">
+  <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+  <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
+</div>-->
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>

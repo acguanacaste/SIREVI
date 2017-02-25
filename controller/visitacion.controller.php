@@ -11,7 +11,7 @@ class VisitacionController{
 
 
     public function Index(){
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
