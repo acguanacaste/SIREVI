@@ -37,6 +37,15 @@
 	</script>
 
 <body>
+	<?php
+
+session_start();
+
+if(!isset($_SESSION["email"])){
+echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
+header("Location:?c=login&a=index");
+}
+?>
 
 	<div class="container  grey lighten-3 col s12 m12 l12" >
 

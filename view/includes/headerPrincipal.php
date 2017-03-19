@@ -34,6 +34,15 @@
                 });
 				</script>
 <body>
+	<?php
+
+session_start();
+
+if(!isset($_SESSION["email"])){
+echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
+header("Location:?c=login&a=index");
+}
+?>
 	<header>
 		<div class="container grey lighten-3 col s12 m12 l1">
 			<nav class="brown top-nav z-depth-3">
@@ -42,8 +51,8 @@
 			<!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->
 <!--=========================================================================-->
 <ul>
-	<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
-	<li><a href="" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
+	<li><a  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
+	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
 </ul>
 <!--=========================================================================-->
 					<a href="#" class="brand-logo right ">SIREVI</a>

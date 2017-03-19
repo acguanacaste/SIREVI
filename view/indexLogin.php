@@ -130,7 +130,8 @@ span.psw {
 			<!--Inicio de lines para el formulario de acceso-->
 						 <div class="input-field col s12 m6 l6 blue-grey lighten-5 z-depth-5 "  style="top: -7px;" ><!--Div que me contiene el formulario-->
 
-							 <form class="col s12 black-text" method="POST" action="validar.php" >
+							 <form id="frm-login"  class="col s12 black-text" method="POST" action="?c=login&a=Comprobar" enctype="multipart/form-data" >
+
 							 	<div class="row "> <!--Div que me contiene los dotos de ingreso y el botn de login-->
 								 	<fieldset style="width:100">
 								  	<legend>&nbsp;Formulario de Acceso &nbsp;</legend>
@@ -146,18 +147,18 @@ span.psw {
 										 	<div class="container"><!--Contenerdor de las lineas para escribir informacion-->
 											 <div class="input-field col s12 m12 l12 ">
 												 <i class="material-icons prefix">account_circle</i>
-						 					   <input id="usuario" name="nnombre"  type="email" class="validate " required>
+						 					   <input id="usuario" name="login"  type="email" class="validate " required>
 						 					 	 <label for="usuario"  data-error="wrong" data-success="right" >&nbsp;Usuario</label>
 					 				 		 </div>
 
 											 <div class="input-field col s12 m12 l12 ">
 												 <i class="material-icons prefix">vpn_key</i>
-												 <input id="pass" name="npassword" type="password" class="validate " required>
+												 <input id="pass" name="password" type="password" class="validate " required>
 												 <label for="pass">&nbsp;Contraseña</label>
 											</div>
 
 											<div class="input-field col s12 m12 l12">
-												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 z-depth-2" name="action" type="submit">Iniciar sesión</button>
+												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 z-depth-2" name="enviar" type="submit">Iniciar sesión</button>
 											</div>
 							  		</div>
 	<!--=============================================================================================================================-->
