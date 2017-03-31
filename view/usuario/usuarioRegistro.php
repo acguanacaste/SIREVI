@@ -47,7 +47,7 @@
 
                    <!--INICIO DE COLUMNA CONTRASENA-->
                    <div class="input-field col s6 m5 l6  ">
-                   <input  id="contrasena" type="text" name="contrasena"  value=""  class="validate form-control" data-validacion-tipo="requerido|min:10"  required>
+                   <input  id="contrasena" type="password" name="contrasena"  value=""  class="validate form-control" data-validacion-tipo="requerido|min:10"  required>
                    <label for="contrasena" >  <i class="small material-icons">vpn_key</i><span class="hide-on-small-only">Contraseña</span></label>
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
@@ -57,7 +57,7 @@
      <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
              <div class="row"><!--INICIO DE TERCERA FILA-->
                <div class="input-field col s12 m10 l12" >
-                 <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>" required>
+                 <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
                    <option data-value="<?php echo $user->puesto; ?>">Administrador</option>
                    <option data-value="<?php echo $user->puesto; ?>">Encargado de sector</option>

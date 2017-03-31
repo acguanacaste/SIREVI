@@ -7,8 +7,6 @@
 	<title>Sistema de Información para el Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
-
-
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<!-- Compiled and minified JavaScript -->
@@ -37,10 +35,8 @@
 	</script>
 
 <body>
-	<?php
-
+<?php
 session_start();
-
 if(!isset($_SESSION["email"])){
 echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
 header("Location:?c=login&a=index");
@@ -94,7 +90,7 @@ header("Location:?c=login&a=index");
 	<hr>
 		<li class="divider"></li>
 			<ul style="height:450px;overflow-y:scroll;">
-				<li><a alt="imagen no disponible" href="index.php" title="Inicio" class="waves teal darken-4"><i class="small material-icons white-text">home</i> <span style="@include transition(.3s);" class="white-text">Inicio</span></a></li>
+				<li><a alt="imagen no disponible" href="index.php?c=menuPrincipal" title="Inicio" class="waves teal darken-4"><i class="small material-icons white-text">home</i> <span style="@include transition(.3s);" class="white-text">Inicio</span></a></li>
 				<li><a href="index.php?c=Visitacion" title="Visitación" class="waves-effect waves-teal active"><i class="small material-icons white-text">assignment</i><span class="" style="color:#263238">Visitación</span></a></li>
 				<li><a href="#" title="Reportes"  class="waves-effect waves-teal active"><i class="small material-icons white-text">description</i><span class="" style="color:#263238">Reportes</span></a></li>
 				<li><a href="index.php?c=Usuario" title="Usuarios"  class="waves-effect waves-teal active"><i class="small material-icons white-text">supervisor_account</i> <span class="" style="color:#263238">Usuarios</span></a></li>

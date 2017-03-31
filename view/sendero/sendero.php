@@ -49,8 +49,7 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-        <hr>
-      </div><!-- Div de los tamanos -->
+        </div><!-- Div de los tamanos -->
     </div>
   </div>
 </main>

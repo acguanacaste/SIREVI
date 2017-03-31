@@ -30,9 +30,25 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `area_conservacion` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `sirevi`.`image`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sirevi`.`image` ;
+
+CREATE TABLE IF NOT EXISTS `sirevi`.`image` (
+  `id` SMALLINT(6) NOT NULL AUTO_INCREMENT,
+  `anchura` SMALLINT(6) NOT NULL,
+  `altura` SMALLINT(6) NOT NULL,
+  `tipo` CHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL,
+  `imagen` MEDIUMBLOB NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish_ci;
 
 
 -- -----------------------------------------------------
@@ -125,10 +141,16 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `contrasena` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `puesto` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `imagen` LONGBLOB NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
+  `imagen` SMALLINT(6) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_imagen_idx` (`imagen` ASC),
+  CONSTRAINT `fk_imagen`
+    FOREIGN KEY (`imagen`)
+    REFERENCES `sirevi`.`image` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 68
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -142,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `noIdentificacion` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `fecha_ingreso` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP,
+  `fecha_ingreso` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `fecha_salida` DATE NOT NULL,
   `acampa` INT(3) NOT NULL,
   `dias_camping` INT(3) NOT NULL,

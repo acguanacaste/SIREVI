@@ -1,36 +1,37 @@
 <?php
-require_once 'model/Usuario.php';
+require_once 'model/Perfil_imagen.php';
 
-class UsuarioController{
+class Perfil_imagenController{
 
     private $model;
     public function __CONSTRUCT(){
-        $this->model = new Usuario();
+        $this->model = new Perfil_imagen();
     }
 
 
     public function Index(){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/usuario/usuario.php';
+        require_once 'view/perfil/perfil_imagen.php';
         require_once 'view/includes/footer.php';
     }
 
 
     public function Modificar(){
-        $user = new Usuario();
+        $user = new Perfil_imagen();
 
         if(isset($_REQUEST['id'])){
             $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
         require_once 'view/includes/header.php';
-        require_once 'view/usuario/usuarioModificar.php';
+        require_once 'view/perfil/perfil_imagenModificar.php';
         require_once 'view/includes/footer.php';
     }
 
 
+
     public function CambioContrasena(){
-      $user = new Usuario();
+      $user = new Perfil_imagen();
 
       if(isset($_REQUEST['id'])){
           $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
@@ -52,35 +53,32 @@ class UsuarioController{
         }
 
         require_once 'view/includes/header.php';
-        require_once 'view/usuario/usuarioRegistro.php';
+        require_once 'view/perfil/perfil_imagen.php';
         require_once 'view/includes/footer.php';
     }
 
 
 
     public function Guardar(){
-        $user = new Usuario();
+        $peril = new Perfil_imagen();
 
-        $user->id         = $_REQUEST['id'];
-        $user->nombre     = $_REQUEST['nombre'];
-        $user->apellido   = $_REQUEST['apellido'];
-        $user->cedula     = $_REQUEST['cedula'];
-        $user->contrasena = $_REQUEST['contrasena'];
-        $user->puesto     = $_REQUEST['puesto'];
-        $user->email      = $_REQUEST['email'];
-        $user->imagen     = $_REQUEST['imagen'];
+        $perfil->id         = $_REQUEST['id'];
+        $perfil->anchura     = $_REQUEST['anchura'];
+        $perfil->altura   = $_REQUEST['altura'];
+        $user->tipo     = $_REQUEST['tipo'];
+        $user->imagen = $_REQUEST['imagen'];
 
-        $user->id > 0
-            ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/
-            : $this->model->Registrar($user);/*Se esta llamndo desde model Usuarios*/
+        $perfil->id > 0
+            ? $this->model->Actualizar($perfil)/*Se esta llamndo desde model Usuarios*/
+            : $this->model->Registrar($perfil);/*Se esta llamndo desde model Usuarios*/
 
-        header('Location: index.php?c=Usuario');
+        header('Location: index.php?c=Perfil_imagen');
     }
 
 
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
-        header('Location: index.php?c=Usuario');
+        header('Location: index.php?c=Perfil_imagen');
     }
 }

@@ -20,7 +20,7 @@
               <th>Numero diario</th>
               <th>Monto</th>
               <th>Moneda</th>
-              <th>Total</th>
+              <!--<th>Total</th>-->
               <th style="width:40px;"></th>
               <th colspan="2">Accion</th>
             </tr>
@@ -36,7 +36,7 @@
               <td class="center"><?php echo $r->numero_diario; ?></td>
               <td><?php echo $r->monto;?></td>
               <td><?php echo $r->moneda;?></td>
-              <td><?php echo $r->total;?></td>
+              <!--<td><?php echo $r->total;?></td>-->
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<php echo $r->id; ?>"><i
                     class="small material-icons right">edit</i></a>
