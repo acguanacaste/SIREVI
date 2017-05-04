@@ -26,7 +26,8 @@ class Sector{
 		{
 			$result = array();
 
-			$stm = $this->pdo->prepare("SELECT * FROM sector");
+			$stm = $this->pdo->prepare("select sector.id, sector.nombre as Sector, capacidad_diaria,
+			capacidad_acampar, asp.nombre AS Area_Silvestre from sector inner join asp on sector.asp = asp.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);

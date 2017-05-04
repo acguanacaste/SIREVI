@@ -27,7 +27,8 @@ class Sendero{
 		{
 			$result = array();
 
-			$stm = $this->pdo->prepare("SELECT * FROM sendero");
+			$stm = $this->pdo->prepare("select sendero.id, sendero.nombre as Sendero, distancia,
+			latitud, longitud, sector.nombre AS Sector from sendero inner join sector on sendero.sector = sector.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);

@@ -24,7 +24,7 @@ class SectorController{
             $sector = $this->model->Obtener($_REQUEST['id']);
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sector/sectorModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -33,7 +33,7 @@ class SectorController{
     public function agregarRegistro(){
         $sector = new Sector();
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sector/sectorRegistro.php';
         require_once 'view/includes/footer.php';
     }

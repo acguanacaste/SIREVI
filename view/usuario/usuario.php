@@ -40,9 +40,10 @@
                 </td>
 
                 <td>
-                  <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
-                    href="?c=Usuario&a=Eliminar&id=<?php echo $r->id; ?>">
-                  <i class=" circle small material-icons right z-depth-2">delete</i></a>
+                  <a title="Deshabilitar Usuario" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
+                    href="?c=Usuario&a=&id=<?php echo $r->id; ?>"><!--Se escribira el nombre del metodo desabilitar una
+                                                                      vez este implementado en el sistema-->
+                  <i class=" circle small material-icons right z-depth-2">error</i></a>
                 </td>
                 <td>
 
@@ -51,7 +52,7 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-      
+
       </div><!-- Div de los tamanos -->
     </div>
   </div>

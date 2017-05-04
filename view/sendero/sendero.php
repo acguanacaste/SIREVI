@@ -26,11 +26,11 @@
           <tbody>
             <?php foreach ($this->model->Listar() as $r): ?>
               <tr>
-                <td><?php echo $r->nombre; ?></td>
+                <td><?php echo $r->Sendero; ?></td>
                 <td><?php echo $r->distancia; ?></td>
                 <td><?php echo $r->longitud; ?></td>
                 <td><?php echo $r->latitud; ?></td>
-                <td><?php echo $r->sector; ?></td>
+                <td><?php echo $r->Sector; ?></td>
 
                 <td>
                   <a title="Editar Información" href="?c=Sendero&a=Modificar&id=<?php echo $r->id; ?>">

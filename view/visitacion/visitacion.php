@@ -14,8 +14,10 @@
 <!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
             <tr>
               <th>Nombre</th>
+              <th>Pais</th>
               <th>Fecha ingreso</th>
               <th>Fecha salida</th>
+              <th>Sector</th>
               <th>Dias </th>
               <th>Numero diario</th>
               <th>Monto</th>
@@ -29,10 +31,12 @@
           <tbody>
             <?php foreach ($this->model->Listar() as $r): ?>
             <tr>
-              <td><?php echo $r->nombre; ?></td>
+              <td><?php echo $r->Nombre; ?></td>
+              <td><?php echo $r->Pais; ?></td>
               <td><?php echo $r->fecha_ingreso; ?></td>
               <td><?php echo $r->fecha_salida; ?></td>
-              <td><?php echo $r->dias_camping; ?></td>
+              <td><?php echo $r->Sector; ?></td>
+              <td><?php echo $r->Dias; ?></td>
               <td class="center"><?php echo $r->numero_diario; ?></td>
               <td><?php echo $r->monto;?></td>
               <td><?php echo $r->moneda;?></td>

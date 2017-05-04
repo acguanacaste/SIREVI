@@ -56,12 +56,6 @@
                </button>
 
              <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-             <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
-               value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-                    <i class="mdi-content-send material-icons right">delete</i>
-             </button>
-
-
              </div>
            </form>
           </div>
@@ -69,8 +63,6 @@
       </div>
 
 </fieldset>
-
-<hr>
 
 <!--================================================================================================================================-->
         </div>
@@ -109,10 +101,6 @@
 
                       <hr>
                     </div>
-                    <li>Puedo poner lista de items</li>
-                    <li>Otro link por aqui...</li>
-                    <li><h5>Senderos...</h5></li>
-
                   </ul>
                 </div>
               </div>

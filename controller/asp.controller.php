@@ -22,7 +22,7 @@ class ASPController{
         if(isset($_REQUEST['id'])){
             $asp = $this->model->Obtener($_REQUEST['id']);
         }
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/asp/aspModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -33,7 +33,7 @@ class ASPController{
         if(isset($_REQUEST['id'])){
             $asp = $this->model->Obtener($_REQUEST['id']);
         }
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/asp/aspRegistro.php';
         require_once 'view/includes/footer.php';
     }

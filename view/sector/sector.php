@@ -24,10 +24,10 @@
             <tbody>
               <?php foreach ($this->model->Listar() as $r): ?>
                 <tr>
-                  <td><?php echo $r->nombre; ?></td>
+                  <td><?php echo $r->Sector; ?></td>
                   <td ><?php echo $r->capacidad_diaria; ?></td>
                   <td><?php echo $r->capacidad_acampar; ?></td>
-                  <td><?php echo $r->asp; ?></td>
+                  <td><?php echo $r->Area_Silvestre; ?></td>
 
                   <td>
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
@@ -46,7 +46,7 @@
               <?php endforeach; ?>
             </tbody>
           </table>
-  
+
     </div><!-- Div de los tamanos -->
   </div>
 </div>

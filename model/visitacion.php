@@ -39,7 +39,11 @@ class Visitacion{
 		{
 			$result = array();
 
-			$stm = $this->pdo->prepare("SELECT * FROM visitacion");
+			$stm = $this->pdo->prepare("select visitacion.id, visitacion.nombre as Nombre,pais.nombre as Pais, fecha_ingreso, fecha_salida, sector.nombre AS Sector,
+			dias_camping as Dias,numero_diario, monto, moneda from visitacion inner join usuarios on visitacion.usuario = usuarios.id
+			inner join asp on visitacion.asp = asp.id inner join sector on visitacion.sector = sector.id
+			inner join sendero on visitacion.sendero = sendero.id inner join pais on visitacion.pais = pais.id
+			inner join provincia on visitacion.provincia = provincia.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -98,7 +102,7 @@ class Visitacion{
             numero_diario         = ?,
             placa_automovil       = ?,
             tipo_automovil        = ?,
-            monto                 = ?,
+
             moneda                = ?,
             total                 = ?
 				    WHERE id = ?";
@@ -118,7 +122,7 @@ class Visitacion{
                         $data->numero_diario,
                         $data->placa_automovil,
                         $data->tipo_automovil,
-                        $data->monto,
+
                         $data->moneda,
                         $data->total,
                         $data->id
@@ -135,8 +139,8 @@ class Visitacion{
 		try
 		{
 		$sql = "INSERT INTO usuarios (noIdentificacion,nombre,fecha_ingreso,fecha_salida,acampa,dias_camping,cantidadPersonasSurf,prepago,exonerado
-                                    numero_diario,placa_automovil,tipo_automovil,monto,moneda,total)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                    numero_diario,placa_automovil,tipo_automovil,moneda,total)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -153,7 +157,7 @@ class Visitacion{
                     $data->numero_diario,
                     $data->placa_automovil,
                     $data->tipo_automovil,
-                    $data->monto,
+
                     $data->moneda,
                     $data->total
 

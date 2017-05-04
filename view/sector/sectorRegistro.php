@@ -10,7 +10,7 @@
 <!--===========================================================================================================-->
 
 <fieldset>
-  <legend><h5>Formulario para Registros</h5>
+  <legend><h5>Formulario para Registros de Sectores</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>
     <div class="container contact">
       <hr>
@@ -47,7 +47,28 @@
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
-              <div class="">
+<!--===========================  AREA DE CONSERVACION ============================================-->
+
+<!--?php
+$sql = "SELECT nombre FROM asp  ORDER BY nombre";
+$res = mysql_query($sql,$con);
+$c=0;
+while($row = mysql_fetch_assoc($res)){
+         $vector[$c] = $row['nombre'];
+         $c++;
+}
+for($f=0;$f<$c;$f++){
+
+if($vector[$f]!=0){
+?>
+<input type="checkbox"  value="<php echo $vector[$f] ?>" name="material[]"  checked="checked"/>
+}else{
+<input type="checkbox"  value="php echo $vector[$f] ?>" name="material[]"  />
+}
+}
+-->
+
+             <div class="">
                 <div class="input-field col s12 m12 l12">
                  <select>
                    <option value="" disabled selected>Elija una opcion</option>
@@ -79,7 +100,6 @@
          </div>
        </div>
 </fieldset>
-<hr>
 
 <!--================================================================================================================================-->
         </div>
@@ -109,13 +129,6 @@
                     <hr>
                     <li><a  href="index.php?c=Sector" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                    <hr>
-
-
-                    <li>Puedo poner lista de items</li>
-                    <li>Otro link por aqui...</li>
-                    <li><h5>Sectores...</h5></li>
-
                   </ul>
                 </div>
               </div>

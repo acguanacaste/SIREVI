@@ -17,6 +17,24 @@
                 <div class="row">
                   <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="" />
+
+                    <div class="input-field col s12 m12 l12">
+                      <select>
+                        <option value="" disabled selected>Elija una opcion</option>
+                        <option value="1">Visita reiterada</option>
+                        <option value="2">Medios de comunicacion</option>
+                        <option value="3">Recomendacion por amigos</option>
+                        <option value="4">Option </option>
+                        <option value="5">Option </option>
+                        <option value="6">Option </option>
+                        <option value="7">Option 1</option>
+                        <option value="8">Option 2</option>
+                        <option value="9">Option 3</option>
+
+                      </select>
+                      <label> Referencia de Visita</label>
+                    </div>
+
                     <div class="row"><!--INICIO DE LA PRIMERA FILA-->
                       <div class="input-field col s6 m5 l6  ">
                         <input  id="noIdentificacion" type="text" name="noIdentificacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
@@ -176,9 +194,12 @@
                     </select>
                     <label> Seleccionar usuario</label>
                   </div>
+
+
+
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                  <button class="btn waves-effect waves-light teal darken-4" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-                  <button class="btn waves-effect waves-light teal darken-4" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
+                  <button class="btn waves-effect waves-light teal darken-4"  type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
+                  <button class="btn waves-effect waves-light teal darken-4"  type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
                 </div>
               </form>
            </div>

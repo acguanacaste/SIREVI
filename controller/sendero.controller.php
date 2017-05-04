@@ -24,7 +24,7 @@ class SenderoController{
             $sendero = $this->model->Obtener($_REQUEST['id']);
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sendero/senderoModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -33,7 +33,7 @@ class SenderoController{
     public function agregarRegistro(){
         $sendero = new Sendero();
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sendero/senderoRegistro.php';
         require_once 'view/includes/footer.php';
     }

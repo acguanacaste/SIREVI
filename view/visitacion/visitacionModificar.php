@@ -195,7 +195,6 @@
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
              <button class="btn waves-effect waves-light" value="enviar" type="submit" name="action">Enviar<i class="mdi-content-send right"></i></button>
-             <button class="btn waves-effect waves-light" value="reset" type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
            </div>
          </form>
            </div>

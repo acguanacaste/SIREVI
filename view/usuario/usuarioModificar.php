@@ -111,12 +111,6 @@
        </button>
 
      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-     <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
-       value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-            <i class="mdi-content-send material-icons right">delete</i>
-     </button>
-
-
              </div>
            </form>
              </div>

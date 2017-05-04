@@ -24,7 +24,7 @@ class VisitacionController{
             $visit = $this->model->Obtener($_REQUEST['id']);
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacionModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -37,7 +37,7 @@ class VisitacionController{
             $visit = $this->model->Obtener($_REQUEST['id']);
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacionRegistro.php';
         require_once 'view/includes/footer.php';
     }
@@ -60,7 +60,7 @@ class VisitacionController{
         $visit->numero_diario         = $_REQUEST['numero_diario'];
         $visit->placa_automovil       = $_REQUEST['placa_automovil'];
         $visit->tipo_automovil        = $_REQUEST['tipo_automovil'];
-        $visit->monto                 = $_REQUEST['monto'];
+
         $visit->moneda                = $_REQUEST['moneda'];
         $visit->total                 = $_REQUEST['total'];
 
