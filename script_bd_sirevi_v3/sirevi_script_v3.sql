@@ -30,8 +30,28 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `area_conservacion` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
+
+
+-- -----------------------------------------------------
+-- Table `sirevi`.`bitacora_usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sirevi`.`bitacora_usuario` ;
+
+CREATE TABLE IF NOT EXISTS `sirevi`.`bitacora_usuario` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
+  `apellido` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
+  `cedula` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
+  `puesto` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
+  `fecha` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_spanish_ci;
 
 
 -- -----------------------------------------------------
@@ -62,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`pais` (
   `codigo` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -77,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`provincia` (
   `codigo` VARCHAR(10) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -100,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -124,6 +147,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -143,14 +167,9 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `imagen` SMALLINT(6) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_imagen_idx` (`imagen` ASC),
-  CONSTRAINT `fk_imagen`
-    FOREIGN KEY (`imagen`)
-    REFERENCES `sirevi`.`image` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `fk_imagen_idx` (`imagen` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -211,9 +230,47 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
+USE `sirevi`;
+
+DELIMITER $$
+
+USE `sirevi`$$
+DROP TRIGGER IF EXISTS `sirevi`.`usuarios_BEFORE_INSERT` $$
+USE `sirevi`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `sirevi`.`usuarios_BEFORE_INSERT`
+BEFORE INSERT ON `sirevi`.`usuarios`
+FOR EACH ROW
+BEGIN
+    
+		insert into bitacora_usuario (id, nombre, apellido, cedula, puesto, fecha) VALUES 
+        (Null, new.nombre, new.apellido, new.cedula, new.puesto, now());
+        
+    END$$
+
+
+USE `sirevi`$$
+DROP TRIGGER IF EXISTS `sirevi`.`usuarios_BEFORE_UPDATE` $$
+USE `sirevi`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `sirevi`.`usuarios_BEFORE_UPDATE`
+BEFORE UPDATE ON `sirevi`.`usuarios`
+FOR EACH ROW
+BEGIN
+    
+		insert into bitacora_usuario (id, nombre, apellido, cedula, puesto, fecha) VALUES 
+        (Null, new.nombre, new.apellido, new.cedula, new.puesto, now());
+        
+    END$$
+
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
