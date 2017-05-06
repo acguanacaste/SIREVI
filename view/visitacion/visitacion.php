@@ -1,8 +1,10 @@
 <main>
   <div class="container">
-    <h4 class="header left">Módulo de Visitacion</h4>
+    <h4 class="header left">Módulo Visitación</h4>
+    <a href="index.php?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
+
       <div class="right hide-on-small-only">
-        <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i>Nueva Visitacion</a>
+        <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i><span>Nueva Visitación</span></a>
       </div>
     </div>
     <div class="container">
@@ -24,7 +26,7 @@
               <th>Moneda</th>
               <!--<th>Total</th>-->
               <th style="width:40px;"></th>
-              <th colspan="2">Accion</th>
+              <th colspan="2">Acción</th>
             </tr>
 <!--================================================================================================================== -->
           </thead>
@@ -40,7 +42,7 @@
               <td class="center"><?php echo $r->numero_diario; ?></td>
               <td><?php echo $r->monto;?></td>
               <td><?php echo $r->moneda;?></td>
-              <!--<td><?php echo $r->total;?></td>-->
+
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<php echo $r->id; ?>"><i
                     class="small material-icons right">edit</i></a>

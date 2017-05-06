@@ -3,6 +3,7 @@ class Visitacion{
 	private $pdo;
 
     public $id;
+		public $referencia_visita;
     public $noIdentificacion;
     public $nombre;
     public $fecha_ingreso;
@@ -17,7 +18,7 @@ class Visitacion{
     public $tipo_automovil;
     public $monto;
     public $moneda;
-    public $total;
+
 
 
 
@@ -90,6 +91,7 @@ class Visitacion{
 		try
 		{
 			$sql = "UPDATE visitacion SET
+						referencia_visita     = ?,
             noIdentificacion      = ?,
 						nombre                = ?,
 						fecha_ingreso         = ?,
@@ -102,14 +104,14 @@ class Visitacion{
             numero_diario         = ?,
             placa_automovil       = ?,
             tipo_automovil        = ?,
-
-            moneda                = ?,
-            total                 = ?
+						monto									= ?,
+            moneda                = ?
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
+												$data->referencia_visita,
                         $data->noIdentificacion,
                         $data->nombre,
                         $data->fecha_ingreso,
@@ -122,9 +124,8 @@ class Visitacion{
                         $data->numero_diario,
                         $data->placa_automovil,
                         $data->tipo_automovil,
-
+												$data->monto,
                         $data->moneda,
-                        $data->total,
                         $data->id
 					)
 				);
@@ -138,13 +139,13 @@ class Visitacion{
 	{
 		try
 		{
-		$sql = "INSERT INTO usuarios (noIdentificacion,nombre,fecha_ingreso,fecha_salida,acampa,dias_camping,cantidadPersonasSurf,prepago,exonerado
-                                    numero_diario,placa_automovil,tipo_automovil,moneda,total)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO usuarios (referencia_visita, noIdentificacion, nombre,fecha_ingreso, fecha_salida, acampa, dias_camping,
+																	cantidadPersonasSurf, prepago, exonerado, numero_diario, placa_automovil, tipo_automovil, monto, moneda)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
-				array(
+				array(			$data->referencia_visita,
                     $data->noIdentificacion,
                     $data->nombre,
                     $data->fecha_ingreso,
@@ -157,9 +158,9 @@ class Visitacion{
                     $data->numero_diario,
                     $data->placa_automovil,
                     $data->tipo_automovil,
+										$data->monto,
+                    $data->moneda
 
-                    $data->moneda,
-                    $data->total
 
                 )
 			);

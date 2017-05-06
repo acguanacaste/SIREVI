@@ -48,6 +48,7 @@ class VisitacionController{
         $visit = new Visitacion();
 
         $visit->id                    = $_REQUEST['id'];
+        $visit->referencia_visita     = $_REQUEST['referencia_visita'];
         $visit->noIdentificacion      = $_REQUEST['noIdentificacion'];
         $visit->nombre                = $_REQUEST['nombre'];
         $visit->fecha_ingreso         = $_REQUEST['fecha_ingreso'];
@@ -60,15 +61,15 @@ class VisitacionController{
         $visit->numero_diario         = $_REQUEST['numero_diario'];
         $visit->placa_automovil       = $_REQUEST['placa_automovil'];
         $visit->tipo_automovil        = $_REQUEST['tipo_automovil'];
-
+        $visit->monto                 = $_REQUEST['monto'];
         $visit->moneda                = $_REQUEST['moneda'];
-        $visit->total                 = $_REQUEST['total'];
 
-        $user->id > 0
+
+        $visit->id > 0
             ? $this->model->Actualizar($visit)
             : $this->model->Registrar($visit);
 
-        header('Location: index.php?c=Usuario');
+        header('Location: index.php?c=Visitacion');
     }
 
 

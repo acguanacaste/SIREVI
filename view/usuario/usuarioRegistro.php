@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
-        <div id="" class="">
+        <div id="search-docs" class="section scrollspy">
           <hr>
 <!--===========================================================================================================-->
 <fieldset>
-  <legend><h5> Usuario: <?php echo $user->email; ?></h5>
+  <legend><h5>Modulo Usuarios</h5>
    <h6>Utilice los campos habilitados para modificar información </h6></legend>
     <div class="container contact">
       <br>

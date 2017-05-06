@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 	<meta charset="utf-8"/>
@@ -51,8 +50,8 @@ header("Location:?c=login&a=index");
 	    	<div  class="container" >
 	      	<div class="nav-wrapper">
 						<ul>
-							<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
-							<li><a href="" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
+							<li><a href="index.php?c=Perfil" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
+							<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
 						</ul>
 						<a href="#" class="brand-logo right hide-on-med-only"><span >SIREVI</span></a>
 						<span class="hide-on-large-only">
@@ -97,10 +96,10 @@ header("Location:?c=login&a=index");
 				<li><a href="index.php?c=Sector" title="Sectores"  class="waves-effect waves-teal active"><i class="small material-icons white-text">view_quilt</i><span class="" style="color:#263238">Sectores</span></a></li>
 				<li><a href="index.php?c=Sendero" title="Senderos"  class="waves-effect waves-teal active"><i class="small material-icons white-text">swap_calls</i> <span class="" style="color:#263238">Senderos</span></a></li>
 				<li><a href="index.php?c=ASP" title="Áreas Protegidas"  class="waves-effect waves-teal active"> <i class="small material-icons white-text">terrain</i><span class="" style="color:#263238">Áreas Protegidas</span></a></li>
-				<li><a href="#"> <i class="small material-icons white-text waves-effect waves-teal active">settings</i><span class="" style="color:#263238">Perfil</span></a>
+				<li><a href="index.php?c=Perfil"> <i class="small material-icons white-text waves-effect waves-teal active">settings</i><span class="" style="color:#263238">Perfil</span></a>
 					<ul>
-						<li><a>Cambiar nombre de usuario</a></li>
-						<li><a>Cambiar contrasena</a></li>
+						<!--<li><a>Cambiar nombre de usuario</a></li>
+						<li><a>Cambiar contrasena</a></li>-->
 					</ul>
 				</li>
 				<li><a href=""> <i class="small material-icons white-text"  class="waves-effect waves-teal active">settings_power</i><span class="">Cerrar sesión</span></a></li>

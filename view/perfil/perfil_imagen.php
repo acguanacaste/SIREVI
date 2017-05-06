@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<style>
-.error {font-weight: bold; color:red;}
-.mensaje {color:#030;}
-.listadoImagenes img {float:left;border:1px solid #ccc; padding:2px;margin:2px;}
-</style>
-</head>
-
-<body>
-
 <?php
 # Conectamos con MySQL
 $mysqli=new mysqli("localhost","root","","sirevi");

@@ -45,11 +45,10 @@ class SectorController{
         $sector = new Sector();
 
 
-        $sector->id = $_REQUEST['id'];
-        $sector->nombre = $_REQUEST['nombre'];
-        $sector->capacidad_diaria = $_REQUEST['capacidad_diaria'];
-        $sector->capacidad_acampar= $_REQUEST['capacidad_acampar'];
-
+        $sector->id                = $_REQUEST['id'];
+        $sector->nombre            = $_REQUEST['nombre'];
+        $sector->capacidad_diaria  = $_REQUEST['capacidad_diaria'];
+        $sector->capacidad_acampar = $_REQUEST['capacidad_acampar'];
 
 
         $sector->id > 0

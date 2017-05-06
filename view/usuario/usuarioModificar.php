@@ -52,7 +52,7 @@
 
                    <!--INICIO DE COLUMNA CONTRASENA-->
                    <div class="input-field col s6 m5 l6  ">
-                   <input  id="contrasena" type="text" name="contrasena"  value="<?php echo $user->contrasena; ?>"  class="validate form-control" data-validacion-tipo="requerido|min:10">
+                   <input  id="contrasena" type="password" name="contrasena"  value="<?php echo $user->contrasena; ?>"  class="validate form-control" data-validacion-tipo="requerido|min:10">
                    <label for="contrasena" >  <i class="small material-icons">perm_identity</i><span class="hide-on-small-only">Contraseña</span></label>
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->

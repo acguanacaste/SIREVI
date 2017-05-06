@@ -50,9 +50,9 @@ class SenderoController{
 
 
 
-        $sector->id > 0
-            ? $this->model->Actualizar($sector)
-            : $this->model->Registrar($sector);
+        $sendero->id > 0
+            ? $this->model->Actualizar($sendero)
+            : $this->model->Registrar($sendero);
 
         header('Location: index.php?c=Sendero');
     }

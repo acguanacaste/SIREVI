@@ -111,6 +111,7 @@ class Sector{
                     $data->capacidad_acampar,
 
 
+
                 )
 			);
 		} catch (Exception $e)

@@ -1,7 +1,11 @@
 <main>
   <div class="container">
     <h4 class="header left"> Áreas Protegidas</h4>
-      <div class="right">
+    <a href="index.php?c=ASP&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Área Protegida</a>
+
+
+
+      <div class="right right hide-on-small-only">
         <a href="index.php?c=ASP&a=agregarRegistro" ><i class="small material-icons">playlist_add</i>Agregar Área Silvestre</a>
     </div>
   </div>
@@ -12,10 +16,10 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
             <tr>
-              <th>ASP</th>
+              <th>Área Conservación</th>
               <th>Tipo</th>
-              <th>Área </th>
-              <th style="width:40px;"></th>
+              <th>Ubicacion geografica</th>
+              <th style="width:30px;"></th>
               <th colspan="2">Acción</th>
             </tr>
           </thead>
@@ -24,7 +28,7 @@
               <tr>
                 <td><?php echo $r->nombre; ?></td>
                 <td><?php echo $r->tipo; ?></td>
-                <td><?php echo $r->area_conservacion; ?></td>
+                <td><?php echo $r->ubicacion; ?></td>
                 <td>
                   <a title="Editar Información" href="?c=ASP&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="circle small material-icons right z-depth-2">edit</i></a>
@@ -38,7 +42,7 @@
               <?php endforeach; ?>
             </tbody>
           </table>
-        <hr>
+      
       </div><!-- Div de los tamanos -->
     </div><!--Div row -->
   </div><!--div del container-->

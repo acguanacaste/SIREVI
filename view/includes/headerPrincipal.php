@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
 	<meta charset="utf-8"/>
 		<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Informacion para Registro de Visitacion</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
+
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<!-- Compiled and minified JavaScript -->
 	<!--ME DA LA PROPIEDAD DE HACER MAS PEQUENO EL AREA DONDE ESCRIBO -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 	</head>
 				<script>
 				$(document).ready(function() {
@@ -23,20 +26,20 @@
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
-				  /*	$('.datepicker').pickadate({
+				  	$('.datepicker').pickadate({
 						selectMonths: true, // Creates a dropdown to control month
 						selectYears: 15 // Creates a dropdown of 15 years to control year
-					});*/
+					});
 						/*$(".dropdown-button").dropdown(hover:false);*/
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
                 });
 				</script>
+
 <body>
 	<?php
 session_start();
-
 if(!isset($_SESSION["email"])){
 echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
 header("Location:?c=login&a=index");
@@ -50,13 +53,13 @@ header("Location:?c=login&a=index");
 			<!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->
 <!--=========================================================================-->
 <ul>
-	<li><a  href=""  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
+	<li><a  href="?c=Perfil_imagen"  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
 	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
 </ul>
 <!--=========================================================================-->
 					<a href="#" class="brand-logo right ">SIREVI</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
+						<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
 						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
 						<li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 						<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
@@ -83,7 +86,7 @@ header("Location:?c=login&a=index");
 		<hr>
 		<li class="divider"></li>
 		<!--============================= Inicio de los modulos del sistemas ====================================================-->
-		<li><a href="index.php" title="Inicio"><i class="small material-icons">home</i> <span class="">Inicio</span></a></li>
+		<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="">Inicio</span></a></li>
 		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="">Visitación</span></a></li>
 		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="">Reportes</span></a></li>
 		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="">Usuarios</span></a></li>

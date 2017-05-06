@@ -1,17 +1,16 @@
-
 <main>
   <div class="container">
     <div class="row">
 
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
-        <div id="" class="">
+        <div id="search-docs" class="section scrollspy">
           <hr>
 
 <!--===========================================================================================================-->
 
 <fieldset>
-  <legend><h5>Formulario para Registros</h5>
+  <legend><h5>Áreas Protegidas</h5>
     <h6>Completar la información con los datos correspondientes</h6></legend>
     <div class="container contact">
       <hr>
@@ -22,26 +21,39 @@
             <form id="frm-asp" action="?c=ASP&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
               <div>
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+
+
+                <div class="input-field col s12">
+                 <select  id="nombre" name="nombre" data-value="<?php echo $asp->nombre; ?>" required>
+                   <option value="" disabled selected></option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Guanacaste (ACG)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Arenal Huetar-Norte (ACA-HN)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Arenal Tempisque (ACA-T)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Amistad Caribe (ACLA-C)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Amistad Pacifico (ACLA-P)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Cordilllera Volcánica Central (ACCVC)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Isla del Coco (ACMIC)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Osa (ACOSA)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Pacífico Central (ACOPAC)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Tempisque (ACT)</option>
+                   <option data-value="<?php echo $asp->nombre; ?>">Tortuguero (ACTO)</option>
+                 </select>
+                 <label><i class="small material-icons">terrain</i> Área Conservación</label>
+               </div>
+
+                <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
                   <div class="input-field col s6 m5 l6  ">
-                    <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" ><i class="small material-icons">turned_in_not</i><span class="hide-on-small-only">Área Protegida</span></label>
+                    <input  id="ubicacion" type="text" name="ubicacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                    <label for="ubicacion" ><i class="small material-icons">location_on</i><span class="hide-on-small-only">Ubicación geográfica</span></label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
                  <div class="input-field col s6 m5 l6  ">
-                   <input  id="tipo" type="text" name="tipo" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="tipo" >  <i class="small material-icons">receipt</i><span class="hide-on-small-only">Tipo ASP</span></label>
+                   <input  id="tipo" type="text" name="tipo" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                   <label for="tipo" >  <i class="small material-icons">description</i><span class="hide-on-small-only">Tipo ASP</span></label>
                  </div>
-               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+               </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
-
-        <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-          <div class="input-field col s12 m5 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-            <input  id="area_conservacion" type="text" name="area_conservacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-            <label for="area_conservacion" >  <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Conservación</span></label>
-          </div>
-        </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
         <!--BOTON QUE ME ENVIA EL FORMULARIO-->
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -73,30 +85,13 @@
             <!-- CarbonAds Zone Code -->
             <script async="" type="text/javascript"
             src="" id="_carbonads_js"></script>
-
-        <!--    <div id="carbonads">
-              <span>
-                <span class="carbon-wrap">
-                  <a href="" class="carbon-img" target="_blank">
-
-                    <img src="" alt="" style="max-width: 130px;" height="100" border="0" width="130"></a>
-                    <br>
-              <!--      <a href="" class="carbon-text" target="_blank">Algo mas de texto</a></span> -
-                    <br>
-                <!--    <a href="" class="carbon-poweredby" target="_blank">Un texto mas...</a></span></div> -
-              </div>  -->
                 <div style="height: 1px;">
                   <ul class="section table-of-contents">
 
                     <hr>
                     <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                    <hr>
 
-
-                    <li>Puedo poner lista de items</li>
-                    <li>Otro link por aqui...</li>
-                    <li><h5>Area Protegida</h5></li>
 
                   </ul>
                 </div>

@@ -45,7 +45,7 @@ class ASPController{
         $asp->id                = $_REQUEST['id'];
         $asp->nombre            = $_REQUEST['nombre'];
         $asp->tipo              = $_REQUEST['tipo'];
-        $asp->area_conservacion = $_REQUEST['area_conservacion'];
+        $asp->ubicacion         = $_REQUEST['ubicacion'];
 
 
         $asp->id > 0

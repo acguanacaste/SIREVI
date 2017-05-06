@@ -23,7 +23,7 @@ class Perfil_imagenController{
             $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/perfil/perfil_imagenModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -37,7 +37,7 @@ class Perfil_imagenController{
           $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
       }
 
-      require_once 'view/includes/header.php';
+      require_once 'view/includes/headerPrincipal.php';
       require_once 'view/usuario/contrasena.php';
       require_once 'view/includes/footer.php';
 
@@ -52,7 +52,7 @@ class Perfil_imagenController{
             $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/perfil/perfil_imagen.php';
         require_once 'view/includes/footer.php';
     }

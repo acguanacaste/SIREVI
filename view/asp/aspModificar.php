@@ -13,7 +13,7 @@
 
 
 <fieldset>
-  <legend><h5>Formulario para Registros</h5>
+  <legend><h5>Modulo Areas Protegidas</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>
     <div class="container contact">
       <hr>
@@ -25,25 +25,38 @@
               <input type="hidden" name="id" value="<?php echo $asp->id; ?>" />
               <div>
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m5 l6  ">
+                  <div class="input-field col s12 m5 l12  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $asp->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" ><i class="small material-icons">turned_in_not</i>Área Silvestre</label>
+                    <label for="name" ><i class="small material-icons">location</i>Área Conservación</label>
                   </div>
+                </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
-                 <div class="input-field col s6 m5 l6  ">
-                   <input  id="last_name" type="text" name="tipo" value="<?php echo $asp->tipo; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="last_name" >  <i class="small material-icons">receipt</i>Tipo ASP</label>
-                 </div>
+
+                   <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
+                     <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+                       <input  id="ubicacion" type="text" name="ubicacion" value="<?php echo $asp->ubicacion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" requiered>
+                       <label for="ubicacion" >  <i class="small material-icons">location_on</i>Ubicación geográfica</label>
+                     </div>
+
+                     <div class="input-field col s6 m5 l6  ">
+                       <input  id="last_name" type="text" name="tipo" value="<?php echo $asp->tipo; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                       <label for="last_name" >  <i class="small material-icons">description</i>Tipo ASP</label>
+                     </div>
+
+
+                   </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
+
+
+
+
+
+
+
                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
 
-        <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-          <div class="input-field col s12 m10 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-            <input  id="last_name" type="text" name="area_conservacion" value="<?php echo $asp->area_conservacion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-            <label for="last_name" >  <i class="small material-icons">location_on</i>Área de Conservacion</label>
-          </div>
-        </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
+
 
         <!--BOTON QUE ME ENVIA EL FORMULARIO-->
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -72,34 +85,12 @@
             <script async="" type="text/javascript"
             src="" id="_carbonads_js"></script>
 
-        <!--    <div id="carbonads">
-              <span>
-                <span class="carbon-wrap">
-                  <a href="" class="carbon-img" target="_blank">
-
-                    <img src="" alt="" style="max-width: 130px;" height="100" border="0" width="130"></a>
-                    <br>
-              <!--      <a href="" class="carbon-text" target="_blank">Algo mas de texto</a></span> -
-                    <br>
-                <!--    <a href="" class="carbon-poweredby" target="_blank">Un texto mas...</a></span></div> -
-              </div>  -->
                 <div style="height: 1px;">
                   <ul class="section table-of-contents">
 
                     <hr>
                     <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                    <hr>
-
-                    <div class="">
-
-                      <a style="color:#00b0ff" href="index.php?c=Sector&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Agregar Área Protegida</a>
-
-                      <hr>
-                    </div>
-                    <li>Puedo poner lista de items</li>
-                    <li>Otro link por aqui...</li>
-                    <li><h5>Area Protegida</h5></li>
 
                   </ul>
                 </div>

@@ -1,4 +1,9 @@
-
+<?php
+$conexion = mysql_connect("localhost","root");
+mysql_select_db("sirevi",$conexion);
+$sentencia = "select * from ASP order by nombre ASC";
+$query = mysql_query($sentencia);
+?>
 <main>
   <div class="container">
     <div class="row">
@@ -25,62 +30,38 @@
 
                 <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
                   <div class="input-field col s12 m12 l12  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                     <label for="nombre" >  <i class="small material-icons">perm_media</i>Nombre del Sector</label>
                   </div>
                 </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
-
-
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
 
                   <div class="input-field col s6 m6 l6  ">
-                    <input  id="capacidad_acampar" type="text" name="capacidad_acampar" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <input  id="capacidad_acampar" type="text" name="capacidad_acampar" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                     <label for="capacidad_acampar" >  <i class="small material-icons">supervisor_account</i> Capacidad acampar</label>
                   </div>
 
 
                <!--INICIO DE COLUMNA CODIGO-->
                <div class="input-field col s6 m6 l6  ">
-                 <input  id="capacidad_diaria" type="text" name="capacidad_diaria" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                 <input  id="capacidad_diaria" type="text" name="capacidad_diaria" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                  <label for="capacidad_diaria" >  <i class="small material-icons">supervisor_account</i>Capacidad diaria</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
-<!--===========================  AREA DE CONSERVACION ============================================-->
-
-<!--?php
-$sql = "SELECT nombre FROM asp  ORDER BY nombre";
-$res = mysql_query($sql,$con);
-$c=0;
-while($row = mysql_fetch_assoc($res)){
-         $vector[$c] = $row['nombre'];
-         $c++;
-}
-for($f=0;$f<$c;$f++){
-
-if($vector[$f]!=0){
-?>
-<input type="checkbox"  value="<php echo $vector[$f] ?>" name="material[]"  checked="checked"/>
-}else{
-<input type="checkbox"  value="php echo $vector[$f] ?>" name="material[]"  />
-}
-}
--->
-
-             <div class="">
+             <div class="row">
                 <div class="input-field col s12 m12 l12">
                  <select>
-                   <option value="" disabled selected>Elija una opcion</option>
-                   <option value="1">Opcion 1</option>
-                   <option value="2">Opcion 2</option>
-                   <option value="3">Opcion 3</option>
+                    <option value="" disabled selected>Elija una opcion</option>
+                   <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                   <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+                   <?php } ?>
+
                  </select>
-                 <label>Selecione Area Silvestre</label>
+                 <label>Selecione Área Protegida</label>
                </div>
               </div>
-
-
 
               <!--BOTON QUE ME ENVIA EL FORMULARIO-->
               <button title="Enviar" class="btn waves-effect waves-light teal darken-4"

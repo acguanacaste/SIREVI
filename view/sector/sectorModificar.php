@@ -27,43 +27,32 @@
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s12 m12 l12  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $sector->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="name" >  <i class="small material-icons"></i>Nombre sector</label>
+                    <label for="name" >  <i class="small material-icons">view_quilt</i>Nombre sector</label>
                   </div>
                   </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
                  <!--INICIO DE COLUMNA APELLIDO-->
-                 <div>
-                <div class="input-field col s6 m6 l6  ">
+                 <div class="row">
+                <div class="input-field col s6 m5 l6  ">
                   <input  id="capacidad_diaria" type="text" name="capacidad_diaria" value="<?php echo $sector->capacidad_diaria; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                  <label for="capacidad_diaria" >  <i class="small material-icons"></i>Capaciddad Diaria</label>
+                  <label for="capacidad_diaria" >  <i class="small material-icons">supervisor_account</i>Capaciddad Diaria</label>
                 </div>
-              </div>
-
-
-
-
-     <!--INICIO DE LA FILA 2-->
+         <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
-                   <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
-                     <div class="input-field col s6 m6 l6 ">
+
+                     <div class="input-field col s6 m5 l6 ">
                        <input  id="capacidad_acampar" type="text" name="capacidad_acampar"  value="<?php echo $sector->capacidad_acampar; ?>" value="<?php echo $sector->capacidad_acampar; ?>" class="form-control"  class="validate" data-validacion-tipo="requerido|min:15">
-                       <label for="capacidad_acampar"> <i class="small material-icons">picture_in_picture</i>Capacidad Campistas</label>
+                       <label for="capacidad_acampar"> <i class="small material-icons">work</i>Capacidad Campistas</label>
                      </div>
-
-
-                   <!--INICIO DE COLUMNA CONTRASENA-->
-                   <div class="">
-                     <div class="input-field col s12 m12 l12">
-                      <select  id="asp" type="text" name="asp" value=<?php echo $sector->asp ?>>
-                        <option value="" disabled selected>Elija una opcion</option>
-                        <option value="1">Opcion 1</option>
-                        <option value="2">Opcion 2</option>
-                        <option value="3">Opcion 3</option>
-                      </select>
-                      <label>Selecione Area Silvestre</label>
-                    </div>
                    </div>
-               </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
+
+                   <!--INICIO DE COLUMNA -->
+                   <div class="row">
+                     <div class="input-field col s12 m10 l12 ">
+                       <input  id="asp" type="text" name="asp"  value="<?php echo $sector->asp; ?>" value="<?php echo $sector->asp; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                       <label for="asp"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
+                     </div>
+               </div><!--FIN DEL DIV DE FILA-->
 
 
 
@@ -93,34 +82,12 @@
             <script async="" type="text/javascript"
             src="" id="_carbonads_js"></script>
 
-        <!--    <div id="carbonads">
-              <span>
-                <span class="carbon-wrap">
-                  <a href="" class="carbon-img" target="_blank">
-
-                    <img src="" alt="" style="max-width: 130px;" height="100" border="0" width="130"></a>
-                    <br>
-              <!--      <a href="" class="carbon-text" target="_blank">Algo mas de texto</a></span> -
-                    <br>
-                <!--    <a href="" class="carbon-poweredby" target="_blank">Un texto mas...</a></span></div> -
-              </div>  -->
                 <div style="height: 1px;">
                   <ul class="section table-of-contents">
 
                     <hr>
                     <li><a  href="index.php?c=Sector" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                    <hr>
-
-                    <div class="">
-
-                      <a style="color:#00b0ff" href="index.php?c=Sector&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Agregar Sector</a>
-
-                      <hr>
-                    </div>
-                    <li>Puedo poner lista de items</li>
-                    <li>Otro link por aqui...</li>
-                    <li><h5>Sectores...</h5></li>
 
                   </ul>
                 </div>
