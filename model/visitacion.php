@@ -135,7 +135,7 @@ class Visitacion{
 		}
 	}
 
-	public function Registrar(Usuario $data)
+	public function Registrar(Visitacion $data)
 	{
 		try
 		{

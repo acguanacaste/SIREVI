@@ -60,18 +60,16 @@
 
      <!--INICIO DE LA TERCERA FILA-->
      <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-             <div class="row"><!--INICIO DE TERCERA FILA-->
-               <div class="input-field col s12 m12 l12" >
-                 <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>">
-                   <option value="" disabled selected>Elija una opción</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Administrador</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Encargado de sector</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Reportes</option>
-                 </select>
-                 <label for="puesto">Puesto en la Institución</label>
-               </div>
-               </div><!--FIN DE LA TERCERA FILA-->
-
+     <div class="row"><!--INICIO DE TERCERA FILA-->
+       <div class="input-field col s12 m10 l12" >
+         <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
+           <option value="" disabled selected>Elija una opción</option>
+           <option value="Administrador" <?php echo $user->puesto=="Administrador"?"selected":null; ?>>Administrador</option>
+           <option value="<?php echo $user->puesto; ?>">Encargado de sector</option>
+           <option value="<?php echo $user->puesto; ?>">Reportes</option>
+         </select>
+         <label for="puesto">Puesto en la Institución</label>
+       </div>
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
        <div class="row">

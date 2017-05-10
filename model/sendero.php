@@ -7,6 +7,8 @@ class Sendero{
     public $distancia;
     public $longitud;
     public $latitud;
+		public $sector;
+
 
 
 	public function __CONSTRUCT()
@@ -78,7 +80,8 @@ class Sendero{
 						nombre            = ?,
 						distancia         = ?,
             longitud          = ?,
-            latitud           = ?
+            latitud           = ?,
+						sector 						= ?
 
 
 				    WHERE id = ?";
@@ -90,6 +93,7 @@ class Sendero{
                         $data->distancia,
                         $data->longitud,
                         $data->latitud,
+												$data->sector,
                         $data->id
 					)
 				);
@@ -103,8 +107,8 @@ class Sendero{
 	{
 		try
 		{
-		$sql = "INSERT INTO sendero (nombre,distancia,longitud,latitud)
-		        VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO sendero (nombre,distancia,longitud,latitud,sector)
+		        VALUES (?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -113,6 +117,8 @@ class Sendero{
                     $data->distancia,
                     $data->longitud,
                     $data->latitud,
+										$data->sector,
+
 
 
                 )

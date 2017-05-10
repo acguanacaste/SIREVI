@@ -40,15 +40,14 @@ class SectorController{
 
 
     public function Guardar(){
-
-
         $sector = new Sector();
-
 
         $sector->id                = $_REQUEST['id'];
         $sector->nombre            = $_REQUEST['nombre'];
         $sector->capacidad_diaria  = $_REQUEST['capacidad_diaria'];
         $sector->capacidad_acampar = $_REQUEST['capacidad_acampar'];
+        $sector->asp               = $_REQUEST['asp'];
+
 
 
         $sector->id > 0

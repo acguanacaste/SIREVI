@@ -59,7 +59,7 @@
                <div class="input-field col s12 m10 l12" >
                  <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Administrador</option>
+                   <option data-value="<?php echo $user->puesto=="Administrador"?"selected":; ?>">Administrador</option>
                    <option data-value="<?php echo $user->puesto; ?>">Encargado de sector</option>
                    <option data-value="<?php echo $user->puesto; ?>">Reportes</option>
                  </select>

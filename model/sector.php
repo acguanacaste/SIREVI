@@ -6,7 +6,7 @@ class Sector{
     public $nombre;
     public $capacidad_diaria;
     public $capacidad_acampar;
-
+		public $asp;
 
 	public function __CONSTRUCT()
 	{
@@ -90,18 +90,15 @@ class Sector{
                         $data->id
 					)
 				);
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
+		} catch (Exception $e){
+				die($e->getMessage());
 		}
 	}
 
-	public function Registrar(Sector $data)
-	{
-		try
-		{
-		$sql = "INSERT INTO sector (nombre,capacidad_diaria,capacidad_acampar)
-		        VALUES (?, ?, ?)";
+	public function Registrar(Sector $data){
+		try{
+		$sql = "INSERT INTO sector (nombre,capacidad_diaria,capacidad_acampar,asp)
+		        VALUES (?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -109,7 +106,7 @@ class Sector{
                     $data->nombre,
                     $data->capacidad_diaria,
                     $data->capacidad_acampar,
-
+										$data->asp,
 
 
                 )

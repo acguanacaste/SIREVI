@@ -1,9 +1,3 @@
-<?php
-$conexion = mysql_connect("localhost","root");
-mysql_select_db("sirevi",$conexion);
-$sentencia = "select * from sector order by nombre ASC";
-$query = mysql_query($sentencia);
-?>
 <main>
   <div class="container">
     <div class="row">
@@ -24,21 +18,21 @@ $query = mysql_query($sentencia);
       <div class="row">
         <div class="col col s12 m12 l12">
           <div class="row">
-            <form id="frm-asp" action="?c=Sector&a=Guardar" method="post" enctype="multipart/form-data">
+            <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
 
               <div>
 
                 <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
                   <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
                     <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
                   </div>
 
 
                 <!--INICIO DE COLUMNA -->
                 <div class="input-field col s6 m5 l6  ">
-                  <input  id="distancia" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                  <input  id="distancia" type="number" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
                   <label for="distancia" >  <i class="small material-icons">settings_backup_restore</i>Distancia</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
@@ -47,24 +41,29 @@ $query = mysql_query($sentencia);
 
               <div class="row"><!---INICIO DE LA PRIMERA FILA-->
                 <div class="input-field col s6 m6 l6  ">
-                  <input  id="last_name" type="text" name="latitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                  <label for="last_name" >  <i class="small material-icons">language</i>Latitud</label>
+                  <input  id="latitud" type="text" name="latitud"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                  <label for="latitud" >  <i class="small material-icons">language</i>Latitud</label>
              </div>
 
 
                <!--INICIO DE COLUMNA CODIGO-->
                <div class="input-field col s6 m6 l6  ">
-                 <input  id="last_name" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                 <label for="last_name" >  <i class="small material-icons">language</i>Longitud</label>
+                 <input  id="longitud" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="longitud" >  <i class="small material-icons">language</i>Longitud</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
 
 
-
+              <?php
+              $conexion = mysql_connect("localhost","root");
+              mysql_select_db("sirevi",$conexion);
+              $sentencia = "select * from sector order by nombre ASC";
+              $query = mysql_query($sentencia);
+              ?>
               <div class="row">
                  <div class="input-field col s12 m12 l12">
-                  <select>
+                  <select name="sector">
                      <option value="" disabled selected>Elija una opcion</option>
                     <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
                     <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
