@@ -5,7 +5,7 @@ class ASP{
     public $id;
     public $nombre;
     public $tipo;
-		public $ubicacion;/*Provincia a la que pertenece el area de conservacion*/
+		public $ubicacion;/*Provincia a la que pertenece el area de conservacion, campo opcional aun no implementado*/
 
 
 

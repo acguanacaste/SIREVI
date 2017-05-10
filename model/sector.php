@@ -106,7 +106,7 @@ class Sector{
                     $data->nombre,
                     $data->capacidad_diaria,
                     $data->capacidad_acampar,
-										$data->asp,
+										$data->asp
 
 
                 )

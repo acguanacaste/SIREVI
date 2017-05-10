@@ -117,7 +117,7 @@ class Sendero{
                     $data->distancia,
                     $data->longitud,
                     $data->latitud,
-										$data->sector,
+										$data->sector
 
 
 
