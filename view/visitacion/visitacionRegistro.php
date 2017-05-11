@@ -4,27 +4,21 @@
 
       <div class="col s12 m12 l12">
         <!-- Inicio de mi codigo -->
-        <ul class="right-align">
+        <!--<ul class="right-align">
           <li>
-
             <div class="btn teal lighten-4 right-align ">No. Diario:&nbsp;#00
-              <script>
-              
-                var myNumber = 0;
-                myNumber += 1;
-                document.write(myNumber);
-                </script>
           </div>
         </li>
-      </ul>
-      <div id="" class="">
+      </ul>-->
+
+    <div id="" class="">
     <hr>
 <!--===========================================================================================================-->
     <fieldset>
       <legend><h5>Formulario de Visitación  --> Usuario: <?php echo $visit->nombre; ?></h5>
         <h6>Completar la informacion con los datos correspondientes</h6></legend>
         <div class="">
-        <hr> <br>
+          <hr> <br>
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
             <div class="col col s12 m12 l12">
               <div class="">
@@ -259,7 +253,7 @@
 <!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
 <div class="">
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-    <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+    <button  onClick="incrementar()" value="aumentar"title="Enviar" class="btn waves-effect waves-light teal darken-4"
         value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
         <i class="mdi-content-send material-icons right">done</i>
     </button>
@@ -286,10 +280,20 @@
   </div>
 </div>
 </main>
-<script>
+
+<script  language="JavaScript">
     $(document).ready(function(){
           $("#frm-visitacion").submit(function(){
               return $(this).validate();
           });
       })
+
+    var contador=0;
+    function incrementar() {
+    if(contador==800)
+    alert('Maximo permitido alcanzado: 800');
+    else {
+    contador++;
+    alert('El Numero diario para el registro es :' + contador);}
+    }
   </script>

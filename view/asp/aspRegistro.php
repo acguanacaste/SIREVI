@@ -4,8 +4,9 @@
 
       <div class="col s12 m9 l10">
 <!-- Inicio de mi codigo -->
-        <div id="search-docs" class="section scrollspy">
-          <hr>
+
+    <div id="search-docs" class="section scrollspy">
+    <hr>
 
 <!--===========================================================================================================-->
 
