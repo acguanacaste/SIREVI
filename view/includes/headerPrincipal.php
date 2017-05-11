@@ -26,7 +26,7 @@
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
-				  	$('.datepicker').pickadate({
+				  $('.datepicker').pickadate({
 						selectMonths: true, // Creates a dropdown to control month
 						selectYears: 15 // Creates a dropdown of 15 years to control year
 					});
@@ -34,8 +34,22 @@
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
-                });
-								
+/*
+					$('input.autocomplete').autocomplete({
+				     data: {
+				       "Argentina": null,
+				       "Venezuela": null,
+							 "Estado Unidos": null,
+				       "Costa Rica": 'http://placehold.it/250x250'
+				     },
+				     limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+				     onAutocomplete: function(val) {
+				       // Callback function when value is autcompleted.
+				     },
+				     minLength: 3, // The minimum length of the input for the autocomplete to start. Default: 1.
+				   });*/
+          });
+
 				</script>
 
 <body>
