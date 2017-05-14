@@ -20,11 +20,11 @@ class Visitacion{
     public $acampa;
     public $dias_camping;
     public $cantidadPersonasSurf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
-		public $lugar_camping;//Varable que me gusrda el lugar donde esta acampando
+		//public $lugar_camping;//Varable que me gusrda el lugar donde esta acampando
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
 		public $nacional_adult;//Se guarda el monto por visitante nacional
-		public $extranjero_adult;//Se guarda el monto por visitante extranjero
 		public $nacional_kid;//Se guarda el monto por ninos Nacionales
+		public $extranjero_adult;//Se guarda el monto por visitante extranjero
 		public $extranjero_kid;//Se guarda el monto por ninos Extranjeros
 
 		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
@@ -56,7 +56,7 @@ class Visitacion{
 		{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select visitacion.id, visitacion.nombre as Nombre,pais.nombre as Pais, fecha_ingreso, fecha_salida, sector.nombre AS Sector,
+			$stm = $this->pdo->prepare("select visitacion.id, visitacion.nombre as Nombre,pais.nombre as Pais, fecha_ingreso, sector.nombre AS Sector,
 			dias_camping as Dias, monto, moneda from visitacion inner join usuarios on visitacion.usuario = usuarios.id
 			inner join asp on visitacion.asp = asp.id inner join sector on visitacion.sector = sector.id
 			inner join sendero on visitacion.sendero = sendero.id inner join pais on visitacion.pais = pais.id
@@ -125,11 +125,11 @@ class Visitacion{
 					  acampa                = ?,
             dias_camping          = ?,
             cantidadPersonasSurf  = ?,
-						lugar_camping         = ?,
+
 -----------------------------------------------------------------
 						nacional_adult        = ?,
-						extranjero_adult      = ?,
 						nacional_kid          = ?,
+						extranjero_adult      = ?,
 						extranjero_kid  			= ?,
 						prepago               = ?,
             exonerado             = ?,
@@ -159,11 +159,11 @@ class Visitacion{
                         $data->acampa,
                         $data->dias_camping,
                         $data->cantidadPersonasSurf,
-												$data->lugar_camping,
+
 //-----------------------------------------------------------------
 												$data->nacional_adult,
-												$data->extranjero_adult,
 												$data->nacional_kid,
+												$data->extranjero_adult,
 												$data->extranjero_kid,
                         $data->prepago,
                         $data->exonerado,
@@ -185,8 +185,8 @@ class Visitacion{
 		try
 		{
 		$sql = "INSERT INTO usuarios (noIdentificacion, nombre, placa_automovil, pais, provincia, referencia_visita, fecha_ingreso, sendero, acampa, dias_camping,
-																	cantidadPersonasSurf,nacional_adult,extranjero_adult,nacional_kid,extranjero_kid, prepago, exonerado, tipo_pago, monto, moneda)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+																	cantidadPersonasSurf,nacional_adult,nacional_kid,extranjero_adult,extranjero_kid, prepago, exonerado, tipo_pago, monto, moneda)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -206,11 +206,11 @@ class Visitacion{
 										$data->acampa,
                     $data->dias_camping,
                     $data->cantidadPersonasSurf,
-										$data->lugar_camping,
+
 //---------------------------------------------------------------------------------------------------
 										$data->nacional_adult,
-										$data->extranjero_adult,
 										$data->nacional_kid,
+										$data->extranjero_adult,
 										$data->extranjero_kid,
                     $data->prepago,
                     $data->exonerado,

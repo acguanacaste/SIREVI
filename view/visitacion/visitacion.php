@@ -21,7 +21,7 @@
 
               <th>Sector</th>
               <th>Dias </th>
-          
+
               <th>Monto</th>
               <th>Moneda</th>
               <!--<th>Total</th>-->
