@@ -73,7 +73,7 @@ class VisitacionController{
         $visit->exonerado             = $_REQUEST['exonerado'];
 //-----------------------------------------------------------------------------------------------------
         $visit->tipo_pago             = $_REQUEST['tipo_pago'];
-//        $visit->monto                 = $_REQUEST['monto'];
+        $visit->monto                 = $_REQUEST['monto'];
         $visit->moneda                = $_REQUEST['moneda'];
 
 

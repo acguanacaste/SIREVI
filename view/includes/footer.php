@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright brown-lighten-4">
         <div class="container">© 2016 Sistema de Informacion para el Registro de Visitacion, Area Conservación Guanacaste
           <a class="grey-text text-lighten-2 right" href="#!">SIREVI(ACG)</a> </div>
       </div>

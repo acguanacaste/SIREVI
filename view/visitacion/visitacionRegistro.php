@@ -48,8 +48,8 @@
     <!--===================================================================================================================================================-->
 
                 <div class=""><!---Inicio de la segunda fila-->
-                <!--==============Cargando los paices==============================-->
-                  <?php
+                <!--==============Cargando los paices==============================--
+                  <php
                   $conexion = mysql_connect("localhost","root");
                   mysql_select_db("sirevi",$conexion);
                   $sentencia_pais = "select * from pais order by nombre ASC";
@@ -58,24 +58,73 @@
                   <div  class="input-field col s6 m6 l4">
                     <select name="pais">
                       <option value="" disabled selected>Elija un pais</option>
-                      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                      <?php } ?>
+                      <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                      <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
+                      <php } ?>
                     </select>
-                    <label>País</label>
+                    <label>País</label>-
+                  </div>-->
+                  <div class="input-field col s6 m6 l4">
+                    <select name="pais">
+                      <option value="" disabled selected>Elija un país</option>
+                      <option value="">Alemania</option>
+                      <option value="">Argentina</option>
+                      <option value="">Australia</option>
+                      <option value="">Austria</option>
+                      <option value="">Bélgica</option>
+                      <option value="">Bielorrusia</option>
+                      <option value="">Brasil</option>
+                      <option value="">Canadá</option>
+                      <option value="">China</option>
+                      <option value="">Colombia</option>
+                      <option value="">Dinamarca</option>
+                      <option value="">Ecuador</option>
+                      <option value="">El Salvador</option>
+                      <option value="">Escocia</option>
+                      <option value="">España</option>
+                      <option value="">Estados Unidos</option>
+                      <option value="">Estonia</option>
+                      <option value="">Finlandia</option>
+                      <option value="">Francia</option>
+                      <option value="">Guatemala</option>
+                      <option value="">Holanda</option>
+                      <option value="">Honduras</option>
+                      <option value="">Ingralterra</option>
+                      <option value="">Israel</option>
+                      <option value="">Italia</option>
+                      <option value="">Japón</option>
+                      <option value="">Líbano</option>
+                      <option value="">México</option>
+                      <option value="">Nicaragua</option>
+                      <option value="">Panamá</option>
+                      <option value="">Portugal</option>
+                      <option value="">R. Checa</option>
+                      <option value="">Rusia</option>
+                      <option value="">Suecia</option>
+                      <option value="">Suiza</option>
+                      <option value="">Venezuela</option>
+                    </select>
+                    <label><i class="small material-icons" ></i>País</label>
                   </div>
+
 
 
                   <!--==============Cargando las cuidades============================================-->
                   <?php
+
+                  $conexion = mysql_connect("localhost","root");
+                  mysql_select_db("sirevi",$conexion);
+                  $sentencia = "select * from provincia order by nombre ASC";
+                  $query = mysql_query($sentencia);
+
                   $sentencia_cuidad = "select * from provincia order by nombre ASC";
-                  $query_cuidad = mysql_query($sentencia_cuidad);
+                  $query = mysql_query($sentencia);
                   ?>
                   <div class="input-field col s6 m6 l4">
                     <select name="provincia">
                       <option value="" disabled selected>Elija una provincia</option>
-                      <?php while ($arreglo_cuidad = mysql_fetch_array($query_cuidad)) {  ?>
-                      <option value="<?php echo $arreglo_cuidad['id']?>"><?php echo $arreglo_cuidad['nombre'] ?></option>
+                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
                       <?php } ?>
                     </select>
                     <label> Provincia</label>
@@ -84,15 +133,22 @@
                   <div class="input-field col s6 m6 l4">
                     <select name="referencia_visita">
                       <option value="" disabled selected>&nbsp;Referencia de Visita</option>
-                      <option value="1">Visita reiterada</option>
-                      <option value="2">Medios de comunicación</option>
+                      <option value="1">Expontaneamente en ruta</option>
+                      <option value="2">Referencia de alguien mas</option>
                       <option value="3">Recomendación por amigos</option>
-                      <option value="4">Option </option>
-                      <option value="5">Option </option>
-                      <option value="6">Option </option>
-                      <option value="7">Option </option>
-                      <option value="8">Option </option>
+                      <option value="4">Visita reiterada</option>
+                      <option value="5">Selección directa personal (Check list)</option>
+                      <option value="6">Operadora turística</option>
+                      <option value="7">Medio de comunicación</option>
+                      <option value="8">Guías impresas</option>
                       <option value="9">Option </option>
+                      <option value="">Guías impresas</option>
+                      <option value="">Grupo comunal organizado</option>
+                      <option value="">Empresa privada</option>
+                      <option value="">ONGs en proyectos de investigación y conservación</option>
+                      <option value="">Institución pública</option>
+                      <option value="">Otro</option>
+
                     </select>
                     <label><i class="small material-icons" >info_outline</i></label>
                   </div>
@@ -135,21 +191,18 @@
                              </div>
 
                           <div class="input-field col s6 m6 l6">
-                            <fieldset class="">
+                            <fieldset onended="">
                               <p class="input-field col s6 m6 l6">
-                                <input tabindex="0" class="with-gap" value="no" name="acampa" type="radio" selected id="acampano" checked="default" />
+                                <input tabindex="0" class="with-gap" value="visita por el dia" name="acampa" type="radio" selected id="acampano" checked="default" />
                                 <label for="acampano">No</label>
                               </p>
 
                               <p class="input-field col s6 m6 l6">
-                                <input  tabindex="0" class="with-gap" value="si" name="acampa" type="radio" id="acampasi" />
+                                <input  tabindex="0" class="with-gap" value="acampando por varios dias" name="acampa" type="radio" id="acampasi" />
                                 <label for="acampasi">Si</label>
                               </p>
                             </fieldset>
                           </div>
-
-
-
                      </fieldset>
                    </div>
                  </div></span></div>
@@ -171,8 +224,8 @@
 
           <div class=""><!--Inicio de la primea fila dentro del collapsible-->
             <div class="input-field col s12 m6 l6">
-              <fieldset class="z-depth-2">
-                <legend>Nacionales</legend>
+              <fieldset class="z-depth-3">
+                <legend>&nbsp;Nacionales&nbsp;</legend>
                 <div class="input-field col s12 m6 l6  ">
                   <input  id="nacional_adult" type="number" name="nacional_adult" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
@@ -187,8 +240,8 @@
             </div>
 
         <div class="input-field col s12 m6 l6">
-          <fieldset class="z-depth-2">
-            <legend>Extranjeros</legend>
+          <fieldset class="z-depth-3">
+            <legend>&nbsp;Extranjeros&nbsp;</legend>
 
             <div class="input-field col s12 m6 l6  ">
               <input  id="extranjero_adult" type="number" name="extranjero_adult" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
@@ -207,16 +260,16 @@
         <div class="">
 
           <div class="input-field col s12 m6 l12">
-            <fieldset class="z-depth-2">
+            <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
                 <div class="input-field col s12 m6 l4  ">
-                  <input  id="cantidadPersonasSurf" type="text" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                  <input  id="cantidadPersonasSurf" type="number" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                     <label for="cantidadPersonasSurf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                   </div>
 
                  <div class="input-field col s12 m6 l4  ">
                    <input  id="prepago" type="number" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="prepago" ><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
+                   <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
 
                  <div class="input-field col s12 m6 l4  ">
@@ -242,26 +295,30 @@
 <div class="input-field col s12 m12 l12">
 
       <fieldset class="z-depth-3">
-        <legend>Categorías de pago</legend>
+        <legend>&nbsp;Categorías de pago&nbsp;</legend>
         <div class=""><!--Inicio de la "?????" -->
 
           <div class="input-field col s12 m6 l6">
             <fieldset  class="z-depth-1">
-              <legend>Tipo de pago</legend>
+              <legend>&nbsp;Tipo de pago&nbsp;</legend>
               <p class="input-field col s12 m6 l4">
                 <input class="with-gap " value="efectivo" name="tipo_pago" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
-              <p class="input-field col s12 m6 l6">
+              <p class="input-field col s12 m6 l4">
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
               </p>
+              <!--<p class="input-field col s12 m6 l4">
+                <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Transferencia</label>
+              </p>-->
             </fieldset>
           </div>
 
           <div class="input-field col s12 m6 l6">
             <fieldset  class="z-depth-1 ">
-              <legend>Tipo moneda</legend>
+              <legend>&nbsp;Tipo moneda&nbsp;</legend>
               <p class="input-field col s12 m6 l6">
                 <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>

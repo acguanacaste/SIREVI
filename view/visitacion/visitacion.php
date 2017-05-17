@@ -24,6 +24,7 @@
 
               <th>Monto</th>
               <th>Moneda</th>
+              <th>Tipo pago</th>
               <!--<th>Total</th>-->
               <th style="width:40px;"></th>
               <th colspan="2">Acción</th>
@@ -40,6 +41,7 @@
               <td><?php echo $r->Sector; ?></td>
               <td><?php echo $r->Dias; ?></td>
               <td class="center"></td>
+              
               <td><?php echo $r->monto;?></td>
               <td><?php echo $r->moneda;?></td>
 

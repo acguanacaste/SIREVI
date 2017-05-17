@@ -33,9 +33,6 @@
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
-
-
-
      <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
@@ -59,12 +56,18 @@
                <div class="input-field col s12 m10 l12" >
                  <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
-                   <option data-value="<?php echo $user->puesto=="Administrador"?"selected":; ?>">Administrador</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Encargado de sector</option>
-                   <option data-value="<?php echo $user->puesto; ?>">Reportes</option>
+                   <option data-value="">Administrador</option>
+                   <option data-value="">Encargado de sector</option>
+                   <option data-value="">Reportes</option>
                  </select>
                  <label for="puesto">Puesto en la Institución</label>
                </div>
+
+<!--"<php echo $user->puesto=="Administrador"?"selected":; ?>
+<php echo $user->puesto=="Encargado de sector"?"selected":; ?>
+<php echo $user->puesto=="Reportes"?"selected":; ?>
+-->
+
 
                <!--INICIO DE LA COLUMNA PRIVILEGIO-->
         <!--       <div class="input-field col s6 m5 l6  ">
@@ -157,12 +160,7 @@
                       <hr>
                       <li><a  href="index.php?c=Usuario" >
                         <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">refresh</i></a></li>
-                        <hr>
-                          <li>Puedo poner lista de items</li>
-                          <li>Otro link por aqui...</li>
-                            <li><h5>Usuarios</h5></li>
-
-
+                  <hr>
                     </ul>
                   </div>
                 </div>
