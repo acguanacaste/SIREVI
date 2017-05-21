@@ -16,6 +16,7 @@ class UsuarioController{
     }
 
 
+
     public function Modificar(){
         $user = new Usuario();
 
@@ -41,8 +42,6 @@ class UsuarioController{
       require_once 'view/includes/footer.php';
 
     }
-
-
 
     public function agregarRegistro(){
         $user = new Usuario();
@@ -83,4 +82,14 @@ class UsuarioController{
         $this->model->Eliminar($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         header('Location: index.php?c=Usuario');
     }
+
+
+/*======================================================================*/
+    public function Desabilitar(){
+        $this->model->Desabilitar($_REQUEST['id'], $_REQUEST['valor']);/*Se esta llamndo desde model Usuarios*/
+        header('Location: index.php?c=Usuario');
+    }
+
+/*======================================================================*/
+
 }

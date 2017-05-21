@@ -53,6 +53,48 @@
                        <label for="asp"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
                      </div>
                </div><!--FIN DEL DIV DE FILA-->
+               <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                 <div class="input-field col s6 m6 l6">
+                   <fieldset>
+                     <legend>Nacionales</legend>
+                     <div class="input-field col s6 m6 l6 ">
+                       <input  id="adulto_nacional" type="number" name="adulto_nacional" value="<?php echo $sector->adulto_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                       <label for="adulto_nacional" >  <i class="small material-icons"></i>Adultos</label>
+                     </div>
+
+                     <div class="input-field col s6 m6 l6">
+                       <input  id="nino_nacional" type="number" name="nino_nacional" value="<?php echo $sector->nino_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                       <label for="nino_nacional" >  <i class="small material-icons"></i>Niños</label>
+                     </div>
+                   </fieldset>
+                 </div>
+
+
+               <div class="input-field col s6 m6 l6">
+                 <fieldset>
+                   <legend>Extranjeros</legend>
+                   <div class="input-field col s6 m6 l6  ">
+                     <input  id="adulto_extranjero" type="number" name="adulto_extranjero" value="<?php echo $sector->adulto_extranjero; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                     <label for="adulto_extranjero" >  <i class="small material-icons"></i>Adultos</label>
+                   </div>
+
+                   <div class="input-field col s6 m6 l6  ">
+                     <input  id="nino_extranjero" type="number" name="nino_extranjero" value="<?php echo $sector->nino_extranjero; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                     <label for="nino_extranjero" >  <i class="small material-icons"></i>Niños</label>
+                   </div>
+                 </fieldset>
+               </div>
+
+               <div class="input-field col s12 m12 l12">
+                 <fieldset>
+                   <legend>Derecho de acampar</legend>
+                   <div class="input-field col s6 m6 l6 center-align  ">
+                     <input  id="camping_amount" type="number" name="camping_amount" value="<?php echo $sector->camping_amount; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                     <label for="camping_amount" >  <i class="small material-icons"></i>Derecho de camping</label>
+                   </div>
+                 </fieldset>
+               </div>
+             </div><!-- -->
 
 
 

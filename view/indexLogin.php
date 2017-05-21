@@ -157,6 +157,39 @@ span.psw {
 												 <label for="pass">&nbsp;Contraseña</label>
 											</div>
 
+											<div class="input-field col s12 m12 l12 ">
+												<i class="material-icons prefix">vpn_key</i>
+												<input id="sector" name="sector" type="text" class="validate " required>
+												<label for="sector">&nbsp;Sector</label>
+										 </div>
+
+										<!--	<div class="input-field col s12 m12 l12">
+												<fieldset>
+													<legend>Sector en que se encuentra</legend>
+													<php
+													$conexion = mysql_connect("localhost","root");
+													mysql_select_db("sirevi",$conexion);
+													$sentencia = "select * from sector order by nombre ASC";
+													$query = mysql_query($sentencia);
+													?>
+						<!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
+
+												 <!--<div class="row">
+														<div class="input-field col s12 m12 l12">
+														 <select name="sector">
+																<option value="" disabled selected>Sectores</option>
+															 <php while ($arreglo = mysql_fetch_array($query)) {  ?>
+															 <option value="<php echo $arreglo['id']?>"><php echo $arreglo['nombre'] ?></option>
+															 <php } ?>
+
+														 </select>
+														 <label>Selecione Sector</label>
+													 </div>
+													</div>
+												</fieldset>
+											</div> -->
+
+
 											<div class="input-field col s12 m12 l12">
 												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 z-depth-2" name="enviar" type="submit">Iniciar sesión</button>
 											</div>

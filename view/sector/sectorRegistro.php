@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col s12 m12 l11">
           <div class="row">
-            <form id="frm-asp" action="?c=Sector&a=Guardar" method="post" enctype="multipart/form-data">
+            <form id="frm-sector" action="?c=Sector&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
 
               <div>
@@ -66,6 +66,49 @@
                  <label>Selecione Área Protegida</label>
                </div>
               </div>
+
+              <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                <div class="input-field col s6 m6 l6">
+                  <fieldset>
+                    <legend>Nacionales</legend>
+                    <div class="input-field col s6 m6 l6 ">
+                      <input  id="adulto_nacional" type="number" name="adulto_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                      <label for="adulto_nacional" >  <i class="small material-icons"></i>Adultos</label>
+                    </div>
+
+                    <div class="input-field col s6 m6 l6">
+                      <input  id="nino_nacional" type="number" name="nino_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                      <label for="nino_nacional" >  <i class="small material-icons"></i>Niños</label>
+                    </div>
+                  </fieldset>
+                </div>
+
+
+              <div class="input-field col s6 m6 l6">
+                <fieldset>
+                  <legend>Extranjeros</legend>
+                  <div class="input-field col s6 m6 l6  ">
+                    <input  id="adulto_extranjero" type="number" name="adulto_extranjero" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                    <label for="adulto_extranjero" >  <i class="small material-icons"></i>Adultos</label>
+                  </div>
+
+                  <div class="input-field col s6 m6 l6  ">
+                    <input  id="nino_extranjero" type="number" name="nino_extranjero" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                    <label for="nino_extranjero" >  <i class="small material-icons"></i>Niños</label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="input-field col s12 m12 l12">
+                <fieldset>
+                  <legend>Derecho de acampar</legend>
+                  <div class="input-field col s6 m6 l6 center-align  ">
+                    <input  id="camping_amount" type="number" name="camping_amount" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                    <label for="camping_amount" >  <i class="small material-icons"></i>Derecho de camping</label>
+                  </div>
+                </fieldset>
+              </div>
+            </div><!-- -->
 
               <!--BOTON QUE ME ENVIA EL FORMULARIO-->
               <button title="Enviar" class="btn waves-effect waves-light teal darken-4"

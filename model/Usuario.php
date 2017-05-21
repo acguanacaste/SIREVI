@@ -47,7 +47,6 @@ class Usuario{
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM usuarios WHERE id = ?");
 
-
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
 		} catch (Exception $e)
@@ -56,20 +55,39 @@ class Usuario{
 		}
 	}
 
+/*===============================================================================================================*/
 
-	public function Eliminar($id)/*Metodo que me borra los datos en la bd*/
-	{
-		try
-		{
-			$stm = $this->pdo
-			            ->prepare("DELETE FROM usuarios WHERE id = ?");
+	public function Deshabilitar($id,$valor){/*Metodo que me borra los datos en la bd*/
+	try{
+		//	$stm = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = ?");
+			if($valor == 'desactivado'){
+				echo "Usuario deshabilitado";
+			}
+			else {
+				echo "Usuario habilitado";
+			}
 
-			$stm->execute(array($id));
-		} catch (Exception $e)
-		{
+	//		$stm->execute(array($id));/*Aqui es donde selecciona el resgistro y se procede a realizar la accion*/
+
+		}
+
+		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
+
+/*================================================================================================================*/
+	public function Eliminar($id){/*Metodo que me borra los datos en la bd*/
+	try{
+			$stm = $this->pdo
+			            ->prepare("DELETE FROM usuarios WHERE id = ?");
+			$stm->execute(array($id));
+		}
+		catch (Exception $e){
+			die($e->getMessage());
+		}
+	}
+
 
 	public function Actualizar($data)/*Metodo que me modifica los datos en la bd*/
 	{

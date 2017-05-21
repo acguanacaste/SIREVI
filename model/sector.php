@@ -7,6 +7,12 @@ class Sector{
     public $capacidad_diaria;
     public $capacidad_acampar;
 		public $asp;
+		public $adulto_nacional;
+		public $nino_nacional;
+		public $adulto_extranjero;
+		public $nino_extranjero;
+		public $camping_amount;/*--Monto que se cobra por derecho de camping en cada sector --*/
+
 
 	public function __CONSTRUCT()
 	{
@@ -76,7 +82,12 @@ class Sector{
 			$sql = "UPDATE sector SET
 						nombre            = ?,
 						capacidad_diaria  = ?,
-            capacidad_acampar = ?
+            capacidad_acampar = ?,
+						adulto_nacional   = ?,
+						nino_nacional     = ?,
+						adulto_extranjero = ?,
+						nino_extranjero   = ?,
+						camping_amount    = ?
 
 
 				    WHERE id = ?";
@@ -87,6 +98,11 @@ class Sector{
                         $data->nombre,
                         $data->capacidad_diaria,
                         $data->capacidad_acampar,
+												$data->adulto_nacional,
+												$data->nino_nacional,
+												$data->adulto_extranjero,
+												$data->nino_extranjero,
+												$data->camping_amount,
                         $data->id
 					)
 				);
@@ -97,8 +113,8 @@ class Sector{
 
 	public function Registrar(Sector $data){
 		try{
-		$sql = "INSERT INTO sector (nombre,capacidad_diaria,capacidad_acampar,asp)
-		        VALUES (?, ?, ?, ?)";
+		$sql = "INSERT INTO sector (nombre,capacidad_diaria,capacidad_acampar,asp, adulto_nacional, nino_nacional, adulto_extranjero, nino_extranjero, camping_amount)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -106,7 +122,12 @@ class Sector{
                     $data->nombre,
                     $data->capacidad_diaria,
                     $data->capacidad_acampar,
-										$data->asp
+										$data->asp,
+										$data->adulto_nacional,
+										$data->nino_nacional,
+										$data->adulto_extranjero,
+										$data->nino_extranjero,
+										$camping_amount
 
 
                 )

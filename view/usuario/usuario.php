@@ -23,7 +23,7 @@
               <th>E-mail</th>
               <th>Imagen</th>
               <th style="width:40px;"></th>
-              <th colspan="2">Acción</th>
+              <th colspan="3">Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -42,8 +42,9 @@
                 </td>
 
                 <td>
-                  <a title="Deshabilitar Usuario" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
-                    href="?c=Usuario&a=&id=<?php echo $r->id; ?>"><!--Se escribira el nombre del metodo desabilitar una
+
+                  <a title="Deshabilitar Usuario" value="2" onchange="habilitar(this.value);" onclic="return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');"
+                    href="<?php echo $r->id; ?>"><!--Se escribira el nombre del metodo desabilitar una
                                                                       vez este implementado en el sistema-->
                   <i class=" circle small material-icons right z-depth-2">error</i></a>
                 </td>
@@ -59,3 +60,16 @@
     </div>
   </div>
 </main>
+
+<script>
+  function habilitar(value){
+    if(value=="1" || value==true){
+      // habilitamos
+      document.getElementById(<?php $_REQUEST['id']?>).disabled=false;
+
+    }else if(value=="2" || value==false){
+      // deshabilitamos
+      document.getElementById(<?php $_REQUEST['id']?>).disabled=true;
+    }
+  }
+</script>

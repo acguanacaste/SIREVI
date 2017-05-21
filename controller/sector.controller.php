@@ -47,7 +47,11 @@ class SectorController{
         $sector->capacidad_diaria  = $_REQUEST['capacidad_diaria'];
         $sector->capacidad_acampar = $_REQUEST['capacidad_acampar'];
         $sector->asp               = $_REQUEST['asp'];
-
+        $sector->adulto_nacional   = $_REQUEST['adulto_nacional'];
+        $sector->nino_nacional     = $_REQUEST['nino_nacional'];
+        $sector->adulto_extranjero = $_REQUEST['adulto_extranjero'];
+        $sector->nino_extranjero   = $_REQUEST['nino_extranjero'];
+        $sector->camping_amount    = $_REQUEST['camping_amount'];
 
 
         $sector->id > 0
