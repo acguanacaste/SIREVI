@@ -45,8 +45,8 @@ class SenderoController{
         $sendero->id = $_REQUEST['id'];
         $sendero->nombre = $_REQUEST['nombre'];
         $sendero->distancia = $_REQUEST['distancia'];
+        $sendero->latitud= $_REQUEST['latitud'];
         $sendero->longitud= $_REQUEST['longitud'];
-        $sendero->longitud= $_REQUEST['latitud'];
         $sendero->sector=$_REQUEST['sector'];
 
 
