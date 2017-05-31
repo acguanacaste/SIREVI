@@ -5,8 +5,6 @@
 		<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Informacion para Registro de Visitacion</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
 
 	<!-- Compiled and minified CSS -->
@@ -34,21 +32,38 @@
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
-/*
+/*=======================================================================================================================================*/
 					$('input.autocomplete').autocomplete({
 				     data: {
-				       "Argentina": null,
+				       "Argentina": null, "Australia":null, "Austria":null,
+							 "Bélgica":null,"Bielorrusia":null,"Brasil":null,
+							 "Canadá":null,"China":null,"Colombia":null,
+							 "Dinamarca":null,
+							 "Ecuador":null, "El Salvador":null, "Escocia":null, "España":null, "Estados Unidos":null, "Estonia":null,
+							 "Finlandia":null, "Francia":null,
+							 "Guatemala":null,
+							 "Holanda":null, "Honduras":null,
+							 "Inglaterra":null, "Israel":null, "Italia":null,
+							 "Japón":null,
+							 "Líbano":null,
+							 "México":null,
+							 "Nicaragua":null,
+							 "Panamá":null,	 "Portugal":null,
+							 "R. Checa":null, "Rusia":null,
+							 "Suecia":null, "Suiza":null,
 				       "Venezuela": null,
-							 "Estado Unidos": null,
 				       "Costa Rica": 'http://placehold.it/250x250'
 				     },
-				     limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+				     limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
 				     onAutocomplete: function(val) {
 				       // Callback function when value is autcompleted.
 				     },
-				     minLength: 3, // The minimum length of the input for the autocomplete to start. Default: 1.
-				   });*/
-          });
+				     minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
+				   });
+
+/*==========================================================================================================================================*/
+
+        });
 
 				</script>
 

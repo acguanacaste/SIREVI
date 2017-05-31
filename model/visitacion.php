@@ -18,6 +18,7 @@ class Visitacion{
 		public $sendero;
 
     public $acampa;
+		public $cantidad_personas_camping;
     public $dias_camping;
     public $cantidadPersonasSurf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
 		//public $lugar_camping;//Varable que me gusrda el lugar donde esta acampando
@@ -38,22 +39,17 @@ class Visitacion{
 
 
 
-	public function __CONSTRUCT()
-	{
-		try
-		{
+	public function __CONSTRUCT(){
+		try{
 			$this->pdo = Database::StartUp();
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Listar()
-	{
-		try
-		{
+	public function Listar(){
+		try{
 			$result = array();
 
 			$stm = $this->pdo->prepare("select visitacion.id, visitacion.nombre as Nombre,pais.nombre as Pais, fecha_ingreso, sector.nombre AS Sector,
@@ -65,78 +61,72 @@ class Visitacion{
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Obtener($id)
-	{
-		try
-		{
+	public function Obtener($id){
+		try{
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM visitacion WHERE id = ?");
 
 
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
-		} catch (Exception $e)
-		{
+		}
+		 catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
 
 
-	public function Eliminar($id)
-	{
-		try
-		{
+	public function Eliminar($id){
+		try{
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM visitacion WHERE id = ?");
 
 			$stm->execute(array($id));
-		} catch (Exception $e)
-		{
+		}
+		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Actualizar($data)
-	{
-		try
-		{
+	public function Actualizar($data){
+		try{
 			$sql = "UPDATE visitacion SET
 
-            noIdentificacion      = ?,
-						nombre                = ?,
-						placa_automovil       = ?,
-						referencia_visita     = ?,
+            noIdentificacion      		= ?,
+						nombre                		= ?,
+						placa_automovil       		= ?,
+						referencia_visita     		= ?,
 ---------------------------------------------------------------------
-						pais       						= ?,
-						provincia             = ?,
-						referencia_visita     = ?,
+						pais       								= ?,
+						provincia             		= ?,
+						referencia_visita     		= ?,
 -----------------------------------------------------------------------
-						fecha_ingreso         = ?,
+						fecha_ingreso         		= ?,
             --fecha_salida          = ?,
 ----------------------------------------------------------------------
-						sendero               = ?,
+						sendero               		= ?,
 ----------------------------------------------------------------------
-					  acampa                = ?,
-            dias_camping          = ?,
-            cantidadPersonasSurf  = ?,
+					  acampa                		= ?,
+            dias_camping          		= ?,
+						cantidad_personas_camping = ?,
+            cantidadPersonasSurf  		= ?,
 
 -----------------------------------------------------------------
-						nacional_adult        = ?,
-						nacional_kid          = ?,
-						extranjero_adult      = ?,
-						extranjero_kid  			= ?,
-						prepago               = ?,
-            exonerado             = ?,
-
-						tipo_pago       			= ?,
-						monto									= ?,
-            moneda                = ?
+						nacional_adult        		= ?,
+						nacional_kid          		= ?,
+						extranjero_adult      		= ?,
+						extranjero_kid  					= ?,
+						prepago               		= ?,
+            exonerado             		= ?,
+-------------------------------------------------------------------
+						tipo_pago       					= ?,
+						monto											= ?,
+            moneda                		= ?
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
@@ -158,6 +148,7 @@ class Visitacion{
 //--------------------------------------------------------------------
                         $data->acampa,
                         $data->dias_camping,
+												$cantidad_personas_camping,
                         $data->cantidadPersonasSurf,
 
 //-----------------------------------------------------------------
@@ -184,9 +175,9 @@ class Visitacion{
 	{
 		try
 		{
-		$sql = "INSERT INTO usuarios (noIdentificacion, nombre, placa_automovil, pais, provincia, referencia_visita, fecha_ingreso, sendero, acampa, dias_camping,
+		$sql = "INSERT INTO usuarios (noIdentificacion, nombre, placa_automovil, pais, provincia, referencia_visita, fecha_ingreso, sendero, acampa, dias_camping,cantidad_personas_camping,
 																	cantidadPersonasSurf,nacional_adult,nacional_kid,extranjero_adult,extranjero_kid, prepago, exonerado, tipo_pago, monto, moneda)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -205,6 +196,7 @@ class Visitacion{
 //-----------------------------------------------------------------------------------------------
 										$data->acampa,
                     $data->dias_camping,
+										$data->cantidad_personas_camping,
                     $data->cantidadPersonasSurf,
 
 //---------------------------------------------------------------------------------------------------
@@ -218,7 +210,6 @@ class Visitacion{
 										$data->tipo_pago,
 										$data->monto,
                     $data->moneda
-
 
                 )
 			);

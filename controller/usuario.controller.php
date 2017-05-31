@@ -68,6 +68,7 @@ class UsuarioController{
         $user->puesto     = $_REQUEST['puesto'];
         $user->email      = $_REQUEST['email'];
         $user->imagen     = $_REQUEST['imagen'];
+        $user->estado     = $_REQUEST['estado'];
 
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/
@@ -85,11 +86,17 @@ class UsuarioController{
 
 
 /*======================================================================*/
-    public function Desabilitar(){
-        $this->model->Desabilitar($_REQUEST['id'], $_REQUEST['valor']);/*Se esta llamndo desde model Usuarios*/
-        header('Location: index.php?c=Usuario');
+    public function CambiarEstado(){
+        session_start();
+
+        if ($_SESSION['usuario']['puesto']=="Administrador"){
+          $this->model->Estado($_REQUEST['id']);
+          header('Location: index.php?c=Usuario');
+        }
+        else {
+          header( 'HTTP/1.0 403 Forbiden');//)# code...
+      }
     }
 
 /*======================================================================*/
-
 }

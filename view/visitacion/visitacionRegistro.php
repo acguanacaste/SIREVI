@@ -3,15 +3,65 @@
     <div class="">
 
       <div class="col s12 m12 l12">
-        <!-- Inicio de mi codigo -->
-        <ul class="right-align">
-          <li>
 
-            <div class="btn teal lighten-4 right-align ">No. Diario:&nbsp;#00
+<!--====================================================================================================================-->
+        <div class="">
+          <fieldset>
+            <div class="">
+              <div class="col s12 m12 l12">
+                <div class="">
+                    <div><!-- Inicio de las filas y columnas -->
 
-          </div>
-        </li>
-      </ul>
+                      <div class="row"><!---Inicio de dos columnas-->
+
+                        <div class="input-field col s6 m4 l4">
+                          <fieldset><legend>Proposito de visita</legend>
+                          <div>
+                           <div class="">
+                               <p class="input-field col s6 m6 l6">
+                                 <input tabindex="0" class="with-gap" value="visita por el dia" name="acampa" type="radio" selected id="acampano" checked="default" />
+                                 <label for="acampano">Por el dia</label>
+                               </p>
+
+                               <p class="input-field col s6 m6 l6">
+                                 <input  tabindex="0" class="with-gap" value="acampando por varios dias" name="acampa" type="radio" id="acampasi" />
+                                 <label for="acampasi">Acampa</label>
+                               </p>
+                             </div>
+                           </div>
+                      </fieldset>
+                    </div>
+
+                      <div class="input-field col s6 m4 l2">
+                        <fieldset><legend>Numero diario</legend>
+                          <div class="btn teal lighten-4 right-align "> #&nbsp;00 </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="input-field col s6 m4 l3">
+                        <fieldset><legend>Capacidad de Sector</legend>
+                            <div class="btn teal lighten-4 right-align "> 20/80 </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="input-field col s6 m4 l3">
+                        <fieldset><legend>Sector</legend>
+                            <div class="btn teal lighten-4 right-align ">Nombre de Sector </div>
+                        </fieldset>
+                      </div>
+
+                     </div><!--Fin de columnas -->
+                   </div><!-- Fin de filas y columnas -->
+                </div><!-- <!-- Fin del row -->
+              </div><!-- Tamanos -->
+            </div><!-- Fin del row -->
+        <!--================================================================================================================================-->
+      </fieldset>
+    </div><!-- Fin del container -->
+
+
+
+<!--=========================================================================================================================================-->
 
     <div id="" class="">
     <hr>
@@ -62,50 +112,17 @@
                       <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
                       <php } ?>
                     </select>
-                    <label>País</label>-
+                    <label>País</label>
                   </div>-->
-                  <div class="input-field col s6 m6 l4">
-                    <select name="pais">
-                      <option value="" disabled selected>Elija un país</option>
-                      <option value="">Alemania</option>
-                      <option value="">Argentina</option>
-                      <option value="">Australia</option>
-                      <option value="">Austria</option>
-                      <option value="">Bélgica</option>
-                      <option value="">Bielorrusia</option>
-                      <option value="">Brasil</option>
-                      <option value="">Canadá</option>
-                      <option value="">China</option>
-                      <option value="">Colombia</option>
-                      <option value="">Dinamarca</option>
-                      <option value="">Ecuador</option>
-                      <option value="">El Salvador</option>
-                      <option value="">Escocia</option>
-                      <option value="">España</option>
-                      <option value="">Estados Unidos</option>
-                      <option value="">Estonia</option>
-                      <option value="">Finlandia</option>
-                      <option value="">Francia</option>
-                      <option value="">Guatemala</option>
-                      <option value="">Holanda</option>
-                      <option value="">Honduras</option>
-                      <option value="">Ingralterra</option>
-                      <option value="">Israel</option>
-                      <option value="">Italia</option>
-                      <option value="">Japón</option>
-                      <option value="">Líbano</option>
-                      <option value="">México</option>
-                      <option value="">Nicaragua</option>
-                      <option value="">Panamá</option>
-                      <option value="">Portugal</option>
-                      <option value="">R. Checa</option>
-                      <option value="">Rusia</option>
-                      <option value="">Suecia</option>
-                      <option value="">Suiza</option>
-                      <option value="">Venezuela</option>
-                    </select>
-                    <label><i class="small material-icons" ></i>País</label>
-                  </div>
+
+       <div class="input-field col s6 m6 l4">
+           <div class="">
+             <i class="material-icons prefix">textsms</i>
+             <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
+             <label for="autocomplete-input">País</label>
+           </div>
+       </div>
+
 
 
 
@@ -142,12 +159,12 @@
                       <option value="7">Medio de comunicación</option>
                       <option value="8">Guías impresas</option>
                       <option value="9">Option </option>
-                      <option value="">Guías impresas</option>
-                      <option value="">Grupo comunal organizado</option>
-                      <option value="">Empresa privada</option>
-                      <option value="">ONGs en proyectos de investigación y conservación</option>
-                      <option value="">Institución pública</option>
-                      <option value="">Otro</option>
+                      <option value="10">Guías impresas</option>
+                      <option value="11">Grupo comunal organizado</option>
+                      <option value="12">Empresa privada</option>
+                      <option value="13">ONGs en proyectos de investigación y conservación</option>
+                      <option value="14">Institución pública</option>
+                      <option value="15">Otro</option>
 
                     </select>
                     <label><i class="small material-icons" >info_outline</i></label>
@@ -178,11 +195,12 @@
                   </div>
                 </div>
 
-                  <div  class="input-field col s12 m6 l8"><!--Columna-->
+                <div  class="input-field col s12 m6 l8"><!--Columna-->
                   <ul class="collapsible" data-collapsible="accordion"><!--Inicio de las lineas para cantidad de personas-->
                      <li>
                        <div tabindex="0" class="collapsible-header teal darken-4 z-depth-3 white-text"><i class="material-icons">supervisor_account</i>Personas Acampando</div>
-                       <div class="collapsible-body"><span><div class=""><div>
+                       <div class="collapsible-body"><span>
+                         <div class=""><div>
                          <fieldset>
                            <div>
                              <div class="input-field col s12 m6 l6  ">
@@ -191,17 +209,8 @@
                              </div>
 
                           <div class="input-field col s6 m6 l6">
-                            <fieldset onended="">
-                              <p class="input-field col s6 m6 l6">
-                                <input tabindex="0" class="with-gap" value="visita por el dia" name="acampa" type="radio" selected id="acampano" checked="default" />
-                                <label for="acampano">No</label>
-                              </p>
-
-                              <p class="input-field col s6 m6 l6">
-                                <input  tabindex="0" class="with-gap" value="acampando por varios dias" name="acampa" type="radio" id="acampasi" />
-                                <label for="acampasi">Si</label>
-                              </p>
-                            </fieldset>
+                            <input  id="cantidad_personas_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                            <label for="cantidad_personas_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Cantidad de Personas</label>
                           </div>
                      </fieldset>
                    </div>
@@ -335,7 +344,49 @@
 
 </div><br>
 <!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
+<div class="input-field col s12 m12 l12">
+  <fieldset>
+    <div class="">
+      <div class="col s12 m12 l12">
+        <div class="">
+            <div><!-- Inicio de las filas y columnas -->
 
+              <div class="row"><!---Inicio de dos columnas-->
+
+                <div class="input-field col s6 m4 l3">
+                  <fieldset  class="z-depth-1 "><legend>Un campo cualquiera</legend>
+
+              </fieldset>
+            </div>
+
+              <div class="input-field col s6 m4 l3">
+                <fieldset class="z-depth-1 "><legend>Cambio de Dollar</legend>
+                  <div> </div>
+                </fieldset>
+              </div>
+
+              <div class="input-field col s6 m4 l3">
+                <fieldset class="z-depth-1 "><legend>Total de personas</legend>
+                    <div></div>
+                </fieldset>
+              </div>
+
+              <div class="input-field col s6 m4 l3">
+                <fieldset class="z-depth-1 "><legend>Total a pagar</legend>
+                    <div> </div>
+                </fieldset>
+              </div>
+
+             </div><!--Fin de columnas -->
+           </div><!-- Fin de filas y columnas -->
+        </div><!-- <!-- Fin del row -->
+      </div><!-- Tamanos -->
+    </div><!-- Fin del row -->
+<!--================================================================================================================================-->
+</fieldset>
+</div><!-- Fin del container -->
+
+<!--===================================================================================================================================-->
 <div class="center-align col s12">
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
 <fieldset>

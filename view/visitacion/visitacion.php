@@ -1,3 +1,43 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="input-field col s12 m6 l4">
+      <fieldset>
+        <legend>Buscar visitación</legend>
+        <form class="input-field col s12 m12 l12" action="busqueda.php" name="form1" id="cdr" method="post">
+        <input type="text" class="" name="busca" id="busqueda" >
+        <input type="submit" class="left-align" name="submit" value="Buscar">
+        </form>
+      </fieldset>
+    </div><!--Fin de los tamanyos--
+  </div><!--Fin del row--
+</div><!--Fin del container-->
+<!--
+<php
+
+$busca='';
+$busca=$_POST['busca'];
+
+mysql_connect("localhost","root");
+mysql_select_db("sirevi");
+
+if($busca != ""){
+  $busqueda=mysql_query("SELECT * FROM visitacion where id like '%".$busca."%'");
+}
+
+?>
+<php
+while ($muestra=mysql_fetch_array($busqueda)) {
+echo "<tr>";
+echo "<td>".$muestra["id"].'</td>';
+echo "<td>".$muestra["Nombre"].'</td>';
+echo "<td>".$muestra["fecha_ingreso"].'</td>';
+echo "<td>".$muestra["noIdentificacion"].'</td>';
+
+
+}
+?>
+-->
+
 <main>
   <div class="container">
     <h4 class="header left">Módulo Visitación</h4>
@@ -6,7 +46,10 @@
       <div class="right hide-on-small-only">
         <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i><span>Nueva Visitación</span></a>
       </div>
+
     </div>
+
+
     <div class="container">
     <div class="row">
         <div class="col s12 m12 l12">
@@ -41,7 +84,7 @@
               <td><?php echo $r->Sector; ?></td>
               <td><?php echo $r->Dias; ?></td>
               <td class="center"></td>
-              
+
               <td><?php echo $r->monto;?></td>
               <td><?php echo $r->moneda;?></td>
 

@@ -51,8 +51,8 @@
                <!--INICIO DE COLUMNA -->
                      <div class="row">
                        <div class="input-field col s12 m10 l12 ">
-                         <input  id="asp" type="text" name="asp"  value="<?php echo $sendero->sector; ?>" value="<?php echo $sendero->sector; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
-                         <label for="asp"> <i class="small material-icons">view_quilt</i><span class="hide-on-small-only">Sector al que pertenece</span></label>
+                         <input  id="sector" type="text" name="sector"  value="<?php echo $sendero->sector; ?>" value="<?php echo $sendero->sector; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                         <label for="sector"> <i class="small material-icons">view_quilt</i><span class="hide-on-small-only">Sector al que pertenece</span></label>
                        </div>
                  </div><!--FIN DEL DIV DE FILA-->
 
@@ -88,7 +88,7 @@
                     <hr>
                     <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
                     <hr>
-                  
+
 
                     <div class="">
 
