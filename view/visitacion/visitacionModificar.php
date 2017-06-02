@@ -26,7 +26,7 @@
               <div class="row"><!--INICIO DE LA PRIMERA FILA-->
                 <div class="input-field col s6 m5 l6  ">
                  <input  id="noIdentificacion" type="text" name="noIdentificacion" value="<?php echo $visit->noIdentificacion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                 <label for="name" >  <i class="small material-icons">face</i>&nbsp;Numero de Identifiacion</label>
+                 <label for="name" >  <i class="small material-icons">face</i>&nbsp;Numero de Identifiación</label>
                  </div>
 
                  <div class="input-field col s6 m5 l6  ">

@@ -46,10 +46,9 @@
 
                       <div class="input-field col s6 m4 l3">
                         <fieldset><legend>Sector</legend>
-                            <div class="btn teal lighten-4 right-align ">Nombre de Sector </div>
+                            <div class="btn teal lighten-4 right-align ">Santa Rosa</div>
                         </fieldset>
                       </div>
-
                      </div><!--Fin de columnas -->
                    </div><!-- Fin de filas y columnas -->
                 </div><!-- <!-- Fin del row -->
@@ -58,45 +57,36 @@
         <!--================================================================================================================================-->
       </fieldset>
     </div><!-- Fin del container -->
-
-
-
 <!--=========================================================================================================================================-->
-
     <div id="" class="">
     <hr>
 <!--===========================================================================================================-->
     <fieldset>
       <legend><h5>Formulario de Visitación </h5>
-        <h6>Completar la informacion con los datos correspondientes</h6></legend>
+        <h6>Completar la información con los datos correspondientes</h6></legend>
         <div class="">
           <hr> <br>
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
             <div class="col col s12 m12 l12">
               <div class="">
                 <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
-
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
-
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">
                       <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control"  required >
                       <label for="name" ><i class="small material-icons">face</i></span>&nbsp;Nombre</label>
                     </div>
-
                       <div class="input-field col s6 m6 l4  ">
                         <input  id="noIdentificacion" type="text" name="noIdentificacion" value="" class="validate" class="form-control"  required >
                         <label for="noIdentifiacion" >  <i class="small material-icons">subtitles</i>&nbsp;Número de identifiación</label>
                       </div>
-
                       <div  class="input-field col s6 m6 l4  ">
                         <input  id="placa_automovil" type="text" name="placa_automovil" value="" class="validate" class="form-control"   >
-                        <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa automovil</label>
+                        <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa automóvil</label>
                       </div>
                   </div><!--Fin de la primera fila -->
     <!--===================================================================================================================================================-->
     <!--===================================================================================================================================================-->
-
                 <div class=""><!---Inicio de la segunda fila-->
                 <!--==============Cargando los paices==============================--
                   <php
@@ -114,7 +104,6 @@
                     </select>
                     <label>País</label>
                   </div>-->
-
        <div class="input-field col s6 m6 l4">
            <div class="">
              <i class="material-icons prefix">textsms</i>
@@ -122,34 +111,28 @@
              <label for="autocomplete-input">País</label>
            </div>
        </div>
-
-
-
-
-                  <!--==============Cargando las cuidades============================================-->
-                  <?php
-
-                  $conexion = mysql_connect("localhost","root");
-                  mysql_select_db("sirevi",$conexion);
-                  $sentencia = "select * from provincia order by nombre ASC";
-                  $query = mysql_query($sentencia);
-
-                  $sentencia_cuidad = "select * from provincia order by nombre ASC";
-                  $query = mysql_query($sentencia);
-                  ?>
-                  <div class="input-field col s6 m6 l4">
-                    <select name="provincia">
-                      <option value="" disabled selected>Elija una provincia</option>
-                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                      <?php } ?>
-                    </select>
-                    <label> Provincia</label>
-                  </div>
-                  <!--=================Fin del codigo para ciudades ===============-->
-                  <div class="input-field col s6 m6 l4">
-                    <select name="referencia_visita">
-                      <option value="" disabled selected>&nbsp;Referencia de Visita</option>
+<!--==============Cargando las cuidades============================================-->
+      <?php
+      $conexion = mysql_connect("localhost","root");
+      mysql_select_db("sirevi",$conexion);
+      $sentencia = "select * from provincia order by nombre ASC";
+      $query = mysql_query($sentencia);
+      $sentencia_cuidad = "select * from provincia order by nombre ASC";
+      $query = mysql_query($sentencia);
+      ?>
+      <div class="input-field col s6 m6 l4">
+        <select name="provincia">
+          <option value="" disabled selected>Elija una provincia</option>
+            <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+            <?php } ?>
+          </select>
+        <label> Provincia</label>
+      </div>
+<!--=================Fin del codigo para ciudades ===============-->
+      <div class="input-field col s6 m6 l4">
+      <select name="referencia_visita">
+          <option value="" disabled selected>&nbsp;Referencia de Visita</option>
                       <option value="1">Expontaneamente en ruta</option>
                       <option value="2">Referencia de alguien mas</option>
                       <option value="3">Recomendación por amigos</option>
@@ -183,9 +166,9 @@
                     $query_sendero = mysql_query($sentencia_sendero);
                     ?>
                     <div class="">
-                      <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+                      <div class="input-field col s12 m8 l8"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                       <select multiple required>
-                          <option value="" disabled selected>&nbsp;Seleccionar Sendero</option>
+                          <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
                            <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
                            <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
                            <?php } ?>
@@ -195,31 +178,22 @@
                   </div>
                 </div>
 
-                <div  class="input-field col s12 m6 l8"><!--Columna-->
-                  <ul class="collapsible" data-collapsible="accordion"><!--Inicio de las lineas para cantidad de personas-->
-                     <li>
-                       <div tabindex="0" class="collapsible-header teal darken-4 z-depth-3 white-text"><i class="material-icons">supervisor_account</i>Personas Acampando</div>
-                       <div class="collapsible-body"><span>
-                         <div class=""><div>
-                         <fieldset>
-                           <div>
-                             <div class="input-field col s12 m6 l6  ">
-                               <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                               <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
-                             </div>
+                <div  class="input-field col s12 m4 l4"><!--Columna-->
+                  <div class="">
+                    <div>
+                    <fieldset><legend>Personas acampando</legend>
+                      <div>
+                        <div class="input-field col s12 m12 l12  ">
+                          <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div><!--Fin de la tercera fila-->
 
-                          <div class="input-field col s6 m6 l6">
-                            <input  id="cantidad_personas_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                            <label for="cantidad_personas_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Cantidad de Personas</label>
-                          </div>
-                     </fieldset>
-                   </div>
-                 </div></span></div>
-               </li>
-             </ul>
-           </div>
-         </div>
-      </div><!--Fin de la tercera fila-->
+
 <!--================================================== Fin lineas de codigo, respecto visitacion========================================================-->
 
 <div class="input-field col s12 m12 l12"><!--IInicio de lineas para cantidad de personas-->
@@ -305,7 +279,7 @@
 
       <fieldset class="z-depth-3">
         <legend>&nbsp;Categorías de pago&nbsp;</legend>
-        <div class=""><!--Inicio de la "?????" -->
+        <div class=""><!--Inicio de la "" -->
 
           <div class="input-field col s12 m6 l6">
             <fieldset  class="z-depth-1">

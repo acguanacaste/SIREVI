@@ -24,9 +24,8 @@
               <th>Puesto</th>
               <th>E-mail</th>
               <th>Imagen</th>
-            <th>Estado</th>
-              <th style="width:20px;"></th>
-              <th colspan="1">Acción</th>
+              <th>Estado</th>
+            <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -45,11 +44,9 @@
                 }else{
                   echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }; ?></td>
+
+
                 <td >
-
-                </td>
-
-                <td>
                   <a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
                     <i style="center-align" class="center-align circle white small material-icons right z-depth-2">edit</i>
                   </a>
@@ -67,6 +64,5 @@
 </div>
 </main>
 
-<script>
 
 <?php endif; ?>

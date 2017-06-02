@@ -18,8 +18,12 @@
                 <th>Nombre</th>
                 <th>Diario</th>
                 <th>Camping</th>
+                <th>Adulto nacional</th>
+                <th>Nino nacional</th>
+                <th>Adulto estranjero</th>
+                <th>Derecho camping</th>
                 <th>Área</th>
-                <th style="width:40px;"></th>
+                  <th style="width:40px;"></th>
                 <th colspan="2">Acción</th>
               </tr>
             </thead>
@@ -27,10 +31,13 @@
               <?php foreach ($this->model->Listar() as $r): ?>
                 <tr>
                   <td><?php echo $r->Sector; ?></td>
-                  <td ><?php echo $r->capacidad_diaria; ?></td>
+                  <td><?php echo $r->capacidad_diaria; ?></td>
                   <td><?php echo $r->capacidad_acampar; ?></td>
+                  <td><?php echo $r->adulto_nacional; ?></td>
+                  <td><?php echo $r->nino_nacional; ?></td>
+                  <td><?php echo $r->adulto_extranjero; ?></td>
+                  <td><?php echo $r->camping_amount; ?></td>
                   <td><?php echo $r->Area_Silvestre; ?></td>
-
                   <td>
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
                       <i class="circle small material-icons right z-depth-2">edit</i></a>

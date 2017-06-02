@@ -33,7 +33,8 @@ class Sector{
 			$result = array();
 
 			$stm = $this->pdo->prepare("select sector.id, sector.nombre as Sector, capacidad_diaria,
-			capacidad_acampar, asp.nombre AS Area_Silvestre from sector inner join asp on sector.asp = asp.id;");
+			capacidad_acampar,adulto_nacional,nino_nacional,adulto_extranjero,nino_extranjero,camping_amount,
+			 asp.nombre AS Area_Silvestre from sector inner join asp on sector.asp = asp.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -127,7 +128,7 @@ class Sector{
 										$data->nino_nacional,
 										$data->adulto_extranjero,
 										$data->nino_extranjero,
-										$camping_amount
+										$data->camping_amount
 
 
                 )

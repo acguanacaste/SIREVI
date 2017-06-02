@@ -53,7 +53,6 @@ class SectorController{
         $sector->nino_extranjero   = $_REQUEST['nino_extranjero'];
         $sector->camping_amount    = $_REQUEST['camping_amount'];
 
-
         $sector->id > 0
             ? $this->model->Actualizar($sector)
             : $this->model->Registrar($sector);
