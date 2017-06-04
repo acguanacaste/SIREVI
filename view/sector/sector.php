@@ -1,14 +1,15 @@
-
 <main>
   <div class="container">
     <h4 class="header left">Módulo de Sectores</h4>
-    <a href="index.php?c=Sector&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
 
+
+    <a href="index.php?c=Sector&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nuevo Sector</a>
 
     <div class="right hide-on-small-only">
       <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons">playlist_add</i>Nuevo Sector</a>
     </div>
   </div>
+
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -18,13 +19,9 @@
                 <th>Nombre</th>
                 <th>Diario</th>
                 <th>Camping</th>
-                <th>Adulto nacional</th>
-                <th>Nino nacional</th>
-                <th>Adulto estranjero</th>
-                <th>Derecho camping</th>
                 <th>Área</th>
-                  <th style="width:40px;"></th>
-                <th colspan="2">Acción</th>
+                <th style="width:40px;"></th>
+                <th colspan="3">Acción</th>
               </tr>
             </thead>
             <tbody>
@@ -33,11 +30,8 @@
                   <td><?php echo $r->Sector; ?></td>
                   <td><?php echo $r->capacidad_diaria; ?></td>
                   <td><?php echo $r->capacidad_acampar; ?></td>
-                  <td><?php echo $r->adulto_nacional; ?></td>
-                  <td><?php echo $r->nino_nacional; ?></td>
-                  <td><?php echo $r->adulto_extranjero; ?></td>
-                  <td><?php echo $r->camping_amount; ?></td>
                   <td><?php echo $r->Area_Silvestre; ?></td>
+
                   <td>
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
                       <i class="circle small material-icons right z-depth-2">edit</i></a>
@@ -55,7 +49,10 @@
               <?php endforeach; ?>
             </tbody>
           </table>
-
+          <br>
+          <div class="left hide-on-small-only">
+            <a href="index.php?c=Sector&a=IndexTarifas"><i class="small material-icons">receipt</i>Ver tarifas de ingreso para los sectoress</a>
+          </div>
     </div><!-- Div de los tamanos -->
   </div>
 </div>

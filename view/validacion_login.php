@@ -1,5 +1,4 @@
 <?php
-
 try{
 	$base=new PDO("mysql:host=localhost; dbname=sirevi","root","");
 
@@ -45,9 +44,8 @@ try{
 		} else{
 			header("location:index.php?error=1");
 		}
-
-}catch(Exception $e){
+}
+catch(Exception $e){
 	die("error: " . $e->getMessage());
 }
-
 ?>

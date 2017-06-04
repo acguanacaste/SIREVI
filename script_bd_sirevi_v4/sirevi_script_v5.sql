@@ -10,7 +10,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema sirevi
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `sirevi` ;
 
 -- -----------------------------------------------------
 -- Schema sirevi
@@ -30,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 13
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -99,7 +98,12 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `nino_nacional` INT(11) NOT NULL,
   `adulto_extranjero` INT(11) NOT NULL,
   `nino_extranjero` INT(11) NOT NULL,
-  `camping_amount` INT(11) NOT NULL,
+  `estudiantes` INT(11) NOT NULL,
+  `camping_adulto_nacional` INT(11) NOT NULL,
+  `camping_nino_nacional` INT(11) NOT NULL,
+  `camping_estudiantes` INT(11) NOT NULL,
+  `camping_adulto_extranjero` INT(11) NOT NULL,
+  `camping_nino_extranjero` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
   CONSTRAINT `fk_asp`
@@ -108,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 16
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -133,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -152,12 +156,12 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `puesto` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `imagen` SMALLINT(6) NULL DEFAULT NULL,
-  `usuarioscol` INT(11) NOT NULL,
+  `estado` INT(3) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_imagen_idx` (`imagen` ASC),
-  INDEX `usuarioSec_idx` (`usuarioscol` ASC))
+  INDEX `usuarioSec_idx` (`estado` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -180,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `acampa` VARCHAR(2) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `dias_camping` INT(3) NULL DEFAULT NULL,
   `cantidad_personas_surf` INT(3) NULL DEFAULT NULL,
+  `cantidad_personas_camping` INT(11) NOT NULL,
   `total_personas` INT(11) NOT NULL,
   `exonerado` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   `prepago` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
