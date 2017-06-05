@@ -34,19 +34,21 @@
 
                       <div class="input-field col s6 m4 l2">
                         <fieldset><legend>Numero diario</legend>
-                          <div class="btn teal lighten-4 right-align "> #&nbsp;00 </div>
+                          <div class="btn teal lighten-2 right-align "> #&nbsp;00 </div>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3">
                         <fieldset><legend>Capacidad de Sector</legend>
-                            <div class="btn teal lighten-4 right-align "> 20/80 </div>
+                            <div class="btn teal lighten-2 right-align "> 20/80 </div>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3">
                         <fieldset><legend>Sector</legend>
-                            <div class="btn teal lighten-4 right-align ">Santa Rosa</div>
+                            <div class="btn teal lighten-2 right-align ">Santa Rosa</div>
+                            <br>
+
                         </fieldset>
                       </div>
                      </div><!--Fin de columnas -->
@@ -199,40 +201,46 @@
 <div class="input-field col s12 m12 l12"><!--IInicio de lineas para cantidad de personas-->
 <ul class="" data-collapsible="">
    <li>
-     <div class="center-align collapsible-header teal darken-4  white-text z-depth-3"><i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
+     <div class="center-align collapsible-header teal darken-4  white-text z-depth-3">
+                          <i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
      <div class="">
        <fieldset>
        <span>
          <div class="">
-
           <div class=""><!--Inicio de la primea fila dentro del collapsible-->
-            <div class="input-field col s12 m6 l6">
+            <div class="input-field col s12 m6 l8">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-                <div class="input-field col s12 m6 l6  ">
-                  <input  id="nacional_adult" type="number" name="nacional_adult" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+                <div class="input-field col s12 m6 l4  ">
+                  <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                 </div>
 
-                <div class="input-field col s12 m6 l6  ">
-                  <input  id="nacional_kid" type="number" name="nacional_kid" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                <div class="input-field col s12 m6 l4  ">
+                  <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
                 </div>
 
-              </fieldset>
-            </div>
+              <div class="input-field col s12 m6 l4  ">
+                  <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                  <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
+              </div>
 
-        <div class="input-field col s12 m6 l6">
+
+            </fieldset>
+          </div><!--Fin de columnas cantidad de ncionales por el dia-->
+
+        <div class="input-field col s12 m6 l4">
           <fieldset class="z-depth-3">
             <legend>&nbsp;Extranjeros&nbsp;</legend>
 
             <div class="input-field col s12 m6 l6  ">
-              <input  id="extranjero_adult" type="number" name="extranjero_adult" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+              <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
               <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
             </div>
 
             <div class="input-field col s12 m6 l6  ">
-              <input  id="extranjero_kid" type="number" name="extranjero_kid" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+              <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
               <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
             </div>
           </fieldset>
@@ -291,6 +299,7 @@
               <p class="input-field col s12 m6 l4">
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
+
               </p>
               <!--<p class="input-field col s12 m6 l4">
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
@@ -328,29 +337,32 @@
               <div class="row"><!---Inicio de dos columnas-->
 
                 <div class="input-field col s6 m4 l3">
-                  <fieldset  class="z-depth-1 "><legend>Un campo cualquiera</legend>
-
+                  <fieldset  class="z-depth-2 "><legend>Total Nacionales</legend>
+                    <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
+                    </div>
               </fieldset>
             </div>
 
-              <div class="input-field col s6 m4 l3">
-                <fieldset class="z-depth-1 "><legend>Cambio de Dollar</legend>
-                  <div> </div>
-                </fieldset>
-              </div>
+            <div class="input-field col s6 m4 l3">
+              <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
+                <div>Dolares*: <input class="teal darken-4 white-text" type="text" id="total_Extranjeros_Dia" disabled value="0">
+                </div>
+          </fieldset>
+        </div>
+
+          <div class="input-field col s6 m4 l3">
+            <fieldset class="z-depth-2 "><legend>Total de personas</legend>
+                <div>Cant. Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"   disabled value="0">
+                </div>
+            </fieldset>
+        </div>
 
               <div class="input-field col s6 m4 l3">
-                <fieldset class="z-depth-1 "><legend>Total de personas</legend>
-                    <div></div>
+                <fieldset class="z-depth-2 "><legend>Total a pagar</legend>
+                    <div >Colones*: <input class="teal darken-4 white-text" type="text" id="monto_total" disabled value="0"></div>
                 </fieldset>
               </div>
-
-              <div class="input-field col s6 m4 l3">
-                <fieldset class="z-depth-1 "><legend>Total a pagar</legend>
-                    <div> </div>
-                </fieldset>
-              </div>
-
+<!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
              </div><!--Fin de columnas -->
            </div><!-- Fin de filas y columnas -->
         </div><!-- <!-- Fin del row -->
@@ -362,6 +374,12 @@
 
 <!--===================================================================================================================================-->
 <div class="center-align col s12">
+
+  <fieldset >
+    <legend>Tipo de cambio dollar</legend>
+    <div style="" id="boton_dolar" class="btn teal lighten-2 right-align ">&nbsp;$550</div>
+  </fieldset>
+
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
 <fieldset>
   <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -378,9 +396,6 @@
 
 
 </div>
-
-
-
       </form>
     </div>
 <!--   <h5>El usuario, el ASP, Y EL SECTOR SON VARIABLES QUE SE INGRESARAN CON LA SESION, PENDIENTE DE IMPLEMANTAR</h5>
@@ -393,10 +408,85 @@
   </div>
 </div>
 </main>
+
 <script>
     $(document).ready(function(){
           $("#frm-visitacion").submit(function(){
               return $(this).validate();
           });
       })
+
+      function sumaNacionales_Dia(){
+          var valor1=verificar("nacional_adult");
+          var valor2=verificar("nacional_kid");
+          var valor3=verificar("estudiantes");
+
+          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500);
+      }
+/*=====================================================================================================================================*/
+      function sumaExtranjeros_Dia(){
+          var valor1=verificar("extranjero_adult");
+          var valor2=verificar("extranjero_kid");
+
+          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*15)+(parseFloat(valor2)*5);
+
+}
+/*=====================================================================================================================================*/
+      function sumatoria_All(){
+          var valor1=verificar("nacional_adult");
+          var valor2=verificar("nacional_kid");
+          var valor3=verificar("estudiantes");
+          var valor4=verificar("extranjero_adult");
+          var valor5=verificar("extranjero_kid");
+
+document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)+parseFloat(valor4)+parseFloat(valor5);
+        }
+/*=====================================================================================================================================*/
+function monto_total_pagar(){
+  var valor1=verificar("nacional_adult");
+  var valor2=verificar("nacional_kid");
+  var valor3=verificar("estudiantes");
+  var valor4=verificar("extranjero_adult");
+  var valor5=verificar("extranjero_kid");
+  var dolar=verificar("boton_dolar");
+
+    document.getElementById("monto_total").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
+                                            +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550);
+
+}
+/*=======================================================================================================================================*/
+      function verificar(id){//Verifica que sean datos numericos
+          var obj=document.getElementById(id);
+          if(obj.value=="")
+              value="0";
+          else
+              value=obj.value;
+          if(validate_importe(value,1)){
+              // marcamos como erroneo
+              obj.style.borderColor="#808080";
+              return value;
+          }else{
+              // marcamos como erroneo
+              obj.style.borderColor="#f00";
+              return 0;
+          }
+      }
+//=========================================================================================================================================
+      function validate_importe(value,decimal){
+          if(decimal==undefined)
+              decimal=0;
+          if(decimal==1){
+              // Permite decimales tanto por . como por ,
+              var patron=new RegExp("^[0-9]+((,|\.)[0-9]{1,2})?$");
+          }
+          else{
+              // Numero entero normal
+              var patron=new RegExp("^([0-9])*$")
+          }
+
+          if(value && value.search(patron)==0){
+              return true;
+          }
+          return false;
+      }
   </script>

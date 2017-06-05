@@ -37,7 +37,6 @@ echo "<td>".$muestra["noIdentificacion"].'</td>';
 }
 ?>
 -->
-
 <main>
   <div class="container">
     <h4 class="header left">Módulo Visitación</h4>

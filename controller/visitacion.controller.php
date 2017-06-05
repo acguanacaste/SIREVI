@@ -67,6 +67,7 @@ class VisitacionController{
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
+        $visit->estudiantes               = $_REQUEST['estudiantes'];
         $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
         $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
         $visit->cantidadPersonasSurf      = $_REQUEST['cantidadPersonasSurf'];
