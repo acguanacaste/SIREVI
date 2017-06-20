@@ -48,6 +48,7 @@ class VisitacionController{
         $visit = new Visitacion();
 
         $visit->id                        = $_REQUEST['id'];
+        $visit->proposito_visita          = $_REQUEST['proposito_visita'];
         $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
@@ -56,11 +57,10 @@ class VisitacionController{
         $visit->provincia                 = $_REQUEST['provincia'];
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];
 //--------------------------------------------------------------------------------------------------------
-  //    $visit->fecha_ingreso             = $_REQUEST['fecha_ingreso'];
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
-    //    $visit->acampa                    = $_REQUEST['acampa'];
-    //    $visi->cantidad_personas_camping  = $_REQUEST['cantidad_personas_camping'];
+
+        $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
 
 
@@ -71,17 +71,15 @@ class VisitacionController{
         $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
         $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
 
-        $visit->sendero                   = $_REQUEST['sendero'];
-
-        $visit->cantidad_personas_surf      = $_REQUEST['cantidad_personas_surf'];
+        $visit->personas_surf             = $_REQUEST['personas_surf'];
         $visit->prepago                   = $_REQUEST['prepago'];
         $visit->exonerado                 = $_REQUEST['exonerado'];
 //-----------------------------------------------------------------------------------------------------
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
         //$visit->monto                     = $_REQUEST['monto'];
         $visit->moneda                    = $_REQUEST['moneda'];
-        $visit->total_dolar               = $_REQUEST['total_dolar'];
-        $visit->monto_total               = $_REQUEST['monto_total'];
+  //      $visit->total_dolar               = $_REQUEST['total_dolar'];
+  //      $visit->monto_total               = $_REQUEST['monto_total'];
 
 
         $visit->id > 0

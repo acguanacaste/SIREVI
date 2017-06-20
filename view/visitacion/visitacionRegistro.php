@@ -14,23 +14,55 @@
 
                       <div class="row"><!---Inicio de dos columnas-->
 
-                        <div class="input-field col s6 m4 l4">
+                  <!--      <div class="input-field col s6 m4 l4">
                           <fieldset><legend>Proposito de visita</legend>
                           <div>
-                           <div class="">
+                           <div class="" name="proposito_visita">
                                <p class="input-field col s6 m6 l6">
-                                 <input tabindex="0" class="with-gap" value="visita por el dia" name="acampa" type="radio" selected id="acampano" checked="default" />
-                                 <label for="acampano">Por el dia</label>
+                                 <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
+                                 <label for="indeterminate-checkbox">Por el dia</label>
                                </p>
 
                                <p class="input-field col s6 m6 l6">
-                                 <input  tabindex="0" class="with-gap" value="acampando por varios dias" name="acampa" type="radio" id="acampasi" />
-                                 <label for="acampasi">Acampa</label>
+                                 <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
+                                 <label for="indeterminate-checkbox">Acampando</label>
                                </p>
                              </div>
                            </div>
                       </fieldset>
+                    </div> -->
+
+
+
+                   <div class="input-field col s6 m4 l4">
+                      <fieldset  class="z-depth-1 ">
+                        <legend>&nbsp;Proposito de Visitacion&nbsp;</legend>
+                        <p class="input-field col s12 m6 l6">
+                          <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
+                          <label for="indeterminate-checkbox">Por el dia</label>
+                        </p>
+                        <p class="input-field col s12 m6 l6">
+                          <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
+                          <label for="indeterminate-checkbox">Acampando</label>
+                        </p>
+                      </fieldset>
+
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                       <div class="input-field col s6 m4 l2">
                         <fieldset><legend>Numero diario</legend>
@@ -135,21 +167,19 @@
       <div class="input-field col s6 m6 l4">
       <select name="referencia_visita">
           <option value="" disabled selected>&nbsp;Referencia de Visita</option>
-                      <option value="1">Expontaneamente en ruta</option>
-                      <option value="2">Referencia de alguien mas</option>
-                      <option value="3">Recomendación por amigos</option>
-                      <option value="4">Visita reiterada</option>
-                      <option value="5">Selección directa personal (Check list)</option>
-                      <option value="6">Operadora turística</option>
-                      <option value="7">Medio de comunicación</option>
-                      <option value="8">Guías impresas</option>
-                      <option value="9">Option </option>
-                      <option value="10">Guías impresas</option>
-                      <option value="11">Grupo comunal organizado</option>
-                      <option value="12">Empresa privada</option>
-                      <option value="13">ONGs en proyectos de investigación y conservación</option>
-                      <option value="14">Institución pública</option>
-                      <option value="15">Otro</option>
+                      <option value="Expontaneamente en ruta">Expontaneamente en ruta</option>
+                      <option value="Referencia de alguien mas">Referencia de alguien mas</option>
+                      <option value="Recomendación por amigos">Recomendación por amigos</option>
+                      <option value="Visita reiterada">Visita reiterada</option>
+                      <option value="Selección directa personal (Check list)">Selección directa personal (Check list)</option>
+                      <option value="Operadora turística">Operadora turística</option>
+                      <option value="Medio de comunicación">Medio de comunicación</option>
+                      <option value="Guías impresas">Guías impresas</option>
+                      <option value="Grupo comunal organizado">Grupo comunal organizado</option>
+                      <option value="Empresa privada">Empresa privada</option>
+                      <option value="ONGs en proyectos de investigación y conservación">ONGs en proyectos de investigación y conservación</option>
+                      <option value="Institución pública">Institución pública</option>
+                      <option value="Otro">Otro</option>
 
                     </select>
                     <label><i class="small material-icons" >info_outline</i></label>
@@ -255,8 +285,8 @@
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
                 <div class="input-field col s12 m6 l4  ">
-                <input  id="cantidad_personas_surf" type="number" name="cantidad_personas_surf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="cantidad_personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
+                <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
                  <div class="input-field col s12 m6 l4  ">
@@ -346,7 +376,7 @@
 
             <div class="input-field col s6 m4 l3">
               <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
-                <div>Dolares*: <input class="teal darken-4 white-text" id="total_dolar" type="text" id="total_Extranjeros_Dia" disabled value="0">
+                <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>

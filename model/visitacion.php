@@ -3,7 +3,9 @@ class Visitacion{
 	private $pdo;
 
     public $id;
+    public $proposito_visita;// Aun no se guarda en la base de datos
 	//	public $numero_diario;//Numero para confrimar la salida de los visitantes
+
 		public $noIdentificacion;
     public $nombre;
 		public $placa_automovil;
@@ -12,16 +14,9 @@ class Visitacion{
 		public $provincia;//Se carga la tabla de los paices al formulario.
 		public $referencia_visita;//se carga la tabla de provincia en el formulario.
 
-	//	public $fecha_ingreso;//Se hace con un TimeStamp
-  //  public $fecha_salida;//Se suma los dias a partir del dia que ingreso, OPCIONAL
-
-
-
-  //    public $acampa;
-  //	public $cantidad_personas_camping;
-   		public $dias_camping;
-  //  public $cantidad_personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
-		//public $lugar_camping;//Varable que me gusrda el lugar donde esta acampando
+    public $sector;//Sector aun no se guarda en la base de datos
+    public $sendero;
+   	public $dias_camping;
 
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
@@ -30,18 +25,14 @@ class Visitacion{
 		public $extranjero_adult;//Se guarda la cantida de visitantes estrnjeros
 		public $extranjero_kid;//Se guarda el monto por ninos Extranjeros
 
-	public $sendero;
-
-
-
+    public $personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
 		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
     public $exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
 
-
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
-		public $total_dolar;//Muestra el total de lo que se cobra en dolares
-		public $monto_total;//Total a pagar por el visitante
+		//public $total_dolar;//Muestra el total de lo que se cobra en dolares
+		//public $monto_total;//Total a pagar por el visitante
 
 
 
@@ -58,21 +49,19 @@ class Visitacion{
 		try{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select visitacion.id, visitacion.nombre as Nombre,noIdentificacion, placa_automovil,
-			 pais.nombre as Pais, provincia.nombre as Provincia,
-			 nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid, prepago, exonerado,
-			 tipo_pago, moneda, total_dolar, monto_total,
-			 sendero.nombre as Sendero, referencia_visita, dias_camping as Dias from visitacion
-			 inner join sendero on visitacion.sendero = sendero.id inner join pais on visitacion.pais = pais.id
-			 inner join provincia on visitacion.provincia = provincia.id;");
+			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,
+       visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
+        pais.nombre as Pais, provincia.nombre as Provincia, referencia_visita,
+
+         sendero.nombre as Sendero, dias_camping as Dias,
+		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
+          personas_surf, prepago, exonerado,
+			     tipo_pago, moneda
+            from visitacion
+              inner join pais on visitacion.pais = pais.id
+                inner join provincia on visitacion.provincia = provincia.id
+                  inner join sendero;");
 			$stm->execute();
-
-/*select visitacion.id, visitacion.nombre as Nombre,pais.nombre as Pais, sector.nombre AS Sector,
-dias_camping as Dias, from visitacion inner join usuarios on visitacion.usuario = usuarios.id
-inner join asp on visitacion.asp = asp.id inner join sector on visitacion.sector = sector.id
-inner join sendero on visitacion.sendero = sendero.id inner join pais on visitacion.pais = pais.id
-inner join provincia on visitacion.provincia = provincia.id;""*/
-
 
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -116,32 +105,27 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
             noIdentificacion      		= ?,
 						nombre                		= ?,
 						placa_automovil       		= ?,
-						referencia_visita     		= ?,
+
 ---------------------------------------------------------------------
 						pais       								= ?,
 						provincia             		= ?,
 						referencia_visita     		= ?,
 -----------------------------------------------------------------------
-				/*		fecha_ingreso         		= ?,
-            --fecha_salida          = ?,
-----------------------------------------------------------------------
-						sendero               		= ?,*/
-----------------------------------------------------------------------
-				 -- 	acampa                		= ?,
+            sendero                   = ?,
             dias_camping          		= ?,
-				--		cantidad_personas_camping = ?,
-            cantidadPersonasSurf  		= ?,
-
 -----------------------------------------------------------------
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
 						extranjero_adult      		= ?,
 						extranjero_kid  					= ?,
+--------------------------------------------------------------------------
+            personas_surf             = ?,
 						prepago               		= ?,
             exonerado             		= ?,
 -------------------------------------------------------------------
-						tipo_pago       					= ?/*
+						tipo_pago       					= ?,
+            moneda                    = ?,/*
 						monto											= ?,
             moneda                		= ?*/
 				    WHERE id = ?";
@@ -163,10 +147,9 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
 //------------------------------------------------------------------
 												$data->sendero,
 //--------------------------------------------------------------------
-                  //      $data->acampa,
+
                         $data->dias_camping,
-								//				$cantidad_personas_camping,
-                      $data->cantidad_personas_surf,
+
 
 //-----------------------------------------------------------------
 												$data->nacional_adult,
@@ -174,13 +157,14 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
 												$data->estudiantes,
 												$data->extranjero_adult,
 												$data->extranjero_kid,
+
+                        $data->personas_surf,
                         $data->prepago,
                         $data->exonerado,
 //-----------------------------------------------------------------
                         $data->tipo_pago,
 												$data->moneda,
-												$data->total_dolar,
-                    		$data->monto_total,
+
 
                         $data->id
 
@@ -196,19 +180,21 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (noIdentificacion, nombre, placa_automovil, pais, provincia, referencia_visita,
-			  dias_camping, nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid, sendero, prepago,
-				 exonerado, tipo_pago, moneda, total_dolar, monto_total)
+		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
+       pais, provincia,referencia_visita,
+       sendero, dias_camping,
+        nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
+        personas_surf, prepago, exonerado,
+         tipo_pago, moneda)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
-/* "INSERT INTO usuarios (noIdentificacion, nombre, placa_automovil, pais, provincia, referencia_visita, fecha_ingreso, sendero, acampa, dias_camping,cantidad_personas_camping,
-															cantidadPersonasSurf,nacional_adult,nacional_kid,estudiantes,extranjero_adult,extranjero_kid, prepago, exonerado, tipo_pago, monto, moneda)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";*/
+
 		$this->pdo->prepare($sql)
 		     ->execute(
-				array(		  $data->noIdentificacion,
+				array(		  $data->proposito_visita,
+                    $data->noIdentificacion,
                     $data->nombre,
 										$data->placa_automovil,
 //------------------------------------------------------------------------------------------------
@@ -216,15 +202,11 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
 										$data->provincia,
 										$data->referencia_visita,
 //----------------------------------------------------------------------------------------------
-  //                $data->fecha_ingreso,
-//				$data->fecha_salida,
-//----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
-								//		$data->acampa,
+                    $data->sendero,
                     $data->dias_camping,
-							//			$data->cantidad_personas_camping,
-            //        $data->cantidad_personas_surf,
+
 
 //---------------------------------------------------------------------------------------------------
 										$data->nacional_adult,
@@ -233,14 +215,13 @@ inner join provincia on visitacion.provincia = provincia.id;""*/
 										$data->extranjero_adult,
 										$data->extranjero_kid,
 
-										$data->sendero,
+                    $data->personas_surf,
                     $data->prepago,
                     $data->exonerado,
 //----------------------------------------------------------------------------------------
 										$data->tipo_pago,
 										$data->moneda,
-										$data->total_dolar,
-										$data->monto_total,
+
 
 
                 )
