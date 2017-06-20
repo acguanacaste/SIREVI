@@ -77,16 +77,36 @@ echo "<td>".$muestra["noIdentificacion"].'</td>';
             <?php foreach ($this->model->Listar() as $r): ?>
             <tr>
               <td><?php echo $r->Nombre; ?></td>
-              <td><?php echo $r->Pais; ?></td>
-              <td><?php echo $r->fecha_ingreso; ?></td>
+              <td><?php echo $r->noIdentificacion ?></td>
+              <td><?php echo $r->placa_automovil ?></td>
+              <td><?php echo $r->Pais ?></td>
+              <td><?php echo $r->Provincia ?></td>
 
-              <td><?php echo $r->Sector; ?></td>
-              <td><?php echo $r->Dias; ?></td>
+              <td><?php echo $r->referencia_visita ?></td>
+              <td><?php echo $r->Dias ?></td>
+              <td><?php echo $r->nacional_adult ?></td>
+              <td><?php echo $r->nacional_kid ?></td>
+              <td><?php echo $r->estudiantes ?></td>
+              <td><?php echo $r->extranjero_adult ?></td>
+              <td><?php echo $r->extranjero_kid ?></td>
+              <td><?php echo $r->exonerado ?></td>
+              <td><?php echo $r->prepago ?></td>
+              <td><?php echo $r->Sendero ?></td>
+
+              <td><?php echo $r->tipo_pago ?></td>
+              <td><?php echo $r->moneda ?></td>
+
+
+
+          <!--  <td><php echo $r->fecha_ingreso; ?></td>--
+
+              <td><php echo $r->Sector; ?></td>
+              <td><php echo $r->Dias; ?></td>
               <td class="center"></td>
 
-              <td><?php echo $r->monto;?></td>
-              <td><?php echo $r->moneda;?></td>
-
+              <td><php echo $r->monto;?></td>
+              <td><php echo $r->moneda;?></td>
+-->
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<php echo $r->id; ?>"><i
                     class="small material-icons right">edit</i></a>

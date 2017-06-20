@@ -90,8 +90,8 @@
     <!--===================================================================================================================================================-->
     <!--===================================================================================================================================================-->
                 <div class=""><!---Inicio de la segunda fila-->
-                <!--==============Cargando los paices==============================--
-                  <php
+                <!--==============Cargando los paices==============================-->
+                  <?php
                   $conexion = mysql_connect("localhost","root");
                   mysql_select_db("sirevi",$conexion);
                   $sentencia_pais = "select * from pais order by nombre ASC";
@@ -100,26 +100,26 @@
                   <div  class="input-field col s6 m6 l4">
                     <select name="pais">
                       <option value="" disabled selected>Elija un pais</option>
-                      <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                      <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
-                      <php } ?>
+                      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
+                      <?php } ?>
                     </select>
                     <label>País</label>
-                  </div>-->
-       <div class="input-field col s6 m6 l4">
+                  </div>
+    <!--   <div class="input-field col s6 m6 l4">
            <div class="">
              <i class="material-icons prefix">textsms</i>
              <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
              <label for="autocomplete-input">País</label>
            </div>
-       </div>
+       </div> -->
+
+
 <!--==============Cargando las cuidades============================================-->
       <?php
       $conexion = mysql_connect("localhost","root");
       mysql_select_db("sirevi",$conexion);
       $sentencia = "select * from provincia order by nombre ASC";
-      $query = mysql_query($sentencia);
-      $sentencia_cuidad = "select * from provincia order by nombre ASC";
       $query = mysql_query($sentencia);
       ?>
       <div class="input-field col s6 m6 l4">
@@ -155,7 +155,7 @@
                     <label><i class="small material-icons" >info_outline</i></label>
                   </div>
                 </div><!--Fin de la seegunda fila -->
-
+<!--==================================================================================================================================-->
     <!--==================================================Lineas de codigo, respecto visitacion=========================================================-->
 
                 <div class=""><!--Inicio de la tercera fila-->
@@ -169,7 +169,7 @@
                     ?>
                     <div class="">
                       <div class="input-field col s12 m8 l8"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
-                      <select multiple required>
+                      <select name="sendero" multiple required>
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
                            <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
                            <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
@@ -179,6 +179,7 @@
                     </div>
                   </div>
                 </div>
+
 
                 <div  class="input-field col s12 m4 l4"><!--Columna-->
                   <div class="">
@@ -214,17 +215,17 @@
                 <div class="input-field col s12 m6 l4  ">
                   <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
-                </div>
+               </div>
 
                 <div class="input-field col s12 m6 l4  ">
                   <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
-                </div>
+              </div>
 
               <div class="input-field col s12 m6 l4  ">
                   <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
-              </div>
+            </div>
 
 
             </fieldset>
@@ -254,9 +255,9 @@
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
                 <div class="input-field col s12 m6 l4  ">
-                  <input  id="cantidadPersonasSurf" type="number" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="cantidadPersonasSurf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
-                  </div>
+                <input  id="cantidad_personas_surf" type="number" name="cantidad_personas_surf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <label for="cantidad_personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
+                </div>
 
                  <div class="input-field col s12 m6 l4  ">
                    <input  id="prepago" type="number" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
@@ -293,7 +294,7 @@
             <fieldset  class="z-depth-1">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
               <p class="input-field col s12 m6 l4">
-                <input class="with-gap " value="efectivo" name="tipo_pago" type="radio" selected id="indeterminate-checkbox" checked="default" />
+                <input class="with-gap " value="efectivo" name="tipo_pago" type="radio" selected id="indeterminate-checkbox" checked="default"  />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
               <p class="input-field col s12 m6 l4">
@@ -345,7 +346,7 @@
 
             <div class="input-field col s6 m4 l3">
               <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
-                <div>Dolares*: <input class="teal darken-4 white-text" type="text" id="total_Extranjeros_Dia" disabled value="0">
+                <div>Dolares*: <input class="teal darken-4 white-text" id="total_dolar" type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>
@@ -359,7 +360,7 @@
 
               <div class="input-field col s6 m4 l3">
                 <fieldset class="z-depth-2 "><legend>Total a pagar</legend>
-                    <div >Colones*: <input class="teal darken-4 white-text" type="text" id="monto_total" disabled value="0"></div>
+                    <div >Colones*: <input class="teal darken-4 white-text"  type="text" id="monto_total" disabled value="0"></div>
                 </fieldset>
               </div>
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
