@@ -37,30 +37,31 @@
                    <div class="input-field col s6 m4 l4">
                       <fieldset  class="z-depth-1 ">
                         <legend>&nbsp;Proposito de Visitacion&nbsp;</legend>
-                        <p class="input-field col s12 m6 l6">
+                        <div class="input-field col s6 m6 l12">
+                        <select name="proposito_visita">
+                            <option value="" disabled selected>&nbsp;Referencia de Visita</option>
+                                        <option value="Visita por el dia">Visita  por el dia</option>
+                                        <option value="Acampando por varios dias">Acampando por varios dias</option>
+
+                                      </select>
+                                      <label><i class="small material-icons" >info_outline</i></label>
+                                    </div>
+
+
+
+
+
+                    <!--    <p class="input-field col s12 m6 l6">
                           <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
                           <label for="indeterminate-checkbox">Por el dia</label>
                         </p>
                         <p class="input-field col s12 m6 l6">
                           <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
                           <label for="indeterminate-checkbox">Acampando</label>
-                        </p>
+                        </p>-->
                       </fieldset>
 
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

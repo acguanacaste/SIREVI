@@ -52,7 +52,6 @@ class Visitacion{
 			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,
        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
         pais.nombre as Pais, provincia.nombre as Provincia, referencia_visita,
-
          sendero.nombre as Sendero, dias_camping as Dias,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
           personas_surf, prepago, exonerado,
@@ -60,7 +59,7 @@ class Visitacion{
             from visitacion
               inner join pais on visitacion.pais = pais.id
                 inner join provincia on visitacion.provincia = provincia.id
-                  inner join sendero;");
+                  inner join sendero on visitacion.sendero = sendero.id;");
 			$stm->execute();
 
 
@@ -109,7 +108,7 @@ class Visitacion{
 ---------------------------------------------------------------------
 						pais       								= ?,
 						provincia             		= ?,
-						referencia_visita     		= ?,
+					--	referencia_visita     		= ?,
 -----------------------------------------------------------------------
             sendero                   = ?,
             dias_camping          		= ?,
@@ -140,17 +139,14 @@ class Visitacion{
 //---------------------------------------------------------------------
 												$data->pais,
 												$data->provincia,
-												$data->referencia_visita,
+									//			$data->referencia_visita,
 //--------------------------------------------------------------------
 							//			$data->fecha_ingreso,
 //                        $data->fecha_salida,
 //------------------------------------------------------------------
 												$data->sendero,
 //--------------------------------------------------------------------
-
                         $data->dias_camping,
-
-
 //-----------------------------------------------------------------
 												$data->nacional_adult,
 												$data->nacional_kid,
@@ -221,8 +217,6 @@ class Visitacion{
 //----------------------------------------------------------------------------------------
 										$data->tipo_pago,
 										$data->moneda,
-
-
 
                 )
 			);

@@ -51,7 +51,7 @@
           </table>
           <br>
           <div class="left hide-on-small-only">
-            <a href="index.php?c=Sector&a=IndexTarifas"><i class="small material-icons">receipt</i>Ver tarifas de ingreso para los sectoress</a>
+            <a href="index.php?c=Sector&a=IndexTarifas"><i class="small material-icons">receipt</i>Ver tarifas de ingreso para los sectores</a>
           </div>
     </div><!-- Div de los tamanos -->
   </div>
