@@ -65,7 +65,7 @@
           <!--    <td><?php echo $r->referencia_visita ?></td>-->
 
               <td><?php echo $r->Sendero; ?></td>
-        
+
             <!--    <td><?php echo $r->Dias; ?></td>
 
             <td><?php echo $r->nacional_adult ?></td>

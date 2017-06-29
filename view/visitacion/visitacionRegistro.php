@@ -14,30 +14,10 @@
 
                       <div class="row"><!---Inicio de dos columnas-->
 
-                  <!--      <div class="input-field col s6 m4 l4">
-                          <fieldset><legend>Proposito de visita</legend>
-                          <div>
-                           <div class="" name="proposito_visita">
-                               <p class="input-field col s6 m6 l6">
-                                 <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
-                                 <label for="indeterminate-checkbox">Por el dia</label>
-                               </p>
-
-                               <p class="input-field col s6 m6 l6">
-                                 <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
-                                 <label for="indeterminate-checkbox">Acampando</label>
-                               </p>
-                             </div>
-                           </div>
-                      </fieldset>
-                    </div> -->
-
-
-
-                   <div class="input-field col s6 m4 l4">
+                   <div class="input-field col s12 m4 l4">
                       <fieldset  class="z-depth-1 ">
-                        <legend>&nbsp;Proposito de Visitacion&nbsp;</legend>
-                        <div class="input-field col s6 m6 l12">
+                        <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
+                        <div class="input-field col s12 m12 l12">
                         <select name="proposito_visita">
                             <option value="" disabled selected>&nbsp;Referencia de Visita</option>
                                         <option value="Visita por el dia">Visita  por el dia</option>
@@ -71,7 +51,7 @@
                         </fieldset>
                       </div>
 
-                      <div class="input-field col s6 m4 l3">
+                      <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><legend>Capacidad de Sector</legend>
                             <div class="btn teal lighten-2 right-align "> 20/80 </div>
                         </fieldset>
@@ -240,20 +220,20 @@
        <span>
          <div class="">
           <div class=""><!--Inicio de la primea fila dentro del collapsible-->
-            <div class="input-field col s12 m6 l8">
+            <div class="input-field col s12 m12 l8">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-                <div class="input-field col s12 m6 l4  ">
+                <div class="input-field col s6 m4 l4  ">
                   <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
 
-                <div class="input-field col s12 m6 l4  ">
+                <div class="input-field col s6 m4 l4  ">
                   <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
-              <div class="input-field col s12 m6 l4  ">
+              <div class="input-field col s12 m4 l4  ">
                   <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
@@ -262,16 +242,16 @@
             </fieldset>
           </div><!--Fin de columnas cantidad de ncionales por el dia-->
 
-        <div class="input-field col s12 m6 l4">
+        <div class="input-field col s12 m12 l4">
           <fieldset class="z-depth-3">
             <legend>&nbsp;Extranjeros&nbsp;</legend>
 
-            <div class="input-field col s12 m6 l6  ">
+            <div class="input-field col s6 m6 l6  ">
               <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
               <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
             </div>
 
-            <div class="input-field col s12 m6 l6  ">
+            <div class="input-field col s6 m6 l6  ">
               <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
               <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
             </div>
@@ -282,20 +262,20 @@
 
         <div class="">
 
-          <div class="input-field col s12 m6 l12">
+          <div class="input-field col s12 m12 l12">
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
-                <div class="input-field col s12 m6 l4  ">
+                <div class="input-field col s12 m4 l4  ">
                 <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                     <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
-                 <div class="input-field col s12 m6 l4  ">
+                 <div class="input-field col s6 m4 l4  ">
                    <input  id="prepago" type="number" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                    <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
 
-                 <div class="input-field col s12 m6 l4  ">
+                 <div class="input-field col s6 m4 l4  ">
                    <input  id="exonerado" type="number" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
                   <label for="exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
                 </div>
@@ -322,13 +302,13 @@
         <div class=""><!--Inicio de la "" -->
 
           <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1">
+            <fieldset  class="z-depth-1 input-field col m10">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
-              <p class="input-field col s12 m6 l4">
-                <input class="with-gap " value="efectivo" name="tipo_pago" type="radio" selected id="indeterminate-checkbox" checked="default"  />
+              <p class="input-field col s6 m6 l4">
+                <input class="with-gap " value="efectivo" name="tipo_pago"  type="radio"  id="indeterminate-checkbox" checked="default"   />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
-              <p class="input-field col s12 m6 l4">
+              <p class="input-field col s6 m6 l4">
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
 
@@ -343,11 +323,11 @@
           <div class="input-field col s12 m6 l6">
             <fieldset  class="z-depth-1 ">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
-              <p class="input-field col s12 m6 l6">
+              <p class="input-field col s6 m6 l6">
                 <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
               </p>
-              <p class="input-field col s12 m6 l6">
+              <p class="input-field col s6 m6 l6">
                 <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
               </p>
@@ -368,29 +348,29 @@
 
               <div class="row"><!---Inicio de dos columnas-->
 
-                <div class="input-field col s6 m4 l3">
+                <div class="input-field col s6 m3 l3">
                   <fieldset  class="z-depth-2 "><legend>Total Nacionales</legend>
                     <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
                     </div>
               </fieldset>
             </div>
 
-            <div class="input-field col s6 m4 l3">
+            <div class="input-field col s6 m3 l3">
               <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>
 
-          <div class="input-field col s6 m4 l3">
+          <div class="input-field col s6 m3 l3">
             <fieldset class="z-depth-2 "><legend>Total de personas</legend>
-                <div>Cant. Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"   disabled value="0">
+                <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"   disabled value="0">
                 </div>
             </fieldset>
         </div>
 
-              <div class="input-field col s6 m4 l3">
-                <fieldset class="z-depth-2 "><legend>Total a pagar</legend>
+              <div class="input-field col s6 m3 l3">
+                <fieldset class="z-depth-2 "><legend>Monto a cancelar</legend>
                     <div >Colones*: <input class="teal darken-4 white-text"  type="text" id="monto_total" disabled value="0"></div>
                 </fieldset>
               </div>
