@@ -105,8 +105,7 @@ header("Location:?c=login&a=index");
 					<a href="#" class="brand-logo right ">SIREVI</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
 
-						<li><a href="" data-activates="slide-out-2" title="Buscar Registro"  class="derecha"><i title="Buscar Registro" style="color:white" class=" small material-icons">search</i></a>
-						</li>
+					
 
 						<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
 						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
@@ -147,35 +146,10 @@ header("Location:?c=login&a=index");
 		<li><a href=""> <i class="small material-icons">settings_power</i><span class="white-text">Cerrar sesión</span></a></li>
 	</ul><!--Fin del slide out-->
 <!--============================= Fin de la lista de links para informacion ===========================================================-->
-<!--============================== Inicio del Slide out para el buscador ==========================================-->
-<ul id="slide-out-2" class="side-nav ">
-	<li>
-		<div class="userView "><!-- Imagen avatar e informacion -->
-			<img class="background" src="assets/img/searchSantaRosa.jpeg">
-		<a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-		<a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-		<a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
-	</li>
-	<!--============================= Fin de la Barra del buscador ===========================================================-->
-	<hr>
-	<nav>
-    <div class="nav-wrapper teal darken-4">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
-	<li class="divider"></li>
-	<!--============================= Inicio de los modulos del sistemas ====================================================-->
-	<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="">Inicio</span></a></li>
-	<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="">Visitación</span></a></li>
 
-	<li><a href=""> <i class="small material-icons">settings_power</i><span class="">Cerrar sesión</span></a></li>
-</ul><!--Fin del slide out-->
+
+<!--============================== Inicio del Slide out para el buscador ==========================================-->
+
 
 <!--================================Findel slide out ======================================================-->
 

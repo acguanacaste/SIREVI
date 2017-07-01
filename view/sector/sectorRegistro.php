@@ -59,7 +59,7 @@
                  <select name="asp">
                     <option value="" disabled selected>Elija una opcion</option>
                    <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                   <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+                   <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre'] ?></option>
                    <?php } ?>
 
                  </select>

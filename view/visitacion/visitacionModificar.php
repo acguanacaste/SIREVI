@@ -133,19 +133,19 @@
       <div class="input-field col s6 m6 l4">
       <select name="referencia_visita">
           <option value="" disabled selected>&nbsp;Referencia de Visita</option>
-                      <option value="Expontaneamente en ruta">Expontaneamente en ruta</option>
-                      <option value="Referencia de alguien mas">Referencia de alguien mas</option>
-                      <option value="Recomendación por amigos">Recomendación por amigos</option>
-                      <option value="Visita reiterada">Visita reiterada</option>
-                      <option value="Selección directa personal (Check list)">Selección directa personal (Check list)</option>
-                      <option value="Operadora turística">Operadora turística</option>
-                      <option value="Medio de comunicación">Medio de comunicación</option>
-                      <option value="Guías impresas">Guías impresas</option>
-                      <option value="Grupo comunal organizado">Grupo comunal organizado</option>
-                      <option value="Empresa privada">Empresa privada</option>
-                      <option value="ONGs en proyectos de investigación y conservación">ONGs en proyectos de investigación y conservación</option>
-                      <option value="Institución pública">Institución pública</option>
-                      <option value="Otro">Otro</option>
+                      <option value="Expontaneamente en ruta"<?php echo $visit->referencia_visita=="Expontaneamente en ruta"?"selected":null; ?>>Expontaneamente en ruta</option>
+                      <option value="Referencia de alguien mas"<?php echo $visit->referencia_visita=="Referencia de alguien mas"?"selected":null; ?>>Referencia de alguien mas</option>
+                      <option value="Recomendación por amigos"<?php echo $visit->referencia_visita=="Recomendación por amigos"?"selected":null; ?>>Recomendación por amigos</option>
+                      <option value="Visita reiterada"<?php echo $visit->referencia_visita=="Visita reiterada"?"selected":null; ?>>Visita reiterada</option>
+                      <option value="Selección directa personal (Check list)"<?php echo $visit->referencia_visita=="Selección directa personal (Check list)"?"selected":null; ?>>Selección directa personal (Check list)</option>
+                      <option value="Operadora turística"<?php echo $visit->referencia_visita=="Operadora turística"?"selected":null; ?>>Operadora turística</option>
+                      <option value="Medio de comunicación"<?php echo $visit->referencia_visita=="Medio de comunicación"?"selected":null; ?>>Medio de comunicación</option>
+                      <option value="Guías impresas"<?php echo $visit->referencia_visita=="Guías impresas"?"selected":null; ?>>Guías impresas</option>
+                      <option value="Grupo comunal organizado"<?php echo $visit->referencia_visita=="Grupo comunal organizado"?"selected":null; ?>>Grupo comunal organizado</option>
+                      <option value="Empresa privada"<?php echo $visit->referencia_visita=="Empresa privada"?"selected":null; ?>>Empresa privada</option>
+                      <option value="ONGs en proyectos de investigación y conservación"<?php echo $visit->referencia_visita=="ONGs en proyectos de investigación y conservación"?"selected":null; ?>>ONGs en proyectos de investigación y conservación</option>
+                      <option value="Institución pública"<?php echo $visit->referencia_visita=="Institución pública"?"selected":null; ?>>Institución pública</option>
+                      <option value="Otro"<?php echo $visit->referencia_visita=="Otro"?"selected":null; ?>>Otro</option>
 
                     </select>
                     <label><i class="small material-icons" >info_outline</i></label>

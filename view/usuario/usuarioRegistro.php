@@ -56,26 +56,12 @@
                <div class="input-field col s12 m10 l12" >
                  <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
-                   <option data-value="">Administrador</option>
-                   <option data-value="">Encargado de sector</option>
-                   <option data-value="">Reportes</option>
+                   <option value="">Administrador</option>
+                   <option value="">Encargado de sector</option>
+                   <option value="">Reportes</option>
                  </select>
                  <label for="puesto">Puesto en la Institución</label>
                </div>
-
-<!--"<php echo $user->puesto=="Administrador"?"selected":; ?>
-<php echo $user->puesto=="Encargado de sector"?"selected":; ?>
-<php echo $user->puesto=="Reportes"?"selected":; ?>
--->
-
-
-               <!--INICIO DE LA COLUMNA PRIVILEGIO-->
-        <!--       <div class="input-field col s6 m5 l6  ">
-               <input  id="privilegio" type="text" name="privilegio"  value=""  class="validate form-control"
-                data-validacion-tipo="requerido|min:10"  required>
-               <label for="privilegio" ><i class="small material-icons">perm_identity </i>
-                 <span class="hide-on-small-only">Privilegio Acceso</span></label>
-             </div> -->
 
           </div><!--FIN DE LA TERCERA FILA-->
 
@@ -142,7 +128,6 @@
               <!-- CarbonAds Zone Code -->
               <script async="" type="text/javascript"
               src="" id="_carbonads_js"></script>
-
           <!--    <div id="carbonads">
                 <span>
                   <span class="carbon-wrap">

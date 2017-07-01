@@ -11,7 +11,7 @@ class VisitacionController{
 
 
     public function Index(){
-        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/includes/header.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
@@ -60,7 +60,7 @@ class VisitacionController{
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
 
-        
+
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
 

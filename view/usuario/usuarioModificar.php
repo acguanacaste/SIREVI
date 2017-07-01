@@ -65,8 +65,8 @@
          <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
            <option value="" disabled selected>Elija una opción</option>
            <option value="Administrador" <?php echo $user->puesto=="Administrador"?"selected":null; ?>>Administrador</option>
-           <option value="<?php echo $user->puesto; ?>">Encargado de sector</option>
-           <option value="<?php echo $user->puesto; ?>">Reportes</option>
+           <option value="Encargado de sector"<?php echo $user->puesto=="Encargado de sector"?"selected":null;?>>Encargado de sector</option>
+           <option value="Reportes"<?php echo $user->puesto=="Reportes"?"selected":null; ?>>Reportes</option>
          </select>
          <label for="puesto">Puesto en la Institución</label>
        </div>
