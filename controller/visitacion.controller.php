@@ -11,7 +11,7 @@ class VisitacionController{
 
 
     public function Index(){
-        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/includes/header.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
@@ -47,34 +47,40 @@ class VisitacionController{
     public function Guardar(){
         $visit = new Visitacion();
 
-        $visit->id                    = $_REQUEST['id'];
-        $visit->noIdentificacion      = $_REQUEST['noIdentificacion'];
-        $visit->nombre                = $_REQUEST['nombre'];
-        $visit->placa_automovil       = $_REQUEST['placa_automovil'];
+        $visit->id                        = $_REQUEST['id'];
+        $visit->proposito_visita          = $_REQUEST['proposito_visita'];
+        $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
+        $visit->nombre                    = $_REQUEST['nombre'];
+        $visit->placa_automovil           = $_REQUEST['placa_automovil'];
 //----------------------------------------------------------------------------------------------------
-        $visit->pais                  = $_REQUEST['pais'];
-        $visit->provincia             = $_REQUEST['provincia'];
-        $visit->referencia_visita     = $_REQUEST['referencia_visita'];
+        $visit->pais                      = $_REQUEST['pais'];
+        $visit->provincia                 = $_REQUEST['provincia'];
+        $visit->referencia_visita         = $_REQUEST['referencia_visita'];
 //--------------------------------------------------------------------------------------------------------
-        $visit->fecha_ingreso         = $_REQUEST['fecha_ingreso'];
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
-        $visit->acampa                = $_REQUEST['acampa'];
-        $visit->dias_camping          = $_REQUEST['dias_camping'];
+
+
+        $visit->sendero                   = $_REQUEST['sendero'];
+        $visit->dias_camping              = $_REQUEST['dias_camping'];
 
 
 //-------------------------------------------------------------------------------------------------------
-        $visit->nacional_adult        = $_REQUEST['nacional_adult'];
-        $visit->nacional_kid          = $_REQUEST['nacional_kid'];
-        $visit->extranjero_adult      = $_REQUEST['extranjero_adult'];
-        $visit->extranjero_kid        = $_REQUEST['extranjero_kid'];
-        $visit->cantidadPersonasSurf  = $_REQUEST['cantidadPersonasSurf'];
-        $visit->prepago               = $_REQUEST['prepago'];
-        $visit->exonerado             = $_REQUEST['exonerado'];
+        $visit->nacional_adult            = $_REQUEST['nacional_adult'];
+        $visit->nacional_kid              = $_REQUEST['nacional_kid'];
+        $visit->estudiantes               = $_REQUEST['estudiantes'];
+        $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
+        $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
+
+        $visit->personas_surf             = $_REQUEST['personas_surf'];
+        $visit->prepago                   = $_REQUEST['prepago'];
+        $visit->exonerado                 = $_REQUEST['exonerado'];
 //-----------------------------------------------------------------------------------------------------
-        $visit->tipo_pago             = $_REQUEST['tipo_pago'];
-//        $visit->monto                 = $_REQUEST['monto'];
-        $visit->moneda                = $_REQUEST['moneda'];
+        $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
+        //$visit->monto                     = $_REQUEST['monto'];
+        $visit->moneda                    = $_REQUEST['moneda'];
+  //      $visit->total_dolar               = $_REQUEST['total_dolar'];
+  //      $visit->monto_total               = $_REQUEST['monto_total'];
 
 
         $visit->id > 0

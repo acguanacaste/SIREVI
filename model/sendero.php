@@ -79,8 +79,8 @@ class Sendero{
 			$sql = "UPDATE sendero SET
 						nombre            = ?,
 						distancia         = ?,
-            longitud          = ?,
             latitud           = ?,
+            longitud          = ?,
 						sector 						= ?
 
 
@@ -91,8 +91,8 @@ class Sendero{
 				    array(
                         $data->nombre,
                         $data->distancia,
-                        $data->longitud,
                         $data->latitud,
+												$data->longitud,
 												$data->sector,
                         $data->id
 					)
@@ -107,7 +107,7 @@ class Sendero{
 	{
 		try
 		{
-		$sql = "INSERT INTO sendero (nombre,distancia,longitud,latitud,sector)
+		$sql = "INSERT INTO sendero (nombre,distancia,latitud,longitud,sector)
 		        VALUES (?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
@@ -115,9 +115,9 @@ class Sendero{
 				array(
                     $data->nombre,
                     $data->distancia,
-                    $data->longitud,
-                    $data->latitud,
-										$data->sector
+										$data->latitud,
+										$data->longitud,
+                    $data->sector
 
 
 

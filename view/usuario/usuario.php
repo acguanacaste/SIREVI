@@ -1,3 +1,4 @@
+<?php if ($_SESSION['usuario']['puesto'] == "Administrador"):?>
 <main>
   <div class="container">
     <h4 class="header left">Módulo de Usuarios</h4>
@@ -16,46 +17,52 @@
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
         <thead class="white-text teal darken-4 z-depth-2">
             <tr>
+              <th>&nbsp;Id </th>
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Cedula</th>
               <th>Puesto</th>
               <th>E-mail</th>
               <th>Imagen</th>
-              <th style="width:40px;"></th>
-              <th colspan="2">Acción</th>
+              <th>Estado</th>
+            <th>Acción</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($this->model->Listar() as $r): ?>
               <tr>
+                <td><?php echo $r->id; ?></td>
                 <td><?php echo $r->nombre; ?></td>
                 <td><?php echo $r->apellido; ?></td>
                 <td><?php echo $r->cedula; ?></td>
                 <td><?php echo $r->puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
                 <td><?php echo $r->imagen; ?></td>
+<?php if ($_SESSION['usuario']['puesto'] == "Administrador"):?>
+                <td><?php if($r->estado==1){
+                  echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
+                }else{
+                  echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
+                }; ?></td>
 
-                <td>
-                  <a title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
-                    <i class="circle small material-icons right z-depth-2">edit</i></a>
+
+                <td >
+                  <a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
+                    <i style="center-align" class="center-align circle white small material-icons right z-depth-2">edit</i>
+                  </a>
                 </td>
+<?php endif; ?>
 
-                <td>
-                  <a title="Deshabilitar Usuario" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
-                    href="?c=Usuario&a=&id=<?php echo $r->id; ?>"><!--Se escribira el nombre del metodo desabilitar una
-                                                                      vez este implementado en el sistema-->
-                  <i class=" circle small material-icons right z-depth-2">error</i></a>
-                </td>
-                <td>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
 
-                </td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-
-      </div><!-- Div de los tamanos -->
-    </div>
+    </div><!-- Div de los tamanos -->
   </div>
+</div>
 </main>
+
+
+<?php endif; ?>

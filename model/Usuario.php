@@ -10,23 +10,19 @@ class Usuario{
     public $puesto;
     public $email;
 		public $imagen;
+		public $estado;
 
-	public function __CONSTRUCT()
-	{
-		try
-		{
+	public function __CONSTRUCT(){
+		try{
 			$this->pdo = Database::StartUp();
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Listar()/*Metodo que me muestra los datos qye hay en la bd*/
-	{
-		try
-		{
+	public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
+		try{
 			$result = array();
 
 			$stm = $this->pdo->prepare("SELECT * FROM usuarios");
@@ -34,55 +30,64 @@ class Usuario{
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
-		catch(Exception $e)
-		{
+		catch(Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Obtener($id)/*Metodo que me obtiene los datos que hay en la bd*/
-	{
-		try
-		{
+	public function Obtener($id){/*Metodo que me obtiene los datos que hay en la bd*/
+		try{
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM usuarios WHERE id = ?");
 
-
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
-		} catch (Exception $e)
-		{
+		}
+		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
 
+/*===============================================================================================================*/
 
-	public function Eliminar($id)/*Metodo que me borra los datos en la bd*/
-	{
-		try
-		{
+	public function Estado(){/*Metodo que me borra los datos en la bd*/
+		try{
+			$stm = $this->pdo->prepare("SELECT estado FROM usuarios where id = ".$_REQUEST['id']);
+			$stm->execute();
+			$resultado = $stm->fetch();
+			$estado = $resultado['estado'];
+			$nuevoEstado = $estado==0?1:0;
+			$stm = $this->pdo->prepare("UPDATE usuarios SET estado = $nuevoEstado where id = ".$_REQUEST['id']);
+			return $stm->execute();
+		}
+		catch (Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+/*================================================================================================================*/
+	public function Eliminar($id){/*Metodo que me borra los datos en la bd*/
+	try{
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM usuarios WHERE id = ?");
-
 			$stm->execute(array($id));
-		} catch (Exception $e)
-		{
+		}
+		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Actualizar($data)/*Metodo que me modifica los datos en la bd*/
-	{
-		try
-		{
+
+	public function Actualizar($data){/*Metodo que me modifica los datos en la bd*/
+	try{
 			$sql = "UPDATE usuarios SET
 						nombre          = ?,
 						apellido        = ?,
             contrasena      = ?,
             puesto          = ?,
-
 						email           = ?,
-						imagen          = ?
+						imagen          = ?,
+						estado
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
@@ -92,24 +97,22 @@ class Usuario{
                         $data->apellido,
                         $data->contrasena,
                         $data->puesto,
-
                         $data->email,
 												$data->imagen,
+												$data->estado,
                         $data->id
 					)
 				);
-		} catch (Exception $e)
-		{
+		}
+		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
 
-	public function Registrar(Usuario $data)/*Metodo que me registra los datos en la bd*/
-	{
-		try
-		{
-		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email,imagen)
-		        VALUES (?, ?, ?, ?, ?, ?, ?)";
+	public function Registrar(Usuario $data){/*Metodo que me registra los datos en la bd*/
+	 try{
+		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email,imagen, estado)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -121,11 +124,11 @@ class Usuario{
                     $data->puesto,
                     $data->email,
 										$data->imagen,
+										$data->estado,
 
                 )
 			);
-		} catch (Exception $e)
-		{
+		} catch (Exception $e){
 			die($e->getMessage());
 		}
 	}

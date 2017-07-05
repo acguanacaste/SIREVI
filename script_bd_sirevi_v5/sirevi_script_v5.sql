@@ -10,7 +10,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema sirevi
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `sirevi` ;
 
 -- -----------------------------------------------------
 -- Schema sirevi
@@ -27,31 +26,12 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `tipo` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `area_conservacion` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_spanish2_ci;
-
-
--- -----------------------------------------------------
--- Table `sirevi`.`bitacora_usuario`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `sirevi`.`bitacora_usuario` ;
-
-CREATE TABLE IF NOT EXISTS `sirevi`.`bitacora_usuario` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
-  `apellido` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
-  `cedula` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
-  `puesto` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NULL DEFAULT NULL,
-  `fecha` DATE NULL DEFAULT NULL,
+  `ubicacion` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_spanish_ci;
+COLLATE = utf8_spanish2_ci;
 
 
 -- -----------------------------------------------------
@@ -114,15 +94,25 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `capacidad_diaria` INT(11) NOT NULL,
   `capacidad_acampar` INT(11) NOT NULL,
   `asp` INT(11) NOT NULL,
+  `adulto_nacional` INT(11) NOT NULL,
+  `nino_nacional` INT(11) NOT NULL,
+  `adulto_extranjero` INT(11) NOT NULL,
+  `nino_extranjero` INT(11) NOT NULL,
+  `estudiantes` INT(11) NOT NULL,
+  `camping_adulto_nacional` INT(11) NOT NULL,
+  `camping_nino_nacional` INT(11) NOT NULL,
+  `camping_estudiantes` INT(11) NOT NULL,
+  `camping_adulto_extranjero` INT(11) NOT NULL,
+  `camping_nino_extranjero` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
   CONSTRAINT `fk_asp`
     FOREIGN KEY (`asp`)
     REFERENCES `sirevi`.`asp` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -136,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `distancia` INT(11) NOT NULL,
-  `latitud` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `latitud` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `longitud` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `sector` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -144,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
   CONSTRAINT `fk_sector`
     FOREIGN KEY (`sector`)
     REFERENCES `sirevi`.`sector` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
@@ -166,10 +156,12 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `puesto` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `imagen` SMALLINT(6) NULL DEFAULT NULL,
+  `estado` INT(3) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_imagen_idx` (`imagen` ASC))
+  INDEX `fk_imagen_idx` (`imagen` ASC),
+  INDEX `usuarioSec_idx` (`estado` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -183,25 +175,29 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `noIdentificacion` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `fecha_ingreso` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `fecha_salida` DATE NOT NULL,
-  `acampa` INT(3) NOT NULL,
-  `dias_camping` INT(3) NOT NULL,
-  `cantidad_personas_surf` INT(3) NULL DEFAULT NULL,
-  `prepago` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `exonerado` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `numero_diario` INT(3) NOT NULL,
   `placa_automovil` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `tipo_automovil` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `monto` FLOAT NOT NULL,
+  `pais` INT(11) NOT NULL,
+  `provincia` INT(11) NULL DEFAULT NULL,
+  `referencia_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `fecha_ingreso` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sendero` INT(11) NOT NULL,
+  `acampa` VARCHAR(2) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `dias_camping` INT(3) NULL DEFAULT NULL,
+  `cantidad_personas_surf` INT(3) NULL DEFAULT NULL,
+  `cantidad_personas_camping` INT(11) NOT NULL,
+  `total_personas` INT(11) NOT NULL,
+  `exonerado` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `prepago` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `nacional_adult` INT(11) NULL DEFAULT NULL,
+  `extranjero_adult` INT(11) NULL DEFAULT NULL,
+  `nacional_kid` INT(11) NULL DEFAULT NULL,
+  `extranjero_kid` INT(11) NULL DEFAULT NULL,
+  `tipo_pago` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `monto` FLOAT NULL DEFAULT NULL,
   `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `total` FLOAT NOT NULL,
   `usuario` INT(11) NOT NULL,
   `asp` INT(11) NOT NULL,
   `sector` INT(11) NOT NULL,
-  `sendero` INT(11) NOT NULL,
-  `pais` INT(11) NOT NULL,
-  `provincia` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_idx` (`usuario` ASC),
   INDEX `fk_asp_idx` (`asp` ASC),
@@ -230,47 +226,10 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
-USE `sirevi`;
-
-DELIMITER $$
-
-USE `sirevi`$$
-DROP TRIGGER IF EXISTS `sirevi`.`usuarios_BEFORE_INSERT` $$
-USE `sirevi`$$
-CREATE
-DEFINER=`root`@`localhost`
-TRIGGER `sirevi`.`usuarios_BEFORE_INSERT`
-BEFORE INSERT ON `sirevi`.`usuarios`
-FOR EACH ROW
-BEGIN
-    
-		insert into bitacora_usuario (id, nombre, apellido, cedula, puesto, fecha) VALUES 
-        (Null, new.nombre, new.apellido, new.cedula, new.puesto, now());
-        
-    END$$
-
-
-USE `sirevi`$$
-DROP TRIGGER IF EXISTS `sirevi`.`usuarios_BEFORE_UPDATE` $$
-USE `sirevi`$$
-CREATE
-DEFINER=`root`@`localhost`
-TRIGGER `sirevi`.`usuarios_BEFORE_UPDATE`
-BEFORE UPDATE ON `sirevi`.`usuarios`
-FOR EACH ROW
-BEGIN
-    
-		insert into bitacora_usuario (id, nombre, apellido, cedula, puesto, fecha) VALUES 
-        (Null, new.nombre, new.apellido, new.cedula, new.puesto, now());
-        
-    END$$
-
-
-DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

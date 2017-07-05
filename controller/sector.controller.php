@@ -38,18 +38,33 @@ class SectorController{
         require_once 'view/includes/footer.php';
     }
 
+    public function IndexTarifas(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/sector/sectorTarifas.php';
+        require_once 'view/includes/footer.php';
+    }
+
 
     public function Guardar(){
         $sector = new Sector();
 
-        $sector->id                = $_REQUEST['id'];
-        $sector->nombre            = $_REQUEST['nombre'];
-        $sector->capacidad_diaria  = $_REQUEST['capacidad_diaria'];
-        $sector->capacidad_acampar = $_REQUEST['capacidad_acampar'];
-        $sector->asp               = $_REQUEST['asp'];
-
-
-
+        $sector->id                         = $_REQUEST['id'];
+        $sector->nombre                     = $_REQUEST['nombre'];
+        $sector->capacidad_diaria           = $_REQUEST['capacidad_diaria'];
+        $sector->capacidad_acampar          = $_REQUEST['capacidad_acampar'];
+        $sector->asp                        = $_REQUEST['asp'];
+        /*Ingreso por el dia*/
+        $sector->adulto_nacional            = $_REQUEST['adulto_nacional'];
+        $sector->nino_nacional              = $_REQUEST['nino_nacional'];
+        $sector->estudiantes                = $_REQUEST['estudiantes'];
+        $sector->adulto_extranjero          = $_REQUEST['adulto_extranjero'];
+        $sector->nino_extranjero            = $_REQUEST['nino_extranjero'];
+        /*Derecho de camping*/
+        $sector->camping_adulto_nacional    = $_REQUEST['camping_adulto_nacional'];
+        $sector->camping_nino_nacional      = $_REQUEST['camping_nino_nacional'];
+        $sector->camping_estudiantes        = $_REQUEST['camping_estudiantes'];
+        $sector->camping_adulto_extranjero  = $_REQUEST['camping_adulto_extranjero'];
+        $sector->camping_nino_extranjero    = $_REQUEST['camping_nino_extranjero'];
         $sector->id > 0
             ? $this->model->Actualizar($sector)
             : $this->model->Registrar($sector);

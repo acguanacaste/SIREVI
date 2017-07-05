@@ -1,269 +1,445 @@
+
+
+
+
+
+<?php
+  $mysqli  = new mysqli("localhost","root","","sirevi");
+
+    $salida= "";
+    $query= "SELECT * FROM visitacion ORDER BY id ASC";
+
+    if (isset($_POST['consulta'])) {
+      $q = mysql_real_escape_string($_POST['consulta']);
+      $query = "SELECT id, nombre, noIdentificacion, pais, tipo_pago, moneda
+      FROM visitacion  WHERE nombre  LIKE '%".$q."%' ";
+
+    }
+      $resultado = mysql_query($query);
+
+      if ($resultado > 0) {
+        $salida.="<table class='tabla_datos'>
+      		<thead class'white-text brown z-depth-2'>
+      			<tr>
+      				<th>ID</th>
+      			  <th>Nombre</th>
+      				<th>Identificacion</th>
+      				<th>Pais</th>
+      				<th>Pago</th>
+      				<th>Moneda</th>
+      			</tr>
+      			</thead>
+    			  <tbody>";
+            while ($fila = $resultado->fetch_assoc()) {
+              $salida.="<tr>
+                          <td>".$fila['id']."</td>
+                          <td>".$fila['nombre']."</td>
+                          <td>".$fila['noIdentificacion']."</td>
+                          <td>".$fila['pais']."</td>
+                          <td>".$fila['tipo_pago']."</td>
+                          <td>".$fila['moneda']."</td>
+              </tr>";
+            }
+
+            $salida.="</tbody></table>";
+      }
+      else{
+        $salida.="No hay datos";
+      }
+
+      echo $salida;
+
+      $mysqli->close();
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <main>
   <div class="container">
-    <div class="row">
+    <div class="">
+
       <div class="col s12 m12 l12">
-        <!-- Inicio de mi codigo -->
-        <div id="search-docs" class="section scrollspy">
-        <hr>
-<!--===========================================================================================================-->
-        <fieldset>
-          <legend><h5>Formulario para Registros</h5>
-            <h6 style="display:">Completar la informacion con los datos correspondientes
-            </h6></legend>
+
+<!--====================================================================================================================-->
+        <div class="">
+          <fieldset>
             <div class="">
-            <br>
-              <div class="">
-                <div class="col s12 m12 l12">
-                  <div class="row">
-                  <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
-                  <input type="hidden" name="id" value="" />
-                  <input type="hidden" name="numero_diario" value="10<?php echo $numero_diario; /*@todo hacer la consulta para esto, por dia si el max es 0ponerle 1 select max(numero_diario) from visita where fecha = hoy */?> >" />
-
-
-                <div><!--Inicio de la primera fila-->
-                  <div class="">
-                    <div class="input-field col s6 m6 l4">
-                      <select name="referencia_visita">
-                        <option value="" disabled selected></option>
-                        <option value="1">Visita reiterada</option>
-                        <option value="2">Medios de comunicacion</option>
-                        <option value="3">Recomendacion por amigos</option>
-                        <option value="4">Option </option>
-                        <option value="5">Option </option>
-                        <option value="6">Option </option>
-                        <option value="7">Option </option>
-                        <option value="8">Option </option>
-                        <option value="9">Option </option>
-                      </select>
-                      <label><i class="small material-icons" >info_outline</i> Referencia de Visita</label>
-                    </div>
-
-                    <div class="input-field col s6 m6 l4  ">
-                      <input  id="noIdentificacion" type="text" name="noIdentificacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" requiere >
-                      <label for="name" >  <i class="small material-icons">subtitles</i>&nbsp;Numero de Identifiación</label>
-                    </div>
-
-                    <div class="input-field col s6 m5 l4  ">
-                      <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                      <label for="name" >  <i class="small material-icons">face</i>&nbsp;Nombre</label>
-                    </div>
-                  </div>
-                </div><!--Fin de la primera fila -->
-
-
-              <div class=""><!---Inicio de la segunda fila-->
+              <div class="col s12 m12 l12">
                 <div class="">
-        <!--==============Cargando los paices==============================-->
-              <?php
-              $conexion = mysql_connect("localhost","root");
-              mysql_select_db("sirevi",$conexion);
-              $sentencia_pais = "select * from pais order by nombre ASC";
-              $query_pais = mysql_query($sentencia_pais);
-              ?>
-              <div class="input-field col s6 m6 l4">
-                <select>
-                  <option value="" disabled selected>Elija una opcion</option>
-                  <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                  <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                  <?php } ?>
-                </select>
-                <label>Seleccionar Pais</label>
-              </div>
-      <!--==============Cargando las cuidades============================================-->
-              <?php
-              $sentencia_cuidad = "select * from provincia order by nombre ASC";
-              $query_cuidad = mysql_query($sentencia_cuidad);
-              ?>
-              <div class="input-field col s6 m6 l4">
-                <select>
-                  <option value="" disabled selected>Elija una opcion</option>
-                  <?php while ($arreglo_cuidad = mysql_fetch_array($query_cuidad)) {  ?>
-                  <option value="<?php echo $arreglo_cuidad['id']?>"><?php echo $arreglo_cuidad['nombre'] ?></option>
-                  <?php } ?>
-                </select>
-                <label> Seleccionar Provincia</label>
-              </div>
-    <!--=================Fin del codigo para ciudades ===============-->
-              <div class="input-field col s6 m6 l4  ">
-                <input  id="placa_automovil" type="text" name="placa_automovil" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa Automovil</label>
-              </div>
-            </div>
-          </div><!--Fin de la segunda fila-->
+                    <div><!-- Inicio de las filas y columnas -->
 
-          <div class="input-field col s12 m12 l12"><!---Inicio de informacion relacionada a la visitacion-->
-          <div class=""><!---Inicio de la primera fila-->
-            <form action="#">
-              <fieldset>
-                <legend> Informacion de Visitacion</legend>
-                <!--================Cargando los senderos==============================-->
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia_sendero = "select * from sendero order by nombre ASC";
-                $query_sendero = mysql_query($sentencia_sendero);
-                ?>
-                <div class="">
-                  <div class="input-field col s6 m6 l4">
-                  <select>
-                      <option value="" disabled selected>Seleccionar un Sendero</option>
-                       <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
-                       <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
-                       <?php } ?>
-                    </select>
-                  <label><i class="small material-icons">swap_calls</i></label>
-                </div>
-              </div>
+                      <div class="row"><!---Inicio de dos columnas-->
 
-            <div class="left-align">
-                <p>
-                  <input class="with-gap" name="acampa" type="radio" selected id="acampano" />
-                  <label for="acampano">No</label>
+                   <div class="input-field col s6 m4 l4">
+                      <fieldset  class="z-depth-1 ">
+                        <legend>&nbsp;Proposito de Visitacion&nbsp;</legend>
+                        <p class="input-field col s12 m6 l6">
+                          <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
+                          <label for="indeterminate-checkbox">Por el dia</label>
+                        </p>
+                        <p class="input-field col s12 m6 l6">
+                          <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
+                          <label for="indeterminate-checkbox">Acampando</label>
+                        </p>
+                      </fieldset>
 
-                  <input class="with-gap" name="acampa" type="radio" id="acampasi" />
-                  <label for="acampasi">Si</label>
-                </p>
-
-              <div>
-                  <div class="input-field col s6 m6 l4  ">
-                    <input  id="dias_camping" type="text" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="dias_camping" >  <i class="small material-icons">perm_contact_calendar</i>&nbsp;Dias acampando</label>
-                  </div>
-              </div>
-            </div>
-      <!--INICIO DE COLUMNA FECHA DE SALIDA esto se rellena automaticamnte, hoy + dias acamapando
-      <div class="input-field col s6 m5 l6">
-      <input name="fecha_salida" type="date" placeholder="Seleccione la fecha de salida" class="datepicker right">
-      <label for="name" ><i class="small material-icons"></i></label>
-    </div>
-    </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-              </fieldset>
-
-            </form>
-          </div>
-        </div>
+                    </div>
 
 
-          <div class="">
-            <div class=""><!--INICIO DE LA CUARTA FILA-->
-              <div class="input-field col s6 m5 l6  ">
-                <input  id="prepago" type="text" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                <label for="prepago" >  <i class="small material-icons">picture_in_picture</i>&nbsp;Prepago</label>
-              </div>
-
-              <div class="input-field col s6 m5 l6  ">
-                <input  id="exonerado" type="text" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="exonerado" >  <i class="small material-icons">perm_identity</i>&nbsp;Exonerado</label>
-              </div>
-            </div>
-        </div><!--Fin del div de la cuarta fila-->
-
-
-          <div class="input-field  col s6 m6 l12"><!--Inicio de la ultima fila -->
-            <div class="">
-              <div class="input-field col s6 m6 l4">
-              <input  id="tipo_pago" type="text" name="tipo_pago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-              <label for="tipo_pago" >  <i class="small material-icons">description</i>&nbsp;Tipo de Pago</label>
-            </div>
-          </div>
-          <div class="input-field col s6 m6 l4">
-            <input  id="monto" type="text" name="monto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-            <label for="monto" >  <i class="small material-icons">receipt</i>&nbsp;Monto a pagar</label>
-          </div>
-          <div class="">
-            <div class="input-field col s6 m6 l4">
-            <input  id="moneda" type="text" name="moneda" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-            <label for="moneda" >  <i class="small material-icons">description</i>&nbsp;Tipo de Moneda</label>
-          </div>
-        </div>
-      </div><!--Fin del div de la  fila-->
-
-
-      <!--==========================================================-->
-      <!--=======================Cargando areas silvestres protegidas=========================-->
-                        <?php
-                         $conexion = mysql_connect("localhost","root");
-                         mysql_select_db("sirevi",$conexion);
-                         $sentencia_asp = "select * from asp order by nombre ASC";
-                         $query_asp = mysql_query($sentencia_asp);
-                        ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                            <?php while ($arreglo_asp = mysql_fetch_array($query_asp)) {  ?>
-                            <option value="<?php echo $arreglo_asp['id']?>"><?php echo $arreglo_asp['nombre'] ?></option>
-                            <?php } ?>
-                          </select>
-                        <label> Seleccionar asp</label>
+                      <div class="input-field col s6 m4 l2">
+                        <fieldset><legend>Numero diario</legend>
+                          <div class="btn teal lighten-2 right-align "> #&nbsp;00 </div>
+                        </fieldset>
                       </div>
-      <!--========================Cargando los sectore=========================================-->
-                          <?php
-                          $conexion = mysql_connect("localhost","root");
-                          mysql_select_db("sirevi",$conexion);
-                          $sentencia_sector = "select * from sector order by nombre ASC";
-                          $query_sector = mysql_query($sentencia_sector);
-                          ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                             <?php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-                             <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                             <?php } ?>
-                          </select>
-                          <label>Seleccionar Sector</label>
-                        </div>
 
+                      <div class="input-field col s6 m4 l3">
+                        <fieldset><legend>Capacidad de Sector</legend>
+                            <div class="btn teal lighten-2 right-align "> 20/80 </div>
+                        </fieldset>
+                      </div>
 
-      <!--======================Cargando usuarios=====================================-->
-                        <?php
-                        $conexion = mysql_connect("localhost","root");
-                        mysql_select_db("sirevi",$conexion);
-                        $sentencia_user = "select * from usuarios order by nombre ASC";
-                        $query_user = mysql_query($sentencia_user);
-                        ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                             <?php while ($arreglo_sector = mysql_fetch_array($query_user)) {  ?>
-                             <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                             <?php } ?>
-                          </select>
-                          <label> Seleccionar usuario</label>
-                        </div>
+                      <div class="input-field col s6 m4 l3">
+                        <fieldset><legend>Sector</legend>
+                            <div class="btn teal lighten-2 right-align ">Santa Rosa</div>
+                            <br>
 
-                        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                        <div class="center row">
-                          <hr>
-                        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                               <i class="mdi-content-send material-icons right">done</i>
-                        </button>
-
-                      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-                      <button class="btn waves-effect waves-light teal darken-4"
-                        value="reset" type="reset"  name="action"><span class="hide-on-small-only">Limpiar</span>
-                        <i class="mdi-content-send right"></i>
-                      </button>
+                        </fieldset>
+                      </div>
+                     </div><!--Fin de columnas -->
+                   </div><!-- Fin de filas y columnas -->
+                </div><!-- <!-- Fin del row -->
+              </div><!-- Tamanos -->
+            </div><!-- Fin del row -->
+        <!--================================================================================================================================-->
+      </fieldset>
+    </div><!-- Fin del container -->
+<!--=========================================================================================================================================-->
+    <div id="" class="">
+    <hr>
+<!--===========================================================================================================-->
+    <fieldset>
+      <legend><h5>Formulario modificar datos </h5>
+        <h6>Modificar registro, utilice los campos q disposicion</h6></legend>
+        <div class="">
+          <hr> <br>
+          <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
+            <div class="col col s12 m12 l12">
+              <div class="">
+                <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+                  <div><!--Inicio de la primera fila-->
+                    <div class="input-field col s6 m6 l4  ">
+                      <input  id="name" type="text" name="nombre" value="<?php echo $visit->nombre ?>" class="validate" class="form-control"  required >
+                      <label for="name" ><i class="small material-icons">face</i></span>&nbsp;Nombre</label>
                     </div>
+                      <div class="input-field col s6 m6 l4  ">
+                        <input  id="noIdentificacion" type="text" name="noIdentificacion" value="<?php echo $visit->noIdentificacion ?>" class="validate" class="form-control"  required >
+                        <label for="noIdentifiacion" >  <i class="small material-icons">subtitles</i>&nbsp;Número de identifiación</label>
+                      </div>
+                      <div  class="input-field col s6 m6 l4  ">
+                        <input  id="placa_automovil" type="text" name="placa_automovil" value="<?php echo $visit->placa_automovil; ?>" class="validate" class="form-control"   >
+                        <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa automóvil</label>
+                      </div>
+                  </div><!--Fin de la primera fila -->
+    <!--===================================================================================================================================================-->
+    <!--===================================================================================================================================================-->
+                <div class=""><!---Inicio de la segunda fila-->
+                <!--==============Cargando los paices==============================-->
+                  <?php
+                  $conexion = mysql_connect("localhost","root");
+                  mysql_select_db("sirevi",$conexion);
+                  $sentencia_pais = "select * from pais order by nombre ASC";
+                  $query_pais = mysql_query($sentencia_pais);
+                  ?>
+                  <div  class="input-field col s6 m6 l4">
+                    <select name="pais">
+                      <option value="" disabled selected>Elija un pais</option>
+                      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
+                      <?php } ?>
+                    </select>
+                    <label>País</label>
+                  </div>
+    <!--   <div class="input-field col s6 m6 l4">
+           <div class="">
+             <i class="material-icons prefix">textsms</i>
+             <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
+             <label for="autocomplete-input">País</label>
+           </div>
+       </div> -->
 
-                  </form>
+
+<!--==============Cargando las cuidades============================================-->
+      <?php
+      $conexion = mysql_connect("localhost","root");
+      mysql_select_db("sirevi",$conexion);
+      $sentencia = "select * from provincia order by nombre ASC";
+      $query = mysql_query($sentencia);
+      ?>
+      <div class="input-field col s6 m6 l4">
+        <select name="provincia">
+          <option value="" disabled selected>Elija una provincia</option>
+            <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+            <?php } ?>
+          </select>
+        <label> Provincia</label>
+      </div>
+<!--=================Fin del codigo para ciudades ===============-->
+      <div class="input-field col s6 m6 l4">
+      <select name="referencia_visita">
+          <option value="" disabled selected>&nbsp;Referencia de Visita</option>
+                      <option value="Expontaneamente en ruta">Expontaneamente en ruta</option>
+                      <option value="Referencia de alguien mas">Referencia de alguien mas</option>
+                      <option value="Recomendación por amigos">Recomendación por amigos</option>
+                      <option value="Visita reiterada">Visita reiterada</option>
+                      <option value="Selección directa personal (Check list)">Selección directa personal (Check list)</option>
+                      <option value="Operadora turística">Operadora turística</option>
+                      <option value="Medio de comunicación">Medio de comunicación</option>
+                      <option value="Guías impresas">Guías impresas</option>
+                      <option value="Grupo comunal organizado">Grupo comunal organizado</option>
+                      <option value="Empresa privada">Empresa privada</option>
+                      <option value="ONGs en proyectos de investigación y conservación">ONGs en proyectos de investigación y conservación</option>
+                      <option value="Institución pública">Institución pública</option>
+                      <option value="Otro">Otro</option>
+
+                    </select>
+                    <label><i class="small material-icons" >info_outline</i></label>
+                  </div>
+                </div><!--Fin de la seegunda fila -->
+<!--==================================================================================================================================-->
+    <!--==================================================Lineas de codigo, respecto visitacion=========================================================-->
+
+                <div class=""><!--Inicio de la tercera fila-->
+                  <div class=""><!--Columna-->
+                    <!--================Cargando los senderos==============================-->
+                    <?php
+                    $conexion = mysql_connect("localhost","root");
+                    mysql_select_db("sirevi",$conexion);
+                    $sentencia_sendero = "select * from sendero order by nombre ASC";
+                    $query_sendero = mysql_query($sentencia_sendero);
+                    ?>
+                    <div class="">
+                      <div class="input-field col s12 m8 l8"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+                      <select name="sendero" multiple required>
+                          <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
+                           <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
+                           <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
+                           <?php } ?>
+                        </select>
+                      <label><span class="hide-on-small-only"><i class="small material-icons">swap_calls</i></span></label>
+                    </div>
                   </div>
                 </div>
+
+
+                <div  class="input-field col s12 m4 l4"><!--Columna-->
+                  <div class="">
+                    <div>
+                    <fieldset><legend>Personas acampando</legend>
+                      <div>
+                        <div class="input-field col s12 m12 l12  ">
+                          <input  id="dias_camping" type="number" name="dias_camping" value="<?php echo $visit->dias_camping; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div><!--Fin de la tercera fila-->
+
+
+<!--================================================== Fin lineas de codigo, respecto visitacion========================================================-->
+
+<div class="input-field col s12 m12 l12"><!--IInicio de lineas para cantidad de personas-->
+<ul class="" data-collapsible="">
+   <li>
+     <div class="center-align collapsible-header teal darken-4  white-text z-depth-3">
+                          <i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
+     <div class="">
+       <fieldset>
+       <span>
+         <div class="">
+          <div class=""><!--Inicio de la primea fila dentro del collapsible-->
+            <div class="input-field col s12 m6 l8">
+              <fieldset class="z-depth-3">
+                <legend>&nbsp;Nacionales&nbsp;</legend>
+                <div class="input-field col s12 m6 l4  ">
+                  <input  id="nacional_adult" type="text" value="<?php echo $visit->nacional_adult; ?>" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
+                  <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
-             </div>
 
+                <div class="input-field col s12 m6 l4  ">
+                  <input  id="nacional_kid" type="text" value="<?php echo $visit->nacional_kid; ?>" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                  <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
+              </div>
+
+              <div class="input-field col s12 m6 l4  ">
+                  <input  id="estudiantes" type="text" value="<?php echo $visit->estudiantes; ?>" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                  <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
+            </div>
+
+
+            </fieldset>
+          </div><!--Fin de columnas cantidad de ncionales por el dia-->
+
+        <div class="input-field col s12 m6 l4">
+          <fieldset class="z-depth-3">
+            <legend>&nbsp;Extranjeros&nbsp;</legend>
+
+            <div class="input-field col s12 m6 l6  ">
+              <input  id="extranjero_adult" type="text" value="<?php echo $visit->extranjero_adult; ?>" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+              <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
+            </div>
+
+            <div class="input-field col s12 m6 l6  ">
+              <input  id="extranjero_kid" type="text" value="<?php echo $visit->extranjero_kid; ?>" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+              <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
+            </div>
+          </fieldset>
+        </div>
+
+      </div><!--Fin de la primera fila-->
+
+        <div class="">
+
+          <div class="input-field col s12 m6 l12">
+            <fieldset class="z-depth-3">
+              <div class=""><!--Inicio de la segunda fila-->
+                <div class="input-field col s12 m6 l4  ">
+                <input  id="personas_surf" type="number"  name="personas_surf" value="<?php echo $visit->personas_surf; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                    <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
+                </div>
+
+                 <div class="input-field col s12 m6 l4  ">
+                   <input  id="prepago" type="number" name="prepago" value="<?php echo $visit->prepago; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
+                 </div>
+
+                 <div class="input-field col s12 m6 l4  ">
+                   <input  id="exonerado" type="number" name="exonerado" value="<?php echo $visit->exonerado; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+                  <label for="exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
+                </div>
+
+              </div><!--Fin del div de la segunda fila -->
+            </fieldset>
+          </div>
+        </div>
+<!--<h6>Preguntar sobre como se calcula el precio para hacer la funcion en javascript</h6>-->
+       </div>
+      </span>
+     </fieldset>
+   </div><!--collapsible body-->
+   </li>
+  </ul>
+ </div>
+</div><!--Fin de lineas para cantidad de personas-->
+
+<!--========================== Inicio de lineas de codigo para los pagos y su tipo =========================================-->
+<div class="input-field col s12 m12 l12">
+
+      <fieldset class="z-depth-3">
+        <legend>&nbsp;Categorías de pago&nbsp;</legend>
+        <div class=""><!--Inicio de la "" -->
+
+          <div class="input-field col s12 m6 l6">
+            <fieldset  class="z-depth-1">
+              <legend>&nbsp;Tipo de pago&nbsp;</legend>
+              <p class="input-field col s12 m6 l4">
+                <input class="with-gap " value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
+                <label for="indeterminate-checkbox">Efectivo</label>
+              </p>
+              <p class="input-field col s12 m6 l4">
+                <input class="with-gap" value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Tarjeta</label>
+
+              </p>
+              <!--<p class="input-field col s12 m6 l4">
+                <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Transferencia</label>
+              </p>-->
+            </fieldset>
+          </div>
+
+          <div class="input-field col s12 m6 l6">
+            <fieldset  class="z-depth-1 ">
+              <legend>&nbsp;Tipo moneda&nbsp;</legend>
+              <p class="input-field col s12 m6 l6">
+                <input class="with-gap" value="<?php echo $visit->moneda; ?>" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
+                <label for="indeterminate-checkbox">Colones</label>
+              </p>
+              <p class="input-field col s12 m6 l6">
+                <input class="with-gap" value="<?php echo $visit->moneda; ?>" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Dolares</label>
+              </p>
+            </fieldset>
+
+            </div>
+          </div><!--Fin del div de la fila ???-->
+      </fieldset>
+
+</div><br>
+<!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
+
+<!--===================================================================================================================================-->
+<div class="center-align col s12">
+  <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+<fieldset>
+  <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+      value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+      <i class="mdi-content-send material-icons right">done</i>
+  </button>
+    <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
 </fieldset>
-<hr>
-<!--================================================================================================================================-->
-</div>
-</div><!-- Div de los tamanos -->
 
+
+</div>
+      </form>
+    </div>
+<!--   <h5>El usuario, el ASP, Y EL SECTOR SON VARIABLES QUE SE INGRESARAN CON LA SESION, PENDIENTE DE IMPLEMANTAR</h5>
+  -->   </div>
+       </div>
+     </fieldset>
+<!--================================================================================================================================-->
+      </div>
+    </div><!-- Div de los tamanos -->
   </div>
-  </div>
-  </main>
-</body>
-<script>
-    $(document).ready(function(){
+</div>
+</main>
+
+  <script>
+      $(document).ready(function(){
           $("#frm-visitacion").submit(function(){
               return $(this).validate();
           });
@@ -296,1051 +472,269 @@
 
 
 
-  <main>
-    <div class="container">
-      <div class="row">
-
-        <div class="col s12 m9 l10">
-          <!-- Inicio de mi codigo -->
-          <div id="search-docs" class="section scrollspy">
-            <hr>
-  <!--===========================================================================================================-->
-
-
-  <fieldset>
-    <legend><h5>Formulario para Registros</h5>
-      <h6>Completar la informacion con los datos correspondientes</h6></legend>
-      <div class="container contact">
-        <hr>
-        <br>
-        <div class="row">
-          <div class="col col s12 m12 l12">
-            <div class="row">
-              <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="" />
-
-                <div>
-
-                  <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                    <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                      <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                      <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
-                    </div>
-
-
-                  <!--INICIO DE COLUMNA -->
-                  <div class="input-field col s6 m5 l6  ">
-                    <input  id="distancia" type="number" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                    <label for="distancia" >  <i class="small material-icons">settings_backup_restore</i>Distancia</label>
-                  </div>
-                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-              </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-
-
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m6 l6  ">
-                    <input  id="latitud" type="text" name="latitud"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
-                    <label for="latitud" >  <i class="small material-icons">language</i>Latitud</label>
-               </div>
-
-
-                 <!--INICIO DE COLUMNA CODIGO-->
-                 <div class="input-field col s6 m6 l6  ">
-                   <input  id="longitud" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                   <label for="longitud" >  <i class="small material-icons">language</i>Longitud</label>
-                  </div>
-                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-
-
-
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select * from sector order by nombre ASC";
-                $query = mysql_query($sentencia);
-                ?>
-                <div class="row">
-                   <div class="input-field col s12 m12 l12">
-                    <select name="sector">
-                       <option value="" disabled selected>Elija una opcion</option>
-                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                      <?php } ?>
-                    </select>
-
-                    <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
-                  </div>
-                 </div>
-
-
-                <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                  value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                       <i class="mdi-content-send material-icons right">done</i>
-                </button>
-
-              <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-              <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
-                value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-                     <i class="mdi-content-send material-icons right">delete</i>
-              </button>
-
-  					 </div>
-           </form>
-             </div>
-
-           </div>
-         </div>
-  </fieldset>
-
-
-  <!--================================================================================================================================-->
-          </div>
-        </div><!-- Div de los tamanos -->
-
-        <div class="col hide-on-small-only m3 l2">
-          <div class="toc-wrapper pin-top" style="top: -15px;">
-            <div class="buysellads hide-on-small-only">
-              <!-- CarbonAds Zone Code -->
-              <script async="" type="text/javascript"
-              src="" id="_carbonads_js"></script>
-
-
-                  <div style="height: 1px;">
-                    <ul class="section table-of-contents">
-
-                      <hr>
-                      <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
-                      <hr>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-              </div>
-            </div>
-          </main>
-
-
-<!--=======================================================================================================================-->
-                              <div class="container"><!---Inicio de informacion relacionada a la visitacion-->
-                              <div class=""><!---Inicio de la primera fila-->
-                                <form action="#">
-                                  <fieldset>
-                                    <legend> Informacion de Visitacion</legend>
-                                    <!--================Cargando los senderos==============================-->
-                                    <?php
-                                    $conexion = mysql_connect("localhost","root");
-                                    mysql_select_db("sirevi",$conexion);
-                                    $sentencia_sendero = "select * from sendero order by nombre ASC";
-                                    $query_sendero = mysql_query($sentencia_sendero);
-                                    ?>
-                                    <div class="">
-                                      <div class="input-field col s6 m6 l4">
-                                      <select>
-                                          <option value="" disabled selected>Elija una opcion</option>
-                                           <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
-                                           <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
-                                           <?php } ?>
-                                        </select>
-                                      <label> Seleccionar Sendero</label>
-                                    </div>
-                                  </div>
-                                  <br>
-
-
-
-                                  <div class="">
-                                    <div>
-                                      <fieldset>
-                                        <div>
-                                    <p>
-                                      <input class="with-gap" name="acampa" type="radio" selected id="acampano" />
-                                      <label for="acampano">No</label>
-
-                                      <input class="with-gap" name="acampa" type="radio" id="acampasi" />
-                                      <label for="acampasi">Si</label>
-                                    </p>
-
-                                      <div class="input-field col s6 m6 l4  ">
-                                        <input  id="dias_camping" type="text" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                        <label for="dias_camping" >  <i class="small material-icons">perm_contact_calendar</i>&nbsp;Dias acampando</label>
-                                      </div>
-                                      <div class="input-field col s6 m6 l4  ">
-                                        <input  id="cantidadPersonasSurf" type="text" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                          <label for="cantidadPersonasSurf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
-                                        </div>
-
-                                  </div>
-                                    <!--INICIO DE COLUMNA FECHA DE SALIDA esto se rellena automaticamnte, hoy + dias acamapando
-                                    <div class="input-field col s6 m5 l6">
-                                      <input name="fecha_salida" type="date" placeholder="Seleccione la fecha de salida" class="datepicker right">
-                                      <label for="name" ><i class="small material-icons"></i></label>
-                                    </div>
-                                  </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-
-
-
-                                </fieldset>
-                              </form>
-                            </div>
-                          </div>
-
-
-
-                              <div class="row"><!--INICIO DE LA CUARTA FILA-->
-                                <div class="input-field col s6 m5 l6  ">
-                                  <input  id="prepago" type="text" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                  <label for="prepago" >  <i class="small material-icons">picture_in_picture</i>&nbsp;Prepago</label>
-                              </div>
-
-                              <!--INICIO DE COLUMNA-->
-                              <div class="input-field col s6 m5 l6  ">
-                                <input  id="exonerado" type="text" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                <label for="exonerado" >  <i class="small material-icons">perm_identity</i>&nbsp;Exonerado</label>
-                              </div>
-                            </div><!--FIN DEL DIV DE LA CUARTA FILA-->
 
 
 
 
-                            <div class="row"><!--Inicio de la -->
-                              <div class="input-field col s6 m5 l6">
-                                <input  id="monto" type="text" name="monto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                <label for="monto" >  <i class="small material-icons">receipt</i>&nbsp;Monto a pagar</label>
-                              </div>
-
-                              <div class="">
-                                <div class="input-field col s6 m5 l6">
-                                  <input  id="moneda" type="text" name="moneda" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                  <label for="moneda" >  <i class="small material-icons">description</i>&nbsp;Tipo de Moneda</label>
-                                </div>
-                              </div>
-                            </div><!--Fin del div de la quinta fila-->
-
-
-          <!--=======================Cargando areas silvestres protegidas=========================-->
-                            <?php
-                             $conexion = mysql_connect("localhost","root");
-                             mysql_select_db("sirevi",$conexion);
-                             $sentencia_asp = "select * from asp order by nombre ASC";
-                             $query_asp = mysql_query($sentencia_asp);
-                            ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                <?php while ($arreglo_asp = mysql_fetch_array($query_asp)) {  ?>
-                                <option value="<?php echo $arreglo_asp['id']?>"><?php echo $arreglo_asp['nombre'] ?></option>
-                                <?php } ?>
-                              </select>
-                            <label> Seleccionar asp</label>
-                          </div>
-          <!--========================Cargando los sectore=========================================-->
-                              <?php
-                              $conexion = mysql_connect("localhost","root");
-                              mysql_select_db("sirevi",$conexion);
-                              $sentencia_sector = "select * from sector order by nombre ASC";
-                              $query_sector = mysql_query($sentencia_sector);
-                              ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                 <?php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-                                 <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                                 <?php } ?>
-                              </select>
-                              <label>Seleccionar Sector</label>
-                            </div>
-
-
-          <!--======================Cargando usuarios=====================================-->
-                            <?php
-                            $conexion = mysql_connect("localhost","root");
-                            mysql_select_db("sirevi",$conexion);
-                            $sentencia_user = "select * from usuarios order by nombre ASC";
-                            $query_user = mysql_query($sentencia_user);
-                            ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                 <?php while ($arreglo_sector = mysql_fetch_array($query_user)) {  ?>
-                                 <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                                 <?php } ?>
-                              </select>
-                              <label> Seleccionar usuario</label>
-                            </div>
 
 
 
-                          <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                          <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                            value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                                 <i class="mdi-content-send material-icons right">done</i>
-                          </button>
 
-                            <button class="btn waves-effect waves-light teal darken-4"  type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
-                          </div>
-                        </form>
-                     </div>
-                   </div>
-                 </div>
-               </fieldset>
-          <!--================================================================================================================================-->
-            </div>
-            </div><!-- Div de los tamanos -->
-            </div>
-            </div>
-            </main>
-<!--------------------------------------------------------------------------------------------------------------------------------->
-<!-------------------------------------------------------------------------------------------------------------------------------->
+
 
 
 <main>
   <div class="container">
     <div class="row">
+
       <div class="col s12 m12 l12">
-        <!-- Inicio de mi codigo -->
-        <div id="search-docs" class="section scrollspy">
-        <hr>
+<!-- Inicio de mi codigo -->
+
+    <div  class="">
 <!--===========================================================================================================-->
-        <fieldset>
-          <legend><h5>Formulario para Registros</h5>
-            <h6 style="display:">Completar la informacion con los datos correspondientes
-            </h6></legend>
-            <div class="">
+      <fieldset>
+        <legend><h5>Sectores</h5>
+          <h6>Tarifas del Sector: <?php echo $sector->nombre; ?></h6></legend>
+          <div class="">
             <br>
-              <div class="">
-                <div class="col s12 m12 l12">
-                  <div class="row">
-                  <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
-                  <input type="hidden" name="id" value="" />
-                  <input type="hidden" name="numero_diario" value="10<?php echo $numero_diario; /*@todo hacer la consulta para esto, por dia si el max es 0ponerle 1 select max(numero_diario) from visita where fecha = hoy */?> >" />
-
-
-                <div><!--Inicio de la primera fila-->
-                  <div class="">
-                    <div class="input-field col s6 m6 l4">
-                      <select name="referencia_visita">
-                        <option value="" disabled selected></option>
-                        <option value="1">Visita reiterada</option>
-                        <option value="2">Medios de comunicacion</option>
-                        <option value="3">Recomendacion por amigos</option>
-                        <option value="4">Option </option>
-                        <option value="5">Option </option>
-                        <option value="6">Option </option>
-                        <option value="7">Option </option>
-                        <option value="8">Option </option>
-                        <option value="9">Option </option>
-                      </select>
-                      <label><i class="small material-icons" >info_outline</i> Referencia de Visita</label>
-                    </div>
-
-                    <div class="input-field col s6 m6 l4  ">
-                      <input  id="noIdentificacion" type="text" name="noIdentificacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" requiere >
-                      <label for="name" >  <i class="small material-icons">subtitles</i>&nbsp;Numero de Identifiación</label>
-                    </div>
-
-                    <div class="input-field col s6 m5 l4  ">
-                      <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                      <label for="name" >  <i class="small material-icons">face</i>&nbsp;Nombre</label>
-                    </div>
-                  </div>
-                </div><!--Fin de la primera fila -->
-
-
-              <div class=""><!---Inicio de la segunda fila-->
-                <div class="">
-        <!--==============Cargando los paices==============================-->
-              <?php
-              $conexion = mysql_connect("localhost","root");
-              mysql_select_db("sirevi",$conexion);
-              $sentencia_pais = "select * from pais order by nombre ASC";
-              $query_pais = mysql_query($sentencia_pais);
-              ?>
-              <div class="input-field col s6 m6 l4">
-                <select>
-                  <option value="" disabled selected>Elija una opcion</option>
-                  <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                  <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                  <?php } ?>
-                </select>
-                <label>Seleccionar Pais</label>
-              </div>
-      <!--==============Cargando las cuidades============================================-->
-              <?php
-              $sentencia_cuidad = "select * from provincia order by nombre ASC";
-              $query_cuidad = mysql_query($sentencia_cuidad);
-              ?>
-              <div class="input-field col s6 m6 l4">
-                <select>
-                  <option value="" disabled selected>Elija una opcion</option>
-                  <?php while ($arreglo_cuidad = mysql_fetch_array($query_cuidad)) {  ?>
-                  <option value="<?php echo $arreglo_cuidad['id']?>"><?php echo $arreglo_cuidad['nombre'] ?></option>
-                  <?php } ?>
-                </select>
-                <label> Seleccionar Provincia</label>
-              </div>
-    <!--=================Fin del codigo para ciudades ===============-->
-              <div class="input-field col s6 m6 l4  ">
-                <input  id="placa_automovil" type="text" name="placa_automovil" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa Automovil</label>
-              </div>
-            </div>
-          </div><!--Fin de la segunda fila-->
-
-          <div class="input-field col s12 m12 l12"><!---Inicio de informacion relacionada a la visitacion-->
-          <div class=""><!---Inicio de la primera fila-->
-            <form action="#">
-              <fieldset>
-                <legend> Informacion de Visitacion</legend>
-                <!--================Cargando los senderos==============================-->
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia_sendero = "select * from sendero order by nombre ASC";
-                $query_sendero = mysql_query($sentencia_sendero);
-                ?>
-                <div class="">
-                  <div class="input-field col s6 m6 l4">
-                  <select>
-                      <option value="" disabled selected>Seleccionar un Sendero</option>
-                       <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
-                       <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
-                       <?php } ?>
-                    </select>
-                  <label><i class="small material-icons">swap_calls</i></label>
-                </div>
-              </div>
-
-            <div class="aside">
-                <p>
-                  <input class="with-gap" name="acampa" type="radio" selected id="acampano" />
-                  <label for="acampano">No</label>
-
-                  <input class="with-gap" name="acampa" type="radio" id="acampasi" />
-                  <label for="acampasi">Si</label>
-                </p>
-
-              <div>
-                  <div class="input-field col s6 m6 l4  ">
-                    <input  id="dias_camping" type="text" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                    <label for="dias_camping" >  <i class="small material-icons">perm_contact_calendar</i>&nbsp;Dias acampando</label>
-                  </div>
-
-                  <div class="input-field col s6 m6 l4  ">
-                    <input  id="cantidadPersonasSurf" type="text" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                      <label for="cantidadPersonasSurf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
-                    </div>
-              </div>
-            </div>
-      <!--INICIO DE COLUMNA FECHA DE SALIDA esto se rellena automaticamnte, hoy + dias acamapando
-      <div class="input-field col s6 m5 l6">
-      <input name="fecha_salida" type="date" placeholder="Seleccione la fecha de salida" class="datepicker right">
-      <label for="name" ><i class="small material-icons"></i></label>
-    </div>
-    </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-              </fieldset>
-
-            </form>
-          </div>
-        </div>
-
-
-          <div class="">
-            <div class=""><!--INICIO DE LA CUARTA FILA-->
-              <div class="input-field col s6 m5 l6  ">
-                <input  id="prepago" type="text" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                <label for="prepago" >  <i class="small material-icons">picture_in_picture</i>&nbsp;Prepago</label>
-              </div>
-
-              <div class="input-field col s6 m5 l6  ">
-                <input  id="exonerado" type="text" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="exonerado" >  <i class="small material-icons">perm_identity</i>&nbsp;Exonerado</label>
-              </div>
-            </div>
-        </div><!--Fin del div de la cuarta fila-->
-
-
-          <div class="input-field  col s6 m6 l12"><!--Inicio de la ultima fila -->
             <div class="">
-              <div class="input-field col s6 m6 l4">
-              <input  id="tipo_pago" type="text" name="tipo_pago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-              <label for="tipo_pago" >  <i class="small material-icons">description</i>&nbsp;Tipo de Pago</label>
-            </div>
-          </div>
-          <div class="input-field col s6 m6 l4">
-            <input  id="monto" type="text" name="monto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-            <label for="monto" >  <i class="small material-icons">receipt</i>&nbsp;Monto a pagar</label>
-          </div>
-          <div class="">
-            <div class="input-field col s6 m6 l4">
-            <input  id="moneda" type="text" name="moneda" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-            <label for="moneda" >  <i class="small material-icons">description</i>&nbsp;Tipo de Moneda</label>
-          </div>
-        </div>
-      </div><!--Fin del div de la  fila-->
-
-
-      <!--==========================================================-->
-      <!--=======================Cargando areas silvestres protegidas=========================-->
-                        <?php
-                         $conexion = mysql_connect("localhost","root");
-                         mysql_select_db("sirevi",$conexion);
-                         $sentencia_asp = "select * from asp order by nombre ASC";
-                         $query_asp = mysql_query($sentencia_asp);
-                        ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                            <?php while ($arreglo_asp = mysql_fetch_array($query_asp)) {  ?>
-                            <option value="<?php echo $arreglo_asp['id']?>"><?php echo $arreglo_asp['nombre'] ?></option>
-                            <?php } ?>
-                          </select>
-                        <label> Seleccionar asp</label>
-                      </div>
-      <!--========================Cargando los sectore=========================================-->
-                          <?php
-                          $conexion = mysql_connect("localhost","root");
-                          mysql_select_db("sirevi",$conexion);
-                          $sentencia_sector = "select * from sector order by nombre ASC";
-                          $query_sector = mysql_query($sentencia_sector);
-                          ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                             <?php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-                             <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                             <?php } ?>
-                          </select>
-                          <label>Seleccionar Sector</label>
-                        </div>
-
-
-      <!--======================Cargando usuarios=====================================-->
-                        <?php
-                        $conexion = mysql_connect("localhost","root");
-                        mysql_select_db("sirevi",$conexion);
-                        $sentencia_user = "select * from usuarios order by nombre ASC";
-                        $query_user = mysql_query($sentencia_user);
-                        ?>
-                        <div class="input-field col s4 m5 l4">
-                          <select>
-                            <option value="" disabled selected>Elija una opcion</option>
-                             <?php while ($arreglo_sector = mysql_fetch_array($query_user)) {  ?>
-                             <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                             <?php } ?>
-                          </select>
-                          <label> Seleccionar usuario</label>
-                        </div>
-
-                        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                        <div class="center row">
-                          <hr>
-                        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                               <i class="mdi-content-send material-icons right">done</i>
-                        </button>
-
-                      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-                      <button class="btn waves-effect waves-light teal darken-4"
-                        value="reset" type="reset"  name="action"><span class="hide-on-small-only">Limpiar</span>
-                        <i class="mdi-content-send right"></i>
-                      </button>
-                    </div>
-
-                  </form>
-                  </div>
-                </div>
-               </div>
-             </div>
-
-</fieldset>
-<hr>
-<!--================================================================================================================================-->
-</div>
-</div><!-- Div de los tamanos -->
-
-  </div>
-  </div>
-  </main>
-</body>
-<script>
-    $(document).ready(function(){
-          $("#frm-visitacion").submit(function(){
-              return $(this).validate();
-          });
-      })
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <main>
-    <div class="container">
-      <div class="row">
-
-        <div class="col s12 m9 l10">
-          <!-- Inicio de mi codigo -->
-          <div id="search-docs" class="section scrollspy">
-            <hr>
-  <!--===========================================================================================================-->
-
-
-  <fieldset>
-    <legend><h5>Formulario para Registros</h5>
-      <h6>Completar la informacion con los datos correspondientes</h6></legend>
-      <div class="container contact">
-        <hr>
-        <br>
-        <div class="row">
-          <div class="col col s12 m12 l12">
-            <div class="row">
-              <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="" />
-
-                <div>
-
-                  <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                    <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                      <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                      <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
-                    </div>
-
-
-                  <!--INICIO DE COLUMNA -->
-                  <div class="input-field col s6 m5 l6  ">
-                    <input  id="distancia" type="number" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                    <label for="distancia" >  <i class="small material-icons">settings_backup_restore</i>Distancia</label>
-                  </div>
-                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-              </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-
-
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m6 l6  ">
-                    <input  id="latitud" type="text" name="latitud"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
-                    <label for="latitud" >  <i class="small material-icons">language</i>Latitud</label>
-               </div>
-
-
-                 <!--INICIO DE COLUMNA CODIGO-->
-                 <div class="input-field col s6 m6 l6  ">
-                   <input  id="longitud" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                   <label for="longitud" >  <i class="small material-icons">language</i>Longitud</label>
-                  </div>
-                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-
-
-
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select * from sector order by nombre ASC";
-                $query = mysql_query($sentencia);
-                ?>
-                <div class="row">
-                   <div class="input-field col s12 m12 l12">
-                    <select name="sector">
-                       <option value="" disabled selected>Elija una opcion</option>
-                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                      <?php } ?>
-                    </select>
-
-                    <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
-                  </div>
-                 </div>
-
-
-                <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                  value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                       <i class="mdi-content-send material-icons right">done</i>
-                </button>
-
-              <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-              <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
-                value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-                     <i class="mdi-content-send material-icons right">delete</i>
-              </button>
-
-             </div>
-           </form>
-             </div>
-
-           </div>
-         </div>
-  </fieldset>
-
-
-  <!--================================================================================================================================-->
-          </div>
-        </div><!-- Div de los tamanos -->
-
-        <div class="col hide-on-small-only m3 l2">
-          <div class="toc-wrapper pin-top" style="top: -15px;">
-            <div class="buysellads hide-on-small-only">
-              <!-- CarbonAds Zone Code -->
-              <script async="" type="text/javascript"
-              src="" id="_carbonads_js"></script>
-
-
-                  <div style="height: 1px;">
-                    <ul class="section table-of-contents">
-
-                      <hr>
-                      <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
-                      <hr>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-              </div>
-            </div>
-          </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <main>
-            <div class="container">
-
-              <div class="">
-
-                <div class="col s12 m12 l12">
-                  <!-- Inicio de mi codigo -->
-          <ul class="right-align">
-            <li>
-                  <div class="btn teal lighten-4 right-align ">No. Diario: 10</div>
-                </li>
-              </ul>
-                  <div id="" class="">
-                  <hr>
-
-          <!--===========================================================================================================-->
-                  <fieldset>
-                    <legend><h5>Registro de Visitación</h5>
-                      <h6 style="display:">Completar la informacion con los datos correspondientes
-                      </h6></legend>
-
-
-                      <div class="">
-                      <br>
-                      <div class="">
-                        <div class="col s12 m12 l12">
-                          <div class="row">
-                            <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
-                              <input type="hidden" name="id" value="" />
-                              <input type="hidden" name="numero_diario" value="10<?php echo $numero_diario; /*@todo hacer la consulta para esto, por dia si el max es 0ponerle 1 select max(numero_diario) from visita where fecha = hoy */?> >" />
-
-
-                              <div class=""><!--Inicio de la primera fila-->
-                                <div class="input-field col s6 m6 l4">
-                                  <select name="referencia_visita">
-                                    <option value="" disabled selected></option>
-                                    <option value="1">Visita reiterada</option>
-                                    <option value="2">Medios de comunicacion</option>
-                                    <option value="3">Recomendacion por amigos</option>
-                                    <option value="4">Option </option>
-                                    <option value="5">Option </option>
-                                    <option value="6">Option </option>
-                                    <option value="7">Option </option>
-                                    <option value="8">Option </option>
-                                    <option value="9">Option </option>
-
-                                  </select>
-                                  <label><i class="small material-icons" >info_outline</i> Referencia de Visita</label>
-                                </div>
-
-
-                                <div class="input-field col s6 m6 l4  ">
-                                  <input  id="noIdentificacion" type="text" name="noIdentificacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" requiere >
-                                  <label for="name" >  <i class="small material-icons">subtitles</i>&nbsp;Numero de Identifiación</label>
-                                </div>
-                                <div class="input-field col s6 m5 l4  ">
-                                  <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                  <label for="name" >  <i class="small material-icons">face</i>&nbsp;Nombre</label>
-                                </div>
-                              </div><!--FIN DE LA PRIMERA FILA-->
-
-
-                                <div class=""><!--Inicio de la segunda fila-->
-                                  <!--==============Cargando los paices==============================-->
-                                        <?php
-                                        $conexion = mysql_connect("localhost","root");
-                                        mysql_select_db("sirevi",$conexion);
-                                        $sentencia_pais = "select * from pais order by nombre ASC";
-                                        $query_pais = mysql_query($sentencia_pais);
-                                        ?>
-                                        <div class="input-field col s6 m6 l4">
-                                          <select>
-                                            <option value="" disabled selected>Elija una opcion</option>
-                                             <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                                             <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                                           <?php } ?>
-                                        </select>
-                                        <label>Seleccionar Pais</label>
-                                      </div>
-
-
-                                  <!--==============Cargando las cuidades============================================-->
-                                      <?php
-                                      $sentencia_cuidad = "select * from provincia order by nombre ASC";
-                                      $query_cuidad = mysql_query($sentencia_cuidad);
-                                      ?>
-                                      <div class="input-field col s6 m6 l4">
-                                        <select>
-                                          <option value="" disabled selected>Elija una opcion</option>
-                                           <?php while ($arreglo_cuidad = mysql_fetch_array($query_cuidad)) {  ?>
-                                           <option value="<?php echo $arreglo_cuidad['id']?>"><?php echo $arreglo_cuidad['nombre'] ?></option>
-                                         <?php } ?>
-                                        </select>
-                                        <label> Seleccionar Provincia</label>
-                                      </div>
-
-                                      <div class="input-field col s6 m6 l4  ">
-                                        <input  id="placa_automovil" type="text" name="placa_automovil" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                        <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa Automovil</label>
-                                    </div>
-
-                                    </div><!--Fin de la segunda fila-->
-
-
-                                        <div class=""><!--Inicio de la tercera fila-->
-                                          <!--<div class="input-field col s6 m5 l6  ">
-                                            <input  id="placa_automovil" type="text" name="placa_automovil" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                            <label for="placa_automovil" >  <i class="small material-icons">settings_ethernet</i>&nbsp;Placa Automovil</label>
-                                        </div>-->
-
-                                        <!--  <div class="input-field col s6 m5 l6">
-                                            <input  id="tipo_automovil" type="text" name="tipo_automovil" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                              <label for="tipo_automovil" >  <i class="small material-icons">announcement</i>&nbsp;Tipo de Automovil</label>
-                                            </div>
-                                        </div>-->
-                                      </div><!--Fin de la tercera fila-->
-
-
-                              <div class="container"><!---Inicio de informacion relacionada a la visitacion-->
-                              <div class=""><!---Inicio de la primera fila-->
-                                <form action="#">
-                                  <fieldset>
-                                    <legend> Informacion de Visitacion</legend>
-                                    <!--================Cargando los senderos==============================-->
-                                    <?php
-                                    $conexion = mysql_connect("localhost","root");
-                                    mysql_select_db("sirevi",$conexion);
-                                    $sentencia_sendero = "select * from sendero order by nombre ASC";
-                                    $query_sendero = mysql_query($sentencia_sendero);
-                                    ?>
-                                    <div class="">
-                                      <div class="input-field col s6 m6 l4">
-                                      <select>
-                                          <option value="" disabled selected>Elija una opcion</option>
-                                           <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
-                                           <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
-                                           <?php } ?>
-                                        </select>
-                                      <label> Seleccionar Sendero</label>
-                                    </div>
-                                  </div>
-                                  <br>
-                                  <div class="">
-                                    <p>
-                                      <input class="with-gap" name="acampa" type="radio" selected id="acampano" />
-                                      <label for="acampano">No</label>
-
-                                      <input class="with-gap" name="acampa" type="radio" id="acampasi" />
-                                      <label for="acampasi">Si</label>
-                                    </p>
-
-                                      <div class="input-field col s6 m6 l4  ">
-                                        <input  id="dias_camping" type="text" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                        <label for="dias_camping" >  <i class="small material-icons">perm_contact_calendar</i>&nbsp;Dias acampando</label>
-                                      </div>
-                                      <div class="input-field col s6 m6 l4  ">
-                                        <input  id="cantidadPersonasSurf" type="text" name="cantidadPersonasSurf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                          <label for="cantidadPersonasSurf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
-                                        </div>
-
-                                  </div>
-                                    <!--INICIO DE COLUMNA FECHA DE SALIDA esto se rellena automaticamnte, hoy + dias acamapando
-                                    <div class="input-field col s6 m5 l6">
-                                      <input name="fecha_salida" type="date" placeholder="Seleccione la fecha de salida" class="datepicker right">
-                                      <label for="name" ><i class="small material-icons"></i></label>
-                                    </div>
-                                  </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
-
-
-
-                                </fieldset>
-                              </form>
-                            </div>
+              <div class="col s12 m12 l12">
+                <div class="">
+                  <div>
+
+                      <div class=""><!---Inicio de la fila admision por el dia-->
+                        <fieldset>
+                          <legend>Admisión por el día</legend>
+                          <div class="input-field col s6 m6 l6  ">
+                            <fieldset>
+                              <legend>Tarifas nacionales</legend>
+
+                            </fieldset>
                           </div>
 
+                         <!---->
+                         <div class="input-field col s6 m6 l6  ">
+                          <fieldset>
+                            <legend>Tarifas extranjeros</legend>
+                          </fieldset>
+                         </div>
 
-
-                              <div class="row"><!--INICIO DE LA CUARTA FILA-->
-                                <div class="input-field col s6 m5 l6  ">
-                                  <input  id="prepago" type="text" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                                  <label for="prepago" >  <i class="small material-icons">picture_in_picture</i>&nbsp;Prepago</label>
-                              </div>
-
-                              <!--INICIO DE COLUMNA-->
-                              <div class="input-field col s6 m5 l6  ">
-                                <input  id="exonerado" type="text" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                <label for="exonerado" >  <i class="small material-icons">perm_identity</i>&nbsp;Exonerado</label>
-                              </div>
-                            </div><!--FIN DEL DIV DE LA CUARTA FILA-->
-
-
-
-
-                            <div class="row"><!--Inicio de la -->
-                              <div class="input-field col s6 m5 l6">
-                                <input  id="monto" type="text" name="monto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                <label for="monto" >  <i class="small material-icons">receipt</i>&nbsp;Monto a pagar</label>
-                              </div>
-
-                              <div class="">
-                                <div class="input-field col s6 m5 l6">
-                                  <input  id="moneda" type="text" name="moneda" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                                  <label for="moneda" >  <i class="small material-icons">description</i>&nbsp;Tipo de Moneda</label>
-                                </div>
-                              </div>
-                            </div><!--Fin del div de la quinta fila-->
-
-
-          <!--=======================Cargando areas silvestres protegidas=========================-->
-                            <?php
-                             $conexion = mysql_connect("localhost","root");
-                             mysql_select_db("sirevi",$conexion);
-                             $sentencia_asp = "select * from asp order by nombre ASC";
-                             $query_asp = mysql_query($sentencia_asp);
-                            ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                <?php while ($arreglo_asp = mysql_fetch_array($query_asp)) {  ?>
-                                <option value="<?php echo $arreglo_asp['id']?>"><?php echo $arreglo_asp['nombre'] ?></option>
-                                <?php } ?>
-                              </select>
-                            <label> Seleccionar asp</label>
-                          </div>
-          <!--========================Cargando los sectore=========================================-->
-                              <?php
-                              $conexion = mysql_connect("localhost","root");
-                              mysql_select_db("sirevi",$conexion);
-                              $sentencia_sector = "select * from sector order by nombre ASC";
-                              $query_sector = mysql_query($sentencia_sector);
-                              ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                 <?php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-                                 <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                                 <?php } ?>
-                              </select>
-                              <label>Seleccionar Sector</label>
-                            </div>
-
-
-          <!--======================Cargando usuarios=====================================-->
-                            <?php
-                            $conexion = mysql_connect("localhost","root");
-                            mysql_select_db("sirevi",$conexion);
-                            $sentencia_user = "select * from usuarios order by nombre ASC";
-                            $query_user = mysql_query($sentencia_user);
-                            ?>
-                            <div class="input-field col s4 m5 l4">
-                              <select>
-                                <option value="" disabled selected>Elija una opcion</option>
-                                 <?php while ($arreglo_sector = mysql_fetch_array($query_user)) {  ?>
-                                 <option value="<?php echo $arreglo_sector['id']?>"><?php echo $arreglo_sector['nombre'] ?></option>
-                                 <?php } ?>
-                              </select>
-                              <label> Seleccionar usuario</label>
-                            </div>
-
-
-
-                          <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-                          <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                            value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-                                 <i class="mdi-content-send material-icons right">done</i>
-                          </button>
-
-                            <button class="btn waves-effect waves-light teal darken-4"  type="reset" name="action">Limpiar<i class="mdi-content-send right"></i></button>
-                          </div>
-                        </form>
-                     </div>
+                        </div><!--Fin de la fila admision por el dia -->
+                      </fieldset>
                    </div>
-                 </div>
-               </fieldset>
-          <!--================================================================================================================================-->
+<div class="">
+  <fieldset>
+    <legend>Derecho de camping</legend>
+    <div class=""><!---Inicio de la fila camping-->
+
+      <div class="input-field col s6 m6 l6  ">
+        <fieldset>
+          <legend>Tarifas nacionales</legend>
+
+        </fieldset>
+
+      </div>
+
+     <!---->
+     <div class="input-field col s6 m6 l6  ">
+      <fieldset>
+        <legend>Tarifas extranjeros</legend>
+      </fieldset>
+     </div>
+
+   </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
+  </fieldset>
+</div>
+                </div>
+              </div>
             </div>
-            </div><!-- Div de los tamanos -->
-            </div>
-            </div>
-            </main>
+      </fieldset>
+<!--================================================================================================================================-->
+        </div>
+      </div><!-- Div de los tamanos -->
+    </div>
+    </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+  <thead class="white-text teal darken-4 z-depth-2">
+      <tr>
+        <th>Adultos extranjeros</th>
+        <th>Ninos extranjeros</th>
+        <th></th>
+
+        <th style="width:40px;"></th>
+        <th colspan="2">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->model->ListadoTarifas() as $r): ?>
+        <tr>
+          <td><?php echo $r->adulto_extranjero; ?></td>
+          <td><?php echo $r->nino_extranjero; ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+<table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+  <thead class="white-text teal darken-4 z-depth-2">
+      <tr>
+        <th>Adultos nacionales</th>
+        <th>Ninos nacionales</th>
+        <th>Estudiantes</th>
+
+        <th style="width:40px;"></th>
+        <th colspan="2">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->model->ListadoTarifas() as $r): ?>
+        <tr>
+          <td><?php echo $r->adulto_nacional; ?></td>
+          <td><?php echo $r->nino_nacional; ?></td>
+          <td><?php echo $r->estudiantes; ?></td>
+
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+
+
+
+<table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+  <thead class="white-text teal darken-4 z-depth-2">
+      <tr>
+        <th>Adultos extranjeros</th>
+        <th>Ninos extranjeros</th>
+        <th></th>
+
+        <th style="width:40px;"></th>
+        <th colspan="2">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->model->ListadoTarifas() as $r): ?>
+        <tr>
+          <td><?php echo $r->adulto_extranjero; ?></td>
+          <td><?php echo $r->nino_extranjero; ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+
+
+
+ <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+    <thead class="white-text teal darken-4 z-depth-2">
+        <tr>
+          <th>Adultos nacionales</th>
+          <th>Ninos nacionales</th>
+          <th>Estudiantes</th>
+
+          <th style="width:40px;"></th>
+          <th colspan="2">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($this->model->ListadoTarifas() as $r): ?>
+          <tr>
+            <td><?php echo $r->adulto_nacional; ?></td>
+            <td><?php echo $r->nino_nacional; ?></td>
+            <td><?php echo $r->estudiantes; ?></td>
+
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>-->
+<main>
+  <div class="container">
+    <h4 class="header left">Módulo Visitación</h4>
+    <a href="index.php?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
+
+      <div class="right hide-on-small-only">
+        <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i><span>Nueva Visitación</span></a>
+      </div>
+
+    </div>
+
+
+    <div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <!-- Inicio de mi codigo -->
+          <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+            <thead class="white-text teal darken-4 z-depth-2">
+<!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
+            <tr>
+              <th>Nombre</th>
+              <th>Pais</th>
+              <th>Fecha ingreso</th>
+
+              <th>Sector</th>
+              <th>Dias </th>
+
+              <th>Monto</th>
+              <th>Moneda</th>
+              <th>Tipo pago</th>
+              <!--<th>Total</th>-->
+              <th style="width:40px;"></th>
+              <th colspan="2">Acción</th>
+            </tr>
+<!--================================================================================================================== -->
+          </thead>
+          <tbody>
+            <?php foreach ($this->model->Listar() as $r): ?>
+            <tr>
+              <td><?php echo $r->Nombre; ?></td>
+              <td><?php echo $r->Pais; ?></td>
+              <td><?php echo $r->fecha_ingreso; ?></td>
+
+              <td><?php echo $r->Sector; ?></td>
+              <td><?php echo $r->Dias; ?></td>
+              <td class="center"></td>
+
+              <td><?php echo $r->monto;?></td>
+              <td><?php echo $r->moneda;?></td>
+
+              <td>
+                <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<php echo $r->id; ?>"><i
+                    class="small material-icons right">edit</i></a>
+              </td>
+              <td>
+              <a title="Borrar Información" onclick="return confirm('¿Seguro de eliminar este registro?');"
+                 href="?c=Visitacion&a=Eliminar&id=<php echo $r->id; ?>">
+                  <i class="small material-icons right">delete</i></a>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div><!-- Div de los tamanos -->
+    </div>
+  </div>
+</main>

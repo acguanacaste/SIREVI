@@ -42,7 +42,7 @@
               <?php endforeach; ?>
             </tbody>
           </table>
-      
+
       </div><!-- Div de los tamanos -->
     </div><!--Div row -->
   </div><!--div del container-->
