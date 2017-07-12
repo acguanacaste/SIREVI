@@ -87,7 +87,7 @@ class Usuario{
             puesto          = ?,
 						email           = ?,
 						imagen          = ?,
-						estado
+						estado					= ?
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)

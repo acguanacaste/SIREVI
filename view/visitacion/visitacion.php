@@ -42,6 +42,7 @@
 
               <th>tipo_pago</th>
               <th>moneda</th>
+              <th>Total pago</th>
               <!--<th>Total</th>-->
               <th style="width:40px;"></th>
               <th colspan="2">Acción</th>
@@ -81,6 +82,7 @@
 
               <td><?php echo $r->tipo_pago; ?></td>
               <td><?php echo $r->moneda; ?></td>
+              <td><?php echo $r->total_colones; ?></td>
 
 
 

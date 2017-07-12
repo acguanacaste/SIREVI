@@ -79,6 +79,7 @@ class VisitacionController{
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
         //$visit->monto                     = $_REQUEST['monto'];
         $visit->moneda                    = $_REQUEST['moneda'];
+        $visit->total_colones             =$_REQUEST['total_colones'];
   //      $visit->total_dolar               = $_REQUEST['total_dolar'];
   //      $visit->monto_total               = $_REQUEST['monto_total'];
 

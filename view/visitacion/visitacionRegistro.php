@@ -299,10 +299,10 @@
 
       <fieldset class="z-depth-3">
         <legend>&nbsp;Categorías de pago&nbsp;</legend>
-        <div class=""><!--Inicio de la "" -->
+        <div class="center-align"><!--Inicio de la "" -->
 
           <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 input-field col m10">
+            <fieldset  class="z-depth-1 input-field col m9">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
               <p class="input-field col s6 m6 l4">
                 <input class="with-gap " value="efectivo" name="tipo_pago"  type="radio"  id="indeterminate-checkbox" checked="default"   />
@@ -321,13 +321,13 @@
           </div>
 
           <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 ">
+            <fieldset  class="z-depth-1 input-field col m9">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
-              <p class="input-field col s6 m6 l6">
+              <p class="input-field col s6 m6 l4">
                 <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
               </p>
-              <p class="input-field col s6 m6 l6">
+              <p class="input-field col s6 m6 l4">
                 <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
               </p>
@@ -371,7 +371,7 @@
 
               <div class="input-field col s6 m3 l3">
                 <fieldset class="z-depth-2 "><legend>Monto a cancelar</legend>
-                    <div >Colones*: <input class="teal darken-4 white-text"  type="text" id="monto_total" disabled value="0"></div>
+                    <div >Colones*: <input class="teal darken-4 white-text" name="total_colones" type="text" id="monto_total" disabled value="0"></div>
                 </fieldset>
               </div>
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->

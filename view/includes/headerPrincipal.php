@@ -105,10 +105,12 @@ header("Location:?c=login&a=index");
 					<a href="#" class="brand-logo right ">SIREVI</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
 
-					
+
 
 						<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
+						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
 						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
+
 						<li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 						<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
 						<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
@@ -136,6 +138,7 @@ header("Location:?c=login&a=index");
 		<li class="divider"></li>
 		<!--============================= Inicio de los modulos del sistemas ====================================================-->
 		<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
+		<li><a href="index.php?c=Dollar" title="Visitación"><i class="small material-icons">tab</i> <span class="white-text">Dolar</span></a></li>
 		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
 		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
 		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
@@ -147,8 +150,6 @@ header("Location:?c=login&a=index");
 	</ul><!--Fin del slide out-->
 <!--============================= Fin de la lista de links para informacion ===========================================================-->
 
-
-<!--============================== Inicio del Slide out para el buscador ==========================================-->
 
 
 <!--================================Findel slide out ======================================================-->

@@ -31,6 +31,7 @@ class Visitacion{
 
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
+		public $total_colones;
 		//public $total_dolar;//Muestra el total de lo que se cobra en dolares
 		//public $monto_total;//Total a pagar por el visitante
 
@@ -55,7 +56,7 @@ class Visitacion{
          sendero.nombre as Sendero, dias_camping as Dias,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
           personas_surf, prepago, exonerado,
-			     tipo_pago, moneda
+			     tipo_pago, moneda, total_colones
             from visitacion
               inner join pais on visitacion.pais = pais.id
                 inner join provincia on visitacion.provincia = provincia.id
@@ -181,8 +182,8 @@ class Visitacion{
        sendero, dias_camping,
         nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
         personas_surf, prepago, exonerado,
-         tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         tipo_pago, moneda, total_colones)
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
@@ -217,6 +218,7 @@ class Visitacion{
 //----------------------------------------------------------------------------------------
 										$data->tipo_pago,
 										$data->moneda,
+										$data->total_colones,
 
                 )
 			);
