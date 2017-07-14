@@ -32,4 +32,10 @@ class loginController{
       require_once 'view/includes/footer.php';
   }
 
+
+public function AccesoPuestoInstitucion(){//Me valida cual es el puesto del administrador en la instituccion
+  
+}
+
+
 }

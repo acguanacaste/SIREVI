@@ -59,12 +59,8 @@ class VisitacionController{
 //--------------------------------------------------------------------------------------------------------
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
-
-
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
-
-
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
@@ -77,12 +73,10 @@ class VisitacionController{
         $visit->exonerado                 = $_REQUEST['exonerado'];
 //-----------------------------------------------------------------------------------------------------
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
-        //$visit->monto                     = $_REQUEST['monto'];
         $visit->moneda                    = $_REQUEST['moneda'];
-        $visit->total_colones             =$_REQUEST['total_colones'];
+  //      $visit->total_colones             =$_REQUEST['total_colones'];
   //      $visit->total_dolar               = $_REQUEST['total_dolar'];
   //      $visit->monto_total               = $_REQUEST['monto_total'];
-
 
         $visit->id > 0
             ? $this->model->Actualizar($visit)

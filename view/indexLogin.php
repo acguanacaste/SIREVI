@@ -49,6 +49,73 @@ span.psw {
 }
 
 </style>
+<script>
+$(document).ready(function() {
+	$('select').material_select('destroy');
+	$(".button-collapse").sideNav({
+		//		menuWidth: 400, // Ancho del sideNav
+		//  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
+	});
+
+	$('.derecha').sideNav({
+		 menuWidth: 500,	 // Default is 300
+			edge: 'right', // Choose the horizontal origin
+			closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+//				draggable: true, // Choose whether you can drag to open on touch screens,
+//				onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
+//				onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
+		}
+	);
+
+
+	$('select').material_select();
+	$('.slider').slider({full_width: true});
+	/*Para la funcionalidad de las fechas */
+	$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15 // Creates a dropdown of 15 years to control year
+	});
+		/*$(".dropdown-button").dropdown(hover:false);*/
+	$('.collapsible').collapsible({
+							accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+						});
+
+/*=======================================================================================================================================*/
+	$('input.autocomplete').autocomplete({
+		 data: {
+			 "Argentina": null, "Australia":null, "Austria":null,
+			 "Bélgica":null,"Bielorrusia":null,"Brasil":null,
+			 "Canadá":null,"China":null,"Colombia":null,
+			 "Dinamarca":null,
+			 "Ecuador":null, "El Salvador":null, "Escocia":null, "España":null, "Estados Unidos":null, "Estonia":null,
+			 "Finlandia":null, "Francia":null,
+			 "Guatemala":null,
+			 "Holanda":null, "Honduras":null,
+			 "Inglaterra":null, "Israel":null, "Italia":null,
+			 "Japón":null,
+			 "Líbano":null,
+			 "México":null,
+			 "Nicaragua":null,
+			 "Panamá":null,	 "Portugal":null,
+			 "R. Checa":null, "Rusia":null,
+			 "Suecia":null, "Suiza":null,
+			 "Venezuela": null,
+			 "Costa Rica": 'http://placehold.it/250x250'
+		 },
+		 limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
+		 onAutocomplete: function(val) {
+			 // Callback function when value is autcompleted.
+		 },
+		 minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
+	 });
+
+/*==========================================================================================================================================*/
+
+});
+
+
+</script>
+
 <body>
 <!--======================================================================================================================-->
 	<header>
@@ -158,38 +225,21 @@ span.psw {
 											</div>
 
 											<div class="input-field col s12 m12 l12 ">
-												<i class="material-icons prefix">vpn_key</i>
-												<input id="sector" name="sector" type="text" class="validate " required>
-												<label for="sector">&nbsp;Sector</label>
-										 </div>
-								
+												<div class="input-field col s12">
+									 				<select id="sector" name="sector">
+												  	<option value="" disabled selected>Elija una opción</option>
+												  	<option value="Santa Rosa"> Santa Rosa</option>
+												  	<option value="Pailas">     Pailas</option>
+												  	<option value="Junquillal"> Junquillal</option>
+														<option value=""></option>
+														<option value=""></option>
+														<option value=""></option>
+														<option value=""></option>
+												 	</select>
+												 <label for="sector">Sector al que pertenece</label>
+												</div>
+										 	</div>
 
-
-										<!--	<div class="input-field col s12 m12 l12">
-												<fieldset>
-													<legend>Sector en que se encuentra</legend>
-													<php
-													$conexion = mysql_connect("localhost","root");
-													mysql_select_db("sirevi",$conexion);
-													$sentencia = "select * from sector order by nombre ASC";
-													$query = mysql_query($sentencia);
-													?>
-						<!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
-
-												 <!--<div class="row">
-														<div class="input-field col s12 m12 l12">
-														 <select name="sector">
-																<option value="" disabled selected>Sectores</option>
-															 <php while ($arreglo = mysql_fetch_array($query)) {  ?>
-															 <option value="<php echo $arreglo['id']?>"><php echo $arreglo['nombre'] ?></option>
-															 <php } ?>
-
-														 </select>
-														 <label>Selecione Sector</label>
-													 </div>
-													</div>
-												</fieldset>
-											</div> -->
 
 
 											<div class="input-field col s12 m12 l12">

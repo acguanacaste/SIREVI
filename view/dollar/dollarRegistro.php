@@ -31,9 +31,8 @@
 
                 <!--INICIO DE COLUMNA -->
                 <div class="input-field col s6 m5 l6  ">
-                  <input  id="fecha_cambio" type="text" placeholder="Año-Mes-Día" name="fecha_cambio" value="" class="center-align validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                  <label for="fecha_cambio" >  <i class="small material-icons">assignment</i><span class="hide-on-small-only">Fecha de cambio</label>
-
+                  <input type="date" id="fecha_cambio"  placeholder="Fecha de cambio" name="fecha_cambio"  class="datepicker center-align validate" required class="">
+                  <label for="fecha_cambio" >  <i class="small material-icons">assignment</i><span class="hide-on-small-only"></label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
         <!--    </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->

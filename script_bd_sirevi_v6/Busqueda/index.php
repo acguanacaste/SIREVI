@@ -46,7 +46,7 @@ if($_POST){
 	  if (mysql_num_rows($resultado) > 0){
 	     // Se recoge el número de resultados
 		 $registros = '<p>HEMOS ENCONTRADO ' . mysql_num_rows($resultado) . ' registros </p>';
-		 
+
 	     // Se almacenan las cadenas de resultado
 		 while($fila = mysql_fetch_assoc($resultado)){
               $texto .= $fila['noIdentificacion'] ." | ". $fila['nombre'] ." | ". $fila['fecha_ingreso'] ." | ".
@@ -68,7 +68,7 @@ if($_POST){
 <meta charset='utf-8'>
 <head>
 <body>
-<h1>Buscando registros de visitacion <a href="" title="Más tutoriales en nuestra web" target="_self"></a></h1>
+<h1>Buscando registros de visitacion <a href="" target="_self"></a></h1>
 <form id="buscador" name="buscador" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
     <input id="buscar" name="buscar" type="search" placeholder="Buscar aquí..." autofocus >
     <input type="submit" name="buscador" class="boton peque aceptar" value="buscar">
