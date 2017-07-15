@@ -1,4 +1,4 @@
-<?php if ($_SESSION['usuario']['puesto'] == "Administrador"):?>
+<?php if ($_SESSION['usuario']['puesto'] == 1):?>
 <main>
   <div class="container">
     <h4 class="header left">Módulo de Usuarios</h4>
@@ -38,7 +38,7 @@
                 <td><?php echo $r->puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
                 <td><?php echo $r->imagen; ?></td>
-<?php if ($_SESSION['usuario']['puesto'] == "Administrador"):?>
+<?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
                 }else{

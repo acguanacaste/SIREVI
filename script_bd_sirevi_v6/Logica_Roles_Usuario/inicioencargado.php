@@ -110,11 +110,7 @@
 						<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
 						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
 						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="index.php?c=Reportes" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 						<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-						<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-						<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-						<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 				</ul>
 					<a href="" data-activates="slide-out" title="Menú"  class="button-collapse"><i title="Menu" style="color:white" class=" small material-icons">toc</i></a>
 
@@ -139,11 +135,8 @@
 		<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
 		<li><a href="index.php?c=Dollar" title="Visitación"><i class="small material-icons">tab</i> <span class="white-text">Dolar</span></a></li>
 		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
-		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
+
 		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
-		<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons">view_quilt</i><span class="white-text">Sectores</span></a></li>
-		<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="white-text">Senderos</span></a></li>
-		<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="white-text">Áreas Protegidas</span></a></li>
 		<!--<li><a href="#"> <i class="small material-icons">settings</i><span class="white-text">Perfil</span></a></li>-->
 		<li><a href=""> <i class="small material-icons">settings_power</i><span class="white-text">Cerrar sesión</span></a></li>
 	</ul><!--Fin del slide out-->
@@ -158,8 +151,9 @@
   <body>
     <section>
       <center>
-        <h2>Bienvenido administrador</h2>
-      </center>
+        <h2>Bievenido usuario</h2>
+    </center>
     </section>
+
   </body>
 </html>

@@ -22,12 +22,18 @@ $sql="SELECT * FROM `usuarios` WHERE `Usu_login`='$log' and `Usu_clave`='$cont'"
                 header('Location: inicioadmin.php');
 
             //header("refresh:0.1 ;url=/temp/inicioadmin.php");
-}else{
+}elseif($ns==2){
 
-    header('Location: iniciousu.php');
+    header('Location: inicioencargado.php');
   //header("refresh:0.1 ;url=/temp/iniciousu.php"); //si el NivelUsuario es mayor o diferente a 1 va la pagina inicio del usuario normal
 }
-            }else{
+
+elseif ($ns==3) {
+  header('Location: inicioreportes.php');
+}
+
+            }
+            else{
         echo"<script language='javascript'>alert('Error En el Usuario o Contraseña Intente de Nuevo'); </script>";
             header("refresh:0.1 ;url=/prefectura/index.html");
     }

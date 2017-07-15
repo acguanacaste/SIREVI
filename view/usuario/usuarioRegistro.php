@@ -8,7 +8,7 @@
 <!--===========================================================================================================-->
 <fieldset>
   <legend><h5>Modulo Usuarios</h5>
-   <h6>Utilice los campos habilitados para modificar información </h6></legend>
+   <h6>Utilice los campos habilitados para completar información </h6></legend>
     <div class="container contact">
       <br>
       <hr>
@@ -17,7 +17,7 @@
         <div class="col s14 m14 l11">
           <div class="row">
             <form id="frm-usuario" action="?c=Usuario&a=Guardar" method="post" enctype="multipart/form-data">
-              <input type="hidden" name="id" value="<?php echo $user->id; ?>" />
+              <input type="hidden" name="id" value="" />
 
 
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
@@ -56,9 +56,10 @@
                <div class="input-field col s12 m10 l12" >
                  <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
-                   <option value="">Administrador</option>
-                   <option value="">Encargado de sector</option>
-                   <option value="">Reportes</option>
+                   <option value="1">Administrador</option>
+                   <option value="2">Encargado de sector</option>
+                   <option value="3">Reportes</option>
+                   <option value="4">Voluntario</option>
                  </select>
                  <label for="puesto">Puesto en la Institución</label>
                </div>

@@ -89,7 +89,7 @@ class UsuarioController{
     public function CambiarEstado(){
         session_start();
 
-        if ($_SESSION['usuario']['puesto']=="Administrador"){
+        if ($_SESSION['usuario']['puesto']==1){
           $this->model->Estado($_REQUEST['id']);
           header('Location: index.php?c=Usuario');
         }

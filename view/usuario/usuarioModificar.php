@@ -38,9 +38,6 @@
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
-
-
-
      <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
@@ -48,15 +45,12 @@
                        <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
-
-
                    <!--INICIO DE COLUMNA CONTRASENA-->
                    <div class="input-field col s6 m5 l6  ">
                    <input  id="contrasena" type="password" name="contrasena"  value="<?php echo $user->contrasena; ?>"  class="validate form-control" data-validacion-tipo="requerido|min:10">
                    <label for="contrasena" >  <i class="small material-icons">perm_identity</i><span class="hide-on-small-only">Contraseña</span></label>
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
-
 
      <!--INICIO DE LA TERCERA FILA-->
      <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
@@ -98,10 +92,7 @@
            </div>
          </div>
       </div>
-<!--<div class="input-field col s6 m5 l6 ">
-  <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
-  <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
-</div>-->
+
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
@@ -117,7 +108,6 @@
          </div>
 </fieldset>
 
-
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
@@ -128,7 +118,6 @@
               <!-- CarbonAds Zone Code -->
               <script async="" type="text/javascript"
               src="" id="_carbonads_js"></script>
-
           <!--    <div id="carbonads">
                 <span>
                   <span class="carbon-wrap">
@@ -146,8 +135,6 @@
                       <hr>
                       <li><a  href="index.php?c=Usuario" >
                         <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">refresh</i></a></li>
-
-
                       <li>
                         <hr>
                         <div class="right">
@@ -157,11 +144,6 @@
                         </div>
                         <hr>
                       </li>
-
-                          <li>Puedo poner lista de items</li>
-                          <li>Otro link por aqui...</li>
-                            <li><h5>Usuarios</h5></li>
-
 
                     </ul>
                   </div>

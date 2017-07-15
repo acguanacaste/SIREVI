@@ -8,7 +8,7 @@
   <tr><td><input type="text" class="form-control"  placeholder="Ejemplo" name="log" required title="Ingrese Login"></td></tr>
   </div>
 <div class="form-group">
-  <tr><td><label for="exampleInputPassword1">Contraseña</label></tr>
+  <tr><td><label for="exampleInputPassword1">Contrasena</label></tr>
   <tr><td><input type="password" class="form-control"  placeholder="********" name="cont" title="Ingrese Contraseña" required ></td></tr>
   </div>
 
