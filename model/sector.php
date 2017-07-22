@@ -6,7 +6,7 @@ class Sector{
     public $nombre;
     public $capacidad_diaria;
     public $capacidad_acampar;
-		public $asp;
+		public $asp;/*Llave foranea*/
 
 		//Ingreso por el dia
 		public $adulto_nacional;

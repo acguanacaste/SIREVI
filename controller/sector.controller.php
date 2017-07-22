@@ -52,7 +52,8 @@ class SectorController{
         $sector->nombre                     = $_REQUEST['nombre'];
         $sector->capacidad_diaria           = $_REQUEST['capacidad_diaria'];
         $sector->capacidad_acampar          = $_REQUEST['capacidad_acampar'];
-        $sector->asp                        = $_REQUEST['asp'];
+        $sector->asp                        = $_REQUEST['asp'];//Campo para la llave forenea, tipo de dato INT
+
         /*Ingreso por el dia*/
         $sector->adulto_nacional            = $_REQUEST['adulto_nacional'];
         $sector->nino_nacional              = $_REQUEST['nino_nacional'];

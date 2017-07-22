@@ -7,7 +7,7 @@ class Usuario{
     public $apellido;
     public $cedula;
     public $contrasena;
-    public $puesto;
+    public $clave_puesto;/*Llave foranea*/
     public $email;
 		public $imagen;
 		public $estado;
@@ -25,7 +25,10 @@ class Usuario{
 		try{
 			$result = array();
 
-			$stm = $this->pdo->prepare("SELECT * FROM usuarios");
+			$stm = $this->pdo->prepare("select usuarios.id, usuarios.nombre as nombre,
+			usuarios.apellido, usuarios.cedula, usuarios.email,usuarios.imagen, usuarios.estado,
+			puestos_institucion.nombre_puesto AS Puesto from usuarios
+			inner join puestos_institucion on usuarios.puesto = puestos_institucion.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -84,7 +87,7 @@ class Usuario{
 						nombre          = ?,
 						apellido        = ?,
             contrasena      = ?,
-            puesto          = ?,
+            clave_puesto    = ?,/*Llave foranea*/
 						email           = ?,
 						imagen          = ?,
 						estado					= ?
@@ -96,7 +99,7 @@ class Usuario{
                         $data->nombre,
                         $data->apellido,
                         $data->contrasena,
-                        $data->puesto,
+                        $data->clave_puesto,/*Llave foranea*/
                         $data->email,
 												$data->imagen,
 												$data->estado,
@@ -111,7 +114,7 @@ class Usuario{
 
 	public function Registrar(Usuario $data){/*Metodo que me registra los datos en la bd*/
 	 try{
-		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,puesto,email,imagen, estado)
+		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,clave_puesto,email,imagen, estado)
 		        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
@@ -121,7 +124,7 @@ class Usuario{
                     $data->apellido,
                     $data->cedula,
                     $data->contrasena,
-                    $data->puesto,
+                    $data->clave_puesto,
                     $data->email,
 										$data->imagen,
 										$data->estado,

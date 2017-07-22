@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 15
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`puestos_institucion` (
   `nombre_puesto` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
@@ -60,22 +61,21 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `apellido` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `cedula` VARCHAR(25) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `contrasena` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `puesto` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `puesto` INT(11) NOT NULL,
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `imagen` SMALLINT(6) NULL DEFAULT NULL,
   `estado` INT(3) NULL DEFAULT NULL,
-  `clave_puesto` INT(3) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_imagen_idx` (`imagen` ASC),
   INDEX `usuarioSec_idx` (`estado` ASC),
-  INDEX `fk_clavePuesto_idx` (`clave_puesto` ASC),
-  CONSTRAINT `fk_clavePuesto`
-    FOREIGN KEY (`clave_puesto`)
+  INDEX `fk__cargo_institucion_idx` (`puesto` ASC),
+  CONSTRAINT `fk__cargo_institucion`
+    FOREIGN KEY (`puesto`)
     REFERENCES `sirevi`.`puestos_institucion` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 29
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -98,7 +98,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`dollar` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci
 COMMENT = '					';
@@ -132,7 +131,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`pais` (
   `codigo` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -148,7 +146,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`provincia` (
   `codigo` VARCHAR(10) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -164,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `capacidad_diaria` INT(11) NOT NULL,
   `capacidad_acampar` INT(11) NOT NULL,
   `asp` INT(11) NOT NULL,
-  `dollar_rate` INT(2) NULL DEFAULT NULL,
+  `dollar_rate` INT(12) NULL DEFAULT NULL,
   `adulto_nacional` INT(11) NOT NULL,
   `nino_nacional` INT(11) NOT NULL,
   `adulto_extranjero` INT(11) NOT NULL,
@@ -178,18 +175,13 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
   INDEX `fk_rateDollar_idx` (`dollar_rate` ASC),
-  CONSTRAINT `fk_asp`
+  CONSTRAINT `fk_area_Silvestre_Protegida`
     FOREIGN KEY (`asp`)
     REFERENCES `sirevi`.`asp` (`id`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_cambioDollar`
-    FOREIGN KEY (`dollar_rate`)
-    REFERENCES `sirevi`.`dollar` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 21
+AUTO_INCREMENT = 35
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -214,7 +206,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -283,7 +274,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 56
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 

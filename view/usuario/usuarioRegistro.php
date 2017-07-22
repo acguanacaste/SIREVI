@@ -49,23 +49,26 @@
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
+          <?php
+          $conexion = mysql_connect("localhost","root");
+          mysql_select_db("sirevi",$conexion);
+          $sentencia = "select * from puestos_institucion order by nombre_puesto ASC";
+          $query = mysql_query($sentencia);
+          ?>
+    <!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
 
-     <!--INICIO DE LA TERCERA FILA-->
-     <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-             <div class="row"><!--INICIO DE TERCERA FILA-->
-               <div class="input-field col s12 m10 l12" >
-                 <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
-                   <option value="" disabled selected>Elija una opción</option>
-                   <option value="1">Administrador</option>
-                   <option value="2">Encargado de sector</option>
-                   <option value="3">Reportes</option>
-                   <option value="4">Voluntario</option>
-                 </select>
-                 <label for="puesto">Puesto en la Institución</label>
-               </div>
+         <div class="">
+            <div class="input-field col s12 m12 l12">
+             <select name="clave_puesto">
+                <option value="" disabled selected>Elija una opcion</option>
+               <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+               <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre_puesto'] ?></option>
+               <?php } ?>
 
-          </div><!--FIN DE LA TERCERA FILA-->
-
+             </select>
+             <label>Selecione puesto en institución</label>
+           </div>
+          </div>
 
 
 

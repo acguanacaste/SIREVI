@@ -9,10 +9,36 @@ class UsuarioController{
     }
 
 
-    public function Index(){
+  /*  public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/usuario/usuario.php';
         require_once 'view/includes/footer.php';
+    }*/
+
+
+
+    public function AdminUser(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/usuario/usuario.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function SectorManagerUser(){
+      require_once 'view/includes/header.php';
+      require_once 'view/usuario/usuario.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function ReportsUser(){
+      require_once 'view/includes/head.php';
+      require_once 'view/usuario/usuario.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function VoluntaryUser(){
+      require_once 'view/includes/head.php';
+      require_once 'view/usuario/usuario.php';
+      require_once 'view/includes/footer.php';
     }
 
 
@@ -65,10 +91,11 @@ class UsuarioController{
         $user->apellido   = $_REQUEST['apellido'];
         $user->cedula     = $_REQUEST['cedula'];
         $user->contrasena = $_REQUEST['contrasena'];
-        $user->puesto     = $_REQUEST['puesto'];
+        $user->puesto     = $_REQUEST['clave_puesto'];
         $user->email      = $_REQUEST['email'];
         $user->imagen     = $_REQUEST['imagen'];
         $user->estado     = $_REQUEST['estado'];
+
 
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/
@@ -89,12 +116,12 @@ class UsuarioController{
     public function CambiarEstado(){
         session_start();
 
-        if ($_SESSION['usuario']['puesto']==1){
+        if ($_SESSION['usuario']['clave_puesto']== 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
           $this->model->Estado($_REQUEST['id']);
           header('Location: index.php?c=Usuario');
         }
         else {
-          header( 'HTTP/1.0 403 Forbiden');//)# code...
+          header( 'HTTP/1.0 403 Forbiden');//).
       }
     }
 

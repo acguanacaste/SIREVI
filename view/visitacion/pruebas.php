@@ -4,6 +4,49 @@
 
 
 <?php
+
+/*LOGICA PARA LOS ACCESOS DE USUARIO
+					$sql_puesto="SELECT clave_puesto FROM usuarios WHERE email= :login AND contrasena= :password "; // realizo la comparación con la base de datos
+							$res=mysql_query($sql_puesto,$password);
+							///$_SESSION["email"]=$_POST["login"];
+
+							if($row=mysql_fetch_array($res)){
+
+							$ns=$row['clave_puesto']; // descargo el niver de usuario
+
+							if ($ns == 1) {
+								header("Location:?c=login&a=AdminUser");
+							}
+							elseif ($ns == 2) {
+								header("Location:?c=login&a=SectorManagerUser");
+							}
+
+							elseif ($ns == 3) {
+								header("Location:?c=login&a=ReportsUser");
+							}
+
+							elseif ($ns == 4) {
+								header("Location:?c=login&a=VolunteeringUser");
+							}
+
+==============================================================================================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $mysqli  = new mysqli("localhost","root","","sirevi");
 
     $salida= "";

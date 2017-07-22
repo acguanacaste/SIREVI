@@ -32,7 +32,7 @@ try{
 				"id"=>$res[0]['id'],
 				"email"=>$res[0]['email'],
 				"nombre"=>$res[0]['nombre']." ".$res[0]['apellido'],
-				"puesto"=>$res[0]['puesto'],
+				"clave_puesto"=>$res[0]['clave_puesto'],
 				"sector"=>$res2[0]['nombre'],
 				"idSector"=>$res2[0]['id'],
 			);

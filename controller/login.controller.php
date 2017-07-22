@@ -25,17 +25,46 @@ class loginController{
 
 
   }
+
   public function bienvenido(){
 
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/menuPrincipal.php';
       require_once 'view/includes/footer.php';
   }
+//=====================================================================================================================================
 
+  public function AdminUser(){//Vista usuario administrador
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/menuPrincipal.php';
+    require_once 'view/includes/footer.php';
+  }
 
-public function AccesoPuestoInstitucion(){//Me valida cual es el puesto del administrador en la instituccion
-  
-}
+//======================================================================================================================================
+
+  public function SectorManagerUser(){//Vista usuario encargado de sector
+    require_once 'view/includes/header.php';
+    require_once 'view/menuPrincipal.php';
+    require_once 'view/includes/footer.php';
+  }
+
+//=====================================================================================================================================
+
+  public function ReportsUser(){
+    require_once 'view/includes/head.php';
+    require_once 'view/menuPrincipal.php';
+    require_once 'view/includes/footer.php';
+  }
+
+//====================================================================================================================================
+
+  public function VoluntaryUser(){
+    require_once 'view/includes/head.php';
+    require_once 'view/usuario/usuario.php';
+    require_once 'view/includes/footer.php';
+  }
+
+//===================================================================================================================================
 
 
 }
