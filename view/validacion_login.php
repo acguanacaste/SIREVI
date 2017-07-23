@@ -32,15 +32,26 @@ try{
 				"id"=>$res[0]['id'],
 				"email"=>$res[0]['email'],
 				"nombre"=>$res[0]['nombre']." ".$res[0]['apellido'],
-				"clave_puesto"=>$res[0]['clave_puesto'],
+				"puesto"=>$res[0]['puesto'],//Esta es la line que me muestra el error...
 				"sector"=>$res2[0]['nombre'],
 				"idSector"=>$res2[0]['id'],
 			);
 
 			$_SESSION["email"]=$_POST["login"];
 			$_SESSION['usuario']=$usuarioActual;
-			header("Location:?c=login&a=bienvenido");
 
+			if ($_SESSION['usuario']['puesto'] == 1){
+				header("Location:?c=login&a=AdminUser");
+			}
+			elseif ($_SESSION['usuario']['puesto'] == 2) {
+				header("Location:?c=login&a=SectorManagerUser");
+			}
+			elseif ($_SESSION['usuario']['puesto'] == 3) {
+				header("Location:?c=login&a=ReportsUser");
+			}
+			elseif ($_SESSION['usuario']['puesto'] == 4){
+				header("Location:?c=login&a=VolunteeringUser");
+			}
 		} else{
 			header("location:index.php?error=1");
 		}

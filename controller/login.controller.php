@@ -2,36 +2,18 @@
 
 class loginController{
 
-
-
   public function Index(){
-
-
       require_once 'view/indexLogin.php';
-
-
   }
 
   public function Comprobar(){
-
-
       require_once 'view/validacion_login.php';
-
   }
+
   public function salir(){
-
-
       require_once 'view/logout.php';
-
-
   }
 
-  public function bienvenido(){
-
-      require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/menuPrincipal.php';
-      require_once 'view/includes/footer.php';
-  }
 //=====================================================================================================================================
 
   public function AdminUser(){//Vista usuario administrador
@@ -43,7 +25,7 @@ class loginController{
 //======================================================================================================================================
 
   public function SectorManagerUser(){//Vista usuario encargado de sector
-    require_once 'view/includes/header.php';
+    require_once 'view/includes/headerEncargadoSector.php';
     require_once 'view/menuPrincipal.php';
     require_once 'view/includes/footer.php';
   }
@@ -51,16 +33,16 @@ class loginController{
 //=====================================================================================================================================
 
   public function ReportsUser(){
-    require_once 'view/includes/head.php';
+    require_once 'view/includes/headerReportes.php';
     require_once 'view/menuPrincipal.php';
     require_once 'view/includes/footer.php';
   }
 
 //====================================================================================================================================
 
-  public function VoluntaryUser(){
-    require_once 'view/includes/head.php';
-    require_once 'view/usuario/usuario.php';
+  public function VolunteeringUser(){
+    require_once 'view/includes/headerVoluntarios.php';
+    require_once 'view/menuPrincipal.php';
     require_once 'view/includes/footer.php';
   }
 

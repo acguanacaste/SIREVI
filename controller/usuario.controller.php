@@ -9,39 +9,17 @@ class UsuarioController{
     }
 
 
-  /*  public function Index(){
+    public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/usuario/usuario.php';
         require_once 'view/includes/footer.php';
-    }*/
-
-
+    }
 
     public function AdminUser(){
-      require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/usuario/usuario.php';
-      require_once 'view/includes/footer.php';
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/usuario/usuario.php';
+        require_once 'view/includes/footer.php';
     }
-
-    public function SectorManagerUser(){
-      require_once 'view/includes/header.php';
-      require_once 'view/usuario/usuario.php';
-      require_once 'view/includes/footer.php';
-    }
-
-    public function ReportsUser(){
-      require_once 'view/includes/head.php';
-      require_once 'view/usuario/usuario.php';
-      require_once 'view/includes/footer.php';
-    }
-
-    public function VoluntaryUser(){
-      require_once 'view/includes/head.php';
-      require_once 'view/usuario/usuario.php';
-      require_once 'view/includes/footer.php';
-    }
-
-
 
     public function Modificar(){
         $user = new Usuario();
@@ -49,25 +27,40 @@ class UsuarioController{
         if(isset($_REQUEST['id'])){
             $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
+       session_start();
+        if(!isset($_SESSION["email"])){
+        echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
+        header("Location:?c=login&a=index");
+      }
 
-        require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/usuario/usuarioModificar.php';
-        require_once 'view/includes/footer.php';
+        if ($_SESSION['usuario']['puesto'] == 1) {//Administrador
+            echo "Aqui estoy en Administrador";
+          require_once 'view/includes/headerPrincipal.php';
+          require_once 'view/usuario/usuarioModificar.php';
+          require_once 'view/includes/footer.php';
+        }
+
+        elseif ($_SESSION['usuario']['puesto'] == 2) {//Encargado de sector
+          echo "Aui estoy en encargado de sector";
+          require_once 'view/includes/headerEncargadoSector.php';
+          require_once 'view/usuario/usuarioModificar.php';
+          require_once 'view/includes/footer.php';
+        }
     }
 
-
+/*
     public function CambioContrasena(){
       $user = new Usuario();
 
       if(isset($_REQUEST['id'])){
-          $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
+          $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios
       }
 
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/usuario/contrasena.php';
       require_once 'view/includes/footer.php';
 
-    }
+    } */
 
     public function agregarRegistro(){
         $user = new Usuario();
@@ -116,9 +109,9 @@ class UsuarioController{
     public function CambiarEstado(){
         session_start();
 
-        if ($_SESSION['usuario']['clave_puesto']== 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
+        if ($_SESSION['usuario']['puesto'] == 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
           $this->model->Estado($_REQUEST['id']);
-          header('Location: index.php?c=Usuario');
+          header('Location:?c=Usuario&a=AdminUser');
         }
         else {
           header( 'HTTP/1.0 403 Forbiden');//).
