@@ -1,6 +1,7 @@
 <main>
   <div class="container">
     <h4 class="header left"> Áreas Protegidas</h4>
+<?php if ($_SESSION['usuario']['puesto'] == 1):?>
     <a href="index.php?c=ASP&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Área Protegida</a>
 
 
@@ -8,6 +9,7 @@
       <div class="right right hide-on-small-only">
         <a href="index.php?c=ASP&a=agregarRegistro" ><i class="small material-icons">playlist_add</i>Agregar Área Silvestre</a>
     </div>
+  <?php endif; ?>
   </div>
   <div class="container">
   <div class="row">
@@ -29,6 +31,7 @@
                 <td><?php echo $r->nombre; ?></td>
                 <td><?php echo $r->tipo; ?></td>
                 <td><?php echo $r->ubicacion; ?></td>
+<?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td>
                   <a title="Editar Información" href="?c=ASP&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="circle small material-icons right z-depth-2">edit</i></a>
@@ -38,6 +41,7 @@
                     href="?c=ASP&a=Eliminar&id=<?php echo $r->id; ?>">
                     <i class=" circle small material-icons right z-depth-2">delete</i></a>
                   </td>
+                <?php endif; ?>
                 </tr>
               <?php endforeach; ?>
             </tbody>

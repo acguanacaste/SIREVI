@@ -104,11 +104,11 @@ header("Location:?c=login&a=index");
 	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI</a>
+					<a href="#" class="brand-logo right ">SIREVI Volunteeringuser</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="?c=login&a=VolunteeringUser" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
-						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
-						<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
+						<li><a href="?c=login&a=VolunteeringUser" title="Inicio"><i class="small material-icons hide-on-large-only">home </i> <span class="hide-on-med-and-down">Inicio Volunteeringuser</span></a></li>
+						<li><a href="?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+						<li><a href="?c=Visitacion&a=VolunteeringUser" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
 						<!--<li><a href="index.php?c=Reportes" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>-->
 						<!--<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>-->
 						<!--<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>-->
@@ -135,7 +135,7 @@ header("Location:?c=login&a=index");
 		<hr>
 		<li class="divider"></li>
 		<!--============================= Inicio de los modulos del sistemas ====================================================-->
-		<li disabled><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
+		<li disabled><a href="index.php?c=login&a=VolunteeringUser" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
 
 		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
 

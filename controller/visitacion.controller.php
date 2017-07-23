@@ -9,13 +9,25 @@ class VisitacionController{
         $this->model = new Visitacion();
     }
 
-
-    public function Index(){
-        require_once 'view/includes/header.php';
+    public function AdminUser(){
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
 
+    public function SectorManagerUser(){
+        require_once 'view/includes/headerEncargadoSector.php';
+        require_once 'view/visitacion/visitacion.php';
+        require_once 'view/includes/footer.php';
+    }
+
+    public function VolunteeringUser(){
+        require_once 'view/includes/headerVoluntarios.php';
+        require_once 'view/visitacion/visitacion.php';
+        require_once 'view/includes/footer.php';
+    }
+
+//SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){
         $visit = new Visitacion();
@@ -29,6 +41,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+//SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function agregarRegistro(){
         $visit = new Visitacion();

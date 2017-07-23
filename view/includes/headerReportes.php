@@ -105,9 +105,9 @@ header("Location:?c=login&a=index");
 
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI</a>
+					<a href="#" class="brand-logo right ">SIREVI Reportsuser</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=ReportsUser" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
+						<li><a href="index.php?c=login&a=ReportsUser" title="Inicio"><i class="small material-icons hide-on-large-only">home </i> <span class="hide-on-med-and-down">Inicio Reportsuser</span></a></li>
 						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
 						<!--<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>-->
 						<li><a href="index.php?c=Reportes" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
