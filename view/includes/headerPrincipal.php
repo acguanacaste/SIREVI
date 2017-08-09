@@ -81,7 +81,11 @@
 
         });
 
-
+				$(document).ready(function(){
+				    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+					  $('.modal').modal();
+						 $('#modal1').modal('open');
+				  });
 				</script>
 
 <body>
@@ -105,13 +109,13 @@ header("Location:?c=login&a=index");
 
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI AdminUser</a>
+					<a href="#" class="brand-logo right ">SIREVI Admin</a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
 						<li><a href="index.php?c=login&a=AdminUser" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio AdminUser</span></a></li>
 						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
 						<li><a href="?c=Visitacion&a=AdminUser" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="index.php?c=Reportes" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-						<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
+						<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
+						<li><a href="?c=Usuario&a=AdminUser" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
 						<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
 						<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
 						<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
