@@ -43,6 +43,7 @@
 						selectMonths: true, // Creates a dropdown to control month
 						selectYears: 15 // Creates a dropdown of 15 years to control year
 					});
+					$('.tooltipped').tooltip({delay: 50});
 						/*$(".dropdown-button").dropdown(hover:false);*/
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
@@ -109,18 +110,19 @@ header("Location:?c=login&a=index");
 
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI Admin</a>
+					<a href="#" class="brand-logo right ">SIREVI </a>
+<a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=AdminUser" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio AdminUser</span></a></li>
-						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
-						<li><a href="?c=Visitacion&a=AdminUser" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-						<li><a href="?c=Usuario&a=AdminUser" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-						<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-						<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-						<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+						<li><a href="index.php?c=login&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
+						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Dollar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+						<li><a href="?c=Visitacion&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
+						<li><a href="?c=Reportes&a=AdminUser" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
+						<li><a href="?c=Usuario&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
+						<li><a href="index.php?c=Sector" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
+						<li><a href="index.php?c=Sendero" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
+						<li><a href="index.php?c=ASP" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 				</ul>
-					<a href="" data-activates="slide-out" title="Menú"  class="button-collapse"><i title="Menu" style="color:white" class=" small material-icons">toc</i></a>
+
 			</div>
 		</nav>
 	</div>

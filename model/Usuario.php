@@ -26,7 +26,7 @@ class Usuario{
 			$result = array();
 
 			$stm = $this->pdo->prepare("select usuarios.id, usuarios.nombre as nombre,
-			usuarios.apellido, usuarios.cedula, usuarios.email,usuarios.imagen, usuarios.estado,
+			usuarios.apellido, usuarios.cedula, usuarios.email,usuarios.foto, usuarios.estado,
 			puestos_institucion.nombre_puesto AS Puesto from usuarios
 			inner join puestos_institucion on usuarios.puesto = puestos_institucion.id;");
 			$stm->execute();

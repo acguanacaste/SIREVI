@@ -3,7 +3,7 @@
   <div class="container">
     <h4 class="header left">Módulo de Usuarios</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-    <a href="index.php?c=Usuarios&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
+    <a href="index.php?c=Usuarios&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nuevo Usuario</a>
 
     <div class="right hide-on-small-only">
       <a   href="index.php?c=Usuario&a=agregarRegistro"><i class="small material-icons ">playlist_add</i>Agregar Usuario</a>
@@ -38,7 +38,7 @@
                 <td><?php echo $r->cedula; ?></td>
                 <td><?php echo $r->Puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
-                <td><?php echo $r->imagen; ?></td>
+                <td><?php echo $r->foto; ?></td>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
@@ -64,6 +64,4 @@
   </div>
 </div>
 </main>
-
-
 <?php endif; ?>

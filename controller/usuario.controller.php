@@ -85,7 +85,7 @@ class UsuarioController{
         if ($_SESSION['usuario']['puesto'] == 1) {//Administrador
             echo "Aqui estoy en Administrador";
           require_once 'view/includes/headerPrincipal.php';
-          require_once 'view/usuario/usuarioModificar.php';
+          require_once 'view/usuario/usuarioRegistro.php';
           require_once 'view/includes/footer.php';
         }
 

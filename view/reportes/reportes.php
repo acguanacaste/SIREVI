@@ -167,7 +167,7 @@
                            </div>
                            <div class="card-reveal">
                              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                             <p>La realizacion del reporte por nacionalidades permite ver de que pais vienen las personas que visitan el sector</p>
+                             <p>La realizacion del reporte </p>
                            </div>
                          </div>
                       </div><!--FIN DEL DIV QUE ME DECLARA EL TAMANO-->
