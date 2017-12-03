@@ -96,7 +96,7 @@ header("Location:?c=login&a=index");
 <!--=========================================================================-->
 <ul>
 	<!--<li><a  href="?c=Perfil_imagen"  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>-->
-	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
+	<li><a href="?c=login&a=salir" class=""> <i  class="small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Cerrar sesión">settings_power</i><span class=""></span></a></li>
 
 </ul>
 <!--=========================================================================-->

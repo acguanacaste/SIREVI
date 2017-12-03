@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 		<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
-	<title>Sistema de Informacion para Registro de Visitacion</title>
+	<title>Sistema de Información para Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
 
@@ -12,10 +12,8 @@
 	<!-- Compiled and minified JavaScript -->
 	<!--ME DA LA PROPIEDAD DE HACER MAS PEQUENO EL AREA DONDE ESCRIBO -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
 	</head>
 				<script>
-
 				$(document).ready(function() {
 	 				$('select').material_select('destroy');
           $(".button-collapse").sideNav({
@@ -33,9 +31,6 @@
 						}
 					);
 
-
-
-
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
@@ -43,11 +38,11 @@
 						selectMonths: true, // Creates a dropdown to control month
 						selectYears: 15 // Creates a dropdown of 15 years to control year
 					});
+						$('.tooltipped').tooltip({delay: 50});
 						/*$(".dropdown-button").dropdown(hover:false);*/
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
-
 /*=======================================================================================================================================*/
 					$('input.autocomplete').autocomplete({
 				     data: {
@@ -78,14 +73,10 @@
 				   });
 
 /*==========================================================================================================================================*/
-
         });
-
-
 				</script>
-
 <body>
-	<?php
+<?php
 session_start();
 if(!isset($_SESSION["email"])){
 echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
@@ -96,30 +87,23 @@ header("Location:?c=login&a=index");
 		<div class="container grey lighten-3 col s12 m12 l1">
 			<nav class="brown top-nav z-depth-3">
 				<div class="nav-wrapper">
-
 			<!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->
 <!--=========================================================================-->
 <ul>
 	<!--<li><a  href="?c=Perfil_imagen"  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>-->
-	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
-
+	<li><a href="?c=login&a=salir" class=""> <i  class="small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Cerrar sesión">settings_power</i><span class=""></span></a></li>
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI Reportsuser</a>
+					<a href="#" class="brand-logo right ">SIREVI</a>
+					<a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
+
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=ReportsUser" title="Inicio"><i class="small material-icons hide-on-large-only">home </i> <span class="hide-on-med-and-down">Inicio Reportsuser</span></a></li>
-						<li><a href="index.php?c=Dollar" title="Cambio dolar"><i class="small material-icons hide-on-large-only">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
-						<!--<li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>-->
-						<li><a href="index.php?c=Reportes" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-						<!--<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>-->
-						<!--<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>-->
-						<!--<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>-->
-						<!--<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>-->
+						<li><a href="index.php?c=login&a=ReportsUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home </i> <span class="hide-on-med-and-down">Inicio Reportsuser</span></a></li>
+						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+						<li><a href="index.php?c=Reportes" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 				</ul>
-					<a href="" data-activates="slide-out" title="Menú"  class="button-collapse"><i title="Menu" style="color:white" class=" small material-icons">toc</i></a>
 
 			</div>
-
 		</nav>
 	</div>
 	</div>
@@ -142,9 +126,5 @@ header("Location:?c=login&a=index");
 		<li><a href=""> <i class="small material-icons">settings_power</i><span class="white-text">Cerrar sesión</span></a></li>
 	</ul><!--Fin del slide out-->
 <!--============================= Fin de la lista de links para informacion ===========================================================-->
-
-
-
 <!--================================Findel slide out ======================================================-->
-
 </header>

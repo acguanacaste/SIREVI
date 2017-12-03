@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8"/>
 		<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
-	<title>Sistema de Informacion para Registro de Visitacion</title>
+	<title>Sistema de Información para Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
 
@@ -88,7 +88,6 @@
 						 $('#modal1').modal('open');
 				  });
 				</script>
-
 <body>
 	<?php
 session_start();
@@ -106,7 +105,7 @@ header("Location:?c=login&a=index");
 <!--=========================================================================-->
 <ul>
 	<!--<li><a  href="?c=Perfil_imagen"  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>-->
-	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
+	<li><a href="?c=login&a=salir" title="Cerrar sesión" class=""> <i  class="small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Cerrar sesión">settings_power</i><span class=""></span></a></li>
 
 </ul>
 <!--=========================================================================-->
@@ -114,7 +113,7 @@ header("Location:?c=login&a=index");
 <a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
 						<li><a href="index.php?c=login&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
-						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Dollar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
 						<li><a href="?c=Visitacion&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
 						<li><a href="?c=Reportes&a=AdminUser" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 						<li><a href="?c=Usuario&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
