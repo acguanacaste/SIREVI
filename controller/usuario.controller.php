@@ -9,11 +9,11 @@ class UsuarioController{
     }
 
 
-  /*  public function Index(){
+    public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/usuario/usuario.php';
         require_once 'view/includes/footer.php';
-    }*/
+    }
 
     public function AdminUser(){
         require_once 'view/includes/headerPrincipal.php';
