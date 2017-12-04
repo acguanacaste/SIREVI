@@ -59,14 +59,14 @@
 
          <div class="">
             <div class="input-field col s12 m12 l12">
-             <select name="clave_puesto">
-                <option value="" disabled selected>Elija una opcion</option>
+             <select name="puesto">
+                <option id="puesto" value="" disabled selected>Elija una opcion</option>
                <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
                <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre_puesto'] ?></option>
                <?php } ?>
 
              </select>
-             <label>Selecione puesto en institución</label>
+             <label for="puesto">Selecione puesto en institución</label>
            </div>
           </div>
 

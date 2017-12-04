@@ -98,20 +98,22 @@ class UsuarioController{
     }
 
 
-
     public function Guardar(){
         $user = new Usuario();
 
-        $user->id         = $_REQUEST['id'];
-        $user->nombre     = $_REQUEST['nombre'];
-        $user->apellido   = $_REQUEST['apellido'];
-        $user->cedula     = $_REQUEST['cedula'];
-        $user->contrasena = $_REQUEST['contrasena'];
-        $user->puesto     = $_REQUEST['clave_puesto'];
-        $user->email      = $_REQUEST['email'];
-        $user->imagen     = $_REQUEST['imagen'];
-        $user->estado     = $_REQUEST['estado'];
+        $user->__SET('id',            $_REQUEST['id']);
+        $user->__SET('nombre',        $_REQUEST['nombre']);
+        $user->__SET('apellido',      $_REQUEST['apellido']);
+        $user->__SET('cedula',        $_REQUEST['cedula']);
+        $user->__SET('contrasena',    $_REQUEST['contrasena']);
+        $user->__SET('puesto',        $_REQUEST['puesto']);
+        $user->__SET('email',         $_REQUEST['email']);
 
+        $foto=$_FILES["foto"]["name"];
+        $ruta=$_FILES["foto"]["tmp_name"];
+        $destino = "assets/fotos/".$foto;
+        copy($ruta,$destino);
+        $user->__SET('foto',$destino);
 
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/

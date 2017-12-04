@@ -79,19 +79,25 @@
         </div>
        </div>
 
-       <div class="row"><!--INICIO DEL DIV PARA LA IMAGEN-->
+<!--
+       <div class="row"><!--INICIO DEL DIV PARA LA IMAGEN--
          <div class="file-field input-field">
            <div class="btn waves-effect waves-light teal darken-4" title="Subir imagenes">
              <i class="mdi-content-send material-icons right">perm_media</i>
              <span class="hide-on-small-only ">Subir Imagen</span>
-             <input type="file">
+             <input type="file" name="foto" id="foto">
            </div>
            <div class="file-path-wrapper">
-             <input id="imagen" name="imagen" disabled value="<?php echo $user->imagen; ?>"
-              value="<?php echo $user->imagen; ?>" data-validacion-tipo="requerido|min:15" class="file-path validate validate form-control" type="text">
+             <input id="foto" name="foto" value="echo'<img src="'.$r->foto.'" width="100" heigth="100">';"
+              value="<?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?>" class="file-path validate validate" type="text">
            </div>
          </div>
       </div>
+-->
+
+
+
+
 
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"

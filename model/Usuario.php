@@ -1,32 +1,39 @@
 <?php
 class Usuario{
 	private $pdo;
-
     public $id;
     public $nombre;
     public $apellido;
     public $cedula;
     public $contrasena;
-    public $clave_puesto;/*Llave foranea*/
+    public $puesto;/*Llave foranea*/
     public $email;
-		public $imagen;
+		public $foto;
 		public $estado;
 
-	public function __CONSTRUCT(){
-		try{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e){
-			die($e->getMessage());
-		}
-	}
+public function __GET($k){
+	         return $this->$k;
+}
 
-	public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
-		try{
-			$result = array();
+public function __SET($k, $v){
+	        return $this->$k = $v;
+}
 
+public function __CONSTRUCT(){
+	try{
+      $this->pdo = new PDO('mysql:host=localhost;dbname=sirevi', 'root', '');
+			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 			}
+			catch(Exception $e){
+				die($e->getMessage());
+				}
+}
+
+public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
+	try{
+		$result = array();
 			$stm = $this->pdo->prepare("select usuarios.id, usuarios.nombre as nombre,
-			usuarios.apellido, usuarios.cedula, usuarios.email,usuarios.foto, usuarios.estado,
+			usuarios.apellido, usuarios.cedula, usuarios.email, usuarios.foto, usuarios.estado,
 			puestos_institucion.nombre_puesto AS Puesto from usuarios
 			inner join puestos_institucion on usuarios.puesto = puestos_institucion.id;");
 			$stm->execute();
@@ -112,27 +119,25 @@ class Usuario{
 		}
 	}
 
-	public function Registrar(Usuario $data){/*Metodo que me registra los datos en la bd*/
-	 try{
-		$sql = "INSERT INTO usuarios (nombre,apellido,cedula,contrasena,clave_puesto,email,imagen, estado)
+public function Registrar(Usuario $data){/*Metodo que me registra los datos en la bd*/
+ try{
+	$sql = "INSERT INTO usuarios (nombre, apellido, cedula,contrasena, puesto, email, estado, foto)
 		        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
 		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-                    $data->nombre,
-                    $data->apellido,
-                    $data->cedula,
-                    $data->contrasena,
-                    $data->clave_puesto,
-                    $data->email,
-										$data->imagen,
-										$data->estado,
-
-                )
-			);
-		} catch (Exception $e){
-			die($e->getMessage());
+		->execute(
+		 array(
+          $data->__GET('nombre'),
+          $data->__GET('apellido'),
+          $data->__GET('cedula'),
+          $data->__GET('contrasena'),
+          $data->__GET('puesto'),
+          $data->__GET('email'),
+					$data->__GET('estado'),
+					$data->__GET('foto'),
+					)
+				);
+			} catch (Exception $e){
+				die($e->getMessage());
+			}
 		}
-	}
 }

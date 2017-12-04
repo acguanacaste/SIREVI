@@ -38,7 +38,7 @@
                 <td><?php echo $r->cedula; ?></td>
                 <td><?php echo $r->Puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
-                <td><?php echo $r->foto; ?></td>
+              <td ><?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
@@ -46,14 +46,16 @@
                   echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }; ?></td>
 
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
                 <td >
-                  <a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
-                    <i style="center-align" class="center-align circle white small material-icons right z-depth-2">edit</i>
-                  </a>
+                  <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
+                    <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
+                  </a></center>
                 </td>
 <?php endif; ?>
-
               </td>
             </tr>
           <?php endforeach; ?>
@@ -62,6 +64,10 @@
 
     </div><!-- Div de los tamanos -->
   </div>
-</div>
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+  </div>
 </main>
 <?php endif; ?>
