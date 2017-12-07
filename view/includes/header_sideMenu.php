@@ -112,13 +112,26 @@ header("Location:?c=login&a=index");
 
 
 
-							<li><a href="#" title="Inicio"><i class="small material-icons hide-on-large-only">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
-		            <li><a href="index.php?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-		            <li><a href="#" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-		            <li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-		            <li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-		            <li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-		            <li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+							<li><a href="index.php?c=login&a=AdminUser" title="Inicio"><i class="small material-icons hide-on-large-only">home</i>
+								<span class="hide-on-med-and-down">Inicio</span></a></li>
+
+								<li><a href="?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i>
+									 <span class="hide-on-med-and-down">Visitación</span></a></li>
+
+								<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i>
+									<span class="hide-on-med-and-down">Reportes</span></a></li>
+
+								<li><a href="?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i>
+									 <span class="hide-on-med-and-down">Usuarios</span></a></li>
+
+								<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i>
+									<span class="hide-on-med-and-down">Sectores</span></a></li>
+
+								<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i>
+									 <span class="hide-on-med-and-down">Senderos</span></a></li>
+
+								<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i>
+									<span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 		          </ul></span>
 
 
@@ -132,7 +145,7 @@ header("Location:?c=login&a=index");
 
 
 	<!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
-	  <ul id="slide-out" class="side-nav fixed blue-grey darken-2 ">
+	  <ul id="slide-out" class="side-nav fixed hide-on-large-only blue-grey darken-2 ">
 	        <li><div class="userView"><!-- Imagen avatar e informacion -->
 	          <img class="background" src="assets/img/CasonaSantaRosa.jpg">
 	          <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
@@ -147,14 +160,29 @@ header("Location:?c=login&a=index");
 	  	<hr>
 	  	<li class="divider"></li>
 	  	<!--============================= Inicio de los modulos del sistemas ====================================================-->
-			<li><a href="index.php" title="Inicio"><i class="small material-icons white-text">home</i> <span class="white-text">Inicio</span></a></li>
-	  	<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons white-text">assignment</i> <span class="white-text">Visitación</span></a></li>
-	  	<li><a href="#" title="Reportes"> <i class="small material-icons white-text">description</i><span class="white-text">Reportes</span></a></li>
-	  	<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons white-text">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
-	  	<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons white-text">view_quilt</i><span class="white-text">Sectores</span></a></li>
-	  	<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons white-text">swap_calls</i> <span class="white-text">Senderos</span></a></li>
-	  	<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons white-text">terrain</i><span class="white-text">Áreas Protegidas</span></a></li>
+			<li><a href="?c=login&a=AdminUser" title="Inicio"><i class="small material-icons white-text">home</i>
+				<span class="white-text">Inicio</span></a></li>
 
+			<li><a href="?c=Visitacion&a=AdminUser" title="Visitación"><i class="small material-icons white-text">assignment</i>
+				<span class="white-text">Visitación</span></a></li>
+
+			<li><a href="" title="Reportes"> <i class="small material-icons white-text">description</i>
+				<span class="white-text">Reportes</span></a></li>
+
+			<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons white-text">supervisor_account</i>
+				<span class="white-text">Usuarios</span></a></li>
+
+			<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons white-text">view_quilt</i>
+				<span class="white-text">Sectores</span></a></li>
+
+			<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons white-text">swap_calls</i>
+				<span class="white-text">Senderos</span></a></li>
+
+			<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons white-text">terrain</i>
+				<span class="white-text">Áreas Protegidas</span></a></li>
+
+			<li><a href="?c=login&a=salir"> <i class="small material-icons">settings_power</i>
+				<span class="white-text">Cerrar sesión</span></a></li>
 		</ul><!--Fin del slide out-->
 
 	</header>

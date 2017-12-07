@@ -15,48 +15,38 @@
 <fieldset>
   <legend><h5>Modulo Areas Protegidas</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>
-    <div class="container contact">
+    <div class=" contact">
       <hr>
       <br>
-      <div class="row">
-        <div class="col s14 m14 l11">
+      <div class="">
+        <div class="col s12 m12 l11">
           <div class="row">
             <form id="frm-asp" action="?c=ASP&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?php echo $asp->id; ?>" />
               <div>
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s12 m5 l12  ">
-                    <input  id="name" type="text" name="nombre" value="<?php echo $asp->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                <div class=""><!---INICIO DE LA PRIMERA FILA-->
+                  <div class="input-field col s12 m12 l12  ">
+                    <input  id="name" type="text" name="nombre" value="<?php echo $asp->nombre; ?>" requiered >
                     <label for="name" ><i class="small material-icons">location</i>Área Conservación</label>
                   </div>
                 </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
 
-                   <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                     <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                       <input  id="ubicacion" type="text" name="ubicacion" value="<?php echo $asp->ubicacion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" requiered>
+                   <div class=""><!---INICIO DE LA SEGUNDA FILA-->
+                     <div class="input-field col s12 m6 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+                       <input  id="ubicacion" type="text" name="ubicacion" value="<?php echo $asp->ubicacion; ?>" requiered>
                        <label for="ubicacion" >  <i class="small material-icons">location_on</i>Ubicación geográfica</label>
                      </div>
 
-                     <div class="input-field col s6 m5 l6  ">
-                       <input  id="last_name" type="text" name="tipo" value="<?php echo $asp->tipo; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                       <label for="last_name" >  <i class="small material-icons">description</i>Tipo ASP</label>
+                     <div class="input-field col s12 m6 l6  ">
+                       <input  id="tipo" type="text" name="tipo" value="<?php echo $asp->tipo; ?>" requiered >
+                       <label for="tipo" >  <i class="small material-icons">description</i>Tipo ASP</label>
                      </div>
-
 
                    </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
 
-
-
-
-
-
-
                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-
-
-
 
         <!--BOTON QUE ME ENVIA EL FORMULARIO-->
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -70,14 +60,10 @@
           </div>
         </div>
       </div>
-
 </fieldset>
-
-
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
-
       <div class="col hide-on-small-only m3 l2">
         <div class="toc-wrapper pin-top" style="top: -15px;">
           <div class="buysellads hide-on-small-only">
@@ -89,8 +75,8 @@
                   <ul class="section table-of-contents">
 
                     <hr>
-                    <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
-                    <hr>
+                    <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                    <li class="divider"><hr></li>
 
                   </ul>
                 </div>

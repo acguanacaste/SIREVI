@@ -1,6 +1,7 @@
 <main>
   <div class="container">
-    <h4 class="header left"> Áreas Protegidas</h4>
+    <h4 class="header left hide-on-med-and-down"> Áreas Protegidas</h4>
+    <h4 class="header left hide-on-large-only"> Áreas <br> Protegidas</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
     <a href="index.php?c=ASP&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Área Protegida</a>
 
@@ -20,14 +21,13 @@
             <tr>
               <th>Área Conservación</th>
               <th>Tipo</th>
-              <th>Ubicacion geografica</th>
-              <th style="width:30px;"></th>
-              <th colspan="2">Acción</th>
+              <th>Ubicación geográfica</th>
+              <th style="height:75px;" colspan="2">Acción</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <?php foreach ($this->model->Listar() as $r): ?>
-              <tr>
+              <tr >
                 <td><?php echo $r->nombre; ?></td>
                 <td><?php echo $r->tipo; ?></td>
                 <td><?php echo $r->ubicacion; ?></td>

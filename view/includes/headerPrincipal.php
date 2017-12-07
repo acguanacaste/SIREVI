@@ -105,27 +105,105 @@ header("Location:?c=login&a=index");
 <!--=========================================================================-->
 <ul>
 	<!--<li><a  href="?c=Perfil_imagen"  title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>-->
-	<li><a href="?c=login&a=salir" title="Cerrar sesión" class=""> <i  class="small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Cerrar sesión">settings_power</i><span class=""></span></a></li>
+	<li><a href="?c=login&a=salir" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons tooltipped hide-on-med-and-down"
+		data-position="top" data-delay="50" data-tooltip="Cerrar sesión">settings_power</i><span class=""></span></a></li>
 
 </ul>
 <!--=========================================================================-->
-					<a href="#" class="brand-logo right ">SIREVI </a>
-<a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
+					<a href="!#" class="brand-logo right ">SIREVI </a>
+					<a href="!#" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
+
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home</i> <span class="hide-on-med-and-down">Inicio</span></a></li>
-						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
-						<li><a href="?c=Visitacion&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="?c=Reportes&a=AdminUser" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-						<li><a href="?c=Usuario&a=AdminUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-						<li><a href="index.php?c=Sector" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-						<li><a href="index.php?c=Sendero" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-						<li><a href="index.php?c=ASP" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+
+						<li><a href="?c=login&a=AdminUser" ><i class="small material-icons  tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Inicio">home</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Dollar" ><i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Visitacion&a=AdminUser" ><i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Reportes&a=AdminUser" > <i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Usuario&a=AdminUser" ><i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Sector" ><i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=Sendero" ><i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i>
+							<span class="hide-on-med-and-down"></span></a></li>
+
+						<li><a href="?c=ASP" > <i class="small material-icons tooltipped"
+							data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i>
+							<span class="hide-on-med-and-down"></span></a></li>
 				</ul>
 
 			</div>
 		</nav>
 	</div>
 	</div>
+
+	<ul id="dropdownPrincipal" class="blue-grey dropdown-content">
+
+		<li><a href="?c=login&a=AdminUser"><span class="" data-position="bottom" data-delay="50" >
+		<li class="divider"></li>
+				<i class="Tiny material-icons">home</i></span>&nbsp;Inicio</a></li>
+				<!--<li ><a href="?c=Dollar" title="Cambio dolar"><i class="small material-icons">tab</i>
+					<span class="white-text">Dolar</span></a></li>-->
+		<li class="divider"></li>
+		<li><a href="?c=Dollar"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+			<i class="Tiny material-icons">tab</i></span>&nbsp;Cambio dolar</a></li>
+
+		<li class="divider"></li>
+		<li><a href="?c=login&a=salir"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+				<i class="Tiny material-icons">settings_power</i></span>&nbsp;Cerrar sesión</a></li>
+
+</ul>
+
+<ul id="dropdownModulos" class="blue-grey dropdown-content">
+		<li class="divider"></li>
+						<li><a href="?c=Visitacion&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+							<i class="Tiny material-icons white-text">assignment</i></span>&nbsp;Visitación</a></li>
+
+		<li class="divider"></li>
+						<li><a href="?c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+							<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
+
+		<li class="divider"></li>
+						<li><a href="?c=Usuario"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+							<i class="Tiny material-icons white-text">supervisor_account</i></span>&nbsp;Usuarios</a></li>
+
+		<li class="divider"></li>
+					<li><a href="?c=Sector"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+						<i class="Tiny material-icons white-text">view_quilt</i></span>&nbsp;Sectores</a></li>
+
+
+		<li class="divider"></li>
+					<li><a href="?c=Sendero"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+						<i class="Tiny material-icons white-text">swap_calls</i></span>&nbsp;Senderos</a></li>
+
+		<li class="divider"></li>
+	 				<li><a href="?c=ASP"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+						<i class="Tiny material-icons white-text">perm_media</i></span>&nbsp;Áreas Protegidas</a></li>
+					<!--<li><a href="#"> <i class="small material-icons">settinwgs</i><span class="white-text">Perfil</span></a></li>-->
+		<li class="divider"></li>
+
+</ul>
+
+
+
+
+
 <!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
 	<ul id="slide-out" class="side-nav fixed hide-on-large-only  teal lighten-3 ">
   	<li>
@@ -139,21 +217,18 @@ header("Location:?c=login&a=index");
 		<hr>
 		<li class="divider"></li>
 		<!--============================= Inicio de los modulos del sistemas ====================================================-->
-		<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
-		<li ><a href="index.php?c=Dollar" title="Visitación"><i class="small material-icons">tab</i> <span class="white-text">Dolar</span></a></li>
-		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
-		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
-		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
-		<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons">view_quilt</i><span class="white-text">Sectores</span></a></li>
-		<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="white-text">Senderos</span></a></li>
-		<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="white-text">Áreas Protegidas</span></a></li>
-		<!--<li><a href="#"> <i class="small material-icons">settings</i><span class="white-text">Perfil</span></a></li>-->
-		<li><a href=""> <i class="small material-icons">settings_power</i><span class="white-text">Cerrar sesión</span></a></li>
+
+			<li><a href="" class="dropdown-button tooltipped white-text" data-position="top"
+								data-delay="50" data-tooltip="Principal" data-activates="dropdownPrincipal">
+									<i class="material-icons right white-text">arrow_drop_down</i>
+									 <i class="small material-icons hide-on-large-only">home</i>Principal</a></li>
+
+			<li><a href="" class="dropdown-button tooltipped white-text" data-position="top"
+				data-delay="50" data-tooltip="Módulos del sistema" data-activates="dropdownModulos">
+					<i class="material-icons right white-text">arrow_drop_down</i>
+			 			<i class="small material-icons hide-on-large-only">apps</i>Módulos del sistema</a></li>
+
 	</ul><!--Fin del slide out-->
 <!--============================= Fin de la lista de links para informacion ===========================================================-->
-
-
-
 <!--================================Findel slide out ======================================================-->
-
 </header>

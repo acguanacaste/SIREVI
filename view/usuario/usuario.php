@@ -3,10 +3,10 @@
   <div class="container">
     <h4 class="header left">Módulo de Usuarios</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-    <a href="index.php?c=Usuarios&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nuevo Usuario</a>
+    <a href="?c=Usuarios&a=agregarRegistro "><span class="hide-on-med-and-up"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
 
     <div class="right hide-on-small-only">
-      <a   href="index.php?c=Usuario&a=agregarRegistro"><i class="small material-icons ">playlist_add</i>Agregar Usuario</a>
+      <a   href="?c=Usuario&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
     </div>
 <?php endif; ?>
   </div>
@@ -16,7 +16,7 @@
       <!-- Inicio de mi codigo -->
 
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead style="height:600px" class="white-text teal darken-4 z-depth-2">
             <tr>
               <th>&nbsp;Id </th>
               <th>Nombre</th>
@@ -41,14 +41,11 @@
               <td ><?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
-                  echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
+                echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }else{
-                  echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
+  echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
+
                 }; ?></td>
-
-<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
-<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
                 <td >
                   <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">

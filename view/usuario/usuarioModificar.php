@@ -3,7 +3,7 @@
 
     <div class="row">
 
-      <div class="col s12 m9 l10">
+      <div class="col s12 m10 l10">
 <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
@@ -14,18 +14,18 @@
 <fieldset>
   <legend><h5> Usuario: <?php echo $user->email; ?></h5>
    <h6>Utilice los campos habilitados para modificar información </h6></legend>
-    <div class="container contact">
+    <div class="contact">
       <br>
       <hr>
       <br>
       <div class="row">
-        <div class="col s14 m14 l11">
+        <div class="col s12 m12 l11">
           <div class="row">
             <form id="frm-usuario" action="?c=Usuario&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?php echo $user->id; ?>" />
 
 
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                <div class=""><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s6 m5 l6  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $user->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                     <label  for="name" >  <i class="small material-icons">face</i><span class="hide-on-small-only">Nombre</span></label>
@@ -40,7 +40,7 @@
 
      <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
-                   <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+                   <div class=""><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m5 l6 ">
                        <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
@@ -54,7 +54,7 @@
 
      <!--INICIO DE LA TERCERA FILA-->
      <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-     <div class="row"><!--INICIO DE TERCERA FILA-->
+     <div class=""><!--INICIO DE TERCERA FILA-->
        <div class="input-field col s12 m10 l12" >
          <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
            <option value="" disabled selected>Elija una opción</option>
@@ -64,12 +64,16 @@
          </select>
          <label for="puesto">Puesto en la Institución</label>
        </div>
+      </div>
+
+
+
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
-       <div class="row">
+       <div class="">
          <div class="col s12">
            Escriba su correo electrónico correctamente:
-                 <div class="row">
+                 <div class="">
                    <div class="input-field">
               <input id="email" type="email" name="email" value="<?php echo $user->email; ?>" class="validate"
               class="form-control" data-validacion-tipo="requerido|email">
@@ -94,16 +98,35 @@
          </div>
       </div>
 -->
+<!--<div class="row">
+        <div class="col s12">
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="hidden" name="foto" value="<php echo $user->__GET('foto'); ?>" />
+                <input type="file" name="foto" placeholder="Ingrese una imagen" />
+            </div>
+        </div>
+        <div class="col s12">
+            <php if($user->__GET('foto') != ''): ?>
+                <div class="img-thumbnail text-center">
+                    <img src="assets/fotos<php echo $user->__GET('foto'); ?>" style="width:50%;" />
+                </div>
+            <php endif; ?>
+        </div>
+    </div>
+  -->
+
+
 
 
 
 
 
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-       <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+       <center><button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
               <i class="mdi-content-send material-icons right">done</i>
-       </button>
+       </button></center>
 
      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
              </div>
@@ -140,16 +163,9 @@
 
                       <hr>
                       <li><a  href="index.php?c=Usuario" >
-                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">refresh</i></a></li>
-                      <li>
-                        <hr>
-                        <div class="right">
-                          <a style="color:#00b0ff" href="index.php?c=Usuario&a=agregarRegistro">
-                             <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Nuevo Usuario</a>
-                          <hr>
-                        </div>
-                        <hr>
+                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
                       </li>
+                      <hr>
 
                     </ul>
                   </div>
