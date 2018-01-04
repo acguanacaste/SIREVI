@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8"/>
-		<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
@@ -33,9 +33,6 @@
 						}
 					);
 
-
-
-
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
@@ -48,7 +45,6 @@
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
-
 /*=======================================================================================================================================*/
 					$('input.autocomplete').autocomplete({
 				     data: {
@@ -77,17 +73,9 @@
 				     },
 				     minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
 				   });
-
 /*==========================================================================================================================================*/
-
         });
-
-				$(document).ready(function(){
-				    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-					  $('.modal').modal();
-						 $('#modal1').modal('open');
-				  });
-				</script>
+	</script>
 <body>
 	<?php
 session_start();

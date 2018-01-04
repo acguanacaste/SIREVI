@@ -109,7 +109,7 @@ class Sector{
 						camping_nino_nacional     = ?,
 						camping_estudiantes       = ?,
 						camping_adulto_extranjero = ?,
-						camping_nino_extranjero    = ?
+						camping_nino_extranjero   = ?
 
 				    WHERE id = ?";
 

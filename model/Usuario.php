@@ -8,8 +8,9 @@ class Usuario{
     public $contrasena;
     public $puesto;/*Llave foranea*/
     public $email;
-		public $foto;
 		public $estado;
+		public $foto;
+
 
 public function __GET($k){
 	         return $this->$k;
@@ -29,6 +30,8 @@ public function __CONSTRUCT(){
 				}
 }
 
+/*===================================================================================================================*/
+
 public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
 	try{
 		$result = array();
@@ -45,18 +48,49 @@ public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
 		}
 	}
 
-	public function Obtener($id){/*Metodo que me obtiene los datos que hay en la bd*/
-		try{
-			$stm = $this->pdo
-			          ->prepare("SELECT * FROM usuarios WHERE id = ?");
+/*=========================================================================================================================*/
 
-			$stm->execute(array($id));
-			return $stm->fetch(PDO::FETCH_OBJ);
-		}
-		catch (Exception $e){
-			die($e->getMessage());
-		}
+public function Obtener($id){
+	try{
+		$stm = $this->pdo
+							->prepare("SELECT * FROM usuarios WHERE id = ?");
+
+		$stm->execute(array($id));
+		return $stm->fetch(PDO::FETCH_OBJ);
 	}
+	catch (Exception $e){
+		die($e->getMessage());
+	}
+}
+
+/*===================================================================================================================*/
+
+public function Obtener2($id){
+	try{
+		$stm = $this->pdo
+							->prepare("SELECT * FROM usuarios WHERE id = ?");
+
+		$stm->execute(array($id));
+		$user = $stm->fetch(PDlO::FETCH_OBJ);
+
+		$user = new Usuario();
+
+		$user->__SET('id', $user->id);
+		$user->__SET('nombre', $user->nombre);
+		$user->__SET('apellido', $user->apellido);
+		$user->__SET('estado', $user->estado);
+		$user->__SET('cedula', $user->cedula);
+		$user->__SET('contrasena', $user->contrasena);
+		$user->__SET('puesto', $user->puesto);
+		$user->__SET('email', $user->email);
+		$user->__SET('foto', $user->foto);
+
+		return $user;
+	} catch (Exception $e)
+	{
+		die($e->getMessage());
+	}
+}
 
 /*===============================================================================================================*/
 
@@ -87,30 +121,33 @@ public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
 		}
 	}
 
+/*================================================================================================================*/
 
 	public function Actualizar($data){/*Metodo que me modifica los datos en la bd*/
 	try{
 			$sql = "UPDATE usuarios SET
 						nombre          = ?,
 						apellido        = ?,
-            contrasena      = ?,
-            clave_puesto    = ?,/*Llave foranea*/
+						/*estado					= ?,*/
+						contrasena      = ?,
+            puesto          = ?,/*Llave foranea*/
 						email           = ?,
-						imagen          = ?,
-						estado					= ?
+						foto            = ?
+
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
-                        $data->nombre,
-                        $data->apellido,
-                        $data->contrasena,
-                        $data->clave_puesto,/*Llave foranea*/
-                        $data->email,
-												$data->imagen,
-												$data->estado,
-                        $data->id
+                      	$data->__GET('nombre'),
+												$data->__GET('apellido'),
+										///		$data->__GET('estado'),
+										//		$data->__GET('cedula')
+												$data->__GET('contrasena'),
+												$data->__GET('puesto'),/*llave Foranea*/
+                        $data->__GET('email'),
+												$data->__GET('foto'),
+												$data->__GET('id')
 					)
 				);
 		}
@@ -119,20 +156,22 @@ public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
 		}
 	}
 
+/*==================================================================================================================*/
+
 public function Registrar(Usuario $data){/*Metodo que me registra los datos en la bd*/
  try{
-	$sql = "INSERT INTO usuarios (nombre, apellido, cedula,contrasena, puesto, email, estado, foto)
+	$sql = "INSERT INTO usuarios (nombre, apellido, estado, cedula, contrasena, puesto, email, foto)
 		        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		$this->pdo->prepare($sql)
 		->execute(
 		 array(
           $data->__GET('nombre'),
           $data->__GET('apellido'),
-          $data->__GET('cedula'),
+					$data->__GET('estado'),
+					$data->__GET('cedula'),
           $data->__GET('contrasena'),
           $data->__GET('puesto'),
           $data->__GET('email'),
-					$data->__GET('estado'),
 					$data->__GET('foto'),
 					)
 				);

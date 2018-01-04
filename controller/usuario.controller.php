@@ -28,6 +28,12 @@ class UsuarioController{
     }
 
 
+    public function busquedaUsuario(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/usuario/busquedaUsuario.php';
+        require_once 'view/includes/footer.php';
+    }
+
     public function Modificar(){
         $user = new Usuario();
 
@@ -48,26 +54,12 @@ class UsuarioController{
         }
 
         elseif ($_SESSION['usuario']['puesto'] == 2) {//Encargado de sector
-          echo "Aui estoy en encargado de sector";
+          echo "Aqui estoy en encargado de sector";
           require_once 'view/includes/headerEncargadoSector.php';
           require_once 'view/usuario/usuarioModificar.php';
           require_once 'view/includes/footer.php';
         }
     }
-
-/*
-    public function CambioContrasena(){
-      $user = new Usuario();
-
-      if(isset($_REQUEST['id'])){
-          $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios
-      }
-
-      require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/usuario/contrasena.php';
-      require_once 'view/includes/footer.php';
-
-    } */
 
     public function agregarRegistro(){
         $user = new Usuario();
@@ -104,10 +96,12 @@ class UsuarioController{
         $user->__SET('id',            $_REQUEST['id']);
         $user->__SET('nombre',        $_REQUEST['nombre']);
         $user->__SET('apellido',      $_REQUEST['apellido']);
+        $user->__SET('estado',        $_REQUEST['estado']);
         $user->__SET('cedula',        $_REQUEST['cedula']);
         $user->__SET('contrasena',    $_REQUEST['contrasena']);
         $user->__SET('puesto',        $_REQUEST['puesto']);
         $user->__SET('email',         $_REQUEST['email']);
+
 
         $foto=$_FILES["foto"]["name"];
         $ruta=$_FILES["foto"]["tmp_name"];

@@ -8,6 +8,20 @@
     <div class="right hide-on-small-only">
       <a   href="?c=Usuario&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
     </div>
+
+
+    <!--   buscar Activo -->
+  <br><br>
+  <div class="">
+  <form action="?c=Usuario&a=busquedaUsuario" method="post">
+  <i class="small material-icons">book</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;" required>
+  <input type="submit" name="name" value="Buscar" class="teal darken-4 waves-effect waves-light btn">
+  </form>
+  </div>
+
+  <br>
+
+
 <?php endif; ?>
   </div>
   <div class="container">
@@ -16,12 +30,12 @@
       <!-- Inicio de mi codigo -->
 
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead style="height:600px" class="white-text teal darken-4 z-depth-2">
+        <thead style="height:60px" class="white-text teal darken-4 z-depth-2">
             <tr>
               <th>&nbsp;Id </th>
               <th>Nombre</th>
               <th>Apellido</th>
-              <th>Cedula</th>
+              <th>Cédula</th>
               <th>Puesto</th>
               <th>E-mail</th>
               <th>Imagen</th>

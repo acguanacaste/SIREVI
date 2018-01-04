@@ -1,20 +1,15 @@
 <main>
   <div class="container">
-
     <div class="row">
-
       <div class="col s12 m10 l10">
 <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
-
-
 <!--===========================================================================================================-->
-
 <fieldset>
   <legend><h5> Usuario: <?php echo $user->email; ?></h5>
    <h6>Utilice los campos habilitados para modificar información </h6></legend>
-    <div class="contact">
+    <div class="container contact">
       <br>
       <hr>
       <br>
@@ -25,22 +20,32 @@
               <input type="hidden" name="id" value="<?php echo $user->id; ?>" />
 
 
-                <div class=""><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m5 l6  ">
+                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                  <div class="input-field col s12 m4 l4  ">
                     <input  id="name" type="text" name="nombre" value="<?php echo $user->nombre; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                     <label  for="name" >  <i class="small material-icons">face</i><span class="hide-on-small-only">Nombre</span></label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
-                <div class="input-field col s6 m5 l6  ">
+                <div class="input-field col s12 m4 l4  ">
                   <input  id="last_name" type="text" name="apellido" value="<?php echo $user->apellido; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                   <label for="last_name" >  <i class="small material-icons">recent_actors</i><span class="hide-on-small-only">Apellido</span></label>
                 </div>
+
+                <div class="input-field col s12 m4 l4">
+                  <select id="estado" name="estado">
+                    <option id="estado" data-value="<?php echo $user->estado;?>" disabled selected>Elija una opción</option>
+                    <option value="0" <?php echo $user->estado=="Activo"?"selected":null; ?>>Activo</option>
+                    <option value="1" <?php echo $user->estado=="Inactivo"?"selected":null; ?>>Inactivo</option>
+                  </select>
+                  <label for="puesto">Seleccione estado</label>
+                </div>
+
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
      <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
-                   <div class=""><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+                   <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m5 l6 ">
                        <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
@@ -54,26 +59,23 @@
 
      <!--INICIO DE LA TERCERA FILA-->
      <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
-     <div class=""><!--INICIO DE TERCERA FILA-->
+     <div class="row"><!--INICIO DE TERCERA FILA-->
        <div class="input-field col s12 m10 l12" >
-         <select id="puesto" name="puesto" data-value="<?php echo $user->puesto; ?>" required>
+         <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>" required>
            <option value="" disabled selected>Elija una opción</option>
-           <option value="Administrador" <?php echo $user->puesto=="Administrador"?"selected":null; ?>>Administrador</option>
-           <option value="Encargado de sector"<?php echo $user->puesto=="Encargado de sector"?"selected":null;?>>Encargado de sector</option>
-           <option value="Reportes"<?php echo $user->puesto=="Reportes"?"selected":null; ?>>Reportes</option>
+           <option value="1" <?php echo $user->puesto=="Administrador"?"selected":null; ?>>Administrador</option>
+           <option value="2"<?php echo $user->puesto=="Encargado de sector"?"selected":null;?>>Encargado de sector</option>
+           <option value="3"<?php echo $user->puesto=="Reportes"?"selected":null; ?>>Reportes</option>
+           <option value="4"<?php echo $user->puesto=="Voluntario"?"selected":null; ?>>Voluntario</option>
          </select>
          <label for="puesto">Puesto en la Institución</label>
        </div>
-      </div>
-
-
-
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
-       <div class="">
+       <div class="row">
          <div class="col s12">
            Escriba su correo electrónico correctamente:
-                 <div class="">
+                 <div class="row">
                    <div class="input-field">
               <input id="email" type="email" name="email" value="<?php echo $user->email; ?>" class="validate"
               class="form-control" data-validacion-tipo="requerido|email">
@@ -82,6 +84,21 @@
           </div>
         </div>
        </div>
+
+       <div class="row"><!--INICIO DE LA CUARTA FILA-->
+       <div class="file-field input-field col s12 m12 l12">
+         <div class="btn waves-effect waves-light teal darken-4 ">
+           <i class="mdi-content-send material-icons right">perm_media</i>
+           <span class="hide-on-small-only ">Subir Imagen</span>
+           <input type="file" name="foto" id="foto">
+         </div>
+         <div class="file-path-wrapper">
+           <input name="foto" value="<?php echo $user->foto; ?>" name="foto" id="foto" class="file-path validate" type="text">
+         </div>
+       </div>
+   </div>
+
+
 
 <!--
        <div class="row"><!--INICIO DEL DIV PARA LA IMAGEN--
@@ -98,35 +115,16 @@
          </div>
       </div>
 -->
-<!--<div class="row">
-        <div class="col s12">
-            <div class="form-group">
-                <label>Foto</label>
-                <input type="hidden" name="foto" value="<php echo $user->__GET('foto'); ?>" />
-                <input type="file" name="foto" placeholder="Ingrese una imagen" />
-            </div>
-        </div>
-        <div class="col s12">
-            <php if($user->__GET('foto') != ''): ?>
-                <div class="img-thumbnail text-center">
-                    <img src="assets/fotos<php echo $user->__GET('foto'); ?>" style="width:50%;" />
-                </div>
-            <php endif; ?>
-        </div>
-    </div>
-  -->
-
-
 
 
 
 
 
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-       <center><button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+       <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
               <i class="mdi-content-send material-icons right">done</i>
-       </button></center>
+       </button>
 
      <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
              </div>
@@ -163,9 +161,11 @@
 
                       <hr>
                       <li><a  href="index.php?c=Usuario" >
-                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Pagina anterior</a></li>
+                      <li>
+                        <hr>
+
                       </li>
-                      <hr>
 
                     </ul>
                   </div>

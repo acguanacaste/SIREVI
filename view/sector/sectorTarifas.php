@@ -13,7 +13,11 @@
           <h6>Tarifas de los Sectores </h6></legend>
           <div class="">
             <br>
+            <div class="right hide-on-small-only">
+              <a   href="?c=Sector"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página sectores</a>
+            </div>
             <div class="">
+
               <div class="col s12 m12 l12">
                 <div class="">
                   <div>
@@ -147,6 +151,7 @@
             </div>
 <!--================================================================================================================================-->
         </div>
+
       </div><!-- Div de los tamanos -->
     </div>
   </div>

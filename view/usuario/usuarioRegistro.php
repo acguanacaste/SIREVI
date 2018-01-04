@@ -21,15 +21,24 @@
 
 
                 <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                  <div class="input-field col s6 m6 l6  ">
+                  <div class="input-field col s12 m4 l4  ">
                     <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10"  required>
                     <label  for="name" >  <i class="small material-icons">face</i><span class="hide-on-small-only">Nombre</span></label>
                   </div>
 
                  <!--INICIO DE COLUMNA APELLIDO-->
-                <div class="input-field col s6 m6 l6  ">
+                <div class="input-field col s12 m4 l4  ">
                   <input  id="last_name" type="text" name="apellido" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10"  required>
                   <label for="last_name" >  <i class="small material-icons">recent_actors</i><span class="hide-on-small-only">Apellido</span></label>
+                </div>
+
+                <div class="input-field col s12 m4 l4">
+                  <select id="estado" name="estado">
+                    <option id="estado" value="" disabled selected>Elija una opción</option>
+                    <option value="0">Activo</option>
+                    <option value="1">Inactivo</option>
+                  </select>
+                  <label for="puesto">Seleccione estado</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
@@ -40,7 +49,6 @@
                        <input  id="cedula" type="text" name="cedula" value=""   class="validate form-control" data-validacion-tipo="requerido|min:15"  required>
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
-
 
                    <!--INICIO DE COLUMNA CONTRASENA-->
                    <div class="input-field col s6 m6 l6  ">
@@ -59,18 +67,16 @@
 
          <div class="">
             <div class="input-field col s12 m12 l12">
-             <select name="puesto">
+             <select  id="puesto" name="puesto">
                 <option id="puesto" value="" disabled selected>Elija una opcion</option>
                <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
                <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre_puesto'] ?></option>
                <?php } ?>
 
              </select>
-             <label for="puesto">Selecione puesto en institución</label>
+             <label for="puesto">Seleccione puesto en institución</label>
            </div>
           </div>
-
-
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
        <div class="row">
