@@ -27,6 +27,12 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function busquedaVisitacion(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/busquedaVisitacion.php';
+        require_once 'view/includes/footer.php';
+    }
+
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){

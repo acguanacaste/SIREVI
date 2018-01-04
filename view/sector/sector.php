@@ -21,7 +21,7 @@
                 <th>Camping</th>
                 <th>Área</th>
                 <th style="width:40px;"></th>
-                <th colspan="3">Acción</th>
+                <th  colspan="2">Acción</th>
               </tr>
             </thead>
             <tbody>
@@ -32,12 +32,12 @@
                   <td><?php echo $r->capacidad_acampar; ?></td>
                   <td><?php echo $r->Area_Silvestre; ?></td>
 
-                  <td>
+                  <td style="">
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
                       <i class="circle small material-icons right z-depth-2">edit</i></a>
                   </td>
 
-                  <td>
+                  <td style="width:15px;">
                     <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                       href="?c=Sector&a=Eliminar&id=<?php echo $r->id; ?>">
                     <i class=" circle small material-icons right z-depth-2">delete</i></a>

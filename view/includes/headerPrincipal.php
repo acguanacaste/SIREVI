@@ -103,39 +103,38 @@ header("Location:?c=login&a=index");
 
 					<ul id="nav-mobile" class="left hide-on-small-only">
 
-						<li><a href="?c=login&a=AdminUser" ><i class="small material-icons  tooltipped"
+						<li><a href="?c=login&a=AdminUser" ><i class="hide-on-large-only small material-icons  tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Inicio">home</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Inicio</span></a></li>
 
-						<li><a href="?c=Dollar" ><i class="small material-icons tooltipped"
+						<li><a href="?c=Dollar" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Dolar</span></a></li>
 
-						<li><a href="?c=Visitacion&a=AdminUser" ><i class="small material-icons tooltipped"
+						<li><a href="?c=Visitacion&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Visitación</span></a></li>
 
-						<li><a href="?c=Reportes&a=AdminUser" > <i class="small material-icons tooltipped"
+						<li><a href="?c=Reportes&a=AdminUser" > <i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Reportes</span></a></li>
 
-						<li><a href="?c=Usuario&a=AdminUser" ><i class="small material-icons tooltipped"
+						<li><a href="?c=Usuario&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Usuarios</span></a></li>
 
-						<li><a href="?c=Sector" ><i class="small material-icons tooltipped"
+						<li><a href="?c=Sector" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Sectores</span></a></li>
 
-						<li><a href="?c=Sendero" ><i class="small material-icons tooltipped"
+						<li><a href="?c=Sendero" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Senderos</span></a></li>
 
-						<li><a href="?c=ASP" > <i class="small material-icons tooltipped"
+						<li><a href="?c=ASP" > <i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i>
-							<span class="hide-on-med-and-down"></span></a></li>
+							<span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 				</ul>
-
 			</div>
 		</nav>
 	</div>

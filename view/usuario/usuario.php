@@ -10,7 +10,7 @@
     </div>
 
 
-    <!--   buscar Activo -->
+    <!--   buscar Usuario -->
   <br><br>
   <div class="">
   <form action="?c=Usuario&a=busquedaUsuario" method="post">
@@ -30,7 +30,7 @@
       <!-- Inicio de mi codigo -->
 
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead style="height:60px" class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 z-depth-2">
             <tr>
               <th>&nbsp;Id </th>
               <th>Nombre</th>
@@ -38,9 +38,9 @@
               <th>Cédula</th>
               <th>Puesto</th>
               <th>E-mail</th>
-              <th>Imagen</th>
+              <th style="width:100px;">Imagen</th>
               <th>Estado</th>
-            <th>Acción</th>
+            <th colspan="2">Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -53,20 +53,18 @@
                 <td><?php echo $r->Puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
               <td ><?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
-<?php if ($_SESSION['usuario']['puesto'] == 1):?>
+              <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
-                echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
+                  echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }else{
-  echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
-
+                  echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
                 }; ?></td>
-
-                <td >
+                <td>
                   <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
                     <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
                   </a></center>
                 </td>
-<?php endif; ?>
+              <?php endif; ?>
               </td>
             </tr>
           <?php endforeach; ?>
