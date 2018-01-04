@@ -128,7 +128,8 @@ public function Obtener2($id){
 			$sql = "UPDATE usuarios SET
 						nombre          = ?,
 						apellido        = ?,
-						/*estado					= ?,*/
+						estado					= ?,
+						cedula					= ?,
 						contrasena      = ?,
             puesto          = ?,/*Llave foranea*/
 						email           = ?,
@@ -141,8 +142,8 @@ public function Obtener2($id){
 				    array(
                       	$data->__GET('nombre'),
 												$data->__GET('apellido'),
-										///		$data->__GET('estado'),
-										//		$data->__GET('cedula')
+												$data->__GET('estado'),
+												$data->__GET('cedula'),
 												$data->__GET('contrasena'),
 												$data->__GET('puesto'),/*llave Foranea*/
                         $data->__GET('email'),

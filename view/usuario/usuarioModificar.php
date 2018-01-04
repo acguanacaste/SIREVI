@@ -35,8 +35,8 @@
                 <div class="input-field col s12 m4 l4">
                   <select id="estado" name="estado">
                     <option id="estado" data-value="<?php echo $user->estado;?>" disabled selected>Elija una opción</option>
-                    <option value="0" <?php echo $user->estado=="Activo"?"selected":null; ?>>Activo</option>
-                    <option value="1" <?php echo $user->estado=="Inactivo"?"selected":null; ?>>Inactivo</option>
+                    <option value="0" <?php echo $user->estado==0?"selected":null; ?>>Activo</option>
+                    <option value="1" <?php echo $user->estado==1?"selected":null; ?>>Inactivo</option>
                   </select>
                   <label for="puesto">Seleccione estado</label>
                 </div>
@@ -47,7 +47,7 @@
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m5 l6 ">
-                       <input  id="cedula" type="text" name="cedula" disabled value="<?php echo $user->cedula; ?>" value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                       <input  id="cedula" type="text" name="cedula"  value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
                    <!--INICIO DE COLUMNA CONTRASENA-->
@@ -63,10 +63,10 @@
        <div class="input-field col s12 m10 l12" >
          <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>" required>
            <option value="" disabled selected>Elija una opción</option>
-           <option value="1" <?php echo $user->puesto=="Administrador"?"selected":null; ?>>Administrador</option>
-           <option value="2"<?php echo $user->puesto=="Encargado de sector"?"selected":null;?>>Encargado de sector</option>
-           <option value="3"<?php echo $user->puesto=="Reportes"?"selected":null; ?>>Reportes</option>
-           <option value="4"<?php echo $user->puesto=="Voluntario"?"selected":null; ?>>Voluntario</option>
+           <option value="1" <?php echo $user->puesto==1?"selected":null; ?>>Administrador</option>
+           <option value="2"<?php echo $user->puesto==2?"selected":null;?>>Encargado de sector</option>
+           <option value="3"<?php echo $user->puesto==3?"selected":null; ?>>Reportes</option>
+           <option value="4"<?php echo $user->puesto==4?"selected":null; ?>>Voluntario</option>
          </select>
          <label for="puesto">Puesto en la Institución</label>
        </div>

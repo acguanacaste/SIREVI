@@ -34,13 +34,13 @@
 
                   <td style="">
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
-                      <i class="circle small material-icons right z-depth-2">edit</i></a>
+                      <i class="circle white small material-icons right z-depth-2">edit</i></a>
                   </td>
 
                   <td style="width:15px;">
                     <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                       href="?c=Sector&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle small material-icons right z-depth-2">delete</i></a>
+                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
                   </td>
                   <td>
 
