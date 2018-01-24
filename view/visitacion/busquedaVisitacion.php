@@ -1,7 +1,7 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
   <div class="container">
-  <h4>Visitacion</h4>
+  <h4>Visitación</h4>
   </div>
 
   <div class="container">
@@ -17,7 +17,7 @@
               <th>ID</th>
               <th>Proposito</th>
               <th>Nombre</th>
-              <th>Identificacion</th>
+              <th>Identificación</th>
               <th>Placa</th>
               <th>Pais</th>
               <th>Pago</th>
@@ -38,11 +38,9 @@
             $stmt = $con->prepare($sql);
             $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':pai'=>$pais));
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-          foreach ($rows as $row):
-?>
+          foreach ($rows as $row): ?>
               <tr>
-              	<?php
- if(count($rows)): ?>
+              	<?php if(count($rows)): ?>
                 <td> <?php echo $row->id;?> </td>
                 <td> <?php echo $row->proposito_visita;?> </td>
                 <td> <?php echo $row->nombre;?> </td>
@@ -52,12 +50,9 @@
                 <td> <?php echo $row->pais;?> </td>
                 <td><?php echo $row->tipo_pago; ?></td>
                 <td><?php echo $row->moneda; ?></td>
-
   <?php else: ?>
  <td> Esta no existe </td>
- <?php
-  endif;
- ?>
+ <?php endif;?>
             </tr>
             <?php endforeach; ?>
              <?php endif; ?>

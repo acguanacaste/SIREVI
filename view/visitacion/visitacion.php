@@ -9,7 +9,7 @@
     </div>
 
 
-    <div class="container">
+    <div class="">
 
 <div class="row">
   <div class="col s12 m12 l12">
@@ -70,26 +70,13 @@
             <tr>
               <th>ID</th>
               <th>proposito</th>
+              <th>Fecha ingreso</th>
               <th>Nombre</th>
               <th>Identificacion</th>
               <th>placa_automovil</th>
               <th>Pais</th>
               <th>provincia</th>
-        <!--      <th>referencia_visita</th> -->
-
               <th>sendero</th>
-          <!--    <th>Dias </th> -->
-
-          <!--    <th>nacional_adult</th>
-              <th>nacional_kid</th>
-              <th>estudiantes</th>
-              <th>extranjero_adult</th>
-              <th>extranjero_kid</th>
-
-              <th>personas_surf</th>
-              <th>exonerado</th>
-              <th>prepago</th> -->
-
               <th>tipo_pago</th>
               <th>moneda</th>
               <!--<th>Total pago</th> -->
@@ -106,7 +93,7 @@
 
               <td><?php echo $r->id; ?></td>
               <td><?php echo $r->proposito_visita; ?></td>
-
+              <td><?php echo $r->fecha; ?></td>
               <td><?php echo $r->Nombre; ?></td>
               <td><?php echo $r->noIdentificacion; ?></td>
               <td><?php echo $r->placa_automovil; ?></td>
@@ -116,35 +103,9 @@
           <!--    <td><?php echo $r->referencia_visita ?></td>-->
 
               <td><?php echo $r->Sendero; ?></td>
-
-            <!--    <td><?php echo $r->Dias; ?></td>
-
-            <td><?php echo $r->nacional_adult ?></td>
-              <td><?php echo $r->nacional_kid ?></td>
-              <td><?php echo $r->estudiantes ?></td>
-              <td><?php echo $r->extranjero_adult ?></td>
-              <td><?php echo $r->extranjero_kid ?></td>
-
-              <td><?php echo $r->personas_surf ?></td>
-              <td><?php echo $r->exonerado ?></td>
-              <td><?php echo $r->prepago ?></td> -->
-
-
               <td><?php echo $r->tipo_pago; ?></td>
               <td><?php echo $r->moneda; ?></td>
-          <!--    <td><php echo $r->total_colones; ?></td> -->
 
-
-
-          <!--  <td><php echo $r->fecha_ingreso; ?></td>--
-
-              <td><php echo $r->Sector; ?></td>
-              <td><php echo $r->Dias; ?></td>
-              <td class="center"></td>
-
-              <td><php echo $r->monto;?></td>
-              <td><php echo $r->moneda;?></td>
--->
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>

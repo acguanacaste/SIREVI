@@ -33,6 +33,13 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function Reporte(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reporte-reporte.php';
+      require_once 'view/includes/footer.php';
+
+ }
+
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){
@@ -68,6 +75,7 @@ class VisitacionController{
 
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
+        $visit->fecha                     = $_REQUEST['fecha'];
         $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];

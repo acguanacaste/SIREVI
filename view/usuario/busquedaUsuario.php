@@ -7,10 +7,10 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-        <div class="right hide-on-small-only">
+      <!--  <div class="right hide-on-small-only">
            <a   href="c=Usuario&a=AdminUser"><span class="tooltipped" data-position="top"
            data-delay="50" data-tooltip="Página anterior"><i class=" hide-on-med-and-down small material-icons" >arrow_back</i>Página anterior</span></a>
-         </div>
+         </div>-->
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
         <thead class="white-text teal darken-4 z-depth-2">
             <tr>

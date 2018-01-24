@@ -106,11 +106,33 @@
                            </div>
                            <div class="card-content">
                              <span class="card-title activator grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">more_vert</i></span>
-                             <p><a href="#">Crear consulta para reporte</a></p>
+                             <p><a href="#"></a></p>
                            </div>
                            <div class="card-reveal">
-                             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                             <p>La realizacion del reporte por nacionalidades permite ver de que pais vienen las personas que visitan el sector</p>
+                             <span class="card-title grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">close</i></span>
+                             <div class="container">
+                                <div class="row">
+                                  <div class="col s12 m12 l12">
+                                  <!-- Inicio de mi codigo -->
+                                  <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+
+                                        <ul class="collection">
+                                        <li class="collection-item avatar">
+                                          <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
+                                          <a><span class="title"></span>
+                                            <p><a href="?c=Visitacion&a=Reporte">Listado <br> Nacionalidades</a><br>
+
+                                              </p></a>
+                                              <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Nacionalidades">
+                                                <span class="hide-on-small-only"><i class="medium material-icons">important_devices</i></span></a>
+                                            </li>
+
+                                            </ul>
+                                  </table>
+
+                                </div><!-- Div de los tamanos -->
+                              </div>
+                            </div><!--Div container-->
                            </div>
                          </div>
                        </div>

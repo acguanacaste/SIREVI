@@ -5,7 +5,7 @@ class Visitacion{
     public $id;
     public $proposito_visita;// Aun no se guarda en la base de datos
 	//	public $numero_diario;//Numero para confrimar la salida de los visitantes
-
+		public $fecha;
 		public $noIdentificacion;
     public $nombre;
 		public $placa_automovil;
@@ -50,7 +50,7 @@ class Visitacion{
 		try{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,
+			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
         pais.nombre as Pais, provincia.nombre as Provincia, referencia_visita,
          sendero.nombre as Sendero, dias_camping as Dias,
@@ -179,13 +179,13 @@ class Visitacion{
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
+		$sql ="INSERT INTO visitacion (proposito_visita,fecha, noIdentificacion, nombre, placa_automovil,
        pais, provincia,referencia_visita,
        sendero, dias_camping,
         nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
         personas_surf, prepago, exonerado,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
 
@@ -193,6 +193,7 @@ class Visitacion{
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(		  $data->proposito_visita,
+										$data->fecha,
                     $data->noIdentificacion,
                     $data->nombre,
 										$data->placa_automovil,

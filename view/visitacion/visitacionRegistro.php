@@ -27,10 +27,6 @@
                                       <label><i class="small material-icons" >info_outline</i></label>
                                     </div>
 
-
-
-
-
                     <!--    <p class="input-field col s12 m6 l6">
                           <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
                           <label for="indeterminate-checkbox">Por el dia</label>
@@ -40,10 +36,7 @@
                           <label for="indeterminate-checkbox">Acampando</label>
                         </p>-->
                       </fieldset>
-
                     </div>
-
-
 
                       <div class="input-field col s6 m4 l2">
                         <fieldset><legend>Numero diario</legend>
@@ -86,6 +79,23 @@
               <div class="">
                 <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+
+                  <div class="row">
+                  <div class="input-field col s12 m4 l4">
+                  </div>
+                  <div class="input-field col s12 m4 l4 ">
+                    <fieldset>
+                      <legend>Ingrese la fecha actual</legend>
+                      <div class="input-field col s12 m12 l12">
+                        <label for=""> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
+                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                    <div class="input-field  col s12 m4 l4">
+                    </div>
+                  </div>
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">
                       <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control"  required >
