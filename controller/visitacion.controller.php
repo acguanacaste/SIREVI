@@ -9,14 +9,14 @@ class VisitacionController{
         $this->model = new Visitacion();
     }
 
-    public function AdminUser(){
+    public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
 
-    public function SectorManagerUser(){
-        require_once 'view/includes/headerEncargadoSector.php';
+    public function AdminUser(){
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
@@ -35,10 +35,12 @@ class VisitacionController{
 
     public function Reporte(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reporte-reporte.php';
+      require_once 'view/visitacion/reporteNacionalidades.php';
       require_once 'view/includes/footer.php';
 
  }
+
+
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 

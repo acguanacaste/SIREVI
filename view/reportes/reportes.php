@@ -1,5 +1,4 @@
 <header>
-
     <div class="slider">
         <ul class="slides">
             <li>
@@ -89,8 +88,8 @@
     <!--============================================================================================-->
       <div>
        <br>
-       <h5>Area de Conservacion Guanacaste </h5>
-       <h6>TEXTO INFORMATIVO SOBRE CUAKQUIER COSA</h6>
+       <h5>&nbsp;Área de Conservación Guanacaste</h5>
+       <h6>&nbsp;Módulo de reportes, seleccione cualquiera de las opciones disponibles para crear un reporte</h6>
        <hr>
 
              <div class><!--INICIO DE LA PREVISTA DE DIV'S-->
@@ -104,10 +103,12 @@
                            <div class="card-image waves-effect waves-block waves-light">
                              <img class="activator" src="assets/img/paises.jpg">
                            </div>
+
                            <div class="card-content">
                              <span class="card-title activator grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">more_vert</i></span>
-                             <p><a href="#"></a></p>
+                             <p><a href="#">Haga click aquí</a></p>
                            </div>
+
                            <div class="card-reveal">
                              <span class="card-title grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">close</i></span>
                              <div class="container">
@@ -120,11 +121,11 @@
                                         <li class="collection-item avatar">
                                           <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
                                           <a><span class="title"></span>
-                                            <p><a href="?c=Visitacion&a=Reporte">Listado <br> Nacionalidades</a><br>
+                                            <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br>
 
                                               </p></a>
                                               <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Nacionalidades">
-                                                <span class="hide-on-small-only"><i class="medium material-icons">important_devices</i></span></a>
+                                                <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
                                             </li>
 
                                             </ul>
@@ -143,15 +144,15 @@
                    <div class="input-field col s12 m6 l4">
                      <div class="card">
                        <div class="card-image waves-effect waves-block waves-light">
-                         <img class="activator" src="assets/img/yo.jpg">
+                         <img class="activator" src="">
                        </div>
                        <div class="card-content">
                          <span class="card-title activator grey-text text-darken-4">Reporte<i class="material-icons right">more_vert</i></span>
-                         <p><a href="#">Crear consulta para reporte</a></p>
+                         <p><a href="#">Haga click aquí</a></p>
                        </div>
                        <div class="card-reveal">
                          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                         <p>La realizacion del reporte </p>
+                         <p>La realizacion del reporte</p>
                        </div>
                      </div>
                     </div>
@@ -164,7 +165,7 @@
                     </div>
                     <div class="card-content">
                       <span class="card-title activator grey-text text-darken-4">Reporte <i class="material-icons right">more_vert</i></span>
-                      <p><a href="#">Crear consulta para reporte</a></p>
+                      <p><a href="#">Haga click aquí</a></p>
                     </div>
                     <div class="card-reveal">
                       <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>

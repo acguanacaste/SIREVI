@@ -9,7 +9,7 @@
 <fieldset>
   <legend><h5>Modulo Usuarios</h5>
    <h6>Utilice los campos habilitados para completar información </h6></legend>
-    <div class="container contact">
+    <div class=" contact">
       <br>
       <hr>
       <br>
@@ -20,7 +20,7 @@
               <input type="hidden" name="id" value="" />
 
 
-                <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                <div class=""><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s12 m4 l4  ">
                     <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10"  required>
                     <label  for="name" >  <i class="small material-icons">face</i><span class="hide-on-small-only">Nombre</span></label>
@@ -44,7 +44,7 @@
 
      <!--INICIO DE LA FILA 2-->
      <!--INICION DE COLUMNA DEL CEDULA-->
-                   <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+                   <div class=""><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m6 l6 ">
                        <input  id="cedula" type="text" name="cedula" value=""   class="validate form-control" data-validacion-tipo="requerido|min:15"  required>
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
@@ -79,10 +79,10 @@
           </div>
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
-       <div class="row">
+       <div class="">
          <div class="col s12 m12 l12">
            Escriba su correo electrónico correctamente:
-                 <div class="row">
+                 <div class="">
                    <div class="input-field">
               <input id="email" type="email" name="email" value="<?php echo $user->email; ?>"
               class="validate" class="form-control" data-validacion-tipo="requerido|email" required>
@@ -93,7 +93,7 @@
        </div>
 
 
-       <div class="row"><!--INICIO DE LA CUARTA FILA-->
+       <div class=""><!--INICIO DE LA CUARTA FILA-->
        <div class="file-field input-field col s12 m12 l12">
          <div class="btn waves-effect waves-light teal darken-4 ">
            <i class="mdi-content-send material-icons right">perm_media</i>
@@ -107,6 +107,8 @@
    </div>
 
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+<br>
+<center>
        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
               <i class="mdi-content-send material-icons right">done</i>
@@ -117,7 +119,7 @@
        value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
             <i class="mdi-content-send material-icons right">delete</i>
      </button>
-
+</center>
 
              </div>
            </form>

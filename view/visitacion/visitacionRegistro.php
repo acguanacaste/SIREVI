@@ -87,7 +87,7 @@
                     <fieldset>
                       <legend>Ingrese la fecha actual</legend>
                       <div class="input-field col s12 m12 l12">
-                        <label for=""> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
+                        <label for="fecha"> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
                          <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
 
                       </div>

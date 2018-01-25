@@ -1,16 +1,22 @@
+
 <main>
+  <h4 class="header left"><span>&nbsp;</span><a href="#"><i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
+
   <div class="container">
-    <h4 class="header left">Módulo Visitación</h4>
-    <a href="index.php?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
+    <a href="?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
+
 
       <div class="right hide-on-small-only">
-        <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i><span>Nueva Visitación</span></a>
+        <a   href="?c=Visitacion&a=agregarRegistro">
+          <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
       </div>
     </div>
 
 
-    <div class="">
+<div class="">
 
+    <!--Busqueda avanzada-->
 <div class="row">
   <div class="col s12 m12 l12">
     <ul class="collapsible" data-collapsible="accordion">
@@ -22,7 +28,7 @@
         <fieldset>
           <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
           <li>
-            <div class="header"><i class="material-icons">search</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
+            <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
@@ -59,8 +65,6 @@
   </div>
 </div>
 
-    <!--Busqueda avanzada-->
-
     <div class="row">
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
@@ -69,16 +73,16 @@
 <!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
             <tr>
               <th>ID</th>
-              <th>proposito</th>
+              <th>Proposito</th>
               <th>Fecha ingreso</th>
               <th>Nombre</th>
-              <th>Identificacion</th>
-              <th>placa_automovil</th>
-              <th>Pais</th>
-              <th>provincia</th>
-              <th>sendero</th>
-              <th>tipo_pago</th>
-              <th>moneda</th>
+              <th>Identificación</th>
+              <th>Placa automovil</th>
+              <th>País</th>
+              <th>Provincia</th>
+              <th>Sendero</th>
+              <th>Tipo pago</th>
+              <th>Moneda</th>
               <!--<th>Total pago</th> -->
               <!--<th>Total</th>-->
               <th style="width:40px;"></th>
@@ -111,7 +115,7 @@
                     class="white circle z-depth-3 small material-icons right">edit</i></a>
               </td>
               <td>
-              <a title="Borrar Información" onclick="return confirm('¿Seguro de eliminar este registro?');"
+              <a title="Borrar Información"  onclick="return confirm('¿Seguro de eliminar este registro?');"
                  href="?c=Visitacion&a=Eliminar&id=<?php echo $r->id; ?>">
                   <i class="white circle z-depth-3 small material-icons right">delete</i></a>
               </td>

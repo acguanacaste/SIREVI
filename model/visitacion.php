@@ -71,6 +71,27 @@ class Visitacion{
 		}
 	}
 
+	public function Nacionalidades(){
+		try{
+			$result = array();
+
+			$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha, visitacion.pais,
+			 visitacion.nombre as Nombre, pais.nombre as Pais, visitacion.tipo_pago, visitacion.moneda, referencia_visita,
+			 sendero.nombre as Sendero
+				 from visitacion
+							inner join pais on visitacion.pais = pais.id
+							inner join sendero on visitacion.sendero = sendero.id ;");
+			$stm->execute();
+
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+
 	public function Obtener($id){
 		try{
 			$stm = $this->pdo

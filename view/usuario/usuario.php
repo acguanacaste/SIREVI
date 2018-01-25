@@ -3,12 +3,13 @@
   <div class="container">
     <h4 class="header left">Módulo de Usuarios</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-    <a href="?c=Usuarios&a=agregarRegistro "><span class="hide-on-med-and-up"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
+    <a href="?c=Usuario&a=agregarRegistro "><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
 
     <div class="right hide-on-small-only">
-      <a   href="?c=Usuario&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
+      <a   href="?c=Usuario&a=agregarRegistro">
+        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
     </div>
-
 
     <!--   buscar Usuario -->
   <br><br>
