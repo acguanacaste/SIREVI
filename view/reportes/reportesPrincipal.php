@@ -82,6 +82,7 @@
         </nav>
     </div>
 </header>
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
     <body class="body" >
       <!--OPCIONES PARA EL MENU LATERAL DEL RESPONSIVE-->
     <!--INFORMACION DENTRO DEL SIDENAV-->
@@ -116,19 +117,18 @@
                                   <div class="col s12 m12 l12">
                                   <!-- Inicio de mi codigo -->
                                   <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+                                    <ul class="collection">
+                                      <li class="collection-item avatar">
+                                        <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
+                                        <a><span class="title"></span>
+                                          <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br></p></a>
 
-                                        <ul class="collection">
-                                        <li class="collection-item avatar">
-                                          <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
-                                          <a><span class="title"></span>
-                                            <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br>
+                                          <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped "
+                                                data-position="left" data-delay="50" data-tooltip="Nacionalidades">
 
-                                              </p></a>
-                                              <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Nacionalidades">
-                                                <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
-                                            </li>
-
-                                            </ul>
+                                          <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
+                                      </li>
+                                    </ul>
                                   </table>
 
                                 </div><!-- Div de los tamanos -->
@@ -262,3 +262,4 @@
            </div>
 
      </div><!--FIN DE container-contact-->
+<?php endif; ?>

@@ -52,15 +52,14 @@ class Visitacion{
 
 			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
-        pais.nombre as Pais, provincia.nombre as Provincia, referencia_visita,
+        pais.nombre as Pais, referencia_visita,
          sendero.nombre as Sendero, dias_camping as Dias,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
           personas_surf, prepago, exonerado,
 			     tipo_pago, moneda
             from visitacion
               inner join pais on visitacion.pais = pais.id
-                inner join provincia on visitacion.provincia = provincia.id
-                  inner join sendero on visitacion.sendero = sendero.id;");
+              inner join sendero on visitacion.sendero = sendero.id;");
 			$stm->execute();
 
 
@@ -89,7 +88,7 @@ class Visitacion{
 		catch(Exception $e){
 			die($e->getMessage());
 		}
-	}
+	} 
 
 
 	public function Obtener($id){

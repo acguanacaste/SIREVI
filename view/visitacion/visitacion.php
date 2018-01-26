@@ -1,4 +1,4 @@
-
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
   <h4 class="header left"><span>&nbsp;</span><a href="#"><i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
 
@@ -79,7 +79,7 @@
               <th>Identificación</th>
               <th>Placa automovil</th>
               <th>País</th>
-              <th>Provincia</th>
+              <!--<th>Provincia</th>-->
               <th>Sendero</th>
               <th>Tipo pago</th>
               <th>Moneda</th>
@@ -103,7 +103,7 @@
               <td><?php echo $r->placa_automovil; ?></td>
 
               <td><?php echo $r->Pais; ?></td>
-              <td><?php echo $r->Provincia; ?></td>
+            <!--  <td><?php echo $r->Provincia; ?></td> -->
           <!--    <td><?php echo $r->referencia_visita ?></td>-->
 
               <td><?php echo $r->Sendero; ?></td>
@@ -127,3 +127,4 @@
     </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
+<?php endif; ?>

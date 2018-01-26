@@ -10,7 +10,7 @@
       <a   href="?c=Usuario&a=agregarRegistro">
         <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
     </div>
-
+<?php endif; ?>
     <!--   buscar Usuario -->
   <br><br>
   <div class="">
@@ -19,11 +19,7 @@
   <input type="submit" name="name" value="Buscar" class="teal darken-4 waves-effect waves-light btn">
   </form>
   </div>
-
   <br>
-
-
-<?php endif; ?>
   </div>
   <div class="container">
     <div class="row">

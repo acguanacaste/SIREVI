@@ -21,6 +21,12 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function SectorManagerUser(){
+        require_once 'view/includes/headerEncargadoSector.php';
+        require_once 'view/visitacion/visitacion.php';
+        require_once 'view/includes/footer.php';
+    }
+
     public function VolunteeringUser(){
         require_once 'view/includes/headerVoluntarios.php';
         require_once 'view/visitacion/visitacion.php';
@@ -35,10 +41,15 @@ class VisitacionController{
 
     public function Reporte(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reporteNacionalidades.php';
+      require_once 'view/visitacion/reportes/reporteNacionalidades.php';
       require_once 'view/includes/footer.php';
+    }
 
- }
+    public function Resultado_Nacionalidades(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+      require_once 'view/includes/footer.php';
+   }
 
 
 
