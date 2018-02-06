@@ -33,23 +33,78 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=Resultado_Nacionalidades" method="post">
 
-                <div class="input-field col s12 m4 l4">
-              <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+
+                <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
+                  <div class="input-field col s12 m6 l4 offset-s2">
+                    <input  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" value="" required>
+                    <label for=""> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha inicio</span></label>
+                  </div>
+
+                  <div class="input-field col s12 m6 l4  " >
+
+                    <!--<input type="date" class="timepicker" id="fechaFinal" name="fechaFinal" value="" required/>-->
+
+                  </div>
+     <!--INICIO DE COLUMNA MODELO-->
+
+                <div class="input-field col s12 m6 l4  " >
+                  <input type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required="true">
+                  <!--<input type="date" class="timepicker" id="fechaFinal" name="fechaFinal" value="" required/>-->
+                  <label for="" >  <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha Final</span></label>
                 </div>
+              </div><!--FIN DEL DIV DE LA FILA-->
 
-              <div class="input-field col s12 m4 l4">
-                    <i class="small material-icons">picture_in_picture</i><input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+          <div class="row">
+           <div class="col s6 offset-s4"><span class="flow-text">
+             <div class="input-field col s12 m12 l12">
+               <i class="small material-icons prefix">public</i><input id="autocomplete-input" type="text" name="pais"
+              class="autocomplete" placeholder="Pais"
+              style="width:200px;" >
+          </div></span></div>
+        </div>
+
+
+<!--
+        <div class="row">
+            <div class="col s6 offset-s4"><span class="flow-text">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">public</i>
+                  <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
+                  <label for="autocomplete-input">Autocomplete</label>
+                </div>
+              </div>
+            </span>
+            </div>
+          </div>   -->
+
+
+
+
+
+
+
+
+        <div class="row">
+          <div class="col s6 offset-s4"><span class="flow-text">
+            <div class="input-field col s12 m12 l12">
+              <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                value="Buscar"  type="submit" name="action"><span class="hide-on-small-only ">Consultar</span>
+                <i class="mdi-content-send material-icons right">pageview</i>
+              </button>
+            </div></span>
+          </div>
+        </div>
+
+
+
+                </div>
+               </div>
               </div>
 
-              <div class="input-field col s12 m4 l4">
-                <i class="small material-icons">public</i><input type="text" name="pais" class="black-text" placeholder="Pais" style="width:200px;" >
-              </div>
-              <center>
-                <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                  value="Buscar"  type="submit" name="action"> <span class="hide-on-small-only">Consultar</span>
-                    <i class="mdi-content-send material-icons right">pageview</i>
-                </button>
-              </center>
+
+
+
               <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
               </form><!--FORM end-->
           </span></div>

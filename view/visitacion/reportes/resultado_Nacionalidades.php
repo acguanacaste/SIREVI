@@ -34,35 +34,49 @@
 <?php
    if ($_POST):
             require('model/conexion.php');
-            $con = Conectar();
-            $nombre = $_POST['nombre'];
-            $noIdentificacion = $_POST['noIdentificacion'];
-            $pais = $_POST['pais'];
+                      $con = Conectar();
+                      $fecha1 = $_POST['fechaInicio'];
+                      $fecha2 = $_POST['fechaFinal'];
+                      $pais = $_POST['pais'];
 
-           /* echo "valor enviado es ".$_POST['etiqueta']." y ".$etiqueta;*/
-            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR pais = :pais';
-            $stmt = $con->prepare($sql);
-            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':pais'=>$pais));
-            $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-          foreach ($rows as $row): ?>
-              <tr>
-              	<?php if(count($rows)): ?>
-                <td> <?php echo $row->id;?> </td>
-                <td> <?php echo $row->fecha;?> </td>
-                <td> <?php echo $row->pais;?> </td>
-                <td> <?php echo $row->noIdentificacion;?> </td>
-                <!--<td> <php echo $row->estado;?> </td>-->
-                <td> <?php echo $row->nombre;?> </td>
-              <!--  <td> <php echo $row->;?> </td>-->
-                <td><?php echo $row->tipo_pago; ?></td>
-                <td><?php echo $row->moneda; ?></td>
+                      if ($pais!='') {
+                        $sql = "select visitacion.fecha, pais.nombre, visitacion.nombre, visitacion.tipo_pago
+                                from insidente inner join activo on visitacion.pais = pais.id
+                                where (visitacion.pais = :pais) and (visitacion.fecha between :fecha1 and :fecha2)";
+
+                        $stmt = $con->prepare($sql);
+                        $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':pais'=>$pais));
+
+                      } else if ($pais==''){
+                        $sql ="select visitacion.fecha, pais.nombre, visitacion.nombre,visitacion.tipo_pago
+                                from visitacion inner join pais on visitacion.pais = pais.id
+                                where visitacion.fecha between :fecha1 and :fecha2";
+                        $stmt = $con->prepare($sql);
+                        $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2));
+                        }
+                        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+                  foreach ($rows as $row): ?>
+
+                  <tr>
+                  <?php if(count($rows)): ?>
+
+                       <td> <?php echo $row->id;?> </td>
+                       <td colspan="2"> <?php echo $row->fecha;?> </td>
+                       <td> <?php echo $row->pais;?> </td>
+                      <!-- <td> <?php echo $row->noIdentificacion;?> </td>
+                       <!--<td> <php echo $row->estado;?> </td>-->
+                       <td> <?php echo $row->nombre;?> </td>
+                     <!--  <td> <php echo $row->;?> </td>-->
+                    <!--   <td><?php echo $row->tipo_pago; ?></td>
+                    <!--   <td><?php echo $row->moneda; ?></td> -->
   <?php else: ?>
- <td> Esta no existe </td>
- <?php endif;?>
-            </tr>
-            <?php endforeach; ?>
-             <?php endif; ?>
-        </tbody>
+     <td> Esta no existe </td>
+   <?php endif;//ifCount ?>
+                    </tr>
+                  <?php endforeach; ?>
+               <?php endif; //if $_POST ?>
+          </tbody>
       </table>
     </div>
   </div>
