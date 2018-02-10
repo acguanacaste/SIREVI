@@ -49,7 +49,7 @@
                 <td><?php echo $r->cedula; ?></td>
                 <td><?php echo $r->Puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
-              <td ><?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
+              <td ><?php echo'<img class="circle responsive-img" src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
               <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td><?php if($r->estado==1){
                   echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";

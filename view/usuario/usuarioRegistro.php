@@ -38,7 +38,7 @@
                     <option value="0">Activo</option>
                     <option value="1">Inactivo</option>
                   </select>
-                  <label for="puesto">Seleccione estado</label>
+                  <label for="estado">Seleccione estado</label>
                 </div>
               </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 

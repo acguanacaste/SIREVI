@@ -88,7 +88,7 @@ class Visitacion{
 		catch(Exception $e){
 			die($e->getMessage());
 		}
-	} 
+	}
 
 
 	public function Obtener($id){
@@ -182,9 +182,6 @@ class Visitacion{
 //-----------------------------------------------------------------
                         $data->tipo_pago,
 												$data->moneda,
-
-
-
                         $data->id
 
 					)

@@ -1,3 +1,55 @@
+
+
+
+
+<?php
+            require('model/conexion.php');
+            $con = Conectar();
+            $fecha1 = $_POST['fechaInicio'];
+            $fecha2 = $_POST['fechaFinal'];
+            $eti = $_POST['etiqueta'];
+            if ($eti!='') {
+$sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
+        insidente.descripcion, insidente.usuario, insidente.foto
+        from insidente inner join activo on insidente.activo = activo.id
+        where (activo.etiqueta = :eti) and (insidente.fecha between :fecha1 and :fecha2)";
+
+$stmt = $con->prepare($sql);
+$result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':eti'=>$eti));
+
+            } else if ($eti==''){
+$sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
+        insidente.descripcion, insidente.usuario, insidente.foto from insidente inner join activo on insidente.activo = activo.id
+        where insidente.fecha between :fecha1 and :fecha2";
+$stmt = $con->prepare($sql);
+$result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2));
+            }
+ ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--/////////////////////////////////////////////Logica para la creacion de los reportes//////////////////////////////////////////////////////////////////////-->
 
 <!--    <tbody>

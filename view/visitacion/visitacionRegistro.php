@@ -18,8 +18,8 @@
                       <fieldset  class="z-depth-1 ">
                         <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
                         <div class="input-field col s12 m12 l12">
-                        <select name="proposito_visita">
-                            <option value="" disabled selected>&nbsp;Referencia de Visita</option>
+                        <select id="proposito_visita" name="proposito_visita">
+                            <option id="proposito_visita" value="" disabled selected>&nbsp;Referencia de Visita</option>
                                         <option value="Visita por el dia">Visita  por el dia</option>
                                         <option value="Acampando por varios dias">Acampando por varios dias</option>
 
@@ -129,14 +129,6 @@
                     </select>
                     <label>País</label>
                   </div>
-    <!--   <div class="input-field col s6 m6 l4">
-           <div class="">
-             <i class="material-icons prefix">textsms</i>
-             <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
-             <label for="autocomplete-input">País</label>
-           </div>
-       </div> -->
-
 
 <!--==============Cargando las cuidades============================================-->
       <?php
