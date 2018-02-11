@@ -16,23 +16,29 @@
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
         <thead class="white-text teal darken-4 z-depth-2">
             <tr>
-              <th>Nombre</th>
-              <th>Distancia</th>
-              <th>Longitud</th>
-              <th>Latitud</th>
+              <th>Sendero</th>
               <th>Sector</th>
+              <th>Caracterización</th>
+              <th>Tipo</th>
               <th style="width:40px;"></th>
-              <th colspan="2">Acción</th>
+              <th colspan="3">Acción</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($this->model->Listar() as $r): ?>
               <tr>
+
                 <td><?php echo $r->Sendero; ?></td>
-                <td><?php echo $r->distancia; ?></td>
-                <td><?php echo $r->longitud; ?></td>
-                <td><?php echo $r->latitud; ?></td>
                 <td><?php echo $r->Sector; ?></td>
+                <td><?php echo $r->caracterizacion_sendero; ?></td>
+                <td><?php echo $r->tipo_sendero; ?></td>
+          
+
+
+                <td>
+                  <a title="Descripción de sendero" href="?c=Sendero&a=Descripcion&id=<?php echo $r->id; ?>">
+                    <i class="circle white small material-icons right z-depth-2">description</i></a>
+                </td>
 
                 <td>
                   <a title="Editar Información" href="?c=Sendero&a=Modificar&id=<?php echo $r->id; ?>">

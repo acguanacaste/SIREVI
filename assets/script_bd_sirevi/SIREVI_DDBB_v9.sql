@@ -178,10 +178,17 @@ DROP TABLE IF EXISTS `sirevi`.`sendero` ;
 CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `distancia` INT(11) NOT NULL,
-  `latitud` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `longitud` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `caracterizacion_sendero` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `tipo_sendero` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `atractivo` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `distancia` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `sector` INT(11) NOT NULL,
+  `tiempo_recorrido` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `punto_alto` VARCHAR(10) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `punto_inicio` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `punto_llegada` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `descripcion` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `regulaciones` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_sector_idx` (`sector` ASC),
   CONSTRAINT `fk_sector`
@@ -190,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -259,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 14
+AUTO_INCREMENT = 17
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -274,11 +281,11 @@ DROP procedure IF EXISTS `sirevi`.`psNacionalidades`;
 
 DELIMITER $$
 USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `psNacionalidades`(nacionalidad INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `psNacionalidades`( pPais INT)
 BEGIN
-SELECT visitacion.id, visitacion.fecha, pais.nombre, visitacion.nombre, visitacion.noIdentificacion
+SELECT visitacion.id, visitacion.fecha, pais.nombre, visitacion.noIdentificacion
 FROM visitacion inner join pais on visitacion.pais = pais.id
-where pais like nacionalidad;
+where visitacion.pais = pPais;
 END$$
 
 DELIMITER ;

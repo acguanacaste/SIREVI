@@ -4,11 +4,16 @@ class Sendero{
 
     public $id;
     public $nombre;
-    public $distancia;
-    public $longitud;
-    public $latitud;
-		public $sector;
-
+    public $caracterizacion_segmento;
+    public $tipo_sendero;
+    public $atractivo;
+		public $distancia;
+		public $tiempo_recorrido;
+		public $punto_alto;
+		public $punto_inicio;
+		public $punto_llegada;
+		public $descripcion;
+		public $regulaciones;
 
 
 	public function __CONSTRUCT()
@@ -29,8 +34,9 @@ class Sendero{
 		{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select sendero.id, sendero.nombre as Sendero, distancia,
-			latitud, longitud, sector.nombre AS Sector from sendero inner join sector on sendero.sector = sector.id;");
+			$stm = $this->pdo->prepare("select sendero.id, sendero.nombre as Sendero, caracterizacion_sendero,
+			tipo_sendero, atractivo, punto_inicio, punto_llegada, sector.nombre AS Sector
+			from sendero inner join sector on sendero.sector = sector.id;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -77,12 +83,18 @@ class Sendero{
 		try
 		{
 			$sql = "UPDATE sendero SET
-						nombre            = ?,
-						distancia         = ?,
-            latitud           = ?,
-            longitud          = ?,
-						sector 						= ?
-
+						nombre                    = ?,
+						caracterizacion_segmento  = ?,
+						tipo_sendero              = ?,
+						atractivo                 = ?,
+						distancia                 = ?,
+						tiempo_recorrido          = ?,
+						punto_alto                = ?,
+						punto_inicio  						= ?,
+						punto_llegada             = ?,
+						descripcion								= ?,
+						regulaciones              = ?,
+						sector 										= ?
 
 				    WHERE id = ?";
 
@@ -90,9 +102,16 @@ class Sendero{
 			     ->execute(
 				    array(
                         $data->nombre,
-                        $data->distancia,
-                        $data->latitud,
-												$data->longitud,
+                        $data->caracterizacion_sendero,
+                        $data->tipo_sendero,
+												$data->atractivo,
+												$data->distancia,
+												$data->tiempo_recorrido,
+												$data->punto_alto,
+												$data->punto_inicio,
+												$data->punto_llegada,
+												$data->descripcion,
+												$data->regulaciones,
 												$data->sector,
                         $data->id
 					)
@@ -107,19 +126,25 @@ class Sendero{
 	{
 		try
 		{
-		$sql = "INSERT INTO sendero (nombre,distancia,latitud,longitud,sector)
-		        VALUES (?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO sendero (nombre ,caracterizacion_sendero, tipo_sendero, atractivo, distancia,
+			 				sector, tiempo_recorrido, punto_alto, punto_inicio, punto_llegada, descripcion, regulaciones)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(
                     $data->nombre,
-                    $data->distancia,
-										$data->latitud,
-										$data->longitud,
-                    $data->sector
-
-
+                    $data->caracterizacion_sendero,
+										$data->tipo_sendero,
+										$data->atractivo,
+										$data->distancia,
+                    $data->sector,
+										$data->tiempo_recorrido,
+										$data->punto_alto,
+										$data->punto_inicio,
+										$data->punto_llegada,
+										$data->descripcion,
+										$data->regulaciones
 
                 )
 			);

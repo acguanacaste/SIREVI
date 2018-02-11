@@ -54,7 +54,7 @@
                   <?php
                   $conexion = mysql_connect("localhost","root");
                   mysql_select_db("sirevi",$conexion);
-                  $sentencia_pais = "select * from pais order by nombre ASC";
+                  $sentencia_pais = "select * from pais order by id ASC";
                   $query_pais = mysql_query($sentencia_pais);
                   ?>
                   <div  class="input-field col s6 m6 l4 center-aligned">

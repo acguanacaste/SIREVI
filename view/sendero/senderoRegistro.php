@@ -12,67 +12,113 @@
 <fieldset>
   <legend><h5>Formulario para Registros</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>
-    <div class="container contact">
+    <div class="">
       <hr>
       <br>
-      <div class="row">
+      <div class="">
         <div class="col col s12 m12 l12">
-          <div class="row">
+          <div class="">
             <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
 
-              <div>
 
-                <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                  <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                <div class=""><!---Inicio de la primera fila columnA1-->
+                  <div class="input-field col s12 m4 l4  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control"  required >
                     <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
                   </div>
 
+              <!--Inicio de la columna2-->
+                  <div class="input-field col s12 m4 l4  ">
+                    <input  id="caracterizacion_sendero" type="text" name="caracterizacion_sendero" value="" class="validate"  required >
+                    <label for="caracterizacion_sendero" >  <i class="small material-icons">art_track</i>Caracteristicas</label>
+                  </div>
 
-                <!--INICIO DE COLUMNA -->
-                <div class="input-field col s6 m5 l6  ">
-                  <input  id="distancia" type="number" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                  <label for="distancia" >  <i class="small material-icons">settings_backup_restore</i>Distancia</label>
+                <!--Inicio de la columna3-->
+                <div class="input-field col s12 m4 l4  ">
+                  <input  id="" type="text" name="tipo_sendero" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control"  required >
+                  <label for="tipo_sendero" >  <i class="small material-icons">nature_people</i>Tipo Sendero</label>
                 </div>
-              </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
-            </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
+              </div>
+
+              <div class=""><!---INICIO DE LA SEGUNDA FILA-->
+                <div class="input-field col s12 m8 l8  "><!----->
+                  <input  id="" type="text" name="atractivo" value="" class="validate" class="form-control"  required >
+                  <label for="atractivo" >  <i class="small material-icons">assignment_late</i><span class="hide-on-small-only">Atractivos del sendero</label>
+                </div>
+
+                <?php
+                $conexion = mysql_connect("localhost","root");
+                mysql_select_db("sirevi",$conexion);
+                $sentencia = "select * from sector order by nombre ASC";
+                $query = mysql_query($sentencia);
+                ?>
+                <div class="row">
+                   <div class="input-field col s12 m4 l4">
+                    <select name="sector">
+                       <option value="" disabled selected>Elija una opcion</option>
+                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+                      <?php } ?>
+                    </select>
+
+                    <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
+                  </div>
+                 </div>
+            </div>
 
 
-              <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                <div class="input-field col s6 m6 l6  ">
-                  <input  id="latitud" type="text" name="latitud"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
-                  <label for="latitud" >  <i class="small material-icons">language</i>Latitud</label>
+            <!---Inicio de la tercera fila *columna1-->
+              <div class="">
+                <div class="input-field col s12 m6 l4  ">
+                  <input  id="distancia" type="text" name="distancia" value="" class="validate" class="form-control" required >
+                  <label for="distancia" >  <i class="small material-icons">transfer_within_a_station</i>Distancia ida y vuelta</label>
              </div>
 
+             <!--Columna2 fila3-->
+             <div class="input-field col s12 m6 l4  ">
+               <input  id="tiempo_recorrido" type="text" name="tiempo_recorrido" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+               <label for="tiempo_recorrido" >  <i class="small material-icons">timer</i>Tiempo de recorrido</label>
+              </div>
 
-               <!--INICIO DE COLUMNA CODIGO-->
+               <!--Columna3 fila3-->
+               <div class="input-field col s12 m6 l4  ">
+                 <input  id="" type="text" name="punto_alto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="punto_alto" >  <i class="small material-icons">wallpaper</i>Punto mas alto</label>
+                </div>
+              </div><!--Fin de la segunda fila -->
+
+          <!---Inicio de la cuarta fila-->
+              <div class="">
+                <div class="input-field col s6 m6 l6  ">
+                  <input  id="punto_inicio" type="text" name="punto_inicio"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                  <label for="punto_inicio" >  <i class="small material-icons">directions_walk</i>Punto inicio</label>
+             </div>
+
+             <!--columna-->
                <div class="input-field col s6 m6 l6  ">
-                 <input  id="longitud" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-                 <label for="longitud" >  <i class="small material-icons">language</i>Longitud</label>
+                 <input  id="punto_llegada" type="text" name="punto_llegada" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="punto_llegada" >  <i class="small material-icons">directions_walk</i>Punto llegada</label>
                 </div>
-              </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+              </div><!--Fin de la cuarta fila -->
 
-
-
-              <?php
-              $conexion = mysql_connect("localhost","root");
-              mysql_select_db("sirevi",$conexion);
-              $sentencia = "select * from sector order by nombre ASC";
-              $query = mysql_query($sentencia);
-              ?>
-              <div class="row">
-                 <div class="input-field col s12 m12 l12">
-                  <select name="sector">
-                     <option value="" disabled selected>Elija una opcion</option>
-                    <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                    <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                    <?php } ?>
-                  </select>
-
-                  <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
+              <!--Inicio de la quinta fila-->
+              <div class="">
+              <!--columna-->
+               <div class="input-field col s12 m12 l12  ">
+                 <input  id="descripcion" type="text" name="descripcion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="descripcion" >  <i class="small material-icons">info_outline</i>Descripción del sendero</label>
                 </div>
-               </div>
+              </div><!--Fin de la quinta fila -->
+
+              <!--Inicio de la quinta fila-->
+              <div class="">
+              <!--columna-->
+               <div class="input-field col s12 m12 l12  ">
+                 <input  id="regulaciones" type="text" name="regulaciones" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="regulaciones" >  <i class="small material-icons">report_problem</i>Regulaciones</label>
+                </div>
+              </div><!--Fin de la quinta fila -->
 
 
               <!--BOTON QUE ME ENVIA EL FORMULARIO-->
@@ -112,7 +158,7 @@
                   <ul class="section table-of-contents">
 
                     <hr>
-                    <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
+                    <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">arrow_back</i></a></li>
                     <hr>
                   </ul>
                 </div>

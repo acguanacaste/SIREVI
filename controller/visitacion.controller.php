@@ -52,7 +52,6 @@ class VisitacionController{
    }
 
 
-
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){

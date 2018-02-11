@@ -164,7 +164,6 @@
             </div>
           </div>
         </main>
-
   <script>
       $(document).ready(function(){
           $("#frm-usuario").submit(function(){

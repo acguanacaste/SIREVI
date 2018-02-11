@@ -2,29 +2,370 @@
 
 
 
-<?php
-            require('model/conexion.php');
-            $con = Conectar();
-            $fecha1 = $_POST['fechaInicio'];
-            $fecha2 = $_POST['fechaFinal'];
-            $eti = $_POST['etiqueta'];
-            if ($eti!='') {
-$sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
-        insidente.descripcion, insidente.usuario, insidente.foto
-        from insidente inner join activo on insidente.activo = activo.id
-        where (activo.etiqueta = :eti) and (insidente.fecha between :fecha1 and :fecha2)";
 
-$stmt = $con->prepare($sql);
-$result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':eti'=>$eti));
 
-            } else if ($eti==''){
-$sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
-        insidente.descripcion, insidente.usuario, insidente.foto from insidente inner join activo on insidente.activo = activo.id
-        where insidente.fecha between :fecha1 and :fecha2";
-$stmt = $con->prepare($sql);
-$result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2));
-            }
- ?>
+<main>
+  <div class="container">
+    <div class="row">
+
+      <div class="col s12 m12 l10">
+        <!-- Inicio de mi codigo -->
+        <div id="search-docs" class="section scrollspy">
+          <hr>
+<!--===========================================================================================================-->
+
+
+<fieldset>
+  <legend><h5>Formulario para modificar información</h5>
+    <h6>Esta es la pagina para la descripcion</h6></legend>
+    <div class="">
+      <hr>
+      <br>
+      <div class="">
+        <div class="col col s12 m12 l12">
+          <div class="">
+            <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="<?php echo $sendero->id; ?>" />
+
+
+
+              <div class=""><!---INICIO DE LA SEGUNDA FILA-->
+                <div class="input-field col s12 m12 l12  "><!----->
+                  <input  id="" type="text" name="atractivo" value="<?php echo $sendero->atractivo; ?>" class="validate" class="form-control"  required >
+                  <label for="atractivo" >  <i class="small material-icons">assignment_late</i><span class="hide-on-small-only">Atractivos del sendero</label>
+                </div>
+
+
+
+
+
+                <!---Inicio de la tercera fila *columna1-->
+                  <div class="">
+                    <div class="input-field col s12 m6 l4  ">
+                      <input  id="distancia" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" required >
+                      <label for="distancia" >  <i class="small material-icons">transfer_within_a_station</i>Distancia ida y vuelta</label>
+                 </div>
+
+                 <!--Columna2 fila3-->
+                 <div class="input-field col s12 m6 l4  ">
+                   <input  id="tiempo_recorrido" type="text" name="tiempo_recorrido" value="<?php echo $sendero->tiempo_recorrido; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                   <label for="tiempo_recorrido" >  <i class="small material-icons">timer</i>Tiempo de recorrido</label>
+                  </div>
+
+                   <!--Columna3 fila3-->
+                   <div class="input-field col s12 m6 l4  ">
+                     <input  id="" type="text" name="punto_alto" value="<?php echo $sendero->punto_alto; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                     <label for="punto_alto" >  <i class="small material-icons">wallpaper</i>Punto mas alto</label>
+                    </div>
+                  </div><!--Fin de la segunda fila -->
+
+
+
+
+
+
+
+            <fieldset>
+              <!---Inicio de la cuarta fila-->
+                  <div class="">
+                    <div class="input-field col s6 m6 l6  ">
+                      <input  id="punto_inicio" type="text" name="punto_inicio" value="<?php echo $sendero->punto_inicio; ?>"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                      <label for="punto_inicio" >  <i class="small material-icons">directions_walk</i>Punto inicio</label>
+                 </div>
+
+                 <!--columna-->
+                   <div class="input-field col s6 m6 l6  ">
+                     <input  id="punto_llegada" type="text" name="punto_llegada" value="<?php echo $sendero->punto_llegada; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                     <label for="punto_llegada" >  <i class="small material-icons">directions_walk</i>Punto llegada</label>
+                    </div>
+                  </div><!--Fin de la cuarta fila -->
+            </fieldset>
+
+
+          <!---Inicio de la cuarta fila-->
+              <div class="">
+                <div class="input-field col s6 m6 l6  ">
+                  <input  id="punto_inicio" type="text" name="punto_inicio" value="<?php echo $sendero->punto_inicio; ?>"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                  <label for="punto_inicio" >  <i class="small material-icons">directions_walk</i>Punto inicio</label>
+             </div>
+
+             <!--columna-->
+               <div class="input-field col s6 m6 l6  ">
+                 <input  id="punto_llegada" type="text" name="punto_llegada" value="<?php echo $sendero->punto_llegada; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="punto_llegada" >  <i class="small material-icons">directions_walk</i>Punto llegada</label>
+                </div>
+              </div><!--Fin de la cuarta fila -->
+
+
+
+<fieldset>
+  <!--Inicio de la quinta fila-->
+  <div class="">
+  <!--columna-->
+   <div class="input-field col s12 m12 l12  ">
+     <input  id="descripcion" type="text" name="descripcion" value="<?php echo $sendero->descripcion; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+     <label for="descripcion" >  <i class="small material-icons">info_outline</i>Descripción del sendero</label>
+    </div>
+  </div><!--Fin de la quinta fila -->
+</fieldset>
+
+
+
+<fieldset>
+  <!--Inicio de la quinta fila-->
+  <div class="">
+  <!--columna-->
+   <div class="input-field col s12 m12 l12  ">
+     <input  id="regulaciones" type="text" name="regulaciones" value="<?php echo $sendero->regulaciones; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+     <label for="regulaciones" >  <i class="small material-icons">report_problem</i>Regulaciones</label>
+    </div>
+  </div><!--Fin de la quinta fila -->
+</fieldset>
+
+
+
+
+              <!--BOTON QUE ME ENVIA EL FORMULARIO-
+              <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+                     <i class="mdi-content-send material-icons right">done</i>
+              </button>
+
+            <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO--
+            <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+              value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+                   <i class="mdi-content-send material-icons right">delete</i>
+            </button> -->
+
+					 </div>
+         </form>
+           </div>
+
+         </div>
+       </div>
+</fieldset>
+
+
+<!--================================================================================================================================-->
+        </div>
+      </div><!-- Div de los tamanos -->
+      </div>
+      </div>
+    </main>
+
+  <script>
+      $(document).ready(function(){
+          $("#frm-sendero").submit(function(){
+              return $(this).validate();
+          });
+      })
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset>
+  <legend><h5>Formulario para Registros</h5>
+    <h6>Completar la informacion con los datos correspondientes</h6></legend>
+    <div class="container contact">
+      <hr>
+      <br>
+      <div class="row">
+        <div class="col col s12 m12 l12">
+          <div class="row">
+            <form id="frm-asp" action="?c=Sendero&a=Guardar" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="id" value="" />
+
+              <div>
+                <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
+                  <div class="input-field col s6 m5 l6  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
+                    <input  id="nombre" type="text" name="nombre" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                    <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
+                  </div>
+
+
+                <!--INICIO DE COLUMNA -->
+                <div class="input-field col s6 m5 l6  ">
+                  <input  id="distancia" type="number" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                  <label for="distancia" >  <i class="small material-icons">settings_backup_restore</i>Distancia</label>
+                </div>
+              </div>
+            </div>
+
+
+              <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                <div class="input-field col s6 m6 l6  ">
+                  <input  id="latitud" type="text" name="latitud"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                  <label for="latitud" >  <i class="small material-icons">language</i>Latitud</label>
+             </div>
+
+
+               <!--INICIO DE COLUMNA CODIGO-->
+               <div class="input-field col s6 m6 l6  ">
+                 <input  id="longitud" type="text" name="longitud" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <label for="longitud" >  <i class="small material-icons">language</i>Longitud</label>
+                </div>
+              </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+
+
+
+              <?php
+              $conexion = mysql_connect("localhost","root");
+              mysql_select_db("sirevi",$conexion);
+              $sentencia = "select * from sector order by nombre ASC";
+              $query = mysql_query($sentencia);
+              ?>
+              <div class="row">
+                 <div class="input-field col s12 m12 l12">
+                  <select name="sector">
+                     <option value="" disabled selected>Elija una opcion</option>
+                    <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                    <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+                    <?php } ?>
+                  </select>
+
+                  <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
+                </div>
+               </div>
+
+
+              <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+              <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+                     <i class="mdi-content-send material-icons right">done</i>
+              </button>
+
+            <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+            <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+              value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+                   <i class="mdi-content-send material-icons right">delete</i>
+            </button>
+
+					 </div>
+         </form>
+           </div>
+
+         </div>
+       </div>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tbody>
+  <?php
+    if ($_POST):
+      require('model/conexion.php');
+      $con = Conectar();
+      $fecha1 = $_POST['fechaInicio'];
+      $fecha2 = $_POST['fechaFinal'];
+      $eti = $_POST['etiqueta'];
+
+      if ($eti!='') {
+        $sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
+          insidente.descripcion, insidente.usuario, insidente.foto from insidente inner join activo on insidente.activo = activo.id
+          where (activo.etiqueta = :eti) and (insidente.fecha between :fecha1 and :fecha2)";
+
+          $stmt = $con->prepare($sql);
+          $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':eti'=>$eti));
+
+      } else if ($eti==''){
+        $sql = "select insidente.fecha, activo.etiqueta, activo.tipo, insidente.ubicacion, insidente.prioridad,
+          insidente.descripcion, insidente.usuario, insidente.foto from insidente inner join activo on insidente.activo = activo.id
+          where insidente.fecha between :fecha1 and :fecha2";
+
+          $stmt = $con->prepare($sql);
+          $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2));
+}
+
+      $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+      foreach ($rows as $row): ?>
+      <tr>
+        <?php if(count($rows)): ?>
+          <td colspan="2"> <?php echo $row->fecha;?> </td>
+          <td> <?php echo $row->etiqueta;?> </td>
+          <td> <?php echo $row->ubicacion;?> </td>
+          <td> <?php echo $row->prioridad;?> </td>
+          <td> <?php echo $row->descripcion;?> </td>
+          <td><?php echo'<img src="'.$row->foto.'" width="100" heigth="100">'; ?></td>
+
+    <?php else: ?>
+      <td> Esta no existe </td>
+    <?php endif;//ifCount?>
+   </tr>
+  <?php endforeach; ?>
+ <?php endif; //if $_POST ?>
+</tbody>
+
 
 
 

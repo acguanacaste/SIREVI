@@ -35,42 +35,40 @@
           <tbody>
 <?php
    if ($_POST):
-            require('model/conexion.php');
-                      $con = Conectar();
-                    //  $nom = $_POST['nombre'];
-                      $fecha1 = $_POST['fechaInicio'];
-                      $fecha2 = $_POST['fechaFinal'];
-                      $pais = $_POST['pais'];
+    require('model/conexion.php');
+    $con = Conectar();
+    $fecha1 = $_POST['fechaInicio'];
+    $fecha2 = $_POST['fechaFinal'];
+    $pais = $_POST['pais'];
 
-                      if ($pais!='') {
-                        $sql = "select * from visitacion inner join pais on visitacion.pais = pais.id
-                         where (visitacion.pais = :pai) and (visitacion.fecha between :fecha1 and :fecha2)";
-                        $stmt = $con->prepare($sql);
-                        $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':pai'=>$pais));
+  if ($pais!='') {
+    $sql = "select * from visitacion inner join pais on visitacion.pais = pais.id
+      where (visitacion.pais = :pai) and (visitacion.fecha between :fecha1 and :fecha2)";
 
-                      } elseif ($pais==''){
-                        $sql ="select * from visitacion inner join pais on visitacion.pais = pais.id
-                                               where visitacion.fecha between :fecha1 and fecha2";
-                        $stmt = $con->prepare($sql);
-                        $result = $stmt->execute(array(':fecha1'=>$fecha1, ':fecha2'=>$fecha2));
-                        }
-                        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+      $stmt = $con->prepare($sql);
+      $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':pai'=>$pais));
 
-                  foreach ($rows as $row): ?>
+  } else if ($pais==''){
+    $sql ="select * from visitacion inner join pais on visitacion.pais = pais.id
+      where (visitacion.fecha between :fecha1 and fecha2)";
 
-                  <tr>
-                  <?php if(count($rows)): ?>
+      $stmt = $con->prepare($sql);
+      $result = $stmt->execute(array(':fecha1'=>$fecha1, ':fecha2'=>$fecha2));
+}
 
-                       
-                       <td colspan="2"> <?php echo $row->fecha;?> </td>
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
-                       <td> <?php echo $row->nombre;?> </td>
-                       <td><?php echo $row->noIdentificacion; ?></td>
-                <!--       <td><php echo $row->sector; ?></td> -->
-                       <td><?php echo $row->sendero; ?></td>
-                       <td><?php echo $row->tipo_pago; ?></td>
-                       <td><?php echo $row->moneda; ?></td>
-  <?php else: ?>
+    foreach ($rows as $row): ?>
+    <tr>
+      <?php if(count($rows)): ?>
+        <td colspan="2"> <?php echo $row->fecha;?> </td>
+        <td> <?php echo $row->nombre;?> </td>
+        <td><?php echo $row->noIdentificacion; ?></td>
+        <td><?php echo $row->sendero; ?></td>
+        <td><?php echo $row->tipo_pago; ?></td>
+        <td><?php echo $row->moneda; ?></td>
+
+      <?php else: ?>
      <td> Esta no existe </td>
    <?php endif;//ifCount ?>
                     </tr>
