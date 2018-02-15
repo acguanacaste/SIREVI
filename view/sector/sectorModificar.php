@@ -178,7 +178,9 @@
 
                     <hr>
 
-                    <li><a href="?c=Sector"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a></li>
+                    <li><a  href="?c=Sector" >
+                      <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                    <li>
                     <hr>
 
                   </ul>

@@ -5,58 +5,59 @@
       <div class="col s12 m12 l12">
 
 <!--====================================================================================================================-->
+<div class="">
+  <fieldset>
+    <div class="">
+      <div class="col s12 m12 l12">
         <div class="">
-          <fieldset>
-            <div class="">
-              <div class="col s12 m12 l12">
-                <div class="">
-                    <div><!-- Inicio de las filas y columnas -->
+            <div><!-- Inicio de las filas y columnas -->
 
-                      <div class="row"><!---Inicio de dos columnas-->
+              <div class="row"><!---Inicio de dos columnas-->
 
-                   <div class="input-field col s6 m4 l4">
-                      <fieldset  class="z-depth-1 ">
-                        <legend>&nbsp;Proposito de Visitacion&nbsp;</legend>
-                        <p class="input-field col s12 m6 l6">
-                          <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
-                          <label for="indeterminate-checkbox">Por el dia</label>
-                        </p>
-                        <p class="input-field col s12 m6 l6">
-                          <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
-                          <label for="indeterminate-checkbox">Acampando</label>
-                        </p>
-                      </fieldset>
+           <div class="input-field col s12 m4 l4">
+              <fieldset  class="z-depth-1 ">
+                <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
+                <div class="input-field col s12 m12 l12">
+                <select id="proposito_visita" name="proposito_visita">
+                    <option id="proposito_visita" value="" disabled selected>&nbsp;Referencia de Visita</option>
+                                <option value="Visita por el dia">Visita  por el dia</option>
+                                <option value="Acampando por varios dias">Acampando por varios dias</option>
 
-                    </div>
+                              </select>
+                              <label><i class="small material-icons" >info_outline</i></label>
+                            </div>
 
 
-                      <div class="input-field col s6 m4 l2">
-                        <fieldset><legend>Numero diario</legend>
-                          <div class="btn teal lighten-2 right-align "> #&nbsp;00 </div>
-                        </fieldset>
-                      </div>
+              </fieldset>
+            </div>
 
-                      <div class="input-field col s6 m4 l3">
-                        <fieldset><legend>Capacidad de Sector</legend>
-                            <div class="btn teal lighten-2 right-align "> 20/80 </div>
-                        </fieldset>
-                      </div>
+              <div class="input-field col s6 m4 l2">
+                <fieldset><legend>Numero diario</legend>
+                  <div class="btn teal lighten-2 right-align "> #&nbsp;00 </div>
+                </fieldset>
+              </div>
 
-                      <div class="input-field col s6 m4 l3">
-                        <fieldset><legend>Sector</legend>
-                            <div class="btn teal lighten-2 right-align ">Santa Rosa</div>
-                            <br>
+              <div class="input-field col s6 m4 l3 hide-on-med-and-down">
+                <fieldset><legend>Capacidad de Sector</legend>
+                    <div class="btn teal lighten-2 right-align "> 20/80 </div>
+                </fieldset>
+              </div>
 
-                        </fieldset>
-                      </div>
-                     </div><!--Fin de columnas -->
-                   </div><!-- Fin de filas y columnas -->
-                </div><!-- <!-- Fin del row -->
-              </div><!-- Tamanos -->
-            </div><!-- Fin del row -->
-        <!--================================================================================================================================-->
-      </fieldset>
-    </div><!-- Fin del container -->
+              <div class="input-field col s6 m4 l3">
+                <fieldset><legend>Sector</legend>
+                    <div class="btn teal lighten-2 right-align ">Santa Rosa</div>
+                    <br>
+
+                </fieldset>
+              </div>
+             </div><!--Fin de columnas -->
+           </div><!-- Fin de filas y columnas -->
+        </div><!-- <!-- Fin del row -->
+      </div><!-- Tamanos -->
+    </div><!-- Fin del row -->
+<!--================================================================================================================================-->
+</fieldset>
+</div><!-- Fin de los fieldset -->
 <!--=========================================================================================================================================-->
     <div id="" class="">
     <hr>
@@ -104,14 +105,6 @@
                     </select>
                     <label>País</label>
                   </div>
-    <!--   <div class="input-field col s6 m6 l4">
-           <div class="">
-             <i class="material-icons prefix">textsms</i>
-             <input type="text" name="pais" id="autocomplete-input" class="autocomplete">
-             <label for="autocomplete-input">País</label>
-           </div>
-       </div> -->
-
 
 <!--==============Cargando las cuidades============================================-->
       <?php
@@ -153,7 +146,6 @@
                 </div><!--Fin de la seegunda fila -->
 <!--==================================================================================================================================-->
     <!--==================================================Lineas de codigo, respecto visitacion=========================================================-->
-
                 <div class=""><!--Inicio de la tercera fila-->
                   <div class=""><!--Columna-->
                     <!--================Cargando los senderos==============================-->
@@ -191,7 +183,6 @@
                   </div>
                 </div>
               </div><!--Fin de la tercera fila-->
-
 
 <!--================================================== Fin lineas de codigo, respecto visitacion========================================================-->
 
@@ -289,19 +280,14 @@
           <div class="input-field col s12 m6 l6">
             <fieldset  class="z-depth-1">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
-              <p class="input-field col s12 m6 l4">
+              <p class="input-field col s12 m6 l6">
                 <input class="with-gap " value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
-              <p class="input-field col s12 m6 l4">
+              <p class="input-field col s12 m6 l6">
                 <input class="with-gap" value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
-
               </p>
-              <!--<p class="input-field col s12 m6 l4">
-                <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
-                <label for="indeterminate-checkbox">Transferencia</label>
-              </p>-->
             </fieldset>
           </div>
 

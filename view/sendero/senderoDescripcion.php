@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-<!-- Inicio de mi codigo -->
+
         <div id="search-docs" class="section scrollspy">
           <hr>
 <!--===========================================================================================================-->

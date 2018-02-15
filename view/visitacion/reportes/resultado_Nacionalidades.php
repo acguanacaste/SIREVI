@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Nacionalidades located on visitacion view, belongs to reportes(resultado nacionalidades view)</a></h4>
+      <a href="#">Resultado de las Nacionalidades</a></h4>
 
   <div class="">
     <div class="row">
@@ -28,7 +28,7 @@
               <th>Sendero</th>
               <th>Tipo pago</th>
               <th>Moneda</th>
-              <th>opcional</th>
+
           <!--    <th>opcional</th> -->
             </tr>
           </thead>
@@ -76,6 +76,11 @@
                <?php endif; //if $_POST ?>
           </tbody>
       </table>
+
+      <td colspan="8" class="text-center">
+              <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>
+          </td>
+
     </div>
   </div>
 </div>

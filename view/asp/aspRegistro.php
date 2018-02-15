@@ -90,7 +90,9 @@
                   <ul class="section table-of-contents">
 
                     <hr>
-                    <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
+                    <li><a  href="?c=ASP" >
+                      <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                    <li>
                     <hr>
 
 

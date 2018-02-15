@@ -10,7 +10,7 @@ class DollarController{
 
 
     public function Index(){
-        require_once 'view/includes/header_sideMenu.php';
+        require_once 'view/includes/header_dollar.php';
         require_once 'view/dollar/dollar.php';
         require_once 'view/includes/footer.php';
     }
@@ -24,7 +24,7 @@ class DollarController{
             $dollar = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
-        require_once 'view/includes/header_sideMenu.php';
+        require_once 'view/includes/header_dollar.php';
         require_once 'view/dollar/dollarModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -36,7 +36,7 @@ class DollarController{
             $dollar = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
-        require_once 'view/includes/header_sideMenu.php';
+        require_once 'view/includes/header_dollar.php';
         require_once 'view/dollar/dollarRegistro.php';
         require_once 'view/includes/footer.php';
     }

@@ -158,7 +158,7 @@
                   <ul class="section table-of-contents">
                     <hr>
                     <li><a  href="?c=Sendero" >
-                      <i style="color:#00b0ff" class=" small material-icons">arrow_back</i>Pagina anterior</a></li>
+                      <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
                     <li>
                     <hr>
 

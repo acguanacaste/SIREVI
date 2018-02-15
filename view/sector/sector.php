@@ -3,7 +3,9 @@
     <h4 class="header left">Módulo de Sectores</h4>
 
 
-    <a href="index.php?c=Sector&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Sector</a>
+    <a href="index.php?c=Sector&a=agregarRegistro">
+      <span class="hide-on-med-and-up">
+        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Sector</a>
 
     <div class="right hide-on-small-only">
       <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Sector</a>
@@ -51,9 +53,11 @@
           </table>
           <br>
           <div class="left hide-on-small-only">
-            <a href="index.php?c=Sector&a=IndexTarifas"><i class="small material-icons">receipt</i>Ver tarifas de ingreso para los sectores</a>
+            <a href="?c=Sector&a=IndexTarifas">
+              <i class="small material-icons light-blue darken-1 z-depth-2
+                        btn-floating pulse">receipt</i>Ver tarifas de ingreso para los sectores</a>
           </div>
-    </div><!-- Div de los tamanos -->
-  </div>
-</div>
+        </div><!-- Div de los tamanos -->
+      </div>
+    </div>
 </main>

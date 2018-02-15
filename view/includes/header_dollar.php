@@ -38,8 +38,13 @@
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
 				  $('.datepicker').pickadate({
-						selectMonths: true, // Creates a dropdown to control month
-						selectYears: 15 // Creates a dropdown of 15 years to control year
+						format: "yyyy/mm/dd",
+								selectMonths: true, // Creates a dropdown to control month
+								selectYears: 100, // Creates a dropdown of 15 years to control year,
+								today: 'Hoy',
+								clear: 'Limpiar',
+								close: 'Ok',
+								closeOnSelect: false // Close upon selecting a date,
 					});
 						/*$(".dropdown-button").dropdown(hover:false);*/
           $('.collapsible').collapsible({
@@ -74,12 +79,8 @@
 				     },
 				     minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
 				   });
-
 /*==========================================================================================================================================*/
-
         });
-
-
 				</script>
 
 <body>
@@ -95,14 +96,20 @@ header("Location:?c=login&a=index");
 
 	<header >
 		<div>
-	  <nav  class="top-nav teal darken-4 z-depth-3">
-	    <div  class="container" >
+	  <nav  class="brown top-nav z-depth-3">
+	    <div  class="container grey lighten-3" >
 	      <div class="nav-wrapper"><a  class="page-title"></a>
 					<ul>
-					<li><a href="#" title="Perfil" class="hide-on-med-and-down"><i  class="small material-icons">settings</i><span class=""></span></a></li>
-					<li><a href="" title="Cerrar sesión" class="hide-on-med-and-down"> <i  class="small material-icons">settings_power</i><span class=""></span></a></li>
 
-			<!--		<li><a href="#"><span class=""><i class="icon icon-home">home </i></span></a></li>-->
+						<li>
+							<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Cerrar sesión" href="?c=login&a=salir" >
+							<i class=" material-icons left">settings_power</i><span class="hide-on-med-and-down"></span></a>
+						</li>
+
+						<li>
+							<a class=" tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio" href="?c=login&a=AdminUser" >
+								<i class="material-icons left " >home</i>	<span class="hide-on-med-and-down">Inicio</span></a>
+							</li>
 
 
 				</ul>
@@ -118,20 +125,6 @@ header("Location:?c=login&a=index");
 								<li><a href="?c=Visitacion" title="Visitacion"><i class="small material-icons hide-on-large-only">assignment</i>
 									 <span class="hide-on-med-and-down">Visitación</span></a></li>
 
-								<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons hide-on-large-only">description</i>
-									<span class="hide-on-med-and-down">Reportes</span></a></li>
-
-								<li><a href="?c=Usuario" title="Usuarios"><i class="small material-icons hide-on-large-only">supervisor_account</i>
-									 <span class="hide-on-med-and-down">Usuarios</span></a></li>
-
-								<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons hide-on-large-only">view_quilt</i>
-									<span class="hide-on-med-and-down">Sectores</span></a></li>
-
-								<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons hide-on-large-only">swap_calls</i>
-									 <span class="hide-on-med-and-down">Senderos</span></a></li>
-
-								<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons hide-on-large-only">perm_media</i>
-									<span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 		          </ul></span>
 
 
@@ -165,21 +158,6 @@ header("Location:?c=login&a=index");
 
 			<li><a href="?c=Visitacion&a=AdminUser" title="Visitación"><i class="small material-icons white-text">assignment</i>
 				<span class="white-text">Visitación</span></a></li>
-
-			<li><a href="" title="Reportes"> <i class="small material-icons white-text">description</i>
-				<span class="white-text">Reportes</span></a></li>
-
-			<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons white-text">supervisor_account</i>
-				<span class="white-text">Usuarios</span></a></li>
-
-			<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons white-text">view_quilt</i>
-				<span class="white-text">Sectores</span></a></li>
-
-			<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons white-text">swap_calls</i>
-				<span class="white-text">Senderos</span></a></li>
-
-			<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons white-text">terrain</i>
-				<span class="white-text">Áreas Protegidas</span></a></li>
 
 			<li><a href="?c=login&a=salir"> <i class="small material-icons">settings_power</i>
 				<span class="white-text">Cerrar sesión</span></a></li>

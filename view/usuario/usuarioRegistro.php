@@ -1,3 +1,4 @@
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
   <div class="container">
     <div class="row">
@@ -154,8 +155,9 @@
                   <div style="height: 1px;">
                     <ul class="section table-of-contents">
                       <hr>
-                      <li><a  href="index.php?c=Usuario" >
-                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">refresh</i></a></li>
+                      <li><a  href="?c=Usuario" >
+                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                      <li>
                   <hr>
                     </ul>
                   </div>
@@ -164,6 +166,7 @@
             </div>
           </div>
         </main>
+      <?php endif; ?>
   <script>
       $(document).ready(function(){
           $("#frm-usuario").submit(function(){

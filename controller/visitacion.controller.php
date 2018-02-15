@@ -51,6 +51,14 @@ class VisitacionController{
       require_once 'view/includes/footer.php';
    }
 
+   public function Excel(){
+      header("Content-type: application/vnd.ms-excel");
+      header("Content-Disposition: attachment; filename=mi_archivo.xls");
+      header("Pragma: no-cache");
+      header("Expires: 0");
+
+      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+  }
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 

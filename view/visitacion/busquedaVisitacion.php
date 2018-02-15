@@ -7,15 +7,13 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-        <div class="right hide-on-small-only">
-           <a   href="?c=Visitacion&a=AdminUser"><span class="tooltipped" data-position="top"
-           data-delay="50" data-tooltip="Página anterior"><i class=" hide-on-med-and-down small material-icons" >arrow_back</i>Página anterior</span></a>
-         </div>
+
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
         <thead class="white-text teal darken-4 z-depth-2">
             <tr>
               <th>ID</th>
               <th>Proposito</th>
+              <th>Fecha</th>
               <th>Nombre</th>
               <th>Identificación</th>
               <th>Placa</th>
@@ -43,6 +41,7 @@
               	<?php if(count($rows)): ?>
                 <td> <?php echo $row->id;?> </td>
                 <td> <?php echo $row->proposito_visita;?> </td>
+                <td><?php echo $row->fecha; ?></td>
                 <td> <?php echo $row->nombre;?> </td>
                 <td> <?php echo $row->noIdentificacion;?> </td>
                 <!--<td> <php echo $row->estado;?> </td>-->
@@ -58,6 +57,13 @@
              <?php endif; ?>
         </tbody>
       </table>
+      <hr>
+
+       <div class=" right hide-on-small-only">
+         <a   href="?c=Visitacion&a=AdminUser"><span class="tooltipped" data-position="top"
+         data-delay="50" data-tooltip="Página anterior">
+           <i class="small material-icons blue-grey darken-2 z-depth-2 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</span></a>
+       </div>
     </div>
   </div>
 </div>

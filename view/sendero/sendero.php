@@ -1,13 +1,23 @@
 <main>
-  <div class="container">
-    <h4 class="header left">Módulo de Senderos</h4>
-    <a href="index.php?c=Sendero&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Nueva Visitación</a>
+<div class="container">
+  <h4 class="header left">Módulo de Senderos</h4>
 
 
-    <div class="right hide-on-small-only">
-      <a href="index.php?c=Sendero&a=agregarRegistro"><i class="small material-icons">playlist_add</i>Agregar Sendero</a>
-    </div>
+  <a href="index.php?c=Sendero&a=agregarRegistro">
+    <span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sendero</a>
+
+  <div class="right hide-on-small-only">
+    <a href="index.php?c=Sendero&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sendero</a>
+  </div>
 </div>
+
+
+
+
+
+
+
 
 <div class="container">
   <div class="row">
@@ -32,7 +42,7 @@
                 <td><?php echo $r->Sector; ?></td>
                 <td><?php echo $r->caracterizacion_sendero; ?></td>
                 <td><?php echo $r->tipo_sendero; ?></td>
-          
+
 
 
                 <td>

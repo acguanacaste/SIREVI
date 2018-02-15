@@ -3,12 +3,12 @@
     <h4 class="header left hide-on-med-and-down"> Áreas Protegidas</h4>
     <h4 class="header left hide-on-large-only"> Áreas <br> Protegidas</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-    <a href="index.php?c=ASP&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Área Protegida</a>
-
-
+    <a href="index.php?c=ASP&a=agregarRegistro"><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Área Protegida</a>
 
       <div class="right right hide-on-small-only">
-        <a href="index.php?c=ASP&a=agregarRegistro" ><i class="small material-icons">playlist_add</i>Agregar Área Silvestre</a>
+        <a href="index.php?c=ASP&a=agregarRegistro" >
+          <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Área Silvestre</a>
     </div>
   <?php endif; ?>
   </div>
@@ -34,12 +34,12 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td>
                   <a title="Editar Información" href="?c=ASP&a=Modificar&id=<?php echo $r->id; ?>"><i
-                    class="circle small material-icons right z-depth-2">edit</i></a>
+                    class="circle white small material-icons right z-depth-2">edit</i></a>
                   </td>
                   <td>
                     <a title="Borrar Información" onclick="return confirm('Estas a un paso de borrar un registro, seguro deseas continuar?');"
                     href="?c=ASP&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle small material-icons right z-depth-2">delete</i></a>
+                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
                   </td>
                 <?php endif; ?>
                 </tr>

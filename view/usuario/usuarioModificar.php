@@ -1,3 +1,4 @@
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
   <div class="container">
     <div class="row">
@@ -98,28 +99,6 @@
        </div>
    </div>
 
-
-
-<!--
-       <div class="row"><!--INICIO DEL DIV PARA LA IMAGEN--
-         <div class="file-field input-field">
-           <div class="btn waves-effect waves-light teal darken-4" title="Subir imagenes">
-             <i class="mdi-content-send material-icons right">perm_media</i>
-             <span class="hide-on-small-only ">Subir Imagen</span>
-             <input type="file" name="foto" id="foto">
-           </div>
-           <div class="file-path-wrapper">
-             <input id="foto" name="foto" value="echo'<img src="'.$r->foto.'" width="100" heigth="100">';"
-              value="<?php echo'<img src="'.$r->foto.'" width="100" heigth="100">'; ?>" class="file-path validate validate" type="text">
-           </div>
-         </div>
-      </div>
--->
-
-
-
-
-
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
          value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
@@ -139,29 +118,19 @@
         </div>
       </div><!-- Div de los tamanos -->
 
-        <div class="col m3 l2 hide-on-small-only">
+        <div class="col m2 l2 hide-on-small-only">
           <div class="toc-wrapper pin-top" style="top: -15px;">
             <div class="buysellads hide-on-small-only">
               <!-- CarbonAds Zone Code -->
               <script async="" type="text/javascript"
               src="" id="_carbonads_js"></script>
-          <!--    <div id="carbonads">
-                <span>
-                  <span class="carbon-wrap">
-                    <a href="" class="carbon-img" target="_blank">
 
-                      <img src="" alt="" style="max-width: 130px;" height="100" border="0" width="130"></a>
-                      <br>
-                <!--      <a href="" class="carbon-text" target="_blank">Algo mas de texto</a></span> -
-                      <br>
-                  <!--    <a href="" class="carbon-poweredby" target="_blank">Un texto mas...</a></span></div> -
-                </div>  -->
                   <div style="height: 1px;">
                     <ul class="section table-of-contents">
 
                       <hr>
-                      <li><a  href="index.php?c=Usuario" >
-                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Pagina anterior</a></li>
+                      <li><a  href="?c=Usuario" >
+                        <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
                       <li>
                         <hr>
 
@@ -174,7 +143,7 @@
             </div>
           </div>
         </main>
-
+<?php endif; ?>
   <script>
       $(document).ready(function(){
           $("#frm-usuario").submit(function(){

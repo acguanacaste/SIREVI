@@ -23,6 +23,7 @@
           <div class="row">
             <form id="frm-asp" action="?c=ASP&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?php echo $asp->id; ?>" />
+
               <div>
                 <div class=""><!---INICIO DE LA PRIMERA FILA-->
                   <div class="input-field col s12 m12 l12  ">
@@ -75,8 +76,10 @@
                   <ul class="section table-of-contents">
 
                     <hr>
-                    <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">arrow_back</i>Página anterior</a></li>
-                    <li class="divider"><hr></li>
+                    <li><a  href="?c=ASP" >
+                      <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                    <li>
+                    <hr>
 
                   </ul>
                 </div>

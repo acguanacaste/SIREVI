@@ -99,7 +99,7 @@
 
      <!--INICIO DE PRIMERA COLUMNA-->
                    <div class="row"><!---INICIO DE LA PRIMERA FILA-->
-                       <div  class="input-field col s12 m6 l4">
+                       <div  class="input-field col s12 m4 l4">
                          <div class="card">
                            <div class="card-image waves-effect waves-block waves-light">
                              <img class="activator" src="assets/img/paises.jpg">
@@ -131,34 +131,55 @@
                                     </ul>
                                   </table>
 
-                                </div><!-- Div de los tamanos -->
+                                </div><!-- Div -->
                               </div>
-                            </div><!--Div container-->
-                           </div>
+                            </div><!--div container interno-->
+                          </div><!-- end of card reveal-->
                          </div>
                        </div>
 
 
 
      <!--INICIO DE SEGUNDA COLUMNA-->
-                   <div class="input-field col s12 m6 l4">
+                   <div class="input-field col s12 m4 l4">
                      <div class="card">
                        <div class="card-image waves-effect waves-block waves-light">
-                         <img class="activator" src="">
+                         <img class="activator" src="assets/img/sectores.jpg">
                        </div>
                        <div class="card-content">
-                         <span class="card-title activator grey-text text-darken-4">Reporte<i class="material-icons right">more_vert</i></span>
+                         <span class="card-title activator grey-text text-darken-4">Reporte Sectores<i class="material-icons right">more_vert</i></span>
                          <p><a href="#">Haga click aquí</a></p>
                        </div>
                        <div class="card-reveal">
-                         <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                         <p>La realizacion del reporte</p>
-                       </div>
+                         <span class="card-title grey-text text-darken-4">Reporte Sectores<i class="material-icons right">close</i></span>
+                         <div class="container">
+                            <div class="row">
+                              <div class="col s12 m12 l12">
+                              <!-- Inicio de mi codigo -->
+                              <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+                                <ul class="collection">
+                                  <li class="collection-item avatar">
+                                    <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
+                                    <a><span class="title"></span>
+                                      <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br></p></a>
+
+                                      <a href="?c=Visitacion&a=" class="secondary-content tooltipped "
+                                            data-position="left" data-delay="50" data-tooltip="Sectores">
+
+                                      <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
+                                  </li>
+                                </ul>
+                              </table>
+
+                            </div><!-- Div -->
+                          </div>
+                        </div><!--div container interno-->
+                      </div><!-- end of card reveal-->
                      </div>
                     </div>
 
     <!--INICIO DE LA TERCERA COLUMNA-->
-                <div class="input-field col s12 m6 l4">
+                <div class="input-field col s12 m4 l4">
                   <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                       <img class="activator" src="assets/img/paises.jpg">

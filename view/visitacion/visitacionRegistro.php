@@ -27,14 +27,7 @@
                                       <label><i class="small material-icons" >info_outline</i></label>
                                     </div>
 
-                    <!--    <p class="input-field col s12 m6 l6">
-                          <input class="with-gap" value="Visita por el dia" name="proposito_visita" type="radio" selected id="indeterminate-checkbox" checked="default" />
-                          <label for="indeterminate-checkbox">Por el dia</label>
-                        </p>
-                        <p class="input-field col s12 m6 l6">
-                          <input class="with-gap" value="Acamapa por varios dias" name="proposito_visita" type="radio" id="indeterminate-checkbox" />
-                          <label for="indeterminate-checkbox">Acampando</label>
-                        </p>-->
+
                       </fieldset>
                     </div>
 
@@ -64,7 +57,7 @@
             </div><!-- Fin del row -->
         <!--================================================================================================================================-->
       </fieldset>
-    </div><!-- Fin del container -->
+    </div><!-- Fin de los fieldset -->
 <!--=========================================================================================================================================-->
     <div id="" class="">
     <hr>
@@ -304,13 +297,13 @@
         <div class="center-align"><!--Inicio de la "" -->
 
           <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 input-field col m9">
+            <fieldset  class="z-depth-1 input-field col s12 m12 l12">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
-              <p class="input-field col s6 m6 l4">
+              <p class="input-field col s5 m6 l6">
                 <input class="with-gap " value="efectivo" name="tipo_pago"  type="radio"  id="indeterminate-checkbox" checked="default"   />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
-              <p class="input-field col s6 m6 l4">
+              <p class="input-field col s5 m6 l6">
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
 
@@ -323,13 +316,13 @@
           </div>
 
           <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 input-field col m9">
+            <fieldset  class="z-depth-1 input-field col s12 m12 l12">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
-              <p class="input-field col s6 m6 l4">
+              <p class="input-field col s6 m6 l6">
                 <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
               </p>
-              <p class="input-field col s6 m6 l4">
+              <p class="input-field col s6 m6 l6">
                 <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
               </p>

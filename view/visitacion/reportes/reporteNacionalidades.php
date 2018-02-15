@@ -1,9 +1,9 @@
-<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <main>
   <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-    <a href="#">Nacionalidades located on visitacion view, belongs to reportes(reportesNacionalidaes view)</a></h4>
+    <a href="#">Reporte Nacionalidades</a></h4>
 
-  <div class="container">
+<!--  <div class="container">
     <a href="?c=Reporte&a=AdminUser"><span class="hide-on-med-and-up">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo reporte</a>
 
@@ -12,7 +12,7 @@
         <a   href="?c=Reporte&a=AdminUser">
           <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo reporte</a>
       </div>
-    </div>
+    </div> -->
 
 
 <div class="">

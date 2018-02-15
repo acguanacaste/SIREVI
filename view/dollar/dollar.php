@@ -1,7 +1,6 @@
 <main>
   <div class="container">
     <h4 class="header left">Tipo cambio actual de dolar</h4>
-    <a href="index.php?c=Dollar&a=agregarRegistro"><span class="hide-on-med-and-up"><i class="small material-icons">playlist_add</i>Agregar precio dolar</a>
   </div>
   <div class="container">
   <div class="row">
@@ -24,17 +23,21 @@
                 <td><?php echo $r->valor_dolar; ?></td>
                 <td><?php echo $r->fecha_cambio; ?></td>
                 <td>
-                  <a title="Editar Información" href="?c=Dollar&a=Modificar&id=<?php echo $r->id; ?>"><i
-                    class="circle small material-icons right z-depth-2">edit</i></a>
+                  <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Modificar"
+                   href="?c=Dollar&a=Modificar&id=<?php echo $r->id; ?>">
+                   <i class="circle white small material-icons right z-depth-2">edit</i></a>
+                  </td>
+
+                  <td>
+                  <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Registrar"
+                   href="?c=Dollar&a=agregarRegistro"><i
+                    class="circle white small material-icons right z-depth-2">receipt</i></a>
                   </td>
                   <td>
-                  <a title="Nuevo registro" href="?c=Dollar&a=agregarRegistro"><i
-                    class="circle small material-icons right z-depth-2">receipt</i></a>
-                  </td>
-                  <td>
-                    <a title="Borrar Información" onclick="return confirm('Estas a un paso de borrar un registro, seguro deseas continuar?');"
+                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Borrar"
+                    onclick="return confirm('Estas a un paso de borrar un registro, seguro deseas continuar?');"
                     href="?c=Dollar&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle small material-icons right z-depth-2">delete</i></a>
+                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
                   </td>
                 </tr>
               <?php endforeach; ?>

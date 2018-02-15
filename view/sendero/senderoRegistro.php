@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
 
+
       <div class="col s12 m12 l10">
         <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
@@ -158,7 +159,9 @@
                   <ul class="section table-of-contents">
 
                     <hr>
-                    <li><a  href="index.php?c=Sendero" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">arrow_back</i></a></li>
+                    <li><a  href="?c=Sendero" >
+                      <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
+                    <li>
                     <hr>
                   </ul>
                 </div>
