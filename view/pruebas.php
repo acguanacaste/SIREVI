@@ -1,3 +1,230 @@
+<body class="body" >
+  <!--OPCIONES PARA EL MENU LATERAL DEL RESPONSIVE-->
+<!--INFORMACION DENTRO DEL SIDENAV-->
+<!--============================================================================================-->
+  <div>
+   <br>
+   <h5>&nbsp;Área de Conservación Guanacaste</h5>
+   <h6>&nbsp;Módulo de reportes, seleccione cualquiera de las opciones disponibles para crear un reporte</h6>
+   <hr>
+
+         <div class><!--INICIO DE LA PREVISTA DE DIV'S-->
+           <div class="col s12 m12 l12"><!--Div que me ceclara el tamano general de toda la pagina-->
+             <div class>
+
+ <!--INICIO DE PRIMERA COLUMNA-->
+               <div class="row"><!---INICIO DE LA PRIMERA FILA-->
+                   <div  class="input-field col s12 m4 l4">
+                     <div class="card">
+                       <div class="card-image waves-effect waves-block waves-light">
+                         <img class="activator" src="assets/img/paises.jpg">
+                       </div>
+
+                       <div class="card-content">
+                         <span class="card-title activator grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">more_vert</i></span>
+                         <p><a href="#">Haga click aquí</a></p>
+                       </div>
+
+                       <div class="card-reveal">
+                         <span class="card-title grey-text text-darken-4">Reporte Nacionalidades<i class="material-icons right">close</i></span>
+                         <div class="container">
+                            <div class="row">
+                              <div class="col s12 m12 l12">
+                              <!-- Inicio de mi codigo -->
+                              <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+                                <ul class="collection">
+                                  <li class="collection-item avatar">
+                                    <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
+                                    <a><span class="title"></span>
+                                      <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br></p></a>
+
+                                      <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped "
+                                            data-position="left" data-delay="50" data-tooltip="Nacionalidades">
+
+                                      <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
+                                  </li>
+                                </ul>
+                              </table>
+
+                            </div><!-- Div -->
+                          </div>
+                        </div><!--div container interno-->
+                      </div><!-- end of card reveal-->
+                     </div>
+                   </div>
+
+
+
+ <!--INICIO DE SEGUNDA COLUMNA-->
+               <div class="input-field col s12 m4 l4">
+                 <div class="card">
+                   <div class="card-image waves-effect waves-block waves-light">
+                     <img class="activator" src="assets/img/sectores.jpg">
+                   </div>
+                   <div class="card-content">
+                     <span class="card-title activator grey-text text-darken-4">Reporte Sectores<i class="material-icons right">more_vert</i></span>
+                     <p><a href="#">Haga click aquí</a></p>
+                   </div>
+                   <div class="card-reveal">
+                     <span class="card-title grey-text text-darken-4">Reporte Sectores<i class="material-icons right">close</i></span>
+                     <div class="container">
+                        <div class="row">
+                          <div class="col s12 m12 l12">
+                          <!-- Inicio de mi codigo -->
+                          <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+                            <ul class="collection">
+                              <li class="collection-item avatar">
+                                <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
+                                <a><span class="title"></span>
+                                  <p><a href="?c=Visitacion&a=Reporte">Para crear reporte <br> Click aquí</a><br></p></a>
+
+                                  <a href="?c=Visitacion&a=" class="secondary-content tooltipped "
+                                        data-position="left" data-delay="50" data-tooltip="Sectores">
+
+                                  <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
+                              </li>
+                            </ul>
+                          </table>
+
+                        </div><!-- Div -->
+                      </div>
+                    </div><!--div container interno-->
+                  </div><!-- end of card reveal-->
+                 </div>
+                </div>
+
+<!--INICIO DE LA TERCERA COLUMNA-->
+            <div class="input-field col s12 m4 l4">
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="assets/img/paises.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">Reporte <i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">Haga click aquí</a></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                  <p>La realizacion del reporte </p>
+                </div>
+              </div>
+            </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
+</div><!--FIN DEL DIV QUE ME DECLARA EL TAMANO DE LA CARTA-->
+
+ <!--INICIO DE LA FILA 2-->
+ <!--INICION DE PRIMERA COLUMNA-->
+  <hr>
+                 <div class="row"><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
+                   <div class="input-field col s4">
+                     <div class="card">
+                       <div class="card-image waves-effect waves-block waves-light">
+                         <img class="activator" src="assets/img/.jpg">
+                       </div>
+                       <div class="card-content">
+                         <span class="card-title activator grey-text text-darken-4">Reporte<i class="material-icons right">more_vert</i></span>
+                         <p><a href="#">Crear consulta para reporte</a></p>
+                       </div>
+                       <div class="card-reveal">
+                         <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                         <p>La realizacion del reporte </p>
+                       </div>
+                     </div>
+                  </div><!--FIN DEL DIV QUE ME DECLARA EL TAMANO-->
+
+ <!--INICIO DE SEGUNDA COLUMNA-->
+               <div class="input-field col s4">
+                 <ul class="popout collapsible" class="popout" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  </li>
+                </ul>
+               </div>
+
+<!--INICIO DE TERCER COLUMNA-->
+              <div class="input-field col s4">
+                <div class="row">
+                  <div class="row">
+                          <div >
+                            <div class="card blue-grey darken-1">
+                              <div class="card-content white-text">
+                                <span class="card-title">Card Title</span>
+                                <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                              </div>
+                              <div class="card-action">
+                                <a href="#">This is a link</a>
+                                <a href="#">This is a link</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+       </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
+
+
+ <!--INICIO DE LA TERCERA FILA-->
+ <!--INICIO DE LA COLUMNA PUESTO EN INSTITUCION-->
+           <div class="row"><!--INICIO DE TERCERA FILA-->
+               <div class="row">
+                 <div class="input-field col s12">
+                   <input id="puesto" type="text"  class="form-control" class="validate">
+                   <label for="puesto"><i class="small material-icons"></i>&nbsp;AQUI VA ALGO </label>
+                 </div>
+               </div>
+             </div><!--Fin de la tercera fila-->
+
+ <!--INICIO DE LINEAS PARA EL CORREO-->
+               <div class="row">
+              soy un div a la espera de un elemento
+               </div>
+             </div>
+           </div><!--Fin del div de la segunda fila-->
+         </div><!--Fin del div que me declara el tamano-->
+       </div><!--Fin de la prevista de los div's-->
+
+ <!--INICIO DE LOS-->
+       <div class="col-lg-12">
+
+           <hr/>
+       </div>
+
+ </div><!--FIN DE container-contact-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
   $mysqli  = new mysqli("localhost","root","","sirevi");
 

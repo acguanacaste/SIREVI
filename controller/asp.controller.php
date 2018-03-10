@@ -27,6 +27,16 @@ class ASPController{
         require_once 'view/includes/footer.php';
     }
 
+    public function UbicacionASP(){
+      $asp = new ASP();
+      if(isset($_REQUEST['id'])){
+        $asp = $this->model->Obtener($_REQUEST['id']);
+      }
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/asp/aspUbicacion.php';
+      require_once 'view/includes/footer.php';
+    }
+
 
     public function agregarRegistro(){
         $asp = new ASP();
@@ -46,7 +56,6 @@ class ASPController{
         $asp->nombre            = $_REQUEST['nombre'];
         $asp->tipo              = $_REQUEST['tipo'];
         $asp->ubicacion         = $_REQUEST['ubicacion'];
-
 
         $asp->id > 0
             ? $this->model->Actualizar($asp)

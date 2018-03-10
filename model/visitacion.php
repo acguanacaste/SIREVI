@@ -17,7 +17,7 @@ class Visitacion{
     public $sector;//Sector aun no se guarda en la base de datos
     public $sendero;
    	public $dias_camping;
-
+		public $salida;
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
 		public $nacional_kid;//Se guarda la cantidad por ninos Nacionales
@@ -53,13 +53,14 @@ class Visitacion{
 			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
         pais.nombre as Pais, referencia_visita,
-         sendero.nombre as Sendero, dias_camping as Dias,
+         sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
           personas_surf, prepago, exonerado,
 			     tipo_pago, moneda
             from visitacion
               inner join pais on visitacion.pais = pais.id
-              inner join sendero on visitacion.sendero = sendero.id;");
+              inner join sendero on visitacion.sendero = sendero.id order by nombre asc;");
+							//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
 			$stm->execute();
 
 
@@ -104,7 +105,19 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
+		/*====================================================================================================*/
+		public function ContarRegistros(){
+			try{
+				$stm = $this->pdo
+										->prepare("SELECT count(id) FROM visitacion;");
 
+				$stm->execute(array($id));
+			}
+			catch (Exception $e){
+				die($e->getMessage());
+			}
+		}
+		/*===================================================================================================*/
 
 	public function Eliminar($id){
 		try{
@@ -204,9 +217,6 @@ class Visitacion{
          tipo_pago, moneda)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-
-
-
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(		  $data->proposito_visita,
@@ -247,4 +257,21 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
+
+	public function ControlSalidas(){/*Metodo que me borra los datos en la bd*/
+  		try{
+  			$stm = $this->pdo->prepare("SELECT salida FROM visitacion where id = ".$_REQUEST['id']);
+  			$stm->execute();
+  			$resultado = $stm->fetch();
+  			$salida = $resultado['salida'];
+  			$nuevaSalida = $salida== 0 ? 1 : 0;
+  			$stm = $this->pdo->prepare("UPDATE visitacion SET salida = $nuevaSalida where id = ".$_REQUEST['id']);
+  			return $stm->execute();
+  		}
+  		catch (Exception $e){
+  			die($e->getMessage());
+  		}
+  	}
+
+
 }

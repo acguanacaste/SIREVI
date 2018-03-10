@@ -5,6 +5,8 @@
       <div class="col s12 m12 l12">
 
 <!--====================================================================================================================-->
+<form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
+  <!--<input type="hidden" name="id" value="<php echo $visit->id; ?>" />-->
         <div class="">
           <fieldset>
             <div class="">
@@ -26,10 +28,9 @@
                                       </select>
                                       <label><i class="small material-icons" >info_outline</i></label>
                                     </div>
+                          </fieldset>
+                        </div>
 
-
-                      </fieldset>
-                    </div>
 
                       <div class="input-field col s6 m4 l2">
                         <fieldset><legend>Numero diario</legend>
@@ -70,7 +71,7 @@
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
             <div class="col col s12 m12 l12">
               <div class="">
-                <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
+        <!--        <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">-->
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
 
                   <div class="row">
@@ -384,7 +385,7 @@
 
   <fieldset >
     <legend>Tipo de cambio dollar</legend>
-    <div style="" id="boton_dolar" class="btn teal lighten-2 right-align ">&nbsp;$550</div>
+    <div style="" id="boton_dolar" value="<?php echo"aqui va el valor del dollar"?>" class="btn teal lighten-2 right-align ">&nbsp;$550</div>
   </fieldset>
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->

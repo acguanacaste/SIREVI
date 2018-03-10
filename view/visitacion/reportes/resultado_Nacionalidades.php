@@ -13,7 +13,84 @@
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
       <a href="#">Resultado de las Nacionalidades</a></h4>
+    <!-- Busqueda Avanzada -->
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class=""><i class="material-icons">search</i>Filtro de busqueda</div>
+          <div class=""><span><div class="row">
+            <div class="col s12 m12 l12">
 
+              <fieldset>
+                <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+                <li>
+                  <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
+                  <div class="body "><span >
+                    <form action="?c=Visitacion&a=Resultado_Nacionalidades" method="post">
+
+
+                      <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
+                        <div class="input-field col s12 m4 l4">
+                           <i class="material-icons prefix">event_note</i>
+                          <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
+                        </div>
+
+           <!--INICIO DE COLUMNA-->
+
+                      <div class="input-field col s12 m4 l4  " >
+                        <i class="material-icons prefix">event_note</i>
+                        <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                      </div>
+
+
+                      <div class=""><!---Inicio de la segunda fila-->
+                      <!--==============Cargando los paices==============================-->
+                        <?php
+                        $conexion = mysql_connect("localhost","root");
+                        mysql_select_db("sirevi",$conexion);
+                        $sentencia_pais = "select * from pais order by id ASC";
+                        $query_pais = mysql_query($sentencia_pais);
+                        ?>
+                        <div  class="input-field col s12 m4 l4">
+                          <select name="pais">
+                            <option value="-1" selected>Elija un pais</option>
+                            <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                            <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
+                            <?php } ?>
+                          </select>
+                          <label>País</label>
+                        </div>
+                    </div><!--FIN DEL DIV DE LA FILA-->
+
+                      <div class="row">
+                        <div class="center"><span class="flow-text">
+                          <div class="input-field col s12 m12 l12">
+                          <fieldset class="z-depth-2">
+                            <button title="Enviar" class="small btn waves-effect waves-light teal darken-4"
+                              value="Buscar"  type="submit" name="action"><span class="hide-on-small-only "><font size=3>Consultar</font></span>
+                              <i class=" small material-icons right">pageview</i>
+                            </button>
+                          </fieldset>
+                          </div></span>
+                        </div>
+                      </div>
+                      </div>
+                     </div>
+                    </div>
+
+                    <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
+                  </form><!--FORM end-->
+                </span></div>
+                <hr>
+               </li>
+              </ul>
+              </fieldset>
+            </div>
+          </div>
+      </span>
+      </div>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
   <div class="">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -39,18 +116,31 @@
     $con = Conectar();
     $fecha1 = $_POST['fechaInicio'];
     $fecha2 = $_POST['fechaFinal'];
-    $pais = $_POST['pais'];
+    $pais = (int)$_POST['pais'];
+  /*  $n = (isset($_POST['n'] && !empty($_POST['n'])))?$_POST['n']:null;//revisar que en el form halla algo diferente al vacio o date_default_timezone_set
 
-  if ($pais!='') {
+    $select = "select * from table ";
+    $where = "";
+    if ($n){
+      $where .=!empty($where)?" and ":"";// defina todo por and o por cada condicion ponga para seleccionar el conector logico
+      $where .=" n = $n "
+    }
+    $select.=!empty($where)?" where ".$where:null; */
+    //@todo: meter igual para el order by
+/*echo "<pre>";
+var_dump($_POST);
+echo "</pre>";*/
+
+  if ($pais>1) {
     $sql = "select * from visitacion inner join pais on visitacion.pais = pais.id
       where (visitacion.pais = :pai) and (visitacion.fecha between :fecha1 and :fecha2)";
 
       $stmt = $con->prepare($sql);
       $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':pai'=>$pais));
 
-  } else if ($pais==''){
+  } else{
     $sql ="select * from visitacion inner join pais on visitacion.pais = pais.id
-      where (visitacion.fecha between :fecha1 and fecha2)";
+      where (visitacion.fecha between :fecha1 and :fecha2)";
 
       $stmt = $con->prepare($sql);
       $result = $stmt->execute(array(':fecha1'=>$fecha1, ':fecha2'=>$fecha2));
@@ -72,7 +162,7 @@
      <td> Esta no existe </td>
    <?php endif;//ifCount ?>
                     </tr>
-                  <?php endforeach; ?>
+                                      <?php endforeach; ?>
                <?php endif; //if $_POST ?>
           </tbody>
       </table>

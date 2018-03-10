@@ -75,7 +75,6 @@ class VisitacionController{
     }
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
-
     public function agregarRegistro(){
         $visit = new Visitacion();
 
@@ -91,8 +90,9 @@ class VisitacionController{
 
 
     public function Guardar(){
+//var_dump ($_REQUEST);
+//die();
         $visit = new Visitacion();
-
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
         $visit->fecha                     = $_REQUEST['fecha'];
@@ -108,6 +108,7 @@ class VisitacionController{
 //------------------------------------------------------------------------------------------------------
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
+        $visit->salida                    = $_REQUEST['salida'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
@@ -132,10 +133,29 @@ class VisitacionController{
         header('Location: index.php?c=Visitacion&a=agregarRegistro');
     }
 
-
+    public function Conteo(){
+      $this->model->ContarRegistros();
+    }
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
         header('Location: index.php?c=Visitacion');
     }
+
+    /*======================================================================*/
+        public function Salida(){
+            session_start();
+            if ($_SESSION['usuario']['puesto'] == 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
+              $this->model->ControlSalidas($_REQUEST['id']);
+              header('Location:?c=Visitacion&a=AdminUser');
+            }
+            else {
+              header( 'HTTP/1.0 403 Forbiden');//).
+          }
+        }
+
+    /*======================================================================*/
+
+
+
 }

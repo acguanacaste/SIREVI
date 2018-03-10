@@ -5,10 +5,10 @@
 
     <a href="index.php?c=Sector&a=agregarRegistro">
       <span class="hide-on-med-and-up">
-        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Sector</a>
+        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sector</a>
 
     <div class="right hide-on-small-only">
-      <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Sector</a>
+      <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sector</a>
     </div>
   </div>
 
@@ -39,7 +39,7 @@
                       <i class="circle white small material-icons right z-depth-2">edit</i></a>
                   </td>
 
-                  <td style="width:15px;">
+                  <td>
                     <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                       href="?c=Sector&a=Eliminar&id=<?php echo $r->id; ?>">
                     <i class=" circle white small material-icons right z-depth-2">delete</i></a>

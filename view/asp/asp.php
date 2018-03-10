@@ -21,7 +21,7 @@
             <tr>
               <th>Área Conservación</th>
               <th>Tipo</th>
-              <th>Ubicación geográfica</th>
+              <th colspan="2">Ubicación geográfica</th>
               <th style="height:75px;" colspan="2">Acción</th>
             </tr>
           </thead>
@@ -30,7 +30,12 @@
               <tr >
                 <td><?php echo $r->nombre; ?></td>
                 <td><?php echo $r->tipo; ?></td>
-                <td><?php echo $r->ubicacion; ?></td>
+                <td>
+                    <a  href="?c=ASP&a=UbicacionASP&id=<?php echo $r->id; ?>"><i
+                      class="circle white small material-icons right z-depth-2 tooltipped"
+                        data-position="top" data-delay="50" data-tooltip="Ubicación geográfica">art_track</i></a>
+                </td>
+
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
                 <td>
                   <a title="Editar Información" href="?c=ASP&a=Modificar&id=<?php echo $r->id; ?>"><i

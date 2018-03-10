@@ -84,7 +84,7 @@
 
                <!--Columna3 fila3-->
                <div class="input-field col s12 m6 l4  ">
-                 <input  id="" type="text" name="punto_alto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <input  id="" type="text" name="punto_alto" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                  <label for="punto_alto" >  <i class="small material-icons">wallpaper</i>Punto mas alto</label>
                 </div>
               </div><!--Fin de la segunda fila -->
@@ -92,13 +92,13 @@
           <!---Inicio de la cuarta fila-->
               <div class="">
                 <div class="input-field col s6 m6 l6  ">
-                  <input  id="punto_inicio" type="text" name="punto_inicio"  class="form-control validate" data-validacion-tipo="requerido|min:10" required >
+                  <input  id="punto_inicio" type="text" name="punto_inicio"  class="form-control validate" data-validacion-tipo="requerido|min:10" >
                   <label for="punto_inicio" >  <i class="small material-icons">directions_walk</i>Punto inicio</label>
              </div>
 
              <!--columna-->
                <div class="input-field col s6 m6 l6  ">
-                 <input  id="punto_llegada" type="text" name="punto_llegada" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <input  id="punto_llegada" type="text" name="punto_llegada" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                  <label for="punto_llegada" >  <i class="small material-icons">directions_walk</i>Punto llegada</label>
                 </div>
               </div><!--Fin de la cuarta fila -->
@@ -116,7 +116,7 @@
               <div class="">
               <!--columna-->
                <div class="input-field col s12 m12 l12  ">
-                 <input  id="regulaciones" type="text" name="regulaciones" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
+                 <input  id="regulaciones" type="text" name="regulaciones" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                  <label for="regulaciones" >  <i class="small material-icons">report_problem</i>Regulaciones</label>
                 </div>
               </div><!--Fin de la quinta fila -->

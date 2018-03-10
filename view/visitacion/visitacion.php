@@ -102,8 +102,9 @@
               <th>Moneda</th>
               <!--<th>Total pago</th> -->
               <!--<th>Total</th>-->
+              <th>Ingresos</th>
               <th style="width:40px;"></th>
-              <th colspan="2">Acción</th>
+              <th colspan="">Acción</th>
             </tr>
 <!--================================================================================================================== -->
           </thead>
@@ -127,6 +128,18 @@
               <td><?php echo $r->tipo_pago; ?></td>
               <td><?php echo $r->moneda; ?></td>
 
+              <td><?php if($r->salida==0){
+                echo "<a href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                        <i class='circle white darken-2 small material-icons tooltipped'
+                          data-position='bottom' data-delay='50' data-tooltip='Dentro del parque'>directions_walk</i></a>";
+
+
+                    }
+                    elseif ($r->salida==1) {
+                      echo "<a   href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                              <i class='circle red darken-2 small material-icons tooltipped'
+                                data-position='bottom' data-delay='50' data-tooltip='Fuera del parque'>do_not_disturb_off</i></>";
+                  }; ?></td>
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>

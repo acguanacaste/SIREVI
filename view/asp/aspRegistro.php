@@ -43,13 +43,24 @@
                </div>
 
                 <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
-                  <div class="input-field col s6 m5 l6  ">
+            <!--      <div class="input-field col s12 m12 l12  ">
                     <input  id="ubicacion" type="text" name="ubicacion" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
                     <label for="ubicacion" ><i class="small material-icons">location_on</i><span class="hide-on-small-only">Ubicación geográfica</span></label>
+                  </div> -->
+                  <div class="row">
+                    <form class="col s12 m12 l12">
+                      <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                          <textarea id="textarea1" name="ubicacion" class="materialize-textarea"></textarea>
+                          <label for="textarea1"><i class="small material-icons">location_on</i><span class="hide-on-small-only">Ubicación geográfica</span></label>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-
+                </div><!--FIN DEL DIV DE LA SEGUNDA FILA -->
                  <!--INICIO DE COLUMNA APELLIDO-->
-                 <div class="input-field col s6 m5 l6  ">
+                <div>
+                 <div class="input-field col s12 m12 l12 ">
                    <input  id="tipo" type="text" name="tipo" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                    <label for="tipo" >  <i class="small material-icons">description</i><span class="hide-on-small-only">Tipo ASP</span></label>
                  </div>
@@ -57,6 +68,7 @@
 
 
         <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+<center>
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
           value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
                <i class="mdi-content-send material-icons right">done</i>
@@ -67,6 +79,8 @@
         value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
              <i class="mdi-content-send material-icons right">delete</i>
       </button>
+</center>
+
              </div>
            </form>
           </div>
