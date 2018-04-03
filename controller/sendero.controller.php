@@ -40,8 +40,8 @@ class SenderoController{
 
 
     public function Guardar(){
-        $sendero = new Sendero();
 
+        $sendero = new Sendero();
         $sendero->id = $_REQUEST['id'];
         $sendero->nombre = $_REQUEST['nombre'];
         $sendero->caracterizacion_sendero = $_REQUEST['caracterizacion_sendero'];

@@ -39,9 +39,15 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function consultaIngresoSalidaDiario(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
+        require_once 'view/includes/footer.php';
+    }
+
     public function Reporte(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/reporteNacionalidades.php';
+      require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
     }
 
@@ -53,10 +59,9 @@ class VisitacionController{
 
    public function Excel(){
       header("Content-type: application/vnd.ms-excel");
-      header("Content-Disposition: attachment; filename=mi_archivo.xls");
+      header("Content-Disposition: attachment; filename=reporte.xls");
       header("Pragma: no-cache");
       header("Expires: 0");
-
       require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
   }
 

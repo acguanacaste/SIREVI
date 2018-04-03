@@ -1,5 +1,6 @@
 <main>
-  <h4 class="header left"><span>&nbsp;</span><a href="#"><i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
+  <h4 class="header left"><span>&nbsp;</span><a href="#">
+    <i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
 
   <div class="container">
     <a href="?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up">
@@ -14,7 +15,6 @@
 
 
 <div class="">
-
     <!--Busqueda avanzada-->
 <div class="row">
   <div class="col s12 m12 l12">
@@ -27,16 +27,18 @@
         <fieldset>
           <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
           <li>
-            <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
+            <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro(s)</div>
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
                 <div class="input-field col s12 m5 l4">
-              <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+              <i class="small material-icons">contact_mail</i>
+              <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
 
               <div class="input-field col s12 m5 l4">
-                    <i class="small material-icons">picture_in_picture</i><input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+                    <i class="small material-icons">picture_in_picture</i>
+                    <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
               </div>
 
               <!--==============Cargando los paices==============================-->
@@ -49,7 +51,7 @@
   ?>
   <div  class="input-field col s6 m12 l3">
     <select name="pais">
-      <option value="" disabled selected>Elija un pais</option>
+      <option value="" selected>Elija un pais</option>
       <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
       <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
       <?php } ?>
@@ -70,6 +72,72 @@
               </form><!--FORM end-->
           </span></div>
           <hr>
+
+
+          <!--Inicio de las lineas para la consulta de ingreso y salida diario-->
+          <div class="row center-align">
+
+<div class="input-field col s12 m6 l3">
+
+</div>
+
+            <div class="input-field col s12 m6 l6 center">
+              <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class=""><i class="material-icons">search</i>Consulta personas dentro y fuera del parque</div>
+              <div class=""><span><div class="row">
+                <div class="col s12 m12 l12">
+
+                  <fieldset>
+                    <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+                    <li>
+                      <div class="header"><i class="material-icons">info_outline</i>Seleccione la fecha de hoy para verificar visitantes dentro del parque</div>
+                      <div class="body "><span >
+                        <form action="?c=Visitacion&a=consultaIngresoSalidaDiario" method="post">
+
+                          <div class="row">
+                            <div class="input-field col s12 m5 l2">
+                        <!--  <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">-->
+                        </div>
+
+                          <div class="input-field col s12 m5 l7">
+                                <i class="small material-icons">event_note</i><input type="text" name="fecha" class="datepicker black-text" placeholder="Fecha" style="width:200px;">
+                          </div>
+          <br>
+                      <div class="row">
+                        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                          value="Buscar"  type="submit" name="action"> <span class="hide-on-small-only">Consultar</span>
+                            <i class="mdi-content-send material-icons right">pageview</i>
+                        </button>
+                      </div>
+                      </div>
+                    </form><!--FORM end-->
+                    </span>
+                  </div>
+                    <hr>
+                   </li>
+                  </ul>
+                  </fieldset>
+                </div>
+              </div>
+          </span>
+          </div>
+            </li>
+
+          </ul>
+            </div>
+
+          </div>
+
+          <!--Fin de las filas para consulta de ingreso salida diario-->
+
+
+
+
+
+
+
+
          </li>
         </ul>
         </fieldset>
@@ -81,6 +149,7 @@
 </ul>
   </div>
 </div>
+
 
     <div class="row">
         <div class="col s12 m12 l12">

@@ -24,7 +24,7 @@
 
                 <div class=""><!---Inicio de la primera fila columnA1-->
                   <div class="input-field col s12 m4 l4  "><!--Lineas para la descripcion de area de conservacion a la que pertenece el area silvestre--->
-                    <input  disabled value="<?php echo $sendero->nombre; ?>" id="disabled" type="text" name="nombre" value="<?php echo $sendero->nombre; ?>" class="validate" class="form-control"  required >
+                    <input  type="text" name="nombre" value="<?php echo $sendero->nombre; ?>" class="validate" class="form-control"  required >
                     <label for="nombre" >  <i class="small material-icons">swap_calls</i><span class="hide-on-small-only">Nombre del Sendero</label>
                   </div>
 

@@ -38,7 +38,7 @@
               <th style="width:100px;">Imagen</th>
               <th>Estado</th>
               <th style="width:40px;"></th>
-            <th colspan="2">Acción</th>
+            <th >Acción</th>
             </tr>
           </thead>
           <tbody>

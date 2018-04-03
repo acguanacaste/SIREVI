@@ -43,22 +43,23 @@
                 <td><?php echo $r->caracterizacion_sendero; ?></td>
                 <td><?php echo $r->tipo_sendero; ?></td>
 
-
-
                 <td>
-                  <a title="Descripción de sendero" href="?c=Sendero&a=Descripcion&id=<?php echo $r->id; ?>">
-                    <i class="circle white small material-icons right z-depth-2">description</i></a>
+                  <a href="?c=Sendero&a=Descripcion&id=<?php echo $r->id; ?>">
+                    <i class="circle white small material-icons right z-depth-2 tooltipped"
+        							data-position="top" data-delay="50" data-tooltip="Descripción">description</i></a>
                 </td>
 
                 <td>
                   <a title="Editar Información" href="?c=Sendero&a=Modificar&id=<?php echo $r->id; ?>">
-                    <i class="circle white small material-icons right z-depth-2">edit</i></a>
+                    <i class="circle white small material-icons right z-depth-2 tooltipped"
+        							data-position="top" data-delay="50" data-tooltip="Modificar">edit</i></a>
                 </td>
 
                 <td>
                   <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                     href="?c=Sendero&a=Eliminar&id=<?php echo $r->id; ?>">
-                  <i class=" circle white small material-icons right z-depth-2">delete</i></a>
+                  <i class=" circle white small material-icons right z-depth-2 tooltipped"
+                    data-position="top" data-delay="50" data-tooltip="Eliminar">delete</i></a>
                 </td>
                 <td>
 

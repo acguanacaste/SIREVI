@@ -22,8 +22,9 @@
                         <div class="input-field col s12 m12 l12">
                         <select id="proposito_visita" name="proposito_visita">
                             <option id="proposito_visita" value="" disabled selected>&nbsp;Referencia de Visita</option>
-                                        <option value="Visita por el dia">Visita  por el dia</option>
-                                        <option value="Acampando por varios dias">Acampando por varios dias</option>
+                                        <option value="Visita por el dia">Por el dia</option>
+                                        <option value="Acampando">Acampando</option>
+                                        <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
 
                                       </select>
                                       <label><i class="small material-icons" >info_outline</i></label>

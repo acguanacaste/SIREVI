@@ -59,7 +59,7 @@ class Visitacion{
 			     tipo_pago, moneda
             from visitacion
               inner join pais on visitacion.pais = pais.id
-              inner join sendero on visitacion.sendero = sendero.id order by nombre asc;");
+              inner join sendero on visitacion.sendero = sendero.id order by id asc;");
 							//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
 			$stm->execute();
 
@@ -130,6 +130,21 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
+
+	public function ConsultaPersonasDentroParque(){
+		try{
+			$stm = $this->pdo
+			            ->prepare("select * from visitacion where visitacion.fecha= now()");
+
+			$stm->execute(array($id));
+		}
+		catch (Exception $e){
+			die($e->getMessage());
+		}
+	}
+
+
+
 
 	public function Actualizar($data){
 		try{

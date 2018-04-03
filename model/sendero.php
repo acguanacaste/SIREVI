@@ -84,7 +84,7 @@ class Sendero{
 		{
 			$sql = "UPDATE sendero SET
 						nombre                    = ?,
-						caracterizacion_segmento  = ?,
+						caracterizacion_sendero  = ?,
 						tipo_sendero              = ?,
 						atractivo                 = ?,
 						distancia                 = ?,

@@ -6,6 +6,7 @@
 
 <!--====================================================================================================================-->
 <div class="">
+  <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
   <fieldset>
     <div class="">
       <div class="col s12 m12 l12">
@@ -70,7 +71,7 @@
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
             <div class="col col s12 m12 l12">
               <div class="">
-                <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">
+
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">

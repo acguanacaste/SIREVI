@@ -33,17 +33,17 @@
                    href="?c=Dollar&a=agregarRegistro"><i
                     class="circle white small material-icons right z-depth-2">receipt</i></a>
                   </td>
-                  <td>
-                    <a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Borrar"
-                    onclick="return confirm('Estas a un paso de borrar un registro, seguro deseas continuar?');"
-                    href="?c=Dollar&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
-                  </td>
+
                 </tr>
               <?php endforeach; ?>
             </tbody>
           </table>
-
+          <br>
+          <!--
+          <div class="btn blue-grey darken-3 z-depth 4 right hide-on-small-only">
+            <a   href="?c="><i class="small material-icons white-text ">arrow_back</i>
+              <span class="white-text">Pagina Anterior</span></a>
+          </div> -->
       </div><!-- Div de los tamanos -->
     </div><!--Div row -->
   </div><!--div del container-->

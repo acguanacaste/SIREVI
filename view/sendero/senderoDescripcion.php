@@ -41,92 +41,78 @@
                <!--Fin de la fila para el atraccion-->
 
 
-  <div class="row">
-  <fieldset class="z-depth-2 input-field col s12 m5 l5">
-     <div class="">
-    <fieldset  disabled class="z-depth-2">
-      <legend>Distancia</legend>
-      <div  class="col s12 m12 l12">
-        <div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">transfer_within_a_station</i>
-            <input id="" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control"  required >
-            <label for="distancia"></label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    </div>
-  </fieldset>
-
-
-  <fieldset class="z-depth-2 input-field col s12 m5 l5">
-     <div class="">
-    <fieldset  disabled class="z-depth-2">
-      <legend>Distancia</legend>
-      <div  class="col s12 m12 l12">
-        <div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">transfer_within_a_station</i>
-            <input id="" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control"  required >
-            <label for="distancia"></label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    </div>
-  </fieldset>
-
-<!--
-  <fieldset class="z-depth-2 input-field col s12 m6 l3">
-     <div class="input-field col s12 m12 l12  ">
-       <input  id="tiempo_recorrido" type="text" name="tiempo_recorrido" value="<?php echo $sendero->tiempo_recorrido; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-       <label for="tiempo_recorrido" >  <i class="small material-icons">timer</i>Tiempo de recorrido</label>
-      </div>
-  </fieldset>
-
-  <fieldset class="z-depth-2 input-field col s12 m6 l3">
-      <div class="input-field col s12 m12 l12  ">
-        <input  id="" type="text" name="punto_alto" value="<?php echo $sendero->punto_alto; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required >
-        <label for="punto_alto" >  <i class="small material-icons">wallpaper</i>Punto mas alto</label>
-       </div>
-    </fieldset> -->
-
-  </div>
-
-
 <div class="row">
-  <fieldset class="z-depth-2 input-field col s12 m6 l5">
-     <div class="">
-    <fieldset  disabled class="z-depth-2">
-      <legend>Distancia</legend>
-      <div  class="col s12 m12 l12">
-        <div>
-          <div class="input-field col s12">
-            <i class="material-icons prefix">transfer_within_a_station</i>
-            <input id="" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control"  required >
-            <label for="distancia"></label>
+  <fieldset disabled class="z-depth-2">
+
+            <div class="input-field col s12 m5 l6">
+              <i class="material-icons prefix">transfer_within_a_station</i>
+              <input id="" type="text" name="distancia" value="<?php echo $sendero->distancia; ?>" class="validate" class="form-control"  required >
+              <label for="distancia">Distancia</label>
+           </div>
+
+           <div class="">
+              <div class="input-field col s12 m5 l6">
+                <i class="material-icons prefix">timer</i>
+                <input id="" type="text" name="distancia" value="<?php echo $sendero->tiempo_recorrido; ?>" class="validate" class="form-control"  required >
+                <label for="distancia">Tiempo recorrido</label>
+              </div>
           </div>
-        </div>
-      </div>
-    </fieldset>
-    </div>
+
   </fieldset>
+</div><!--Final del row-->
 
 
-</div>
+            <div class="row">
+              <fieldset>
+                <div class="">
+               <fieldset  disabled class="z-depth-2">
+                 <legend>Punto inicio</legend>
+                 <div  class="col s12 m12 l12">
+                   <div >
+                     <div class="input-field col s12">
+                       <i class="material-icons prefix">directions_walk</i>
+                       <input id="" type="text" name="atractivo" value="<?php echo $sendero->punto_inicio; ?>" class="validate" class="form-control"  required >
+                       <label for="atractivo"></label>
+                     </div>
+                   </div>
+                 </div>
+               </fieldset>
+               </div>
+              </fieldset>
+         </div>
+
+
+         <div class="row">
+           <fieldset>
+             <div class="">
+            <fieldset  disabled class="z-depth-2">
+              <legend>Punto llegada</legend>
+              <div  class="col s12 m12 l12">
+                <div>
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">assignment_late</i>
+                    <input id="" type="text" name="atractivo" value="<?php echo $sendero->punto_llegada; ?>" class="validate" class="form-control"  required >
+                    <label for="atractivo"></label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            </div>
+           </fieldset>
+        </div>
+
 
 
                <div class="row"><!--INICIO DEL DIV DE LA TERCERA FILA-->
                <!--INICIO DE COLUMNA CONTRASENA-->
                <div class="">
-              <fieldset  disabled><legend>Descripción del insidente en el activo</legend>
+              <fieldset  disabled><legend>Descripción del sendero</legend>
                 <div  class="col s12 m12 l12">
                   <div>
                     <div class="input-field col s12">
-                      <i class="material-icons prefix">textsms</i>
-                      <input type="text" id="autocomplete-input" name="descripcion" value="<?php echo $ins->descripcion; ?>" class="autocomplete"required>
-                      <label for="autocomplete-input">Descripción</label>
+                      <i class="material-icons prefix">chrome_reader_mode</i>
+                      <input type="text" id="" name="descripcion" value="<?php echo $sendero->descripcion; ?>"required>
+                      <label for="">Descripción</label>
                     </div>
                   </div>
                 </div>
@@ -145,7 +131,7 @@
 
        <!--BOTON QUE ME ENVIA EL FORMULARIO-->
          <div class="btn blue-grey darken-3 z-depth 4 right hide-on-small-only">
-           <a   href="?c=Insidente"><i class="small material-icons white-text ">arrow_back</i>
+           <a   href="?c=Sendero"><i class="small material-icons white-text ">arrow_back</i>
              <span class="white-text">Pagina Anterior</span></a>
          </div>
          </div>

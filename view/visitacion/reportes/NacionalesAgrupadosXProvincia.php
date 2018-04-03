@@ -22,7 +22,8 @@
               <form action="?c=Visitacion&a=Resultado_Nacionalidades" method="post">
 
 
-                <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
+                <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
+                  <center>
                   <div class="input-field col s12 m4 l4">
                      <i class="material-icons prefix">event_note</i>
                     <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
@@ -34,26 +35,9 @@
                   <i class="material-icons prefix">event_note</i>
                   <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
                 </div>
+              </center>
+              </div>
 
-
-                <div class=""><!---Inicio de la segunda fila-->
-                <!--==============Cargando los paices==============================-->
-                  <?php
-                  $conexion = mysql_connect("localhost","root");
-                  mysql_select_db("sirevi",$conexion);
-                  $sentencia_pais = "select * from pais order by id ASC";
-                  $query_pais = mysql_query($sentencia_pais);
-                  ?>
-                  <div  class="input-field col s12 m4 l4">
-                    <select name="pais">
-                      <option value="-1" selected>Elija un pais</option>
-                      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                      <?php } ?>
-                    </select>
-                    <label>País</label>
-                  </div>
-              </div><!--FIN DEL DIV DE LA FILA-->
 
                 <div class="row">
                   <div class="center"><span class="flow-text">
@@ -67,7 +51,7 @@
                     </div></span>
                   </div>
                 </div>
-                </div>
+
                </div>
               </div>
 
