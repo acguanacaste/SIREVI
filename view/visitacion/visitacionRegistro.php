@@ -80,10 +80,10 @@
                   </div>
                   <div class="input-field col s12 m4 l4 ">
                     <fieldset>
-                      <legend>Ingrese la fecha actual</legend>
+                      <legend>Sub sector al que se dirije</legend>
                       <div class="input-field col s12 m12 l12">
-                        <label for="fecha"> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
-                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
+                        <label for="subSector"> <i class="small material-icons"></i><span class="hide-on-small-only">Sub Sector</span></label>
+                         <input  type="text" class="" id="subSector" name="subSector" value="" required>
 
                       </div>
                     </fieldset>
@@ -368,7 +368,7 @@
 
               <div class="input-field col s6 m3 l3">
                 <fieldset class="z-depth-2 "><legend>Monto a cancelar</legend>
-                    <div >Colones*: <input class="teal darken-4 white-text" name="total_colones" type="text" id="monto_total" disabled value="0"></div>
+                    <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
                 </fieldset>
               </div>
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
@@ -459,7 +459,7 @@ function monto_total_pagar(){
   var valor5=verificar("extranjero_kid");
   var dolar=verificar("boton_dolar");
 
-    document.getElementById("monto_total").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
+    document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
                                             +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550);
 
 }

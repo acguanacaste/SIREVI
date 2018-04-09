@@ -8,7 +8,8 @@
           <hr>
 <!--===========================================================================================================-->
 <fieldset>
-  <legend><h5> Usuario: <?php echo $user->email; ?></h5>
+  <legend><h5>Formulario para modificar información <br>
+     Usuario: <?php echo $user->email; ?></h5>
    <h6>Utilice los campos habilitados para modificar información </h6></legend>
     <div class="container contact">
       <br>

@@ -64,7 +64,7 @@
     <hr>
 <!--===========================================================================================================-->
     <fieldset>
-      <legend><h5>Formulario modificar datos </h5>
+      <legend><h5>Formulario para modificar información </h5>
         <h6>Modificar registro, utilice los campos q disposicion</h6></legend>
         <div class="">
           <hr> <br>
@@ -73,6 +73,24 @@
               <div class="">
 
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+
+                  <div class="row">
+                  <div class="input-field col s12 m4 l4">
+                  </div>
+                  <div class="input-field col s12 m4 l4 ">
+                    <fieldset>
+                      <legend>Ingrese la fecha actual</legend>
+                      <div class="input-field col s12 m12 l12">
+                        <label for="fecha"> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
+                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="<?php echo $visit->fecha;?>" required>
+
+                      </div>
+                    </fieldset>
+                  </div>
+                    <div class="input-field  col s12 m4 l4">
+                    </div>
+                  </div>
+
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">
                       <input  id="name" type="text" name="nombre" value="<?php echo $visit->nombre ?>" class="validate" class="form-control"  required >

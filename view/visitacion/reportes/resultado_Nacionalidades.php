@@ -44,25 +44,6 @@
                       </div>
 
 
-                      <div class=""><!---Inicio de la segunda fila-->
-                      <!--==============Cargando los paices==============================-->
-                        <?php
-                        $conexion = mysql_connect("localhost","root");
-                        mysql_select_db("sirevi",$conexion);
-                        $sentencia_pais = "select * from pais order by id ASC";
-                        $query_pais = mysql_query($sentencia_pais);
-                        ?>
-                        <div  class="input-field col s12 m4 l4">
-                          <select name="pais">
-                            <option value="-1" selected>Elija un pais</option>
-                            <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-                            <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-                            <?php } ?>
-                          </select>
-                          <label>País</label>
-                        </div>
-                    </div><!--FIN DEL DIV DE LA FILA-->
-
                       <div class="row">
                         <div class="center"><span class="flow-text">
                           <div class="input-field col s12 m12 l12">

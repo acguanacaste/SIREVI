@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `tipo` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `ubicacion` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 15
+AUTO_INCREMENT = 19
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 47
+AUTO_INCREMENT = 50
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -87,7 +87,7 @@ DROP TABLE IF EXISTS `sirevi`.`dollar` ;
 CREATE TABLE IF NOT EXISTS `sirevi`.`dollar` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `valor_dolar` INT(11) NOT NULL,
-  `fecha_cambio` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fecha_cambio` DATE NOT NULL,
   `usuario` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_encargado_idx` (`usuario` ASC),
@@ -97,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`dollar` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci
 COMMENT = '					';
@@ -125,11 +126,10 @@ DROP TABLE IF EXISTS `sirevi`.`provincia` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`provincia` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `codigo` VARCHAR(10) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `nombre` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 36
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -210,7 +210,7 @@ DROP TABLE IF EXISTS `sirevi`.`visitacion` ;
 CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `proposito_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `fecha` DATE NOT NULL,
+  `fecha` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `noIdentificacion` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `placa_automovil` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
@@ -219,15 +219,18 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `referencia_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   `sector` INT(11) NULL DEFAULT NULL,
   `sendero` INT(11) NOT NULL,
+  `salida` INT(3) NOT NULL,
+  `subSector` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   `dias_camping` INT(3) NULL DEFAULT NULL,
   `nacional_adult` INT(11) NULL DEFAULT NULL,
   `nacional_kid` INT(11) NULL DEFAULT NULL,
   `estudiantes` INT(11) NULL DEFAULT NULL,
   `extranjero_adult` INT(11) NULL DEFAULT NULL,
   `extranjero_kid` INT(11) NULL DEFAULT NULL,
-  `personas_surf` INT(3) NULL DEFAULT NULL,
-  `prepago` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `exonerado` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `personas_surf` INT(3) NOT NULL,
+  `prepago` INT(3) UNSIGNED NULL DEFAULT NULL,
+  `exonerado` INT(3) UNSIGNED NULL DEFAULT NULL,
+  `montoCancelar` INT(4) NOT NULL,
   `tipo_pago` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `usuario` INT(11) NULL DEFAULT NULL,
@@ -250,13 +253,13 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   CONSTRAINT `fk_visit_provincia`
     FOREIGN KEY (`provincia`)
     REFERENCES `sirevi`.`provincia` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_visit_sector`
     FOREIGN KEY (`sector`)
     REFERENCES `sirevi`.`sector` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_visit_sendero`
     FOREIGN KEY (`sendero`)
     REFERENCES `sirevi`.`sendero` (`id`)
@@ -266,11 +269,32 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 17
+AUTO_INCREMENT = 46
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
 USE `sirevi` ;
+
+-- -----------------------------------------------------
+-- procedure NacionalesAgrupadosXProvincia
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`NacionalesAgrupadosXProvincia`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`()
+BEGIN
+
+SELECT visitacion.provincia as ID, provincia.nombre Provincia, visitacion.nombre As Nombre,
+ visitacion.prepago, visitacion.exonerado,sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) AS CantPersonas,
+ count(provincia.id) FROM visitacion 
+ INNER JOIN provincia ON visitacion.provincia = provincia.id
+ GROUP BY provincia.nombre ORDER BY id ASC;
+END$$
+
+DELIMITER ;
 
 -- -----------------------------------------------------
 -- procedure psNacionalidades
@@ -283,9 +307,49 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `psNacionalidades`( pPais INT)
 BEGIN
-SELECT visitacion.id, visitacion.fecha, pais.nombre, visitacion.noIdentificacion
-FROM visitacion inner join pais on visitacion.pais = pais.id
+SELECT visitacion.id, visitacion.fecha, pais.nombre, visitacion.noIdentificacion 
+FROM visitacion inner join pais on visitacion.pais = pais.id 
 where visitacion.pais = pPais;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure totalDiarioSector
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`totalDiarioSector`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `totalDiarioSector`()
+BEGIN
+Select sector.nombre, visitacion.nombre, visitacion.placa_automovil,visitacion.montoCancelar,
+visitacion.tipo_pago, visitacion.moneda from visitacion inner join sector on visitacion.sector = sector.id;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure totalMensualSectores
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`totalMensualSectores`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `totalMensualSectores`()
+BEGIN
+select sector.nombre,sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) as Cant_Personas,
+count(fecha between 2018-03-01 and 2018-03-31) as Marzo
+from visitacion
+inner join sector on visitacion.sector = sector.id
+group by sector.nombre
+order by sector.id asc;
+-- En esta sentencia me esta mostrando cuantas veces el sector ha sido ingresado y no la cantidad de personas que ingresaron al sector --/
+/*select visitacion.sector, sector.nombre from visitacion inner join sector on visitacion.sector = sector.id;*/
 END$$
 
 DELIMITER ;

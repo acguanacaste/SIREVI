@@ -13,7 +13,7 @@
 
 
 <fieldset>
-  <legend><h5>Modulo Areas Protegidas</h5>
+  <legend><h5>Formulario para modificar información</h5>
     <h6>Completar la informacion con los datos correspondientes</h6></legend>
     <div class=" contact">
       <hr>

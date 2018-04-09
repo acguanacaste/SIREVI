@@ -11,7 +11,8 @@
 <!--===========================================================================================================-->
 
 <fieldset>
-  <legend><h5>Sector: <?php echo $sector->nombre; ?></h5>
+  <legend><h5>Formulario para modificar información <br>
+     Sector: <?php echo $sector->nombre; ?></h5>
    <h6>Utilice los campos habilitados para modificar información</h6></legend>
     <div class="">
       <br>
@@ -53,7 +54,18 @@
                      </div>
                </div><!--FIN DEL DIV DE FILA-->
 
-
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-
+<div class="input-field col s12 m10 l12" >
+  <select id="asp" type="text" name="asp" value="<php echo $sector->asp; ?>" required>
+    <option value=""  disabled selected>Elija una opción</option>
+    <option value="1" <php echo $sector->asp==1?"selected":null; ?>>Santa Rosa</option>
+    <option value="2"<php echo $sector->asp==2?"selected":null;?>>Pailas</option>
+    <option value="3"<php echo $sector->asp==3?"selected":null; ?>>Junquillal</option>
+    <option value="4"<php echo $sector->asp==4?"selected":null; ?>>Otro sector</option>
+  </select>
+  <label for="puesto">Área Silvestre Protegida</label>
+</div>
+<!--////////////////////////////////////////////////////////////////////////////////////////////////-->
 
 
 

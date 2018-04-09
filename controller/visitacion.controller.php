@@ -100,7 +100,7 @@ class VisitacionController{
         $visit = new Visitacion();
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
-        $visit->fecha                     = $_REQUEST['fecha'];
+    
         $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
@@ -114,6 +114,7 @@ class VisitacionController{
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->salida                    = $_REQUEST['salida'];
+        $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
@@ -125,11 +126,9 @@ class VisitacionController{
         $visit->prepago                   = $_REQUEST['prepago'];
         $visit->exonerado                 = $_REQUEST['exonerado'];
 //-----------------------------------------------------------------------------------------------------
+        $visit->montoCancelar             = $_REQUEST['montoCancelar'];
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
         $visit->moneda                    = $_REQUEST['moneda'];
-  //      $visit->total_colones             =$_REQUEST['total_colones'];
-  //      $visit->total_dolar               = $_REQUEST['total_dolar'];
-  //      $visit->monto_total               = $_REQUEST['monto_total'];
 
         $visit->id > 0
             ? $this->model->Actualizar($visit)
@@ -158,9 +157,5 @@ class VisitacionController{
               header( 'HTTP/1.0 403 Forbiden');//).
           }
         }
-
-    /*======================================================================*/
-
-
 
 }

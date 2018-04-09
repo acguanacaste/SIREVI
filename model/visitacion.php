@@ -16,6 +16,7 @@ class Visitacion{
 
     public $sector;//Sector aun no se guarda en la base de datos
     public $sendero;
+		public $subSector;
    	public $dias_camping;
 		public $salida;
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
@@ -31,7 +32,7 @@ class Visitacion{
 
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
-	//	public $total_colones;
+	  public $montoCancelar;//Para que se guarde el monto que el visitante pago en total.
 		//public $total_dolar;//Muestra el total de lo que se cobra en dolares
 		//public $monto_total;//Total a pagar por el visitante
 
@@ -154,7 +155,6 @@ class Visitacion{
             noIdentificacion      		= ?,
 						nombre                		= ?,
 						placa_automovil       		= ?,
-
 ---------------------------------------------------------------------
 						pais       								= ?,
 						provincia             		= ?,
@@ -162,6 +162,7 @@ class Visitacion{
 -----------------------------------------------------------------------
             sendero                   = ?,
             dias_camping          		= ?,
+						subSector                 = ?,
 -----------------------------------------------------------------
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
@@ -174,9 +175,8 @@ class Visitacion{
             exonerado             		= ?,
 -------------------------------------------------------------------
 						tipo_pago       					= ?,
-            moneda                    = ?,/*
-						monto											= ?,
-            moneda                		= ?*/
+            moneda                    = ?,
+
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
@@ -197,6 +197,7 @@ class Visitacion{
 												$data->sendero,
 //--------------------------------------------------------------------
                         $data->dias_camping,
+												$data->subSector,
 //-----------------------------------------------------------------
 												$data->nacional_adult,
 												$data->nacional_kid,
@@ -224,18 +225,18 @@ class Visitacion{
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (proposito_visita,fecha, noIdentificacion, nombre, placa_automovil,
+		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
        pais, provincia,referencia_visita,
-       sendero, dias_camping,
+       sendero, dias_camping, subSector,
         nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-        personas_surf, prepago, exonerado,
+        personas_surf, prepago, exonerado,montoCancelar,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(		  $data->proposito_visita,
-										$data->fecha,
+
                     $data->noIdentificacion,
                     $data->nombre,
 										$data->placa_automovil,
@@ -248,6 +249,7 @@ class Visitacion{
 //-----------------------------------------------------------------------------------------------
                     $data->sendero,
                     $data->dias_camping,
+										$data->subSector,
 
 
 //---------------------------------------------------------------------------------------------------
@@ -261,9 +263,10 @@ class Visitacion{
                     $data->prepago,
                     $data->exonerado,
 //----------------------------------------------------------------------------------------
+										$data->montoCancelar,
 										$data->tipo_pago,
 										$data->moneda,
-//										$data->total_colones,
+//
 
                 )
 			);
