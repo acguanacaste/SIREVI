@@ -5,6 +5,14 @@
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!--El link y los scripts de boostrap son para el modal y los mennsajes de advertencia o error--
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--Fin de lineas de codigo bootstrap-->
+
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
 
 	<!-- Compiled and minified CSS -->
@@ -24,7 +32,7 @@
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
  					});
 
-				
+
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
@@ -73,6 +81,7 @@
 				   });
 /*==========================================================================================================================================*/
         });
+
 	</script>
 <body>
 	<?php

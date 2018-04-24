@@ -1,6 +1,8 @@
+
 <main>
   <h4 class="header left"><span>&nbsp;</span><a href="#">
     <i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
+
 
   <div class="container">
     <a href="?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up">
@@ -13,6 +15,14 @@
       </div>
     </div>
 
+<div class="left">
+
+      <p>La hora aqui mostrada se debe poner en cada uno de los registros
+         y dejar la hora visible para saber la salida</p>
+
+      <p class="" id="time"></p>
+
+</div>
 
 <div class="">
     <!--Busqueda avanzada-->
@@ -150,8 +160,6 @@
 </div>
 
 
-
-
     <div class="row">
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
@@ -195,18 +203,25 @@
               <td><?php echo $r->tipo_pago; ?></td>
               <td><?php echo $r->moneda; ?></td>
 
-              <td><?php if($r->salida==0){
-                echo "<a href='?c=Visitacion&a=Salida&id=".$r->id."'>
-                        <i class='circle white darken-2 small material-icons tooltipped'
-                          data-position='bottom' data-delay='50' data-tooltip='Dentro del parque'>directions_walk</i></a>";
+
+              <td ><?php if($r->salida==0){
+                echo "
+                <a onclick='setTime()' href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                        <i  class='circle white darken-2 small material-icons tooltipped'
+                          data-position='bottom' data-delay='50'
+                          data-tooltip='Dentro del parque'>directions_walk</i></a>";
 
 
                     }
                     elseif ($r->salida==1) {
-                      echo "<a   href='?c=Visitacion&a=Salida&id=".$r->id."'>
-                              <i class='circle red darken-2 small material-icons tooltipped'
-                                data-position='bottom' data-delay='50' data-tooltip='Fuera del parque'>do_not_disturb_off</i></>";
-                  }; ?></td>
+                      echo "
+                      <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                              <i  class='circle red darken-2 small material-icons tooltipped'
+                                data-position='bottom' data-delay='50'
+                                data-tooltip='Fuera del parque'>do_not_disturb_off</i></a>";
+                  }; ?>
+
+                </td>
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>
@@ -224,3 +239,22 @@
     </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
+
+<!--Script para poder agregar la hora cuando se cambia el icono de ingresos o salida del parque-->
+<script>
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function setTime() {
+    var d = new Date();
+    var x = document.getElementById("time");
+    var h = addZero(d.getHours());
+    var m = addZero(d.getMinutes());
+    var s = addZero(d.getSeconds());
+    x.innerHTML = h + ":" + m + ":" + s;
+}
+</script>
