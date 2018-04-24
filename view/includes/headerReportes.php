@@ -98,8 +98,9 @@ header("Location:?c=login&a=index");
 					<a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
 
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=ReportsUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home </i> <span class="hide-on-med-and-down">Inicio Reportsuser</span></a></li>
+						<li><a href="index.php?c=login&a=ReportsUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home </i> <span class="hide-on-med-and-down">Inicio</span></a></li>
 						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+						<li><a href="?c=Visitacion&a=ReporteUser" title="Visitacion"><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
 						<li><a href="index.php?c=Reportes" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
 				</ul>
 

@@ -31,14 +31,19 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-                <div class="input-field col s12 m5 l4">
+                <div class="input-field col s12 m4 l3">
               <i class="small material-icons">contact_mail</i>
               <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
 
-              <div class="input-field col s12 m5 l4">
+              <div class="input-field col s12 m4 l3">
                     <i class="small material-icons">picture_in_picture</i>
                     <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+              </div>
+
+              <div class="input-field col s12 m4 l3">
+            <i class="small material-icons">directions_car</i>
+            <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
               </div>
 
               <!--==============Cargando los paices==============================-->
@@ -75,7 +80,7 @@
 
 
           <!--Inicio de las lineas para la consulta de ingreso y salida diario-->
-          <div class="row center-align">
+    <!--      <div class="row center-align">
 
 <div class="input-field col s12 m6 l3">
 
@@ -97,7 +102,7 @@
 
                           <div class="row">
                             <div class="input-field col s12 m5 l2">
-                        <!--  <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">-->
+                        <!--  <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">--
                         </div>
 
                           <div class="input-field col s12 m5 l7">
@@ -111,7 +116,7 @@
                         </button>
                       </div>
                       </div>
-                    </form><!--FORM end-->
+                    </form><!--FORM end--
                     </span>
                   </div>
                     <hr>
@@ -127,15 +132,9 @@
           </ul>
             </div>
 
-          </div>
+          </div> -->
 
           <!--Fin de las filas para consulta de ingreso salida diario-->
-
-
-
-
-
-
 
 
          </li>
@@ -149,6 +148,8 @@
 </ul>
   </div>
 </div>
+
+
 
 
     <div class="row">
@@ -165,12 +166,9 @@
               <th>Identificación</th>
               <th>Placa automovil</th>
               <th>País</th>
-              <!--<th>Provincia</th>-->
               <th>Sendero</th>
               <th>Tipo pago</th>
               <th>Moneda</th>
-              <!--<th>Total pago</th> -->
-              <!--<th>Total</th>-->
               <th>Ingresos</th>
               <th style="width:40px;"></th>
               <th colspan="">Acción</th>

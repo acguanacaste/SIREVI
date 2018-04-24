@@ -63,7 +63,7 @@
                   </a></center>
                 </td>
               <?php endif; ?>
-              </td>
+
             </tr>
           <?php endforeach; ?>
         </tbody>

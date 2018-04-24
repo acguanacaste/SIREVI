@@ -20,14 +20,19 @@
           <div class="body "><span >
             <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-              <div class="input-field col s12 m5 l4">
+              <div class="input-field col s12 m5 l3">
             <i class="small material-icons">contact_mail</i>
             <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
               </div>
 
-            <div class="input-field col s12 m5 l4">
+            <div class="input-field col s12 m5 l3">
                   <i class="small material-icons">picture_in_picture</i>
                   <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+            </div>
+
+            <div class="input-field col s12 m4 l3">
+              <i class="small material-icons">directions_car</i>
+              <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
             </div>
 
 
@@ -90,6 +95,7 @@ $query_pais = mysql_query($sentencia_pais);
               <th>Pais</th>
               <th>Pago</th>
               <th>Moneda</th>
+              <th>Estado</th>
             </tr>
           </thead>
           <tbody>
@@ -99,12 +105,14 @@ $query_pais = mysql_query($sentencia_pais);
             $con = Conectar();
             $nombre = $_POST['nombre'];
             $noIdentificacion = $_POST['noIdentificacion'];
+            $placa_automovil  = $_POST['placa_automovil'];
             $pais = $_POST['pais'];
 
+
            /* echo "valor enviado es ".$_POST['etiqueta']." y ".$etiqueta;*/
-            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR pais = :pai';
+            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR placa_automovil =:placa OR pais = :pai';
             $stmt = $con->prepare($sql);
-            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':pai'=>$pais));
+            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':placa'=>$placa_automovil,':pai'=>$pais));
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
           foreach ($rows as $row): ?>
               <tr>
@@ -119,6 +127,19 @@ $query_pais = mysql_query($sentencia_pais);
                 <td> <?php echo $row->pais;?> </td>
                 <td><?php echo $row->tipo_pago; ?></td>
                 <td><?php echo $row->moneda; ?></td>
+
+                <td><?php if($row->salida==0){
+                  echo "<a href='?c=Visitacion&a=Salida&id=".$row->id."'>
+                          <i class='circle white darken-2 small material-icons tooltipped'
+                            data-position='bottom' data-delay='50' data-tooltip='Dentro del parque'>directions_walk</i></a>";
+
+
+                      }
+                      elseif ($row->salida==1) {
+                        echo "<a   href='?c=Visitacion&a=Salida&id=".$row->id."'>
+                                <i class='circle red darken-2 small material-icons tooltipped'
+                                  data-position='bottom' data-delay='50' data-tooltip='Fuera del parque'>do_not_disturb_off</i></>";
+                    }; ?></td>
   <?php else: ?>
  <td> Esta no existe </td>
  <?php endif;?>

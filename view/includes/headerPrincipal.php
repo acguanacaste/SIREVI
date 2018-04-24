@@ -24,16 +24,7 @@
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
  					});
 
-					$('.derecha').sideNav({
-						 menuWidth: 500,	 // Default is 300
-							edge: 'right', // Choose the horizontal origin
-			//				closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-			//				draggable: true, // Choose whether you can drag to open on touch screens,
-			//				onOpen: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is opened
-			//				onClose: function(el) { /* Do Stuff* / }, // A function to be called when sideNav is closed
-						}
-					);
-
+				
           $('select').material_select();
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
@@ -44,6 +35,7 @@
 				     today: 'Hoy',
 				     clear: 'Limpiar',
 				     close: 'Ok',
+						 autoClose : false,
 				     closeOnSelect: false // Close upon selecting a date,
 					});
 					$('.tooltipped').tooltip({delay: 50});

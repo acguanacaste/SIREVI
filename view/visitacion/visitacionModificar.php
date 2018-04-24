@@ -23,11 +23,11 @@
                     <option id="proposito_visita" value="" disabled selected>&nbsp;Referencia de Visita</option>
                                 <option value="Visita por el dia">Visita  por el dia</option>
                                 <option value="Acampando por varios dias">Acampando por varios dias</option>
+                                <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
 
                               </select>
                               <label><i class="small material-icons" >info_outline</i></label>
                             </div>
-
 
               </fieldset>
             </div>
@@ -65,7 +65,7 @@
 <!--===========================================================================================================-->
     <fieldset>
       <legend><h5>Formulario para modificar información </h5>
-        <h6>Modificar registro, utilice los campos q disposicion</h6></legend>
+        <h6>Modificar registro, utilice los campos a disposicion</h6></legend>
         <div class="">
           <hr> <br>
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
@@ -76,18 +76,29 @@
 
                   <div class="row">
                   <div class="input-field col s12 m4 l4">
-                  </div>
-                  <div class="input-field col s12 m4 l4 ">
                     <fieldset>
-                      <legend>Ingrese la fecha actual</legend>
+                      <legend>Seleccione la fecha que desea</legend>
                       <div class="input-field col s12 m12 l12">
                         <label for="fecha"> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
-                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="<?php echo $visit->fecha;?>" required>
+                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
 
                       </div>
                     </fieldset>
                   </div>
+                  <div class="input-field col s12 m4 l4 ">
+
+                  </div>
                     <div class="input-field  col s12 m4 l4">
+                      <fieldset>
+                        <legend>Seleccione la hora que desea</legend>
+                        <div class="input-field col s12 m12 l12">
+                          <label for="time"> <i class="small material-icons"></i><span class="hide-on-small-only">Hora ingreso</span></label>
+                           <input class="timepicker"  id="time" name="fecha" value="" required>
+
+
+
+                        </div>
+                      </fieldset>
                     </div>
                   </div>
 

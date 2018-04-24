@@ -7,10 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-      <!--  <div class="right hide-on-small-only">
-           <a   href="c=Usuario&a=AdminUser"><span class="tooltipped" data-position="top"
-           data-delay="50" data-tooltip="Página anterior"><i class=" hide-on-med-and-down small material-icons" >arrow_back</i>Página anterior</span></a>
-         </div>-->
+
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
         <thead class="white-text teal darken-4 z-depth-2">
             <tr>
@@ -20,6 +17,8 @@
               <th>Cédula</th>
               <th>Puesto</th>
               <th>Email</th>
+              <th>Estado</th>
+              <th>Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +44,19 @@
                 <!--<td> <php echo $row->estado;?> </td>-->
                 <td> <?php echo $row->puesto;?> </td>
                 <td> <?php echo $row->email;?> </td>
+                <?php if ($_SESSION['usuario']['puesto'] == 1):?>
+                  <td><?php if($row->estado==1){
+                    echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$row->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
+                  }else{
+                    echo "<a title='Habilitado'
+                    onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$row->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
+                  }; ?></td>
+                  <td>
+                    <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $row->id; ?>">
+                      <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
+                    </a></center>
+                  </td>
+                <?php endif; ?>
 
   <?php else: ?>
  <td> Esta no existe </td>

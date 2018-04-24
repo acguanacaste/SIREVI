@@ -27,6 +27,12 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function ReporteUser(){
+      require_once 'view/includes/headerReportes.php';
+      require_once 'view/visitacion/visitacion.php';
+      require_once 'view/includes/footer.php';
+    }
+
     public function VolunteeringUser(){
         require_once 'view/includes/headerVoluntarios.php';
         require_once 'view/visitacion/visitacion.php';
@@ -100,7 +106,7 @@ class VisitacionController{
         $visit = new Visitacion();
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
-    
+
         $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];

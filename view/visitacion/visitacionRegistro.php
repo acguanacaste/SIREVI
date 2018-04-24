@@ -35,19 +35,19 @@
 
                       <div class="input-field col s6 m4 l2">
                         <fieldset><legend>Numero diario</legend>
-                          <div class="btn teal lighten-2 right-align "> #&nbsp;00 </div>
+                          <div class="btn teal darken-4 right-align "> #&nbsp;00 </div>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><legend>Capacidad de Sector</legend>
-                            <div class="btn teal lighten-2 right-align "> 20/80 </div>
+                            <div class="btn teal darken-4 right-align "> 20/80 </div>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3">
                         <fieldset><legend>Sector</legend>
-                            <div class="btn teal lighten-2 right-align ">Santa Rosa</div>
+                            <div class="btn teal darken-4 right-align ">Santa Rosa</div>
                             <br>
 
                         </fieldset>
@@ -192,7 +192,7 @@
                 <div  class="input-field col s12 m4 l4"><!--Columna-->
                   <div class="">
                     <div>
-                    <fieldset><legend>Personas acampando</legend>
+                    <fieldset><legend>Dias acampando</legend>
                       <div>
                         <div class="input-field col s12 m12 l12  ">
                           <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
@@ -263,7 +263,7 @@
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
                 <div class="input-field col s12 m4 l4  ">
-                <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
                     <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
@@ -304,8 +304,8 @@
               <p class="input-field col s5 m6 l6">
                 <input class="with-gap " value="efectivo" name="tipo_pago"  type="radio"  id="indeterminate-checkbox" checked="default"   />
                 <label for="indeterminate-checkbox">Efectivo</label>
-              </p>
-              <p class="input-field col s5 m6 l6">
+
+
                 <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
 
@@ -323,10 +323,12 @@
               <p class="input-field col s6 m6 l6">
                 <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
-              </p>
-              <p class="input-field col s6 m6 l6">
+
                 <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
+
+                <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Ambos</label>
               </p>
             </fieldset>
 
@@ -336,6 +338,7 @@
 
 </div><br>
 <!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
+<!--Inicio de lineas para la parte de muestra de cantda personas y montos totales-->
 <div class="input-field col s12 m12 l12">
   <fieldset>
     <div class="">
@@ -345,32 +348,48 @@
 
               <div class="row"><!---Inicio de dos columnas-->
 
-                <div class="input-field col s6 m3 l3">
+                <div class="input-field col s6 m3 l4">
                   <fieldset  class="z-depth-2 "><legend>Total Nacionales</legend>
                     <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
                     </div>
               </fieldset>
             </div>
 
-            <div class="input-field col s6 m3 l3">
+            <div class="input-field col s6 m3 l4">
               <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>
 
-          <div class="input-field col s6 m3 l3">
-            <fieldset class="z-depth-2 "><legend>Total de personas</legend>
-                <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"   disabled value="0">
+            <div class="input-field col s6 m3 l4">
+              <fieldset  class="z-depth-2 "><legend>Personas Surf</legend>
+                <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_PersonasSurf" disabled value="0">
                 </div>
-            </fieldset>
+          </fieldset>
         </div>
 
-              <div class="input-field col s6 m3 l3">
+
+        <div class="row">
+
+              <div class="col s6 offset-s3"><span>
+
+                <div class="input-field col s12 m5 l6">
+                  <fieldset class="z-depth-2 "><legend>Total de personas</legend>
+                      <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"  disabled value="0">
+                      </div>
+                  </fieldset>
+              </div>
+
+              <div class="input-field col s12 m5 l6">
                 <fieldset class="z-depth-2 "><legend>Monto a cancelar</legend>
                     <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
                 </fieldset>
               </div>
+
+            </span></div>
+          </div>
+
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
              </div><!--Fin de columnas -->
            </div><!-- Fin de filas y columnas -->
@@ -379,14 +398,14 @@
     </div><!-- Fin del row -->
 <!--================================================================================================================================-->
 </fieldset>
-</div><!-- Fin del container -->
+</div><!-- Fin del lineas para los montos y cant personas -->
 
 <!--===================================================================================================================================-->
 <div class="center-align col s12">
 
   <fieldset >
     <legend>Tipo de cambio dollar</legend>
-    <div style="" id="boton_dolar" value="<?php echo"aqui va el valor del dollar"?>" class="btn teal lighten-2 right-align ">&nbsp;$550</div>
+    <div style="" id="boton_dolar" value="<?php echo"aqui va el valor del dollar"?>" class="btn teal darken-4 right-align ">&nbsp;$550</div>
   </fieldset>
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
@@ -425,7 +444,7 @@
           });
       })
 
-      function sumaNacionales_Dia(){
+      function sumaNacionales_Dia(){/*Calcula el total a pagar por personas nacionales*/
           var valor1=verificar("nacional_adult");
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
@@ -433,7 +452,7 @@
           document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500);
       }
 /*=====================================================================================================================================*/
-      function sumaExtranjeros_Dia(){
+      function sumaExtranjeros_Dia(){/*Calcula el monto  pagar para personas extranjeros*/
           var valor1=verificar("extranjero_adult");
           var valor2=verificar("extranjero_kid");
 
@@ -441,26 +460,37 @@
 
 }
 /*=====================================================================================================================================*/
-      function sumatoria_All(){
+      function sumatoria_All(){/*Sumatoria del total de personas que van incluidas en un solo registro de visitacion*/
           var valor1=verificar("nacional_adult");
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
           var valor4=verificar("extranjero_adult");
           var valor5=verificar("extranjero_kid");
 
-document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)+parseFloat(valor4)+parseFloat(valor5);
-        }
-/*=====================================================================================================================================*/
-function monto_total_pagar(){
-  var valor1=verificar("nacional_adult");
-  var valor2=verificar("nacional_kid");
-  var valor3=verificar("estudiantes");
-  var valor4=verificar("extranjero_adult");
-  var valor5=verificar("extranjero_kid");
-  var dolar=verificar("boton_dolar");
 
-    document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
-                                            +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550);
+          document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)+parseFloat(valor4)+parseFloat(valor5);
+      }
+/*=====================================================================================================================================*/
+      function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
+        var valor1=verificar("nacional_adult");
+        var valor2=verificar("nacional_kid");
+        var valor3=verificar("estudiantes");
+        var valor4=verificar("extranjero_adult");
+        var valor5=verificar("extranjero_kid");
+
+        var valor6=verificar("personas_surf");
+
+        var dolar=verificar("boton_dolar");
+
+          document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
+                                                  +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550)+((parseFloat(valor6)*15)*550);
+
+      }
+/*=======================================================================================================================================*/
+function sumaPersonasSurf(){
+    var valor1=verificar("personas_surf");
+
+    document.getElementById("total_PersonasSurf").value=(parseFloat(valor1)*15);
 
 }
 /*=======================================================================================================================================*/
