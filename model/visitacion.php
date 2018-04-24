@@ -19,6 +19,7 @@ class Visitacion{
 		public $subSector;
    	public $dias_camping;
 		public $salida;
+		public $horaSalida;
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
 		public $nacional_kid;//Se guarda la cantidad por ninos Nacionales
@@ -57,7 +58,7 @@ class Visitacion{
          sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
           personas_surf, prepago, exonerado,
-			     tipo_pago, moneda
+			     tipo_pago, moneda, horaSalida
             from visitacion
               inner join pais on visitacion.pais = pais.id
               inner join sendero on visitacion.sendero = sendero.id order by id asc;");
@@ -283,10 +284,12 @@ class Visitacion{
   			$resultado = $stm->fetch();
   			$salida = $resultado['salida'];
   			$nuevaSalida = $salida== 0 ? 1 : 0;
-  			$stm = $this->pdo->prepare("UPDATE visitacion SET salida = $nuevaSalida where id = ".$_REQUEST['id']);
+  			$stm = $this->pdo->prepare("UPDATE visitacion SET salida = $nuevaSalida, horaSalida = now() where id = ".$_REQUEST['id']);
   			return $stm->execute();
-  		}
-  		catch (Exception $e){
+
+			}
+
+			catch (Exception $e){
   			die($e->getMessage());
   		}
   	}
