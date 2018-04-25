@@ -294,5 +294,19 @@ class Visitacion{
   		}
   	}
 
+		public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+			$result = array();
+			try {
+				$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
+				$stm->execute();
+
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+
+		}
+
+
+
 
 }

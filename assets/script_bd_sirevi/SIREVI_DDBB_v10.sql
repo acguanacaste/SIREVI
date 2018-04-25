@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 19
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 50
+AUTO_INCREMENT = 58
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -97,7 +97,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`dollar` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci
 COMMENT = '					';
@@ -114,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`pais` (
   `codigo` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -129,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`provincia` (
   `nombre` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -165,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -197,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -235,6 +234,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `usuario` INT(11) NULL DEFAULT NULL,
   `asp` INT(11) NULL DEFAULT NULL,
+  `horaSalida` TIME NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_idx` (`usuario` ASC),
   INDEX `fk_asp_idx` (`asp` ASC),
@@ -269,11 +269,28 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 46
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
 USE `sirevi` ;
+
+-- -----------------------------------------------------
+-- procedure ConsultaSubSectores
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`ConsultaSubSectores`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultaSubSectores`()
+BEGIN
+Select count(subSector) AS Registros, sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) AS Personas
+from visitacion where visitacion.subSector = 'Naranjo';
+END$$
+
+DELIMITER ;
 
 -- -----------------------------------------------------
 -- procedure NacionalesAgrupadosXProvincia
@@ -284,13 +301,20 @@ DROP procedure IF EXISTS `sirevi`.`NacionalesAgrupadosXProvincia`;
 
 DELIMITER $$
 USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`( IN fechaInicio DATE, IN fechaFinal DATE)
 BEGIN
-
 SELECT visitacion.provincia as ID, provincia.nombre Provincia, visitacion.nombre As Nombre,
- visitacion.prepago, visitacion.exonerado,sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) AS CantPersonas,
- count(provincia.id) FROM visitacion 
+ 
+ visitacion.prepago, visitacion.exonerado,
+ 
+ sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) AS CantPersonas,
+ 
+ count(provincia.id)AS RegistrosHechos FROM visitacion
+ 
  INNER JOIN provincia ON visitacion.provincia = provincia.id
+ 
+ AND visitacion.fecha BETWEEN fechaInicio AND fechaFinal 
+ 
  GROUP BY provincia.nombre ORDER BY id ASC;
 END$$
 

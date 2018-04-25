@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Resultado_Nacionalidades" method="post">
+                    <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
 
 
                       <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
@@ -75,77 +75,40 @@
   <div class="">
     <div class="row">
       <div class="col s12 m12 l12">
-       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
-            <tr>
+        <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+          <thead class="white-text teal darken-4 z-depth-2">
+     <tr>
+       <th> ID</th>
+       <th> Fecha visitación</th>
+       <th> País</th>
+       <th> Nombre</th>
+       <th> Tipo pago</th>
+       <th> Moneda</th>
+       <th> Referencia visitacion</th>
+<!--        <th> Sector</th> -->
+       <th> Sendero</th>
+     </tr>
+   </thead>
 
-              <th colspan="2">Fecha</th>
-              <th>Pais</th>
-              <th>Identificacion</th>
-          <!--    <th>Sector</th> -->
-              <th>Sendero</th>
-              <th>Tipo pago</th>
-              <th>Moneda</th>
+        <tbody>
+      <?php foreach ($this->model->Nacionalidades() as $r): ?>
+      <tr>
 
-          <!--    <th>opcional</th> -->
-            </tr>
-          </thead>
-          <tbody>
-<?php
-   if ($_POST):
-    require('model/conexion.php');
-    $con = Conectar();
-    $fecha1 = $_POST['fechaInicio'];
-    $fecha2 = $_POST['fechaFinal'];
-    $pais = (int)$_POST['pais'];
-  /*  $n = (isset($_POST['n'] && !empty($_POST['n'])))?$_POST['n']:null;//revisar que en el form halla algo diferente al vacio o date_default_timezone_set
+        <td><?php echo $r->id; ?></td>
+        <td><?php echo $r->fecha; ?></td>
+        <td><?php echo $r->Pais; ?></td>
+        <td><?php echo $r->Nombre; ?></td>
+        <td><?php echo $r->tipo_pago; ?></td>
+        <td><?php echo $r->moneda; ?></td>
+        <td><?php echo $r->referencia_visita ?></td>
+      <!--  <td><?php echo $r->Sector; ?></td> -->
+        <td><?php echo $r->Sendero; ?></td>
 
-    $select = "select * from table ";
-    $where = "";
-    if ($n){
-      $where .=!empty($where)?" and ":"";// defina todo por and o por cada condicion ponga para seleccionar el conector logico
-      $where .=" n = $n "
-    }
-    $select.=!empty($where)?" where ".$where:null; */
-    //@todo: meter igual para el order by
-/*echo "<pre>";
-var_dump($_POST);
-echo "</pre>";*/
 
-  if ($pais>1) {
-    $sql = "select * from visitacion inner join pais on visitacion.pais = pais.id
-      where (visitacion.pais = :pai) and (visitacion.fecha between :fecha1 and :fecha2)";
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
 
-      $stmt = $con->prepare($sql);
-      $result = $stmt->execute(array(':fecha1'=>$fecha1,':fecha2'=>$fecha2,':pai'=>$pais));
-
-  } else{
-    $sql ="select * from visitacion inner join pais on visitacion.pais = pais.id
-      where (visitacion.fecha between :fecha1 and :fecha2)";
-
-      $stmt = $con->prepare($sql);
-      $result = $stmt->execute(array(':fecha1'=>$fecha1, ':fecha2'=>$fecha2));
-}
-
-    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-    foreach ($rows as $row): ?>
-    <tr>
-      <?php if(count($rows)): ?>
-        <td colspan="2"> <?php echo $row->fecha;?> </td>
-        <td> <?php echo $row->nombre;?> </td>
-        <td><?php echo $row->noIdentificacion; ?></td>
-        <td><?php echo $row->sendero; ?></td>
-        <td><?php echo $row->tipo_pago; ?></td>
-        <td><?php echo $row->moneda; ?></td>
-
-      <?php else: ?>
-     <td> Esta no existe </td>
-   <?php endif;//ifCount ?>
-                    </tr>
-                                      <?php endforeach; ?>
-               <?php endif; //if $_POST ?>
-          </tbody>
       </table>
 
       <td colspan="8" class="text-center">
