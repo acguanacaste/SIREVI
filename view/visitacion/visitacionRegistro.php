@@ -215,7 +215,7 @@
 
               </div><!--Fin de la tercera fila-->
 
-
+<!--=======================================================================================================-->
 <!--================================================== Fin lineas de codigo, respecto visitacion========================================================-->
 
 <div class="input-field col s12 m12 l12"><!--IInicio de lineas para cantidad de personas-->
