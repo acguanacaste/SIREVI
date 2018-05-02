@@ -5,7 +5,8 @@ class ASP{
     public $id;
     public $nombre;
     public $tipo;
-    public $area_conservacion;
+		public $ubicacion;/*Provincia a la que pertenece el area de conservacion, campo opcional aun no implementado*/
+
 
 
 	public function __CONSTRUCT(){
@@ -57,7 +58,7 @@ class ASP{
 			$sql = "UPDATE asp SET
 						nombre            = ?,
 						tipo              = ?,
-            area_conservacion = ?
+            ubicacion         = ?
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
@@ -65,7 +66,7 @@ class ASP{
 				    array(
                         $data->nombre,
                         $data->tipo,
-                        $data->area_conservacion,
+                        $data->ubicacion,
                         $data->id
 					)
 				);
@@ -79,7 +80,7 @@ class ASP{
 	{
 		try
 		{
-		$sql = "INSERT INTO ASP (nombre,tipo,area_conservacion)
+		$sql = "INSERT INTO ASP (nombre,tipo,ubicacion)
 		        VALUES (?, ?, ? )";
 
 		$this->pdo->prepare($sql)
@@ -87,7 +88,7 @@ class ASP{
 				array(
                     $data->nombre,
                     $data->tipo,
-                    $data->area_conservacion
+                    $data->ubicacion
                 )
 			);
 		} catch (Exception $e)

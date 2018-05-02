@@ -11,7 +11,7 @@ class ASPController{
 
 
     public function Index(){
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/asp/asp.php';
         require_once 'view/includes/footer.php';
     }
@@ -22,9 +22,19 @@ class ASPController{
         if(isset($_REQUEST['id'])){
             $asp = $this->model->Obtener($_REQUEST['id']);
         }
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/asp/aspModificar.php';
         require_once 'view/includes/footer.php';
+    }
+
+    public function UbicacionASP(){
+      $asp = new ASP();
+      if(isset($_REQUEST['id'])){
+        $asp = $this->model->Obtener($_REQUEST['id']);
+      }
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/asp/aspUbicacion.php';
+      require_once 'view/includes/footer.php';
     }
 
 
@@ -33,7 +43,7 @@ class ASPController{
         if(isset($_REQUEST['id'])){
             $asp = $this->model->Obtener($_REQUEST['id']);
         }
-        require_once 'view/includes/header.php';
+        require_once 'view/includes/headerPrincipal.php';
         require_once 'view/asp/aspRegistro.php';
         require_once 'view/includes/footer.php';
     }
@@ -45,8 +55,7 @@ class ASPController{
         $asp->id                = $_REQUEST['id'];
         $asp->nombre            = $_REQUEST['nombre'];
         $asp->tipo              = $_REQUEST['tipo'];
-        $asp->area_conservacion = $_REQUEST['area_conservacion'];
-
+        $asp->ubicacion         = $_REQUEST['ubicacion'];
 
         $asp->id > 0
             ? $this->model->Actualizar($asp)
