@@ -238,22 +238,3 @@
     </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
-
-<!--Script para poder agregar la hora cuando se cambia el icono de ingresos o salida del parque-->
-<script>
-function addZero(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-
-function setTime() {
-    var d = new Date();
-    var x = document.getElementById("time");
-    var h = addZero(d.getHours());
-    var m = addZero(d.getMinutes());
-    var s = addZero(d.getSeconds());
-    x.innerHTML = h + ":" + m + ":" + s;
-}
-</script>

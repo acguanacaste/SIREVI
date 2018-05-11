@@ -13,6 +13,7 @@ class Visitacion{
 		public $pais;
 		public $provincia;//Se carga la tabla de los paices al formulario.
 		public $referencia_visita;//se carga la tabla de provincia en el formulario.
+		public $nom_referencia_visita;//Esta variable me guarda el nombre de la referencia de la visita en caso de que requiera
 
     public $sector;//Sector aun no se guarda en la base de datos
     public $sendero;
@@ -24,12 +25,15 @@ class Visitacion{
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
 		public $nacional_kid;//Se guarda la cantidad por ninos Nacionales
 		public $estudiantes;//Se guarda la cantidad pde estudiantes
+		public $nacional_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+
 		public $extranjero_adult;//Se guarda la cantida de visitantes estrnjeros
 		public $extranjero_kid;//Se guarda el monto por ninos Extranjeros
+		public $extranjero_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
 
     public $personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
 		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
-    public $exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+
 
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
@@ -57,7 +61,7 @@ class Visitacion{
         pais.nombre as Pais, referencia_visita,
          sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-          personas_surf, prepago, exonerado,
+          personas_surf, prepago,
 			     tipo_pago, moneda, horaSalida
             from visitacion
               inner join pais on visitacion.pais = pais.id
@@ -168,12 +172,15 @@ class Visitacion{
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
+						nacional_exonerado     		= ?,
+
 						extranjero_adult      		= ?,
 						extranjero_kid  					= ?,
+						extranjero_exonerado   		= ?,
 --------------------------------------------------------------------------
             personas_surf             = ?,
 						prepago               		= ?,
-            exonerado             		= ?,
+
 -------------------------------------------------------------------
 						tipo_pago       					= ?,
             moneda                    = ?,
@@ -203,12 +210,15 @@ class Visitacion{
 												$data->nacional_adult,
 												$data->nacional_kid,
 												$data->estudiantes,
+												$data->nacional_exonerado,
+
 												$data->extranjero_adult,
 												$data->extranjero_kid,
+												$data->extranjero_exonerado,
 
                         $data->personas_surf,
                         $data->prepago,
-                        $data->exonerado,
+
 //-----------------------------------------------------------------
                         $data->tipo_pago,
 												$data->moneda,
@@ -227,12 +237,13 @@ class Visitacion{
 		try
 		{
 		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
-       pais, provincia,referencia_visita,
+       pais, provincia,referencia_visita,nom_referencia_visita,
        sendero, dias_camping, subSector,
-        nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-        personas_surf, prepago, exonerado,montoCancelar,
+        nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
+				extranjero_adult, extranjero_kid,extranjero_exonerado,
+        personas_surf, prepago, montoCancelar,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -245,6 +256,7 @@ class Visitacion{
 										$data->pais,
 										$data->provincia,
 										$data->referencia_visita,
+										$data->nom_referencia_visita,
 //----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
@@ -257,12 +269,15 @@ class Visitacion{
 										$data->nacional_adult,
 										$data->nacional_kid,
 										$data->estudiantes,
+										$data->nacional_exonerado,
+
 										$data->extranjero_adult,
 										$data->extranjero_kid,
+										$data->extranjero_exonerado,
 
                     $data->personas_surf,
                     $data->prepago,
-                    $data->exonerado,
+
 //----------------------------------------------------------------------------------------
 										$data->montoCancelar,
 										$data->tipo_pago,
@@ -306,6 +321,59 @@ class Visitacion{
 
 		}
 
+		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){
+			echo "<pre>";
+      var_dump($fechaStart,$fechaEnd);
+      echo "</pre>";
+			$result = array();
+			try {
+
+				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd')");
+				echo "SELECT * FROM visitacion WHERE fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
+				$stm->execute();
+				$result = $stm->fetch();
+				return $result;
+
+				//$stm = $this->pdo->prepare("SELECT * FROM visitacion WHERE visitacion.fecha BETWEEN '$fechaStart' AND '$fechaEnd' ");
+				 //echo "SELECT * FROM visitacion WHERE visitacion.fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
+				 //die();
+
+
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+		}
+
+		public function SEMEC(){/*Este metodo me muestra los registros para el reporte de SEMEC*/
+			try{
+				$result = array();
+
+				$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha
+					 from visitacion
+								inner join pais on visitacion.pais = pais.id
+								inner join sendero on visitacion.sendero = sendero.id
+								order by fecha DESC;");
+				$stm->execute();
+
+
+				return $stm->fetchAll(PDO::FETCH_OBJ);
+			}
+			catch(Exception $e){
+				die($e->getMessage());
+			}
+		}
+/*=================================================================================================*/
+		public function model_SEMEC_2($fechaStart,$fechaEnd){
+			try{
+				$stm = $this->pdo
+				            ->prepare("SELECT * FROM visitacion WHERE fecha BETWEEN $fechaStart AND $fechaEnd");
+
+				$stm->execute(array($fechaStart,$fechaEnd));
+			}
+			catch (Exception $e){
+				die($e->getMessage());
+			}
+		}
 
 
 

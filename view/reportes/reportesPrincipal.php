@@ -15,6 +15,17 @@
           <ul class="collection">
 
             <li class="collection-item avatar">
+              <img src="assets/img/semec.png" alt="Imagen no disponible" class="circle">
+              <a><p><a href="?c=Visitacion&a=Reporte_SEMEC">Reporte SEMEC</a><br>
+                <span class="hide-on-small-only">
+                  A través de este enlace se realiza la creación de un reporte <br>
+                  para consultar el total de ingresos a el sector </span>
+                </p></a>
+                <a href="?c=Visitacion&a=Reporte_SEMEC" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+              <span class="hide-on-small-only"><i class="medium material-icons">account_balance</i></span></a>
+            </li>
+
+            <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
               <a><p><a href="?c=Visitacion&a=">Reporte Diario</a><br>
                 <span class="hide-on-small-only">
@@ -28,7 +39,7 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
-              <a><p><a href="?c=Visitacion&a=Reporte">Reporte Nacionales</a><br>
+              <a ><p><a href="?c=Visitacion&a=Reporte">Reporte Nacionales</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación del reporte <br>
                   de personas nacionales agrupadas por provincia</span>

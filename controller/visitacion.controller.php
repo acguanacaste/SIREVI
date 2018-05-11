@@ -51,6 +51,18 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function Reporte_SEMEC(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/SEMEC.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function Resultado_SEMEC($result){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/resultado_SEMEC.php';
+      require_once 'view/includes/footer.php';
+   }
+
     public function Reporte(){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
@@ -114,23 +126,27 @@ class VisitacionController{
         $visit->pais                      = $_REQUEST['pais'];
         $visit->provincia                 = $_REQUEST['provincia'];
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];
+        $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
 //--------------------------------------------------------------------------------------------------------
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
-        $visit->salida                    = $_REQUEST['salida'];
+    //    $visit->salida                    = $_REQUEST['salida'];
         $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
         $visit->estudiantes               = $_REQUEST['estudiantes'];
+        $visit->nacional_exonerado        = $_REQUEST['nacional_exonerado'];
+
         $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
         $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
+        $visit->extranjero_exonerado      = $_REQUEST['extranjero_exonerado'];
 
         $visit->personas_surf             = $_REQUEST['personas_surf'];
         $visit->prepago                   = $_REQUEST['prepago'];
-        $visit->exonerado                 = $_REQUEST['exonerado'];
+
 //-----------------------------------------------------------------------------------------------------
         $visit->montoCancelar             = $_REQUEST['montoCancelar'];
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
@@ -166,13 +182,34 @@ class VisitacionController{
 
 
     public function ConsultaNacionalesController(){
-      //var_dump ($_REQUEST);
-      //die();
       /*echo "<pre>";
       var_dump($_POST);
       echo "</pre>";*/
         $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-        header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
-      }
+        //header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
+        Resultado_Nacionalidades();
+    }
+
+    public function Consulta_SEMEC_Controller(){
+
+      //var_dump ($_REQUEST);
+      //die();
+          $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+
+          $this->Resultado_SEMEC($result);
+
+
+
+          header('Location:?c=Visitacion&a=Resultado_SEMEC');
+    }
+
 
 }
+/*======================================================================================================*/
+/*public function controller_SEMEC_2($){
+    $this->model->model_SEMEC_2($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+    header('Location: index.php?c=Resultado_SEMEC');
+}
+*/
+
+//}

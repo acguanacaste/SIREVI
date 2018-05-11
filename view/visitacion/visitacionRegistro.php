@@ -1,3 +1,4 @@
+
 <main>
   <div class="container">
     <div class="">
@@ -21,7 +22,7 @@
                         <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
                         <div class="input-field col s12 m12 l12">
                         <select id="proposito_visita" name="proposito_visita">
-                            <option id="proposito_visita" value="" disabled selected>&nbsp;Referencia de Visita</option>
+                            <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
                                         <option value="Visita por el dia">Por el dia</option>
                                         <option value="Acampando">Acampando</option>
                                         <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
@@ -74,6 +75,7 @@
               <div class="">
         <!--        <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">-->
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+
 
                   <div class="row">
                   <div class="input-field col s12 m4 l4">
@@ -142,27 +144,6 @@
         <label> Provincia</label>
       </div>
 <!--=================Fin del codigo para ciudades ===============-->
-      <div class="input-field col s6 m6 l4">
-      <select name="referencia_visita">
-          <option value="" disabled selected>&nbsp;Referencia de Visita</option>
-                      <option value="Expontaneamente en ruta">Expontaneamente en ruta</option>
-                      <option value="Referencia de alguien mas">Referencia de alguien mas</option>
-                      <option value="Recomendación por amigos">Recomendación por amigos</option>
-                      <option value="Visita reiterada">Visita reiterada</option>
-                      <option value="Selección directa personal (Check list)">Selección directa personal (Check list)</option>
-                      <option value="Operadora turística">Operadora turística</option>
-                      <option value="Medio de comunicación">Medio de comunicación</option>
-                      <option value="Guías impresas">Guías impresas</option>
-                      <option value="Grupo comunal organizado">Grupo comunal organizado</option>
-                      <option value="Empresa privada">Empresa privada</option>
-                      <option value="ONGs en proyectos de investigación y conservación">ONGs en proyectos de investigación y conservación</option>
-                      <option value="Institución pública">Institución pública</option>
-                      <option value="Otro">Otro</option>
-
-                    </select>
-                    <label><i class="small material-icons" >info_outline</i></label>
-                  </div>
-                </div><!--Fin de la seegunda fila -->
 <!--==================================================================================================================================-->
     <!--==================================================Lineas de codigo, respecto visitacion=========================================================-->
 
@@ -176,7 +157,7 @@
                     $query_sendero = mysql_query($sentencia_sendero);
                     ?>
                     <div class="">
-                      <div class="input-field col s12 m8 l8"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+                      <div class="input-field col s12 m4 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                       <select name="sendero" multiple required>
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
                            <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
@@ -187,12 +168,48 @@
                     </div>
                   </div>
                 </div>
+              </div>
 
+              <fieldset class="input-field col s12 m6 l8 z-depth-2">
+                <legend>Referencia de Visitacion</legend>
+                      <div>
+                        <div>
+                             <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
+                                <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
+                                <option value="" disabled selected>&nbsp;Elija una opción</option>
+                                <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
+                                <option value="Referencia de alguien mas">2. Referencia de alguien mas</option>
+                                <option value="Recomendación por amigos">3. Recomendación por amigos</option>
+                                <option value="Visita reiterada">4. Visita reiterada</option>
+                                <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
+                                <option value="Guías impresas">6. Guías impresas</option>
+                                <option value="Operadora turistica">7. Operadora turística</option>
+                                <option value="Medio de comunicación">8. Medio de comunicación</option>
+                                <option value="Grupo comunal organizado">9. Grupo comunal organizado</option>
+                                <option value="Empresa privada">10. Empresa privada</option>
+                                <option value="ONGs en proyectos de investigación y conservación">11. ONGs en proyectos de investigación y conservación</option>
+                                <option value="Institución pública">12. Institución pública</option>
+                                <option value="Otro">Otro</option>
+                                <OPTION VALUE="tarjeta">Pago con tarjeta</OPTION>
+                             </SELECT>
+                        </div>
 
-                <div  class="input-field col s12 m4 l4"><!--Columna-->
-                  <div class="">
-                    <div>
-                    <fieldset><legend>Dias acampando</legend>
+                        <div id="nCuenta" style="display:none;"></div>
+
+                        <fieldset   id="nTargeta" style="display:;" class="z-depth-2">
+                          <div id="nTargeta" style="display:;">
+                             <br>
+                             Nombre*:
+                             <br>
+                           <input type='text' name='nom_ref_visita' size='20' maxLength='60'>
+
+                        </div>
+                      </fieldset>
+
+              </fieldset>
+
+                <div  class="input-field col s12 m4 l3"><!--Columna-->
+                    <fieldset ><legend>Dias acampando</legend>
                       <div>
                         <div class="input-field col s12 m12 l12  ">
                           <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
@@ -200,8 +217,6 @@
                         </div>
                       </div>
                     </fieldset>
-                  </div>
-                </div>
               </div><!--Fin de la tercera fila-->
 
 
@@ -217,70 +232,78 @@
        <span>
          <div class="">
           <div class=""><!--Inicio de la primea fila dentro del collapsible-->
-            <div class="input-field col s12 m12 l8">
+            <div class="input-field col s12 m12 l12">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-                <div class="input-field col s6 m4 l4  ">
+                <div class="input-field col s6 m4 l3  ">
                   <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
 
-                <div class="input-field col s6 m4 l4  ">
+                <div class="input-field col s6 m4 l3  ">
                   <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
-              <div class="input-field col s12 m4 l4  ">
+              <div class="input-field col s12 m4 l3  ">
                   <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
 
+            <div class="input-field col s6 m4 l3  ">
+              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+             <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
+           </div>
 
             </fieldset>
           </div><!--Fin de columnas cantidad de ncionales por el dia-->
 
-        <div class="input-field col s12 m12 l4">
-          <fieldset class="z-depth-3">
-            <legend>&nbsp;Extranjeros&nbsp;</legend>
-
-            <div class="input-field col s6 m6 l6  ">
-              <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
-              <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
-            </div>
-
-            <div class="input-field col s6 m6 l6  ">
-              <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
-              <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
-            </div>
-          </fieldset>
-        </div>
-
-      </div><!--Fin de la primera fila-->
+        </div><!--Fin de la primera fila-->
 
         <div class="">
+          <div class="input-field col s12 m12 l12">
+            <fieldset class="z-depth-3">
+              <legend>&nbsp;Extranjeros&nbsp;</legend>
 
+              <div class="input-field col s6 m6 l4  ">
+                <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
+              </div>
+
+              <div class="input-field col s6 m6 l4  ">
+                <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
+              </div>
+
+              <div class="input-field col s6 m4 l4  ">
+                <input  id="extranjero_exonerado" type="number" name="extranjero_exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+               <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
+             </div>
+
+            </fieldset>
+          </div>
+
+        </div>
+
+        <div class=""><!--Tercera fila-->
           <div class="input-field col s12 m12 l12">
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
-                <div class="input-field col s12 m4 l4  ">
+                <div class="input-field col s12 m4 l6  ">
                 <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
                     <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
-                 <div class="input-field col s6 m4 l4  ">
+                 <div class="input-field col s6 m4 l6  ">
                    <input  id="prepago" type="number" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                    <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
-
-                 <div class="input-field col s6 m4 l4  ">
-                   <input  id="exonerado" type="number" name="exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-                  <label for="exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
-                </div>
-
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
-        </div>
+
+
+        </div><!--Fin de la tercera Fila-->
 <!--<h6>Preguntar sobre como se calcula el precio para hacer la funcion en javascript</h6>-->
        </div>
       </span>

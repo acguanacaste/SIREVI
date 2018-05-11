@@ -76,21 +76,6 @@
             <!-- Inicio de mi codigo -->
           <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
             <thead class="white-text teal darken-4 z-depth-2">
-            <tr>
-            <th>AC</th>
-            <th>Centro operativo</th>
-            <th>Tipo ASP</th>
-            <th>ASP</th>
-            <th>Mes</th>
-            <th>Nac. Pagos</th>
-            <th>Exonerdado</th>
-            <th>Total Nac.</th>
-            <th>Ext. Pagos</th>
-            <th>Total Ext</th>
-            <th>Monto Total</th>
-            </tr>
-            </thead>
-            <thead class="white-text teal darken-4 z-depth-2">
        <tr>
          <th>AC</th>
          <th>Centro operativo</th>

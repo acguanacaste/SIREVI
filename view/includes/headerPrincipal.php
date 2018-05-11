@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+session_start();
+if(!isset($_SESSION["email"])){
+echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
+header("Location:?c=login&a=index");
+}
+?>
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+function habilitar(form){
+if(form.referencia_visita.options[0].selected
+|| form.referencia_visita.options[1].selected
+|| form.referencia_visita.options[2].selected
+|| form.referencia_visita.options[3].selected
+|| form.referencia_visita.options[4].selected
+|| form.referencia_visita.options[5].selected==true)
+	{
+		form.nombre_referenciaVisita.disabled=true;
+	 }
+else
+	 {
+		 form.nombre_referenciaVisita.disabled=false;
+	 }
+}
+function showContent() {
+		element = document.getElementById("content");
+		check = document.getElementById("check");
+		if (check.checked) {
+				element.style.display='block';
+		}
+		else {
+				element.style.display='none';
+		}
+}
 
+/*=================================================================================================*/
+function pagoOnChange(sel) {
+      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
+					|| sel.value=="Recomendación por amigos" || sel.value=="Selección directa personal"
+				|| sel.value=="Visita reiterada" ){
+
+           divC = document.getElementById("nCuenta");//Si se selecciona me muestra
+           divC.style.display = "";
+
+           divT = document.getElementById("nTargeta");
+           divT.style.display = "none";
+
+      }else{
+
+           divC = document.getElementById("nCuenta");
+           divC.style.display="none";
+
+           divT = document.getElementById("nTargeta");
+           divT.style.display = "";
+      }
+}
+</script>
 <!--El link y los scripts de boostrap son para el modal y los mennsajes de advertencia o error--
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,7 +92,7 @@
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
 				  $('.datepicker').pickadate({
-						format: "yyyy/mm/dd",
+						format: "yyyy-mm-dd",
 				  	 selectMonths: true, // Creates a dropdown to control month
 				     selectYears: 15, // Creates a dropdown of 15 years to control year,
 				     today: 'Hoy',
@@ -84,13 +139,6 @@
 
 	</script>
 <body>
-	<?php
-session_start();
-if(!isset($_SESSION["email"])){
-echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
-header("Location:?c=login&a=index");
-}
-?>
 	<header>
 		<div class="container grey lighten-3"><!--aqui fue donde cambie el numero 1 por 12, 1/25/2018-->
 			<nav class="brown top-nav z-depth-3">
