@@ -103,7 +103,7 @@ class VisitacionController{
 
         if(isset($_REQUEST['id'])){
             $visit = $this->model->Obtener($_REQUEST['id']);
-        }
+    }
 
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacionRegistro.php';
@@ -179,26 +179,36 @@ class VisitacionController{
               header( 'HTTP/1.0 403 Forbiden');//).
           }
         }
+/*==============================================================================================================*/
+
+/*
+    public function ConsultaNacionalesController_2(){
+      echo "<pre>";
+      var_dump($_POST);
+      echo "</pre>";
+
+        $this->model->ConsultaNacionalesModel_2($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+            header('Location: index.php?c=Visitacion&a=Resultado_Nacionalidades');
+
+    }
+*/
 
 
+/*
     public function ConsultaNacionalesController(){
       /*echo "<pre>";
       var_dump($_POST);
-      echo "</pre>";*/
-        $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+      echo "</pre>";
+    //    $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
         //header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
         Resultado_Nacionalidades();
-    }
+    } */
 
     public function Consulta_SEMEC_Controller(){
 
-      //var_dump ($_REQUEST);
-      //die();
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
 
           $this->Resultado_SEMEC($result);
-
-
 
           header('Location:?c=Visitacion&a=Resultado_SEMEC');
     }

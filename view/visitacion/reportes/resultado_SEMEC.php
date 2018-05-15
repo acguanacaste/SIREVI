@@ -91,21 +91,11 @@
    </thead>
 
         <tbody>
-      <?php foreach ($result as $a):
-        $r = (object) $a;?>
+      <?php foreach ($result as $a):?>
       <tr>
 
-        <td><?php echo $r['fecha']; //arreglo?></td>-->
-        <td><?php echo $r->fecha;//objeto ?></td>
-        <td><?php// echo $r->Pais; ?></td>
-        <td><?php //echo $r->Nombre; ?></td>
-        <td><?php //echo $r->tipo_pago; ?></td>
-        <td><?php// echo $r->moneda; ?></td>
-        <td><?php// echo $r->referencia_visita ?></td>
-      <!--  <td><?php echo $r->Sector; ?></td> -->
-        <td><?php //echo $r->Sendero; ?></td>
-
-
+        <td><?php echo $a->nombre; //arreglo?></td>
+        <td><?php echo $a->AC ?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>

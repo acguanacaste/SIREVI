@@ -309,7 +309,7 @@ class Visitacion{
   		}
   	}
 
-		public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+		/*public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
 			$result = array();
 			try {
 				$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
@@ -319,30 +319,50 @@ class Visitacion{
 				die($e->getMessage());
 			}
 
+		}*/
+
+		public function ConsultaNacionalesModel_2($fechaStart,$fechaEnd){
+			echo "<pre>";
+			var_dump($_POST);
+			echo "</pre>";
+			die();
+
+			try{
+				$stm = $this->pdo
+										->prepare("SELECT * FROM visitacion WHERE fecha BETWEEN $fechaStart AND $fechaEnd");
+
+				$stm->execute(array($fechaStart,$fechaEnd));
+			}
+			catch (Exception $e){
+				die($e->getMessage());
+			}
 		}
 
+
+/*============================================================================================================*/
+
 		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){
-			echo "<pre>";
+			/*echo "<pre>";
       var_dump($fechaStart,$fechaEnd);
-      echo "</pre>";
+      echo "</pre>";*/
+
 			$result = array();
 			try {
-
 				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd')");
-				echo "SELECT * FROM visitacion WHERE fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
-				$stm->execute();
-				$result = $stm->fetch();
-				return $result;
 
-				//$stm = $this->pdo->prepare("SELECT * FROM visitacion WHERE visitacion.fecha BETWEEN '$fechaStart' AND '$fechaEnd' ");
-				 //echo "SELECT * FROM visitacion WHERE visitacion.fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
-				 //die();
+			//	echo "SELECT * FROM visitacion WHERE fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
+
+				$stm->execute();
+				$result = $stm->fetchAll(PDO::FETCH_OBJ);
+				return $result;
 
 
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
 		}
+/*================================================================================================================*/
+
 
 		public function SEMEC(){/*Este metodo me muestra los registros para el reporte de SEMEC*/
 			try{
@@ -355,7 +375,6 @@ class Visitacion{
 								order by fecha DESC;");
 				$stm->execute();
 
-
 				return $stm->fetchAll(PDO::FETCH_OBJ);
 			}
 			catch(Exception $e){
@@ -363,7 +382,7 @@ class Visitacion{
 			}
 		}
 /*=================================================================================================*/
-		public function model_SEMEC_2($fechaStart,$fechaEnd){
+	/*	public function model_SEMEC_2($fechaStart,$fechaEnd){
 			try{
 				$stm = $this->pdo
 				            ->prepare("SELECT * FROM visitacion WHERE fecha BETWEEN $fechaStart AND $fechaEnd");
@@ -373,8 +392,6 @@ class Visitacion{
 			catch (Exception $e){
 				die($e->getMessage());
 			}
-		}
-
-
+		}*/
 
 }
