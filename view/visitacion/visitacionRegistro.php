@@ -201,7 +201,8 @@
                              <br>
                              Nombre*:
                              <br>
-                           <input type='text' name='nom_ref_visita' size='20' maxLength='60'>
+
+                           <input type='text' name='nom_referencia_visita' >
 
                         </div>
                       </fieldset>

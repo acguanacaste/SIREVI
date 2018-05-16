@@ -45,12 +45,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
-    public function consultaIngresoSalidaDiario(){
-        require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
-        require_once 'view/includes/footer.php';
-    }
-
+/*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/SEMEC.php';
@@ -62,8 +57,23 @@ class VisitacionController{
       require_once 'view/visitacion/reportes/resultado_SEMEC.php';
       require_once 'view/includes/footer.php';
    }
+/*=====================================================================================================================*/
 
-    public function Reporte(){
+/*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
+public function Reporte_Diario(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Diario($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+/*=====================================================================================================================*/
+
+    public function Reporte_NacionalesAgrupadosXProvincia(){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
@@ -80,7 +90,7 @@ class VisitacionController{
       header("Content-Disposition: attachment; filename=reporte.xls");
       header("Pragma: no-cache");
       header("Expires: 0");
-      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
   }
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
@@ -181,29 +191,6 @@ class VisitacionController{
         }
 /*==============================================================================================================*/
 
-/*
-    public function ConsultaNacionalesController_2(){
-      echo "<pre>";
-      var_dump($_POST);
-      echo "</pre>";
-
-        $this->model->ConsultaNacionalesModel_2($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-            header('Location: index.php?c=Visitacion&a=Resultado_Nacionalidades');
-
-    }
-*/
-
-
-/*
-    public function ConsultaNacionalesController(){
-      /*echo "<pre>";
-      var_dump($_POST);
-      echo "</pre>";
-    //    $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-        //header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
-        Resultado_Nacionalidades();
-    } */
-
     public function Consulta_SEMEC_Controller(){
 
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
@@ -213,13 +200,27 @@ class VisitacionController{
           header('Location:?c=Visitacion&a=Resultado_SEMEC');
     }
 
-
-}
 /*======================================================================================================*/
-/*public function controller_SEMEC_2($){
-    $this->model->model_SEMEC_2($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-    header('Location: index.php?c=Resultado_SEMEC');
-}
-*/
+public function Consulta_ReporteDiario_Controller(){
 
-//}
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+
+      $this->Resultado_Diario($result);
+
+      header('Location:?c=Visitacion&a=Resultado_Diario');
+}
+
+/*==================================================================================================*/
+
+
+
+
+
+
+/*==================================================================================================*/
+
+
+
+
+
+}//Fin de la clase

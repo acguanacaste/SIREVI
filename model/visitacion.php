@@ -64,7 +64,7 @@ class Visitacion{
           personas_surf, prepago,
 			     tipo_pago, moneda, horaSalida
             from visitacion
-              inner join pais on visitacion.pais = pais.id
+              inner join pais on visitacion.pais_id = pais.id
               inner join sendero on visitacion.sendero = sendero.id order by id asc;");
 							//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
 			$stm->execute();
@@ -81,7 +81,7 @@ class Visitacion{
 		try{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha, visitacion.pais,
+			$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha,
 			 visitacion.nombre as Nombre, pais.nombre as Pais, visitacion.tipo_pago, visitacion.moneda, referencia_visita,
 			 sendero.nombre as Sendero
 				 from visitacion
@@ -309,89 +309,35 @@ class Visitacion{
   		}
   	}
 
-		/*public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
-			$result = array();
-			try {
-				$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
-				$stm->execute();
 
-			} catch (Exception $e) {
-				die($e->getMessage());
-			}
-
-		}*/
-
-		public function ConsultaNacionalesModel_2($fechaStart,$fechaEnd){
-			echo "<pre>";
-			var_dump($_POST);
-			echo "</pre>";
-			die();
-
-			try{
-				$stm = $this->pdo
-										->prepare("SELECT * FROM visitacion WHERE fecha BETWEEN $fechaStart AND $fechaEnd");
-
-				$stm->execute(array($fechaStart,$fechaEnd));
-			}
-			catch (Exception $e){
-				die($e->getMessage());
-			}
-		}
-
-
-/*============================================================================================================*/
-
-		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){
-			/*echo "<pre>";
-      var_dump($fechaStart,$fechaEnd);
-      echo "</pre>";*/
+/*======================>> Esta es la funcion (carpeta model) con la que se trabaja el reporte para SEMEC <<======================================================================================*/
+ 		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){//Funcion up and working
 
 			$result = array();
 			try {
 				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd')");
-
-			//	echo "SELECT * FROM visitacion WHERE fecha BETWEEN '$fechaStart' AND '$fechaEnd' ";
-
 				$stm->execute();
 				$result = $stm->fetchAll(PDO::FETCH_OBJ);
 				return $result;
-
-
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
 		}
 /*================================================================================================================*/
 
-
-		public function SEMEC(){/*Este metodo me muestra los registros para el reporte de SEMEC*/
-			try{
-				$result = array();
-
-				$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha
-					 from visitacion
-								inner join pais on visitacion.pais = pais.id
-								inner join sendero on visitacion.sendero = sendero.id
-								order by fecha DESC;");
-				$stm->execute();
-
-				return $stm->fetchAll(PDO::FETCH_OBJ);
-			}
-			catch(Exception $e){
-				die($e->getMessage());
-			}
-		}
-/*=================================================================================================*/
-	/*	public function model_SEMEC_2($fechaStart,$fechaEnd){
-			try{
-				$stm = $this->pdo
-				            ->prepare("SELECT * FROM visitacion WHERE fecha BETWEEN $fechaStart AND $fechaEnd");
-
-				$stm->execute(array($fechaStart,$fechaEnd));
-			}
-			catch (Exception $e){
-				die($e->getMessage());
-			}
-		}*/
-
+public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
+	/*echo "<pre>";
+	var_dump($fechaStart,$fechaEnd);
+	echo "</pre>";*/
+	$result = array();
+	try {
+		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$fechaEnd', '$pSector')");
+		$stm->execute();
+		$result = $stm->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+	} catch (Exception $e) {
+		die($e->getMessage());
+	}
 }
+/*=================================================================================================*/
+}// fin del PHP.

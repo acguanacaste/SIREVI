@@ -27,24 +27,24 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
-              <a><p><a href="?c=Visitacion&a=">Reporte Diario</a><br>
+              <a><p><a href="?c=Visitacion&a=Reporte_Diario">Reporte Diario</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación de un reporte <br>
                   para consultar el total de ingresos a el sector </span>
                 </p></a>
-                <a href="?c=Visitacion&a=" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_Diario" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
               <span class="hide-on-small-only"><i class="medium material-icons">description</i></span></a>
             </li>
 
 
             <li class="collection-item avatar">
               <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
-              <a ><p><a href="?c=Visitacion&a=Reporte">Reporte Nacionales</a><br>
+              <a ><p><a href="?c=Visitacion&a=Reporte_Nacionales">Reporte Nacionales</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación del reporte <br>
                   de personas nacionales agrupadas por provincia</span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
+                <a href="?c=Visitacion&a=Reporte_Nacionales" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
               <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
             </li>
 
@@ -52,23 +52,23 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
-                <a><p><a href="?c=Visitacion&a=">Reporte Sectores</a><br>
+                <a><p><a href="?c=Visitacion&a=Reporte_Sectores">Reporte Sectores</a><br>
                 <span class="hide-on-small-only">
                 A través de este enlace se realiza la creación de un reporte para consultar el total <br>
                 de personas que ingreso en cada mes a cada uno de los sectores del A.C.G </span>
                 </p></a>
-                <a href="?c=Visitacion&a=" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_Sectores" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
               <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
             </li>
 
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
-              <a><p><a href="?c=Visitacion&a=">Reporte Campistas</a><br>
+              <a><p><a href="?c=Visitacion&a=Reporte_Campistas">Reporte Campistas</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación de un reporte para consultar el total <br>
                   de personas que se quedaron acampando en el sector</span>
                 </p></a>
-                <a href="?c=Visitacion&a=" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_Campistas" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
                 <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
             </li>
 
