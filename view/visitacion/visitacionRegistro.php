@@ -17,40 +17,36 @@
 
                       <div class="row"><!---Inicio de dos columnas-->
 
-                   <div class="input-field col s12 m4 l4">
-                      <fieldset  class="z-depth-1 ">
-                        <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
-                        <div class="input-field col s12 m12 l12">
-                        <select id="proposito_visita" name="proposito_visita">
-                            <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
-                                        <option value="Visita por el dia">Por el dia</option>
-                                        <option value="Acampando">Acampando</option>
-                                        <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
-
-                                      </select>
-                                      <label><i class="small material-icons" >info_outline</i></label>
-                                    </div>
-                          </fieldset>
-                        </div>
-
 
                       <div class="input-field col s6 m4 l2">
-                        <fieldset><legend>Numero diario</legend>
+                        <fieldset><center><legend>Numero diario</legend></center>
+                          <center>
                           <div class="btn teal darken-4 right-align "> #&nbsp;00 </div>
+                        </center>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
-                        <fieldset><legend>Capacidad de Sector</legend>
-                            <div class="btn teal darken-4 right-align "> 20/80 </div>
+                        <fieldset><center><legend>Capacidad de Sector</legend></center>
+                          <center>
+                            <div class="btn teal darken-4 right-align "> AquiSesh/<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
+                          </center>
                         </fieldset>
                       </div>
 
                       <div class="input-field col s6 m4 l3">
-                        <fieldset><legend>Sector</legend>
-                            <div class="btn teal darken-4 right-align ">Santa Rosa</div>
-                            <br>
+                        <fieldset><center><legend>Sector</legend></center>
+                          <center>
+                            <div class="btn teal darken-4 right-align "><?php echo $_SESSION['sector']['sectorNombre'];?></div>
+                          </center>
+                        </fieldset>
+                      </div>
 
+                      <div class="input-field col s6 m4 l3">
+                        <fieldset><center><legend>Usuario</legend></center>
+                          <center>
+                            <div name="usuario" value="<?php echo $_SESSION['usuario']['nombre'];?>" class="btn teal darken-4 right-align "><?php echo $_SESSION['usuario']['nombre'];?></div>
+                          </center>
                         </fieldset>
                       </div>
                      </div><!--Fin de columnas -->
@@ -75,12 +71,31 @@
               <div class="">
         <!--        <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">-->
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+                  <input type="text" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
+                  <input type="text" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
+                  <input type="text" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
 
 
-                  <div class="row">
-                  <div class="input-field col s12 m4 l4">
+                  <div class="">
+                  <div class="input-field col s12 m4 l6">
+                   <fieldset  class="z-depth-1 ">
+                     <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
+                       <div class="input-field col s12 m12 l12">
+                         <select id="proposito_visita" name="proposito_visita">
+                             <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
+                             <option value="Visita por el dia">Por el dia</option>
+                             <option value="Acampando">Acampando</option>
+                             <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
+                           </select>
+                         <label><i class="small material-icons" >info_outline</i></label>
+                       </div>
+                     </fieldset>
+                   </div>
                   </div>
-                  <div class="input-field col s12 m4 l4 ">
+
+
+
+                  <div class="input-field col s12 m4 l6 ">
                     <fieldset>
                       <legend>Sub sector al que se dirije</legend>
                       <div class="input-field col s12 m12 l12">
@@ -90,9 +105,11 @@
                       </div>
                     </fieldset>
                   </div>
-                    <div class="input-field  col s12 m4 l4">
-                    </div>
+
                   </div>
+
+                <div class="input-field col s12 m12 l12"><br></div>
+
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">
                       <input  id="name" type="text" name="nombre" value="" class="validate" class="form-control"  required >
@@ -190,19 +207,18 @@
                                 <option value="ONGs en proyectos de investigación y conservación">11. ONGs en proyectos de investigación y conservación</option>
                                 <option value="Institución pública">12. Institución pública</option>
                                 <option value="Otro">Otro</option>
-                                <OPTION VALUE="tarjeta">Pago con tarjeta</OPTION>
+
                              </SELECT>
                         </div>
 
-                        <div id="nCuenta" style="display:none;"></div>
+                        <div id="no_name_input" style="display:none;"></div>
 
-                        <fieldset   id="nTargeta" style="display:;" class="z-depth-2">
-                          <div id="nTargeta" style="display:;">
+                        <fieldset   id="nombre_referencia" style="display:;" class="z-depth-2">
+                          <div id="nombre_referencia" style="display:;">
                              <br>
                              Nombre*:
                              <br>
-
-                           <input type='text' name='nom_referencia_visita' >
+                           <input type='text' name='nom_referencia_visita' size='20' maxLength='60'>
 
                         </div>
                       </fieldset>
@@ -252,7 +268,7 @@
             </div>
 
             <div class="input-field col s6 m4 l3  ">
-              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
              <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
            </div>
 
@@ -277,7 +293,7 @@
               </div>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_exonerado" type="number" name="extranjero_exonerado" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_exonerado" type="number" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
                <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
              </div>
 
@@ -296,7 +312,7 @@
                 </div>
 
                  <div class="input-field col s6 m4 l6  ">
-                   <input  id="prepago" type="number" name="prepago" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <input  id="prepago" type="number" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
                    <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
               </div><!--Fin del div de la segunda fila -->
@@ -429,7 +445,8 @@
 
   <fieldset >
     <legend>Tipo de cambio dollar</legend>
-    <div style="" id="boton_dolar" value="<?php echo"aqui va el valor del dollar"?>" class="btn teal darken-4 right-align ">&nbsp;$550</div>
+    <div style="" id="boton_dolar"
+       class="btn teal darken-4 right-align "><?php echo $_SESSION['sector']['cambioDolar']; ?></div>
   </fieldset>
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
@@ -445,7 +462,6 @@
     <i class="mdi-content-send material-icons right">delete</i>
   </button>
 </fieldset>
-
 
 </div>
       </form>
@@ -490,9 +506,14 @@
           var valor3=verificar("estudiantes");
           var valor4=verificar("extranjero_adult");
           var valor5=verificar("extranjero_kid");
+          var valor6=verificar("nacional_exonerado");
+          var valor7=verificar("extranjero_exonerado");
+          var valor8=verificar("prepago");
 
 
-          document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)+parseFloat(valor4)+parseFloat(valor5);
+          document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)
+          +parseFloat(valor4)+parseFloat(valor5)+parseFloat(valor6)+parseFloat(valor7)+parseFloat(valor8);
+
       }
 /*=====================================================================================================================================*/
       function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
@@ -518,6 +539,16 @@ function sumaPersonasSurf(){
 
 }
 /*=======================================================================================================================================*/
+function sumaPersonasDentroParque(){
+    var valor1=verificar("cant_personas_camping");
+//El monto a cobrar esta en dolares para mas agilidad, a los nacionales se les cobre en colones 2000 por persona
+    document.getElementById("total_personas_camping").value=(parseFloat(valor1)*4);
+
+}
+/*================================================================================================================================*/
+
+
+
       function verificar(id){//Verifica que sean datos numericos
           var obj=document.getElementById(id);
           if(obj.value=="")

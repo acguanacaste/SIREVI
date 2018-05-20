@@ -11,52 +11,34 @@ header("Location:?c=login&a=index");
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
+	<script  src="assets/data-tables/data-tables-script.js"></script>
+	<script type="text/javascript" src="assets/data-tables/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>
+	<link href="assets/js/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+	<link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-function habilitar(form){
-if(form.referencia_visita.options[0].selected
-|| form.referencia_visita.options[1].selected
-|| form.referencia_visita.options[2].selected
-|| form.referencia_visita.options[3].selected
-|| form.referencia_visita.options[4].selected
-|| form.referencia_visita.options[5].selected==true)
-	{
-		form.nombre_referenciaVisita.disabled=true;
-	 }
-else
-	 {
-		 form.nombre_referenciaVisita.disabled=false;
-	 }
-}
-function showContent() {
-		element = document.getElementById("content");
-		check = document.getElementById("check");
-		if (check.checked) {
-				element.style.display='block';
-		}
-		else {
-				element.style.display='none';
-		}
-}
-
+/*================================================================================================*/
 /*=================================================================================================*/
 function pagoOnChange(sel) {
       if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
 					|| sel.value=="Recomendación por amigos" || sel.value=="Selección directa personal"
 				|| sel.value=="Visita reiterada" ){
 
-           divC = document.getElementById("nCuenta");//Si se selecciona me muestra
+           divC = document.getElementById("no_name_input");//Si se selecciona me muestra
            divC.style.display = "";
 
-           divT = document.getElementById("nTargeta");
+           divT = document.getElementById("nombre_referencia");
            divT.style.display = "none";
 
       }else{
 
-           divC = document.getElementById("nCuenta");
+           divC = document.getElementById("no_name_input");
            divC.style.display="none";
 
-           divT = document.getElementById("nTargeta");
+           divT = document.getElementById("nombre_referencia");
            divT.style.display = "";
       }
 }
@@ -67,16 +49,12 @@ function pagoOnChange(sel) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--Fin de lineas de codigo bootstrap-->
 
-
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
-
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
 	<!-- Compiled and minified JavaScript -->
 	<!--ME DA LA PROPIEDAD DE HACER MAS PEQUENO EL AREA DONDE ESCRIBO -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
 	</head>
 				<script>
 
@@ -99,7 +77,7 @@ function pagoOnChange(sel) {
 				     clear: 'Limpiar',
 				     close: 'Ok',
 						 autoClose : false,
-				     closeOnSelect: false // Close upon selecting a date,
+				     closeOnSelect: true // Close upon selecting a date,
 					});
 					$('.tooltipped').tooltip({delay: 50});
 						/*$(".dropdown-button").dropdown(hover:false);*/

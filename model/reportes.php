@@ -1,4 +1,5 @@
 <?php
+
 class Reporte{
   private $pdo;
 
@@ -24,6 +25,7 @@ class Reporte{
 
   }
 
+
   public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
     try {
       $stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
@@ -47,6 +49,5 @@ class Reporte{
   }
 
 }//Fin de la clase reporte
-
 
  ?>

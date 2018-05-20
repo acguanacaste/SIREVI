@@ -147,9 +147,6 @@
         <td><?php echo $r->Prepago; ?></td>
         <td><?php echo $r->Total_Pago ?></td>
 
-
-
-
       </tr>
       <?php endforeach; ?>
     </tbody>

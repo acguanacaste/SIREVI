@@ -14,13 +14,9 @@ class Sector{
 		public $estudiantes;
 		public $adulto_extranjero;
 		public $nino_extranjero;
-
 		//Derechos de camping
-		public $camping_adulto_nacional;
-		public $camping_nino_nacional;
-		public $camping_estudiantes;
-		public $camping_adulto_extranjero;
-		public $camping_nino_extranjero;
+		public $tarifa_camping;
+
 
 	public function __CONSTRUCT(){
 		try{
@@ -36,8 +32,7 @@ class Sector{
 		try{
 			$result = array();
 
-			$stm = $this->pdo->prepare("select nombre,adulto_nacional,nino_nacional,estudiantes,adulto_extranjero,nino_extranjero,camping_adulto_nacional,
-			camping_nino_nacional,camping_estudiantes,camping_adulto_extranjero,camping_nino_extranjero from sector;");
+			$stm = $this->pdo->prepare("select nombre,adulto_nacional,nino_nacional,estudiantes,adulto_extranjero,nino_extranjero,tarifa_camping from sector;");
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);

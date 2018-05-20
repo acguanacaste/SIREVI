@@ -19,7 +19,11 @@
           <li>
             <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
             <div class="body "><span >
+<<<<<<< HEAD
               <form action="?c=Visitacion&a=ConsultaNacionalesController_2" method="post">
+=======
+              <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
+>>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
 
 
                 <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->

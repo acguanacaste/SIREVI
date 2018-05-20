@@ -45,6 +45,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+
 /*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
       require_once 'view/includes/headerPrincipal.php';
@@ -73,7 +74,13 @@ public function Resultado_Diario($result){
 }
 /*=====================================================================================================================*/
 
-    public function Reporte_NacionalesAgrupadosXProvincia(){
+    public function consultaIngresoSalidaDiario(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
+        require_once 'view/includes/footer.php';
+    }
+
+    public function Reporte(){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
@@ -113,6 +120,7 @@ public function Resultado_Diario($result){
 
         if(isset($_REQUEST['id'])){
             $visit = $this->model->Obtener($_REQUEST['id']);
+
     }
 
         require_once 'view/includes/headerPrincipal.php';
@@ -123,9 +131,12 @@ public function Resultado_Diario($result){
 
 
     public function Guardar(){
-//var_dump ($_REQUEST);
-//die();
+
         $visit = new Visitacion();
+        $visit->sector                    = $_REQUEST['sector'];
+        $visit->usuario                   = $_REQUEST['usuario'];
+        $visit->asp                       = $_REQUEST['asp'];
+
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
 
@@ -137,12 +148,13 @@ public function Resultado_Diario($result){
         $visit->provincia                 = $_REQUEST['provincia'];
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];
         $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
+
 //--------------------------------------------------------------------------------------------------------
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
+
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
-    //    $visit->salida                    = $_REQUEST['salida'];
         $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
@@ -189,6 +201,7 @@ public function Resultado_Diario($result){
               header( 'HTTP/1.0 403 Forbiden');//).
           }
         }
+
 /*==============================================================================================================*/
 
     public function Consulta_SEMEC_Controller(){
@@ -213,14 +226,7 @@ public function Consulta_ReporteDiario_Controller(){
 /*==================================================================================================*/
 
 
-
-
-
-
 /*==================================================================================================*/
-
-
-
 
 
 }//Fin de la clase

@@ -27,7 +27,11 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
+<<<<<<< HEAD
                     <form action="?c=Visitacion&a=ConsultaNacionalesController_2" method="post">
+=======
+                    <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
+>>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
 
 
                       <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
@@ -90,6 +94,7 @@
      </tr>
    </thead>
 
+<<<<<<< HEAD
     <tbody>
       <?php foreach ($this->model->ConsultaNacionalesModel_2() as $r): ?>
       <tr>
@@ -103,6 +108,23 @@
         <td><php echo $r->referencia_visita ?></td>
       <!--  <td><php echo $r->Sector; ?></td> -->
         <td><?php echo $r->fecha; ?></td>
+=======
+        <tbody>
+      <?php foreach ($this->model->Nacionalidades() as $r): ?>
+      <tr>
+
+        <td><?php echo $r->id; ?></td>
+        <td><?php echo $r->fecha; ?></td>
+        <td><?php echo $r->Pais; ?></td>
+        <td><?php echo $r->Nombre; ?></td>
+        <td><?php echo $r->tipo_pago; ?></td>
+        <td><?php echo $r->moneda; ?></td>
+        <td><?php echo $r->referencia_visita ?></td>
+      <!--  <td><?php echo $r->Sector; ?></td> -->
+        <td><?php echo $r->Sendero; ?></td>
+
+
+>>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
       </tr>
       <?php endforeach; ?>
     </tbody>

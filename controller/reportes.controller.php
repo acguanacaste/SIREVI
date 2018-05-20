@@ -30,6 +30,7 @@ class ReportesController{
       echo "</pre>";*/
         $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
         header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
+
     }
 
     public function ConsultaCampistasController(){
@@ -52,5 +53,4 @@ class ReportesController{
         header('Location:?c=Visitacion&a=');
     }
 
-
-}
+  }

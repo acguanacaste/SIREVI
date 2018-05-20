@@ -34,7 +34,6 @@ class Visitacion{
     public $personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
 		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
 
-
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
 	  public $montoCancelar;//Para que se guarde el monto que el visitante pago en total.
@@ -77,27 +76,24 @@ class Visitacion{
 		}
 	}
 
-	public function Nacionalidades(){
-		try{
-			$result = array();
-
-			$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha,
-			 visitacion.nombre as Nombre, pais.nombre as Pais, visitacion.tipo_pago, visitacion.moneda, referencia_visita,
-			 sendero.nombre as Sendero
-				 from visitacion
-							inner join pais on visitacion.pais = pais.id
-							inner join sendero on visitacion.sendero = sendero.id ;");
-			$stm->execute();
+/*==========================================================================================*/
 
 
-			return $stm->fetchAll(PDO::FETCH_OBJ);
-		}
-		catch(Exception $e){
-			die($e->getMessage());
-		}
+
+public function ConteoIngresosDiarios(){
+	try{
+		$result = array();
+		$stm = $this->pdo->prepare("");
+
+		$stm->execute();
+		return $stm->fetchAll(PDO::FETCH_OBJ);
 	}
+	catch(Exception $e){
+		die($e->getMessage());
+	}
+}
 
-
+/*=========================================================================================*/
 	public function Obtener($id){
 		try{
 			$stm = $this->pdo
@@ -111,7 +107,8 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
-		/*====================================================================================================*/
+
+/*====================================================================================================*/
 		public function ContarRegistros(){
 			try{
 				$stm = $this->pdo
@@ -137,20 +134,6 @@ class Visitacion{
 		}
 	}
 
-	public function ConsultaPersonasDentroParque(){
-		try{
-			$stm = $this->pdo
-			            ->prepare("select * from visitacion where visitacion.fecha= now()");
-
-			$stm->execute(array($id));
-		}
-		catch (Exception $e){
-			die($e->getMessage());
-		}
-	}
-
-
-
 
 	public function Actualizar($data){
 		try{
@@ -160,10 +143,10 @@ class Visitacion{
             noIdentificacion      		= ?,
 						nombre                		= ?,
 						placa_automovil       		= ?,
----------------------------------------------------------------------
+
 						pais       								= ?,
 						provincia             		= ?,
-					--	referencia_visita     		= ?,
+
 -----------------------------------------------------------------------
             sendero                   = ?,
             dias_camping          		= ?,
@@ -180,6 +163,8 @@ class Visitacion{
 --------------------------------------------------------------------------
             personas_surf             = ?,
 						prepago               		= ?,
+--------------------------------------------------------------------------------
+
 
 -------------------------------------------------------------------
 						tipo_pago       					= ?,
@@ -236,19 +221,23 @@ class Visitacion{
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
-       pais, provincia,referencia_visita,nom_referencia_visita,
+		$sql ="INSERT INTO visitacion (sector,usuario,asp,proposito_visita, noIdentificacion, nombre, placa_automovil,
+       pais_id,provincia_id,referencia_visita,nom_referencia_visita,
        sendero, dias_camping, subSector,
         nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
 				extranjero_adult, extranjero_kid,extranjero_exonerado,
         personas_surf, prepago, montoCancelar,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
-				array(		  $data->proposito_visita,
-
+				array(
+										$data->sector,
+										$data->usuario,
+										$data->asp,
+/*================================================================================================*/
+					 					$data->proposito_visita,
                     $data->noIdentificacion,
                     $data->nombre,
 										$data->placa_automovil,
@@ -257,6 +246,7 @@ class Visitacion{
 										$data->provincia,
 										$data->referencia_visita,
 										$data->nom_referencia_visita,
+
 //----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
@@ -277,6 +267,7 @@ class Visitacion{
 
                     $data->personas_surf,
                     $data->prepago,
+
 
 //----------------------------------------------------------------------------------------
 										$data->montoCancelar,
@@ -340,4 +331,20 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 	}
 }
 /*=================================================================================================*/
+
+public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+		$result = array();
+		try {
+			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
+			$stm->execute();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+
+	}
+
+
+
+
 }// fin del PHP.
