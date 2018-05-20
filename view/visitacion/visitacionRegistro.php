@@ -71,9 +71,9 @@
               <div class="">
         <!--        <form id="frm-visitacion" action="?c=Visitacion&a=Guardar" method="post" enctype="multipart/form-data">-->
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
-                  <input type="text" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
-                  <input type="text" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
-                  <input type="text" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
+                  <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
+                  <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
+                  <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
 
 
                   <div class="">
@@ -143,6 +143,7 @@
                     </select>
                     <label>País</label>
                   </div>
+
 
 <!--==============Cargando las cuidades============================================-->
       <?php
