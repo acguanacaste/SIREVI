@@ -330,6 +330,21 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 		die($e->getMessage());
 	}
 }
+
+/*=====================================================================================================*/
+public function Consulta_Cant_Personas_Parque_Model(){
+
+		$result = array();
+		try {
+			$stm = $this->pdo->prepare("call cant_personas_dentro_parque()");
+			$stm->execute();
+			$result = $stm->fetchAll(PDO::FETCH_OBJ);
+			return $result;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
 /*=================================================================================================*/
 
 public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
@@ -343,8 +358,6 @@ public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
 		}
 
 	}
-
-
 
 
 }// fin del PHP.

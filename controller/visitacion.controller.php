@@ -222,9 +222,14 @@ public function Consulta_ReporteDiario_Controller(){
 
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
-
 /*==================================================================================================*/
 
+public function Consulta_Cant_Personas_Parque_Cotnroller(){
+
+      $result = $this->model->Consulta_Cant_Personas_Parque_Model();
+      $this->Resultado_Cantidad($result);
+
+}
 
 /*==================================================================================================*/
 

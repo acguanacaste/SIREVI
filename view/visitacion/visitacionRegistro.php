@@ -17,7 +17,6 @@
 
                       <div class="row"><!---Inicio de dos columnas-->
 
-
                       <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Numero diario</legend></center>
                           <center>
@@ -228,12 +227,17 @@
 
                 <div  class="input-field col s12 m4 l3"><!--Columna-->
                     <fieldset ><legend>Dias acampando</legend>
-                      <div>
+
                         <div class="input-field col s12 m12 l12  ">
                           <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                           <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
                         </div>
-                      </div>
+
+                        <div class="input-field col s12 m12 l12">
+                        Cantidad Personas*:
+                          <br>
+                          <input  id="cant_personas_camping" type="number" name="cant_personas_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                        </div>
                     </fieldset>
               </div><!--Fin de la tercera fila-->
 

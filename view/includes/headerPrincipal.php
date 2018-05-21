@@ -19,8 +19,23 @@ header("Location:?c=login&a=index");
 
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
-/*================================================================================================*/
+
+	<script type="text/javascript">
+  	$(document).ready(function () {
+	    $('#cant_personas_camping').attr("hidden", true);
+
+    	$('#dias_camping').keyup(function () {
+        var value = $(this).val();
+          if (value.length == 0) {
+            $('#cant_personas_camping').val('');
+
+            $('#cant_personas_camping').attr("hidden", true);
+
+          }
+        else
+        	$('#cant_personas_camping').removeAttr("hidden");
+      });
+		});
 /*=================================================================================================*/
 function pagoOnChange(sel) {
       if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
