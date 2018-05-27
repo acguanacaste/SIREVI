@@ -30,8 +30,27 @@ class ReportesController{
       echo "</pre>";*/
         $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
         header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
-      }
 
+    }
 
+    public function ConsultaCampistasController(){
+      //var_dump ($_REQUEST);
+      //die();
+      /*echo "<pre>";
+      var_dump($_POST);
+      echo "</pre>";*/
+        $this->model->ConsultaCampistasModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+        header('Location:?c=Visitacion&a=');
+    }
 
-}
+    public function Consulta_SEMEC_Controller(){
+      //var_dump ($_REQUEST);
+      //die();
+      /*echo "<pre>";
+      var_dump($_POST);
+      echo "</pre>";*/
+        $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+        header('Location:?c=Visitacion&a=');
+    }
+
+  }

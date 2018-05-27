@@ -11,11 +11,7 @@ class SenderoController{
 
 
     public function Index(){
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sendero/sendero.php';
         require_once 'view/includes/footer.php';
     }
@@ -28,11 +24,7 @@ class SenderoController{
             $sendero = $this->model->Obtener($_REQUEST['id']);
         }
 
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sendero/senderoModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -41,18 +33,13 @@ class SenderoController{
     public function agregarRegistro(){
         $sendero = new Sendero();
 
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sendero/senderoRegistro.php';
         require_once 'view/includes/footer.php';
     }
 
 
     public function Guardar(){
-<<<<<<< refs/remotes/origin/master
 
         $sendero = new Sendero();
         $sendero->id = $_REQUEST['id'];
@@ -73,21 +60,6 @@ class SenderoController{
         $sendero->id > 0
             ? $this->model->Actualizar($sendero)
             : $this->model->Registrar($sendero);
-=======
-        $sendero = new Sendero();
-
-        $sendero->id = $_REQUEST['id'];
-        $sendero->nombre = $_REQUEST['nombre'];
-        $sendero->distancia = $_REQUEST['distancia'];
-        $sendero->longitud= $_REQUEST['longitud'];
-        $sendero->longitud= $_REQUEST['latitud'];
-
-
-
-        $sector->id > 0
-            ? $this->model->Actualizar($sector)
-            : $this->model->Registrar($sector);
->>>>>>> add some changes for development
 
         header('Location: index.php?c=Sendero');
     }
@@ -98,7 +70,6 @@ class SenderoController{
         $this->model->Eliminar($_REQUEST['id']);
         header('Location: index.php?c=Sendero');
     }
-<<<<<<< refs/remotes/origin/master
 
     public function Descripcion(){
         $sendero = new Sendero();
@@ -114,6 +85,4 @@ class SenderoController{
 
 
 
-=======
->>>>>>> add some changes for development
 }

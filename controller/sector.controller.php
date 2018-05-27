@@ -11,11 +11,7 @@ class SectorController{
 
 
     public function Index(){
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sector/sector.php';
         require_once 'view/includes/footer.php';
     }
@@ -28,11 +24,7 @@ class SectorController{
             $sector = $this->model->Obtener($_REQUEST['id']);
         }
 
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sector/sectorModificar.php';
         require_once 'view/includes/footer.php';
     }
@@ -41,16 +33,11 @@ class SectorController{
     public function agregarRegistro(){
         $sector = new Sector();
 
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/sector/sectorRegistro.php';
         require_once 'view/includes/footer.php';
     }
 
-<<<<<<< refs/remotes/origin/master
     public function IndexTarifas(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/sector/sectorTarifas.php';
@@ -74,27 +61,8 @@ class SectorController{
         $sector->adulto_extranjero          = $_REQUEST['adulto_extranjero'];
         $sector->nino_extranjero            = $_REQUEST['nino_extranjero'];
         /*Derecho de camping*/
-        $sector->camping_adulto_nacional    = $_REQUEST['camping_adulto_nacional'];
-        $sector->camping_nino_nacional      = $_REQUEST['camping_nino_nacional'];
-        $sector->camping_estudiantes        = $_REQUEST['camping_estudiantes'];
-        $sector->camping_adulto_extranjero  = $_REQUEST['camping_adulto_extranjero'];
-        $sector->camping_nino_extranjero    = $_REQUEST['camping_nino_extranjero'];
-=======
-
-    public function Guardar(){
-
-
-        $sector = new Sector();
-
-
-        $sector->id = $_REQUEST['id'];
-        $sector->nombre = $_REQUEST['nombre'];
-        $sector->capacidad_diaria = $_REQUEST['capacidad_diaria'];
-        $sector->capacidad_acampar= $_REQUEST['capacidad_acampar'];
-
-
-
->>>>>>> add some changes for development
+        $sector->tarifa_camping             = $_REQUEST['tarifa_camping'];
+        $sector->cambio_dolar               = $_REQUEST['cambio_dolar'];
         $sector->id > 0
             ? $this->model->Actualizar($sector)
             : $this->model->Registrar($sector);

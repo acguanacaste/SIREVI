@@ -1,7 +1,7 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <main>
   <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-    <a href="#">Reporte Nacionalidades</a></h4>
+    <a href="#">Reporte SEMEC </a></h4>
 
 <div class="">
 
@@ -19,12 +19,7 @@
           <li>
             <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
             <div class="body "><span >
-<<<<<<< HEAD
-              <form action="?c=Visitacion&a=ConsultaNacionalesController_2" method="post">
-=======
-              <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
->>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
-
+              <form action="?c=Visitacion&a=Consulta_SEMEC_Controller" method="post">
 
                 <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
                   <center>
@@ -82,35 +77,22 @@
           <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
             <thead class="white-text teal darken-4 z-depth-2">
        <tr>
-         <th> ID</th>
-         <th> Fecha visitación</th>
-         <th> País</th>
-         <th> Nombre</th>
-         <th> Tipo pago</th>
-         <th> Moneda</th>
-         <th> Referencia visitacion</th>
- <!--        <th> Sector</th> -->
-         <th> Sendero</th>
+         <th>AC</th>
+         <th>Centro operativo</th>
+         <th>Tipo ASP</th>
+         <th>ASP</th>
+         <th>Mes</th>
+         <th>Nac. Pagos</th>
+         <th>Exonerdado</th>
+         <th>Total Nac.</th>
+         <th>Ext. Pagos</th>
+         <th>Total Ext</th>
+         <th>Monto Total</th>
        </tr>
      </thead>
 
-          <tbody>
-        <?php foreach ($this->model->Nacionalidades() as $r): ?>
-        <tr>
+      <tbody>
 
-          <td><?php echo $r->id; ?></td>
-          <td><?php echo $r->fecha; ?></td>
-          <td><?php echo $r->Pais; ?></td>
-          <td><?php echo $r->Nombre; ?></td>
-          <td><?php echo $r->tipo_pago; ?></td>
-          <td><?php echo $r->moneda; ?></td>
-          <td><?php echo $r->referencia_visita ?></td>
-        <!--  <td><?php echo $r->Sector; ?></td> -->
-          <td><?php echo $r->Sendero; ?></td>
-
-
-        </tr>
-        <?php endforeach; ?>
       </tbody>
 
         </table>

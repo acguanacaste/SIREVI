@@ -224,22 +224,39 @@ $(document).ready(function() {
 												 <label for="pass">&nbsp;Contraseña</label>
 											</div>
 
-											<div class="input-field col s12 m12 l12 ">
+							<div class="input-field col s12 m12 l12 ">
 												<div class="input-field col s12">
 									 				<select id="sector" name="sector">
 												  	<option value="" disabled selected>Elija una opción</option>
-												  	<option value="Santa Rosa"> Santa Rosa</option>
-												  	<option value="Pailas">     Pailas</option>
-												  	<option value="Junquillal"> Junquillal</option>
-														<option value=""></option>
-														<option value=""></option>
-														<option value=""></option>
-														<option value=""></option>
+												  	<option value="Santa Rosa">  1. Santa Rosa</option>
+														<option value="Junquillal">  2. Junquillal</option>
+												  	<option value="Pailas">      3. Pailas</option>
+														<option value="Horizontez">  4.Horizontez</option>
+														<option value="Santa Maria"> 5. Santa Maria</option>
+														<option value="Murcielago">  6. Murcielago</option>
+														<option value="Marino">      7. Marino</option>
 												 	</select>
 												 <label for="sector">Sector al que pertenece</label>
 												</div>
 										 	</div>
 
+<!--<div >
+	<php
+	$conexion = mysql_connect("localhost","root");
+	mysql_select_db("sirevi",$conexion);
+	$sentencia_sector = "select * from sector order by id ASC";
+	$query_sector = mysql_query($sentencia_sector);
+	?>
+	<div  class="input-field col s6 m12 l12">
+		<select name="sector">
+			<option value="" disabled selected>Elija un pais</option>
+			<php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
+			<option value="php echo $arreglo_sector['id']?>"><php echo $arreglo_sector['nombre'] ?></option>
+			<php } ?>
+		</select>
+		<label>Sector</label>
+	</div>
+</div> -->
 
 
 											<div class="input-field col s12 m12 l12">

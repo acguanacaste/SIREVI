@@ -9,7 +9,6 @@ class VisitacionController{
         $this->model = new Visitacion();
     }
 
-<<<<<<< refs/remotes/origin/master
     public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
@@ -17,16 +16,11 @@ class VisitacionController{
     }
 
     public function AdminUser(){
-=======
-
-    public function Index(){
->>>>>>> add some changes for development
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
         require_once 'view/includes/footer.php';
     }
 
-<<<<<<< refs/remotes/origin/master
     public function SectorManagerUser(){
         require_once 'view/includes/headerEncargadoSector.php';
         require_once 'view/visitacion/visitacion.php';
@@ -51,6 +45,35 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+
+/*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
+    public function Reporte_SEMEC(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/SEMEC.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function Resultado_SEMEC($result){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/resultado_SEMEC.php';
+      require_once 'view/includes/footer.php';
+   }
+/*=====================================================================================================================*/
+
+/*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
+public function Reporte_Diario(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Diario($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+/*=====================================================================================================================*/
+
     public function consultaIngresoSalidaDiario(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
@@ -74,12 +97,10 @@ class VisitacionController{
       header("Content-Disposition: attachment; filename=reporte.xls");
       header("Pragma: no-cache");
       header("Expires: 0");
-      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
   }
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
-=======
->>>>>>> add some changes for development
 
     public function Modificar(){
         $visit = new Visitacion();
@@ -88,32 +109,21 @@ class VisitacionController{
             $visit = $this->model->Obtener($_REQUEST['id']);
         }
 
-<<<<<<< refs/remotes/origin/master
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/visitacion/visitacionModificar.php';
         require_once 'view/includes/footer.php';
     }
 
-<<<<<<< refs/remotes/origin/master
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
-=======
-
->>>>>>> add some changes for development
     public function agregarRegistro(){
         $visit = new Visitacion();
 
         if(isset($_REQUEST['id'])){
             $visit = $this->model->Obtener($_REQUEST['id']);
-        }
 
-<<<<<<< refs/remotes/origin/master
+    }
+
         require_once 'view/includes/headerPrincipal.php';
-=======
-        require_once 'view/includes/header.php';
->>>>>>> add some changes for development
         require_once 'view/visitacion/visitacionRegistro.php';
         require_once 'view/includes/footer.php';
     }
@@ -121,10 +131,12 @@ class VisitacionController{
 
 
     public function Guardar(){
-<<<<<<< refs/remotes/origin/master
-//var_dump ($_REQUEST);
-//die();
+
         $visit = new Visitacion();
+        $visit->sector                    = $_REQUEST['sector'];
+        $visit->usuario                   = $_REQUEST['usuario'];
+        $visit->asp                       = $_REQUEST['asp'];
+
         $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
 
@@ -135,23 +147,28 @@ class VisitacionController{
         $visit->pais                      = $_REQUEST['pais'];
         $visit->provincia                 = $_REQUEST['provincia'];
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];
+        $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
+
 //--------------------------------------------------------------------------------------------------------
 //        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
+
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
-        $visit->salida                    = $_REQUEST['salida'];
         $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
         $visit->estudiantes               = $_REQUEST['estudiantes'];
+        $visit->nacional_exonerado        = $_REQUEST['nacional_exonerado'];
+
         $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
         $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
+        $visit->extranjero_exonerado      = $_REQUEST['extranjero_exonerado'];
 
         $visit->personas_surf             = $_REQUEST['personas_surf'];
         $visit->prepago                   = $_REQUEST['prepago'];
-        $visit->exonerado                 = $_REQUEST['exonerado'];
+
 //-----------------------------------------------------------------------------------------------------
         $visit->montoCancelar             = $_REQUEST['montoCancelar'];
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
@@ -167,41 +184,11 @@ class VisitacionController{
     public function Conteo(){
       $this->model->ContarRegistros();
     }
-=======
-        $visit = new Visitacion();
-
-        $visit->id                    = $_REQUEST['id'];
-        $visit->noIdentificacion      = $_REQUEST['noIdentificacion'];
-        $visit->nombre                = $_REQUEST['nombre'];
-        $visit->fecha_ingreso         = $_REQUEST['fecha_ingreso'];
-        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
-        $visit->acampa                = $_REQUEST['acampa'];
-        $visit->dias_camping          = $_REQUEST['dias_camping'];
-        $visit->cantidadPersonasSurf  = $_REQUEST['cantidadPersonasSurf'];
-        $visit->prepago               = $_REQUEST['prepago'];
-        $visit->exonerado             = $_REQUEST['exonerado'];
-        $visit->numero_diario         = $_REQUEST['numero_diario'];
-        $visit->placa_automovil       = $_REQUEST['placa_automovil'];
-        $visit->tipo_automovil        = $_REQUEST['tipo_automovil'];
-        $visit->monto                 = $_REQUEST['monto'];
-        $visit->moneda                = $_REQUEST['moneda'];
-        $visit->total                 = $_REQUEST['total'];
-
-        $user->id > 0
-            ? $this->model->Actualizar($visit)
-            : $this->model->Registrar($visit);
-
-        header('Location: index.php?c=Usuario');
-    }
-
-
->>>>>>> add some changes for development
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
         header('Location: index.php?c=Visitacion');
     }
-<<<<<<< refs/remotes/origin/master
 
     /*======================================================================*/
         public function Salida(){
@@ -215,17 +202,36 @@ class VisitacionController{
           }
         }
 
+/*==============================================================================================================*/
 
-    public function ConsultaNacionalesController(){
-      //var_dump ($_REQUEST);
-      //die();
-      /*echo "<pre>";
-      var_dump($_POST);
-      echo "</pre>";*/
-        $this->model->ConsultaNacionalesModel($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-        header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
-      }
+    public function Consulta_SEMEC_Controller(){
 
-=======
->>>>>>> add some changes for development
+          $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+
+          $this->Resultado_SEMEC($result);
+
+          header('Location:?c=Visitacion&a=Resultado_SEMEC');
+    }
+
+/*======================================================================================================*/
+public function Consulta_ReporteDiario_Controller(){
+
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+
+      $this->Resultado_Diario($result);
+
+      header('Location:?c=Visitacion&a=Resultado_Diario');
 }
+/*==================================================================================================*/
+
+public function Consulta_Cant_Personas_Parque_Cotnroller(){
+
+      $result = $this->model->Consulta_Cant_Personas_Parque_Model();
+      $this->Resultado_Cantidad($result);
+
+}
+
+/*==================================================================================================*/
+
+
+}//Fin de la clase

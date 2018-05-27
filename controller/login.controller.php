@@ -2,7 +2,6 @@
 
 class loginController{
 
-<<<<<<< refs/remotes/origin/master
   public function Index(){
       require_once 'view/indexLogin.php';
   }
@@ -49,13 +48,5 @@ class loginController{
 
 //===================================================================================================================================
 
-=======
-
-    public function Index(){
-
-        require_once 'view/indexLogin.php';
-
-    }
->>>>>>> add some changes for development
 
 }

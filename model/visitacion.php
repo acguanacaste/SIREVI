@@ -3,7 +3,6 @@ class Visitacion{
 	private $pdo;
 
     public $id;
-<<<<<<< refs/remotes/origin/master
     public $proposito_visita;// Aun no se guarda en la base de datos
 	//	public $numero_diario;//Numero para confrimar la salida de los visitantes
 		public $fecha;
@@ -14,6 +13,7 @@ class Visitacion{
 		public $pais;
 		public $provincia;//Se carga la tabla de los paices al formulario.
 		public $referencia_visita;//se carga la tabla de provincia en el formulario.
+		public $nom_referencia_visita;//Esta variable me guarda el nombre de la referencia de la visita en caso de que requiera
 
     public $sector;//Sector aun no se guarda en la base de datos
     public $sendero;
@@ -25,12 +25,14 @@ class Visitacion{
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
 		public $nacional_kid;//Se guarda la cantidad por ninos Nacionales
 		public $estudiantes;//Se guarda la cantidad pde estudiantes
+		public $nacional_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+
 		public $extranjero_adult;//Se guarda la cantida de visitantes estrnjeros
 		public $extranjero_kid;//Se guarda el monto por ninos Extranjeros
+		public $extranjero_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
 
     public $personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
 		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
-    public $exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
 
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
@@ -58,10 +60,10 @@ class Visitacion{
         pais.nombre as Pais, referencia_visita,
          sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-          personas_surf, prepago, exonerado,
+          personas_surf, prepago,
 			     tipo_pago, moneda, horaSalida
             from visitacion
-              inner join pais on visitacion.pais = pais.id
+              inner join pais on visitacion.pais_id = pais.id
               inner join sendero on visitacion.sendero = sendero.id order by id asc;");
 							//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
 			$stm->execute();
@@ -70,97 +72,43 @@ class Visitacion{
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
 		catch(Exception $e){
-=======
-    public $noIdentificacion;
-    public $nombre;
-    public $fecha_ingreso;
-    public $fecha_salida;
-    public $acampa;
-    public $dias_camping;
-    public $cantidadPersonasSurf;
-    public $prepago;
-    public $exonerado;
-    public $numero_diario;
-    public $placa_automovil;
-    public $tipo_automovil;
-    public $monto;
-    public $moneda;
-    public $total;
-
-
-
-	public function __CONSTRUCT()
-	{
-		try
-		{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e)
-		{
->>>>>>> add some changes for development
 			die($e->getMessage());
 		}
 	}
 
-<<<<<<< refs/remotes/origin/master
-	public function Nacionalidades(){
-		try{
-			$result = array();
-
-			$stm = $this->pdo->prepare("select visitacion.id, visitacion.fecha, visitacion.pais,
-			 visitacion.nombre as Nombre, pais.nombre as Pais, visitacion.tipo_pago, visitacion.moneda, referencia_visita,
-			 sendero.nombre as Sendero
-				 from visitacion
-							inner join pais on visitacion.pais = pais.id
-							inner join sendero on visitacion.sendero = sendero.id ;");
-			$stm->execute();
+/*==========================================================================================*/
 
 
-			return $stm->fetchAll(PDO::FETCH_OBJ);
-		}
-		catch(Exception $e){
-=======
-	public function Listar()
-	{
-		try
-		{
-			$result = array();
 
-			$stm = $this->pdo->prepare("SELECT * FROM visitacion");
-			$stm->execute();
+public function ConteoIngresosDiarios(){
+	try{
+		$result = array();
+		$stm = $this->pdo->prepare("");
 
-			return $stm->fetchAll(PDO::FETCH_OBJ);
-		}
-		catch(Exception $e)
-		{
->>>>>>> add some changes for development
-			die($e->getMessage());
-		}
+		$stm->execute();
+		return $stm->fetchAll(PDO::FETCH_OBJ);
 	}
+	catch(Exception $e){
+		die($e->getMessage());
+	}
+}
 
-<<<<<<< refs/remotes/origin/master
-
+/*=========================================================================================*/
 	public function Obtener($id){
 		try{
-=======
-	public function Obtener($id)
-	{
-		try
-		{
->>>>>>> add some changes for development
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM visitacion WHERE id = ?");
 
 
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
-<<<<<<< refs/remotes/origin/master
 		}
 		 catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
-		/*====================================================================================================*/
+
+/*====================================================================================================*/
 		public function ContarRegistros(){
 			try{
 				$stm = $this->pdo
@@ -176,48 +124,15 @@ class Visitacion{
 
 	public function Eliminar($id){
 		try{
-=======
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
-
-
-	public function Eliminar($id)
-	{
-		try
-		{
->>>>>>> add some changes for development
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM visitacion WHERE id = ?");
 
 			$stm->execute(array($id));
-<<<<<<< refs/remotes/origin/master
 		}
 		catch (Exception $e){
 			die($e->getMessage());
 		}
 	}
-
-	public function ConsultaPersonasDentroParque(){
-		try{
-			$stm = $this->pdo
-			            ->prepare("select * from visitacion where visitacion.fecha= now()");
-
-			$stm->execute(array($id));
-		}
-		catch (Exception $e){
-=======
-		} catch (Exception $e)
-		{
->>>>>>> add some changes for development
-			die($e->getMessage());
-		}
-	}
-
-<<<<<<< refs/remotes/origin/master
-
 
 
 	public function Actualizar($data){
@@ -228,10 +143,10 @@ class Visitacion{
             noIdentificacion      		= ?,
 						nombre                		= ?,
 						placa_automovil       		= ?,
----------------------------------------------------------------------
+
 						pais       								= ?,
 						provincia             		= ?,
-					--	referencia_visita     		= ?,
+
 -----------------------------------------------------------------------
             sendero                   = ?,
             dias_camping          		= ?,
@@ -240,44 +155,26 @@ class Visitacion{
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
+						nacional_exonerado     		= ?,
+
 						extranjero_adult      		= ?,
 						extranjero_kid  					= ?,
+						extranjero_exonerado   		= ?,
 --------------------------------------------------------------------------
             personas_surf             = ?,
 						prepago               		= ?,
-            exonerado             		= ?,
+--------------------------------------------------------------------------------
+
+
 -------------------------------------------------------------------
 						tipo_pago       					= ?,
             moneda                    = ?,
 
-=======
-	public function Actualizar($data)
-	{
-		try
-		{
-			$sql = "UPDATE visitacion SET
-            noIdentificacion      = ?,
-						nombre                = ?,
-						fecha_ingreso         = ?,
-            fecha_salida          = ?,
-            acampa                = ?,
-            dias_camping          = ?,
-            cantidadPersonasSurf  = ?,
-            prepago               = ?,
-            exonerado             = ?,
-            numero_diario         = ?,
-            placa_automovil       = ?,
-            tipo_automovil        = ?,
-            monto                 = ?,
-            moneda                = ?,
-            total                 = ?
->>>>>>> add some changes for development
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
-<<<<<<< refs/remotes/origin/master
 												$data->proposito_visita,
                         $data->noIdentificacion,
                         $data->nombre,
@@ -298,35 +195,20 @@ class Visitacion{
 												$data->nacional_adult,
 												$data->nacional_kid,
 												$data->estudiantes,
+												$data->nacional_exonerado,
+
 												$data->extranjero_adult,
 												$data->extranjero_kid,
+												$data->extranjero_exonerado,
 
                         $data->personas_surf,
                         $data->prepago,
-                        $data->exonerado,
+
 //-----------------------------------------------------------------
                         $data->tipo_pago,
 												$data->moneda,
                         $data->id
 
-=======
-                        $data->noIdentificacion,
-                        $data->nombre,
-                        $data->fecha_ingreso,
-                        $data->fecha_salida,
-                        $data->acampa,
-                        $data->dias_camping,
-                        $data->cantidadPersonasSurf,
-                        $data->prepago,
-                        $data->exonerado,
-                        $data->numero_diario,
-                        $data->placa_automovil,
-                        $data->tipo_automovil,
-                        $data->monto,
-                        $data->moneda,
-                        $data->total,
-                        $data->id
->>>>>>> add some changes for development
 					)
 				);
 		} catch (Exception $e)
@@ -335,23 +217,27 @@ class Visitacion{
 		}
 	}
 
-<<<<<<< refs/remotes/origin/master
 	public function Registrar(Visitacion $data)
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (proposito_visita, noIdentificacion, nombre, placa_automovil,
-       pais, provincia,referencia_visita,
+		$sql ="INSERT INTO visitacion (sector,usuario,asp,proposito_visita, noIdentificacion, nombre, placa_automovil,
+       pais_id,provincia_id,referencia_visita,nom_referencia_visita,
        sendero, dias_camping, subSector,
-        nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-        personas_surf, prepago, exonerado,montoCancelar,
+        nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
+				extranjero_adult, extranjero_kid,extranjero_exonerado,
+        personas_surf, prepago, montoCancelar,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
-				array(		  $data->proposito_visita,
-
+				array(
+										$data->sector,
+										$data->usuario,
+										$data->asp,
+/*================================================================================================*/
+					 					$data->proposito_visita,
                     $data->noIdentificacion,
                     $data->nombre,
 										$data->placa_automovil,
@@ -359,6 +245,8 @@ class Visitacion{
 										$data->pais,
 										$data->provincia,
 										$data->referencia_visita,
+										$data->nom_referencia_visita,
+
 //----------------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------------
@@ -371,45 +259,21 @@ class Visitacion{
 										$data->nacional_adult,
 										$data->nacional_kid,
 										$data->estudiantes,
+										$data->nacional_exonerado,
+
 										$data->extranjero_adult,
 										$data->extranjero_kid,
+										$data->extranjero_exonerado,
 
                     $data->personas_surf,
                     $data->prepago,
-                    $data->exonerado,
+
+
 //----------------------------------------------------------------------------------------
 										$data->montoCancelar,
 										$data->tipo_pago,
 										$data->moneda,
 //
-=======
-	public function Registrar(Usuario $data)
-	{
-		try
-		{
-		$sql = "INSERT INTO usuarios (noIdentificacion,nombre,fecha_ingreso,fecha_salida,acampa,dias_camping,cantidadPersonasSurf,prepago,exonerado
-                                    numero_diario,placa_automovil,tipo_automovil,monto,moneda,total)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-                    $data->noIdentificacion,
-                    $data->nombre,
-                    $data->fecha_ingreso,
-                    $data->fecha_salida,
-                    $data->acampa,
-                    $data->dias_camping,
-                    $data->cantidadPersonasSurf,
-                    $data->prepago,
-                    $data->exonerado,
-                    $data->numero_diario,
-                    $data->placa_automovil,
-                    $data->tipo_automovil,
-                    $data->monto,
-                    $data->moneda,
-                    $data->total
->>>>>>> add some changes for development
 
                 )
 			);
@@ -418,7 +282,6 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
-<<<<<<< refs/remotes/origin/master
 
 	public function ControlSalidas(){/*Metodo que me borra los datos en la bd*/
   		try{
@@ -437,21 +300,64 @@ class Visitacion{
   		}
   	}
 
-		public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+
+/*======================>> Esta es la funcion (carpeta model) con la que se trabaja el reporte para SEMEC <<======================================================================================*/
+ 		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){//Funcion up and working
+
 			$result = array();
 			try {
-				$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
+				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd')");
 				$stm->execute();
-
+				$result = $stm->fetchAll(PDO::FETCH_OBJ);
+				return $result;
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
+		}
+/*================================================================================================================*/
 
+public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
+	/*echo "<pre>";
+	var_dump($fechaStart,$fechaEnd);
+	echo "</pre>";*/
+	$result = array();
+	try {
+		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$fechaEnd', '$pSector')");
+		$stm->execute();
+		$result = $stm->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+	} catch (Exception $e) {
+		die($e->getMessage());
+	}
+}
+
+/*=====================================================================================================*/
+public function Consulta_Cant_Personas_Parque_Model(){
+
+		$result = array();
+		try {
+			$stm = $this->pdo->prepare("call cant_personas_dentro_parque()");
+			$stm->execute();
+			$result = $stm->fetchAll(PDO::FETCH_OBJ);
+			return $result;
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+/*=================================================================================================*/
+
+public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+		$result = array();
+		try {
+			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");
+			$stm->execute();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
 		}
 
+	}
 
 
-
-=======
->>>>>>> add some changes for development
-}
+}// fin del PHP.

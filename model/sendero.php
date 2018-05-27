@@ -4,7 +4,6 @@ class Sendero{
 
     public $id;
     public $nombre;
-<<<<<<< refs/remotes/origin/master
     public $caracterizacion_segmento;
     public $tipo_sendero;
     public $atractivo;
@@ -15,11 +14,6 @@ class Sendero{
 		public $punto_llegada;
 		public $descripcion;
 		public $regulaciones;
-=======
-    public $distancia;
-    public $longitud;
-    public $latitud;
->>>>>>> add some changes for development
 
 
 	public function __CONSTRUCT()
@@ -40,13 +34,9 @@ class Sendero{
 		{
 			$result = array();
 
-<<<<<<< refs/remotes/origin/master
 			$stm = $this->pdo->prepare("select sendero.id, sendero.nombre as Sendero, caracterizacion_sendero,
 			tipo_sendero, atractivo, punto_inicio, punto_llegada, sector.nombre AS Sector
 			from sendero inner join sector on sendero.sector = sector.id;");
-=======
-			$stm = $this->pdo->prepare("SELECT * FROM sendero");
->>>>>>> add some changes for development
 			$stm->execute();
 
 			return $stm->fetchAll(PDO::FETCH_OBJ);
@@ -93,7 +83,6 @@ class Sendero{
 		try
 		{
 			$sql = "UPDATE sendero SET
-<<<<<<< refs/remotes/origin/master
 						nombre                    = ?,
 						caracterizacion_sendero  = ?,
 						tipo_sendero              = ?,
@@ -106,13 +95,6 @@ class Sendero{
 						descripcion								= ?,
 						regulaciones              = ?,
 						sector 										= ?
-=======
-						nombre            = ?,
-						distancia         = ?,
-            longitud          = ?,
-            latitud           = ?
-
->>>>>>> add some changes for development
 
 				    WHERE id = ?";
 
@@ -120,7 +102,6 @@ class Sendero{
 			     ->execute(
 				    array(
                         $data->nombre,
-<<<<<<< refs/remotes/origin/master
                         $data->caracterizacion_sendero,
                         $data->tipo_sendero,
 												$data->atractivo,
@@ -132,11 +113,6 @@ class Sendero{
 												$data->descripcion,
 												$data->regulaciones,
 												$data->sector,
-=======
-                        $data->distancia,
-                        $data->longitud,
-                        $data->latitud,
->>>>>>> add some changes for development
                         $data->id
 					)
 				);
@@ -150,20 +126,14 @@ class Sendero{
 	{
 		try
 		{
-<<<<<<< refs/remotes/origin/master
 		$sql = "INSERT INTO sendero (nombre ,caracterizacion_sendero, tipo_sendero, atractivo, distancia,
 			 				sector, tiempo_recorrido, punto_alto, punto_inicio, punto_llegada, descripcion, regulaciones)
 		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-=======
-		$sql = "INSERT INTO sendero (nombre,distancia,longitud,latitud)
-		        VALUES (?, ?, ?, ?)";
->>>>>>> add some changes for development
 
 		$this->pdo->prepare($sql)
 		     ->execute(
 				array(
                     $data->nombre,
-<<<<<<< refs/remotes/origin/master
                     $data->caracterizacion_sendero,
 										$data->tipo_sendero,
 										$data->atractivo,
@@ -175,12 +145,6 @@ class Sendero{
 										$data->punto_llegada,
 										$data->descripcion,
 										$data->regulaciones
-=======
-                    $data->distancia,
-                    $data->longitud,
-                    $data->latitud,
-
->>>>>>> add some changes for development
 
                 )
 			);

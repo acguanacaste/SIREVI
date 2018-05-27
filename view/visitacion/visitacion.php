@@ -1,5 +1,4 @@
 <main>
-<<<<<<< refs/remotes/origin/master
   <h4 class="header left"><span>&nbsp;</span><a href="#">
     <i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
 
@@ -83,65 +82,6 @@
           </span></div>
           <hr>
 
-
-          <!--Inicio de las lineas para la consulta de ingreso y salida diario-->
-    <!--      <div class="row center-align">
-
-<div class="input-field col s12 m6 l3">
-
-</div>
-
-            <div class="input-field col s12 m6 l6 center">
-              <ul class="collapsible" data-collapsible="accordion">
-            <li>
-              <div class=""><i class="material-icons">search</i>Consulta personas dentro y fuera del parque</div>
-              <div class=""><span><div class="row">
-                <div class="col s12 m12 l12">
-
-                  <fieldset>
-                    <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
-                    <li>
-                      <div class="header"><i class="material-icons">info_outline</i>Seleccione la fecha de hoy para verificar visitantes dentro del parque</div>
-                      <div class="body "><span >
-                        <form action="?c=Visitacion&a=consultaIngresoSalidaDiario" method="post">
-
-                          <div class="row">
-                            <div class="input-field col s12 m5 l2">
-                        <!--  <i class="small material-icons">contact_mail</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">--
-                        </div>
-
-                          <div class="input-field col s12 m5 l7">
-                                <i class="small material-icons">event_note</i><input type="text" name="fecha" class="datepicker black-text" placeholder="Fecha" style="width:200px;">
-                          </div>
-          <br>
-                      <div class="row">
-                        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-                          value="Buscar"  type="submit" name="action"> <span class="hide-on-small-only">Consultar</span>
-                            <i class="mdi-content-send material-icons right">pageview</i>
-                        </button>
-                      </div>
-                      </div>
-                    </form><!--FORM end--
-                    </span>
-                  </div>
-                    <hr>
-                   </li>
-                  </ul>
-                  </fieldset>
-                </div>
-              </div>
-          </span>
-          </div>
-            </li>
-
-          </ul>
-            </div>
-
-          </div> -->
-
-          <!--Fin de las filas para consulta de ingreso salida diario-->
-
-
          </li>
         </ul>
         </fieldset>
@@ -158,7 +98,7 @@
     <div class="row">
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
-          <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
+          <table id="data-table-simple" class="responsive-table grey lighten-1 centered highlight z-depth-5">
             <thead class="white-text teal darken-4 z-depth-2">
 <!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
             <tr>
@@ -239,90 +179,3 @@
     </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
-<<<<<<< Updated upstream
-
-<!--Script para poder agregar la hora cuando se cambia el icono de ingresos o salida del parque-->
-<script>
-function addZero(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-
-function setTime() {
-    var d = new Date();
-    var x = document.getElementById("time");
-    var h = addZero(d.getHours());
-    var m = addZero(d.getMinutes());
-    var s = addZero(d.getSeconds());
-    x.innerHTML = h + ":" + m + ":" + s;
-}
-</script>
-=======
-=======
-  <div class="container">
-
-            <h4 class="header left">Módulo de Visitacion</h4>
-            <div class="right">
-                <a href="index.php?c=Visitacion&a=agregarRegistro"> <i class="small material-icons">playlist_add</i>Nueva Visitacion</a>
-            </div>
-
-    </div>
-    <div class="container">
-    <div class="row">
-
-        <div class="col s12 m12 l12">
-            <!-- Inicio de mi codigo -->
-            <div id="search-docs" class="section scrollspy">
-                <section class="col-lg-18 usuario">
-                    <table class="responsive-table striped">
-                      <!--  <thead>
-<==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
-<!--
-                        <tr>
-
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Cedula</th>
-                            <th>Puesto</th>
-                            <th>E-mail</th>
-                            <th style="width:40px;"></th>
-                            <th colspan="2">Accion</th>
-
-                        </tr>
-<==================================================================================================================
-
-                        </thead>
-                        <tbody>
-                        <php foreach ($this->model->Listar() as $r): ?>
-                            <tr>
-
-                                <td><php echo $r->nombre; ?></td>
-                                <td><php echo $r->apellido; ?></td>
-                                <td><php echo $r->cedula; ?></td>
-                                <td><php echo $r->puesto; ?></td>
-                                <td><php echo $r->email; ?></td>
-                                <td>
-                                    <a href="?c=Usuario&a=Crud&id=<php echo $r->id; ?>"><i
-                                                class="small material-icons right">edit</i></a>
-                                </td>
-                                <td>
-                                    <a onclick="return confirm('¿Seguro de eliminar este registro?');"
-                                       href="?c=Usuario&a=Eliminar&id=<php echo $r->id; ?>">
-                                        <i class="small material-icons right">delete</i></a>
-                                </td>
-                            </tr>
-                        <php endforeach; ?>
-                        </tbody>
-                      -->
-                    </table>
-                </section>
-                <hr>
-            </div><!-- search-docs -->
-        </div><!-- Div de los tamanos -->
-    </div>
-    </div>
-        </main>
->>>>>>> add some changes for development
->>>>>>> Stashed changes

@@ -78,7 +78,6 @@ class UsuarioController{
     public function Guardar(){
         $user = new Usuario();
 
-<<<<<<< refs/remotes/origin/master
         $user->__SET('id',            $_REQUEST['id']);
         $user->__SET('nombre',        $_REQUEST['nombre']);
         $user->__SET('apellido',      $_REQUEST['apellido']);
@@ -94,7 +93,7 @@ class UsuarioController{
         $destino = "assets/fotos/".$foto;
         copy($ruta,$destino);
         $user->__SET('foto',$destino);
-=======
+
         $user->id         = $_REQUEST['id'];
         $user->nombre     = $_REQUEST['nombre'];
         $user->apellido   = $_REQUEST['apellido'];
@@ -102,7 +101,6 @@ class UsuarioController{
         $user->contrasena = $_REQUEST['contrasena'];
         $user->puesto     = $_REQUEST['puesto'];
         $user->email      = $_REQUEST['email'];
->>>>>>> add some changes for development
 
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/
@@ -123,7 +121,7 @@ class UsuarioController{
     public function CambiarEstado(){
         session_start();
 
-        if ($_SESSION['usuario']['puesto'] == 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
+        if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
           $this->model->Estado($_REQUEST['id']);
           header('Location:?c=Usuario');
         }

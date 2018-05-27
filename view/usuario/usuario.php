@@ -1,18 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
   <div class="container">
-<<<<<<< refs/remotes/origin/master
     <h4 class="header left">Módulo de Usuarios</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
     <a href="?c=Usuario&a=agregarRegistro "><span class="hide-on-med-and-up">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
-=======
-
-            <h4 class="header left">Módulo de Usuarios</h4>
-            <div class="right">
-                <a href="index.php?c=Usuario&a=agregarRegistro"> <i class="small material-icons">playlist_add</i>Nuevo Usuario</a>
-            </div>
->>>>>>> add some changes for development
 
     <div class="right hide-on-small-only">
       <a   href="?c=Usuario&a=agregarRegistro">
@@ -43,10 +35,11 @@
               <th>Cédula</th>
               <th>Puesto</th>
               <th>E-mail</th>
-              <th style="width:100px;">Imagen</th>
+              <th style="width:90px; heigth:110px;">Imagen</th>
+              <th style="width:40px;heigth:5px;"></th>
               <th>Estado</th>
-              <th style="width:40px;"></th>
-            <th >Acción</th>
+                <th style="width:40px;heigth:20px;"></th>
+            <th colspan="2" >Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -65,6 +58,7 @@
                 }else{
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
                 }; ?></td>
+                <td style="heigth:5px;"></td>
                 <td>
                   <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
                     <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
@@ -77,7 +71,6 @@
         </tbody>
       </table>
 
-<<<<<<< refs/remotes/origin/master
     </div><!-- Div de los tamanos -->
   </div>
 
@@ -87,31 +80,3 @@
   </div>
 </main>
 <?php endif; ?>
-=======
-                                <td><?php echo $r->nombre; ?></td>
-                                <td><?php echo $r->apellido; ?></td>
-                                <td><?php echo $r->cedula; ?></td>
-                                <td><?php echo $r->puesto; ?></td>
-                                <td><?php echo $r->email; ?></td>
-                                <td>
-                                    <a href="?c=Usuario&a=Crud&id=<?php echo $r->id; ?>"><i
-                                                class="small material-icons right">edit</i></a>
-                                </td>
-                                <td>
-                                    <a onclick="return confirm('¿Seguro de eliminar este registro?');"
-                                       href="?c=Usuario&a=Eliminar&id=<?php echo $r->id; ?>">
-                                        <i class="small material-icons right">delete</i></a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </section>
-                <hr>
-            </div><!-- search-docs -->
-        </div><!-- Div de los tamanos -->
-    </div>
-    </div>
-        </main>
-  
->>>>>>> add some changes for development
