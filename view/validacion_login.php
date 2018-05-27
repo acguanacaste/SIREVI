@@ -39,7 +39,8 @@ try{
 				"id"=>$res_usuario[0]['id'],
 				"email"=>$res_usuario[0]['email'],
 				"nombre"=>$res_usuario[0]['nombre']." ".$res_usuario[0]['apellido'],
-				"puesto"=>$res_usuario[0]['puesto'],//Esta es la line que me muestra el error...
+				"puesto"=>$res_usuario[0]['puesto'],
+				"foto"=>$res_usuario[0]['foto'],
 
 			);
 

@@ -146,7 +146,7 @@ function pagoOnChange(sel) {
 
 </ul>
 <!--=========================================================================-->
-					<a href="!#" class="brand-logo right ">SIREVI </a>
+					<a href="!#" class="brand-logo right hide-on-med-only">SIREVI </a>
 					<a href="!#" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú">toc</i></a>
 
 					<ul id="nav-mobile" class="left hide-on-small-only">
@@ -244,9 +244,10 @@ function pagoOnChange(sel) {
   	<li>
     	<div class="userView"><!-- Imagen avatar e informacion -->
 				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
-  		<a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-			<a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-			<a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
+
+  		<a href="#!user"><?php echo'<img class="circle responsive-img" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+			<a href="#!name"><span class="white-text name"><?php echo $_SESSION['usuario']['nombre']; ?></span></a>
+			<a href="#!email"><span class="white-text email"><?php echo $_SESSION['usuario']['email']; ?></span></a></div>
 		</li>
 		<!--============================= Fin de la Barra del buscador ===========================================================-->
 		<hr>
