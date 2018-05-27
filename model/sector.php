@@ -8,14 +8,9 @@ class Sector{
     public $capacidad_acampar;
 		public $asp;/*Llave foranea*/
 
-		//Ingreso por el dia
-		public $adulto_nacional;
-		public $nino_nacional;
-		public $estudiantes;
-		public $adulto_extranjero;
-		public $nino_extranjero;
 		//Derechos de camping
 		public $tarifa_camping;
+		public $cambio_dolar;
 
 
 	public function __CONSTRUCT(){
@@ -100,11 +95,8 @@ class Sector{
 						adulto_extranjero 				= ?,
 						nino_extranjero   				= ?,
 /*====== Derechos de acampar ==========*/
-						camping_adulto_nacional   = ?,
-						camping_nino_nacional     = ?,
-						camping_estudiantes       = ?,
-						camping_adulto_extranjero = ?,
-						camping_nino_extranjero   = ?
+						tarifa_camping   			    = ?,
+						cambio_dolar              = ?
 
 				    WHERE id = ?";
 
@@ -123,11 +115,8 @@ class Sector{
 												$data->nino_extranjero,
 
 												/*====== Derechos de acampar ==========*/
-												$data->camping_adulto_nacional,
-												$data->camping_nino_nacional,
-												$data->camping_estudiantes,
-												$data->camping_adulto_extranjero,
-												$data->camping_nino_extranjero,
+												$data->tarifa_camping,
+												$data->cambio_dolar,
 
 												$data->id
 					)
@@ -139,10 +128,10 @@ class Sector{
 
 	public function Registrar(Sector $data){
 		try{
-		$sql = "INSERT INTO sector (nombre,capacidad_diaria,capacidad_acampar,asp,
-			 													adulto_nacional,nino_nacional,estudiantes,adulto_extranjero,nino_extranjero,
-																camping_adulto_nacional,camping_nino_nacional,camping_estudiantes,camping_adulto_extranjero,camping_nino_extranjero)
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO sector (nombre, capacidad_diaria, capacidad_acampar, asp,
+			 													adulto_nacional, nino_nacional, estudiantes, adulto_extranjero, nino_extranjero,
+																tarifa_camping, cambio_dolar)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -158,12 +147,8 @@ class Sector{
 										$data->adulto_extranjero,
 										$data->nino_extranjero,
 
-										$data->camping_adulto_nacional,
-										$data->camping_nino_nacional,
-										$data->camping_estudiantes,
-										$data->camping_adulto_extranjero,
-										$data->camping_nino_extranjero
-
+										$data->tarifa_camping,
+										$data->cambio_dolar
 
                 )
 			);

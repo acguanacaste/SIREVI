@@ -61,7 +61,8 @@ class SectorController{
         $sector->adulto_extranjero          = $_REQUEST['adulto_extranjero'];
         $sector->nino_extranjero            = $_REQUEST['nino_extranjero'];
         /*Derecho de camping*/
-        $sector->tarifa_camping    = $_REQUEST['tarifa_camping'];
+        $sector->tarifa_camping             = $_REQUEST['tarifa_camping'];
+        $sector->cambio_dolar               = $_REQUEST['cambio_dolar'];
         $sector->id > 0
             ? $this->model->Actualizar($sector)
             : $this->model->Registrar($sector);

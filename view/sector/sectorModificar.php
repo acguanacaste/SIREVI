@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col s12 m10 l10">
+      <div class="col s12 m12 l10">
 <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
@@ -54,24 +54,6 @@
                      </div>
                </div><!--FIN DEL DIV DE FILA-->
 
-<!--///////////////////////////////////////////////////////////////////////////////////////////////-
-<div class="input-field col s12 m10 l12" >
-  <select id="asp" type="text" name="asp" value="<php echo $sector->asp; ?>" required>
-    <option value=""  disabled selected>Elija una opción</option>
-    <option value="1" <php echo $sector->asp==1?"selected":null; ?>>Santa Rosa</option>
-    <option value="2"<php echo $sector->asp==2?"selected":null;?>>Pailas</option>
-    <option value="3"<php echo $sector->asp==3?"selected":null; ?>>Junquillal</option>
-    <option value="4"<php echo $sector->asp==4?"selected":null; ?>>Otro sector</option>
-  </select>
-  <label for="puesto">Área Silvestre Protegida</label>
-</div>
-<!--////////////////////////////////////////////////////////////////////////////////////////////////-->
-
-
-
-
-
-
                <div class="">
                  <fieldset>
                    <legend>Tarifas de admisión por el día</legend>
@@ -79,17 +61,17 @@
                      <div class="input-field col s12 m12 l12">
                        <fieldset class="z-depth-2">
                          <legend>Nacionales</legend>
-                         <div class="input-field col s6 m6 l4 ">
+                         <div class="input-field col s6 m4 l3 ">
                            <input  id="adulto_nacional" type="number" name="adulto_nacional" value="<?php echo $sector->adulto_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                            <label for="adulto_nacional" >  <i class="small material-icons"></i>Adultos</label>
                          </div>
 
-                         <div class="input-field col s6 m6 l4">
+                         <div class="input-field col s6 m4 l3">
                            <input  id="nino_nacional" type="number" name="nino_nacional" value="<?php echo $sector->nino_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                            <label for="nino_nacional" >  <i class="small material-icons"></i>Niños</label>
                          </div>
 
-                         <div class="input-field col s6 m6 l4">
+                         <div class="input-field col s6 m4 l3">
                            <input  id="estudiantes" type="number" name="estudiantes" value="<?php echo $sector->estudiantes; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                            <label for="estudiantes" >  <i class="small material-icons"></i>Estudiantes</label>
                          </div>
@@ -115,56 +97,36 @@
                  </fieldset>
                </div>
 
-               <div class="">
-                 <fieldset>
-                   <legend>Tarifas derecho de acampar</legend>
-                   <div class=""><!--- Inicio de linea para las tarifas --->
-                     <div class="input-field col s12 m12 l12">
-                       <fieldset class="z-depth-2">
-                         <legend>Nacionales</legend>
-                         <div class="input-field col s6 m6 l4 ">
-                           <input  id="camping_adulto_nacional" type="number" name="camping_adulto_nacional" value="<?php echo $sector->camping_adulto_nacional;  ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                           <label for="camping_adulto_nacional" >  <i class="small material-icons"></i>Adultos</label>
-                         </div>
+            <div class="">
+             <fieldset>
+               <div class="input-field col s12 m12 l12">
+                <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                <legend>Tarifa acampar</legend>
+                 <div class="">
+                   <input  id="" type="number" name="tarifa_camping" value="<?php echo $sector->tarifa_camping; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                 </div>
+               </fieldset>
 
-                         <div class="input-field col s6 m6 l4">
-                           <input  id="camping_nino_nacional" type="number" name="camping_nino_nacional" value="<?php echo $sector->camping_nino_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                           <label for="camping_nino_nacional" >  <i class="small material-icons"></i>Niños</label>
-                         </div>
+              <div class="input-field col s1 m1 l1"></div>
+                <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                  <legend>Cambio dolar</legend>
+                 <div class="">
+                   <input  id="" type="number" name="cambio_dolar" value="<?php echo $sector->cambio_dolar; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
 
-                         <div class="input-field col s6 m6 l4">
-                           <input  id="camping_estudiantes" type="number" name="camping_estudiantes" value="<?php echo $sector->camping_estudiantes; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                           <label for="camping_estudiantes" >  <i class="small material-icons"></i>Estudiantes</label>
-                         </div>
-                       </fieldset>
-                     </div>
-
-
-                   <div class="input-field col s12 m12 l12">
-                     <fieldset class="z-depth-2">
-                       <legend>Extranjeros</legend>
-                       <div class="input-field col s6 m6 l6 ">
-                         <input  id="camping_adulto_extranjero" type="number" name="camping_adulto_extranjero" value="<?php echo $sector->camping_adulto_extranjero; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                         <label for="camping_nino_extrajero" >  <i class="small material-icons"></i>Adultos</label>
-                       </div>
-
-                       <div class="input-field col s6 m6 l6 ">
-                         <input  id="camping_nino_extrajero" type="number" name="camping_nino_extranjero" value=<?php echo $sector->camping_nino_extranjero; ?> class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                         <label for="camping_nino_extranjero" >  <i class="small material-icons"></i>Niños</label>
-                       </div>
-                     </fieldset>
-                   </div>
-                 </div><!--Fin de lineas para las tarifas -->
-                 </fieldset>
+                 </div>
+               </fieldset>
                </div>
-
+              </fieldset>
+             </div>
 
                <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+<br>
+               <center>
                <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
                  value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
                       <i class="mdi-content-send material-icons right">done</i>
                </button>
-
+             </center>
              <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
            </div>
          </form>
@@ -172,13 +134,16 @@
      </div>
     </div>
 </fieldset>
-
+<br>
+<div class="hide-on-large-only">
+  <a href="index.php?c=Sector"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+</div>
 
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
 
-      <div class="col hide-on-small-only m3 l2">
+      <div class="col l2 hide-on-med-and-down">
         <div class="toc-wrapper pin-top" style="top: -15px;">
           <div class="buysellads hide-on-small-only">
             <!-- CarbonAds Zone Code -->
@@ -187,14 +152,11 @@
 
                 <div style="height: 1px;">
                   <ul class="section table-of-contents">
-
                     <hr>
-
                     <li><a  href="?c=Sector" >
                       <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
                     <li>
                     <hr>
-
                   </ul>
                 </div>
               </div>

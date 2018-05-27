@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col s12 m9 l10">
+      <div class="col s12 m12 l10">
         <!-- Inicio de mi codigo -->
         <div id="search-docs" class="section scrollspy">
           <hr>
@@ -75,17 +75,17 @@
                       <div class="input-field col s12 m12 l12">
                         <fieldset class="z-depth-2">
                           <legend>Nacionales</legend>
-                          <div class="input-field col s6 m6 l4 ">
+                          <div class="input-field col s6 m4 l4 ">
                             <input  id="adulto_nacional" type="number" name="adulto_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                             <label for="adulto_nacional" >  <i class="small material-icons"></i>Adultos</label>
                           </div>
 
-                          <div class="input-field col s6 m6 l4">
+                          <div class="input-field col s6 m4 l4">
                             <input  id="nino_nacional" type="number" name="nino_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                             <label for="nino_nacional" >  <i class="small material-icons"></i>Niños</label>
                           </div>
 
-                          <div class="input-field col s6 m6 l4">
+                          <div class="input-field col s6 m4 l4">
                             <input  id="estudiantes" type="number" name="estudiantes" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
                             <label for="estudiantes" >  <i class="small material-icons"></i>Estudiantes</label>
                           </div>
@@ -113,72 +113,52 @@
 
                 <div class="">
                   <fieldset>
-                    <legend>Tarifas derecho de acampar</legend>
-                    <div class=""><!--- Inicio de linea para las tarifas --->
-                      <div class="input-field col s12 m12 l12">
-                        <fieldset class="z-depth-2">
-                          <legend>Nacionales</legend>
-                          <div class="input-field col s6 m6 l4 ">
-                            <input  id="camping_adulto_nacional" type="number" name="camping_adulto_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                            <label for="camping_nino_nacional" >  <i class="small material-icons"></i>Adultos</label>
-                          </div>
-
-                          <div class="input-field col s6 m6 l4">
-                            <input  id="camping_nino_nacional" type="number" name="camping_nino_nacional" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                            <label for="camping_nino_nacional" >  <i class="small material-icons"></i>Niños</label>
-                          </div>
-
-                          <div class="input-field col s6 m6 l4">
-                            <input  id="camping_estudiantes" type="number" name="camping_estudiantes" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                            <label for="camping_estudiantes" >  <i class="small material-icons"></i>Estudiantes</label>
-                          </div>
-                        </fieldset>
-                      </div>
-
-
                     <div class="input-field col s12 m12 l12">
-                      <fieldset class="z-depth-2">
-                        <legend>Extranjeros</legend>
-                        <div class="input-field col s6 m6 l6 ">
-                          <input  id="camping_adulto_extranjero" type="number" name="camping_adulto_extranjero" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                          <label for="camping_nino_extrajero" >  <i class="small material-icons"></i>Adultos</label>
-                        </div>
+                        <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                          <div class="">
+                            <input  id="" type="number" name="tarifa_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                            <label for="" ><i class="small material-icons"></i>Tafira Acampar</label>
+                          </div>
+                       </fieldset>
 
-                        <div class="input-field col s6 m6 l6 ">
-                          <input  id="camping_nino_extrajero" type="number" name="camping_nino_extranjero" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-                          <label for="camping_nino_extranjero" >  <i class="small material-icons"></i>Niños</label>
+                       <div class="input-field col s1 m1 l1"></div>
+
+                      <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                        <div class="">
+                          <input  id="" type="number" name="cambio_dolar" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+                          <label for="" ><i class="small material-icons"></i>Cambio dolar</label>
                         </div>
                       </fieldset>
                     </div>
-                  </div><!--Fin de lineas para las tarifas -->
                   </fieldset>
                 </div>
-
               <br>
               <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+            <center>
               <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
                 value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
                      <i class="mdi-content-send material-icons right">done</i>
               </button>
 
             <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-            <button title="Limpiar Pnatalla" class="btn waves-effect waves-light teal darken-4"
+            <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
               value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
                    <i class="mdi-content-send material-icons right">delete</i>
             </button>
+          </center>
 					 </div>
          </form>
-           </div>
+        </div>
 
-         </div>
        </div>
+     </div>
 </fieldset>
 
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
 
-      <div class="col hide-on-small-only m3 l2">
+      <div class="col hide-on-med-and-down l2">
         <div class="toc-wrapper pin-top" style="top: -15px;">
           <div class="buysellads hide-on-small-only">
             <script async="" type="text/javascript"
