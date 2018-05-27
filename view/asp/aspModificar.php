@@ -65,6 +65,10 @@
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
+<<<<<<< refs/remotes/origin/master
+=======
+
+>>>>>>> add some changes for development
       <div class="col hide-on-small-only m3 l2">
         <div class="toc-wrapper pin-top" style="top: -15px;">
           <div class="buysellads hide-on-small-only">
@@ -72,14 +76,44 @@
             <script async="" type="text/javascript"
             src="" id="_carbonads_js"></script>
 
+<<<<<<< refs/remotes/origin/master
+=======
+        <!--    <div id="carbonads">
+              <span>
+                <span class="carbon-wrap">
+                  <a href="" class="carbon-img" target="_blank">
+
+                    <img src="" alt="" style="max-width: 130px;" height="100" border="0" width="130"></a>
+                    <br>
+              <!--      <a href="" class="carbon-text" target="_blank">Algo mas de texto</a></span> -
+                    <br>
+                <!--    <a href="" class="carbon-poweredby" target="_blank">Un texto mas...</a></span></div> -
+              </div>  -->
+>>>>>>> add some changes for development
                 <div style="height: 1px;">
                   <ul class="section table-of-contents">
 
                     <hr>
+<<<<<<< refs/remotes/origin/master
                     <li><a  href="?c=ASP" >
                       <i style="color:#00b0ff" title="Página Anterior" class=" small material-icons">arrow_back</i>Página anterior</a></li>
                     <li>
                     <hr>
+=======
+                    <li><a  href="index.php?c=ASP" ><i style="color:#00b0ff" title="regresar" class=" small material-icons">refresh</i></a></li>
+                    <hr>
+                    <hr>
+                  
+                    <div class="">
+
+                      <a style="color:#00b0ff" href="index.php?c=Sector&a=agregarRegistro"> <i style="color:#00b0ff" class="small material-icons">playlist_add</i>Agregar Sector</a>
+
+                      <hr>
+                    </div>
+                    <li>Puedo poner lista de items</li>
+                    <li>Otro link por aqui...</li>
+                    <li>Area Protegida...</li>
+>>>>>>> add some changes for development
 
                   </ul>
                 </div>

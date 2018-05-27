@@ -78,6 +78,7 @@ class UsuarioController{
     public function Guardar(){
         $user = new Usuario();
 
+<<<<<<< refs/remotes/origin/master
         $user->__SET('id',            $_REQUEST['id']);
         $user->__SET('nombre',        $_REQUEST['nombre']);
         $user->__SET('apellido',      $_REQUEST['apellido']);
@@ -93,6 +94,15 @@ class UsuarioController{
         $destino = "assets/fotos/".$foto;
         copy($ruta,$destino);
         $user->__SET('foto',$destino);
+=======
+        $user->id         = $_REQUEST['id'];
+        $user->nombre     = $_REQUEST['nombre'];
+        $user->apellido   = $_REQUEST['apellido'];
+        $user->cedula     = $_REQUEST['cedula'];
+        $user->contrasena = $_REQUEST['contrasena'];
+        $user->puesto     = $_REQUEST['puesto'];
+        $user->email      = $_REQUEST['email'];
+>>>>>>> add some changes for development
 
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/

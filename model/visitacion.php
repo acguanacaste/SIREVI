@@ -3,6 +3,7 @@ class Visitacion{
 	private $pdo;
 
     public $id;
+<<<<<<< refs/remotes/origin/master
     public $proposito_visita;// Aun no se guarda en la base de datos
 	//	public $numero_diario;//Numero para confrimar la salida de los visitantes
 		public $fecha;
@@ -69,10 +70,39 @@ class Visitacion{
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
 		catch(Exception $e){
+=======
+    public $noIdentificacion;
+    public $nombre;
+    public $fecha_ingreso;
+    public $fecha_salida;
+    public $acampa;
+    public $dias_camping;
+    public $cantidadPersonasSurf;
+    public $prepago;
+    public $exonerado;
+    public $numero_diario;
+    public $placa_automovil;
+    public $tipo_automovil;
+    public $monto;
+    public $moneda;
+    public $total;
+
+
+
+	public function __CONSTRUCT()
+	{
+		try
+		{
+			$this->pdo = Database::StartUp();
+		}
+		catch(Exception $e)
+		{
+>>>>>>> add some changes for development
 			die($e->getMessage());
 		}
 	}
 
+<<<<<<< refs/remotes/origin/master
 	public function Nacionalidades(){
 		try{
 			$result = array();
@@ -89,19 +119,42 @@ class Visitacion{
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
 		catch(Exception $e){
+=======
+	public function Listar()
+	{
+		try
+		{
+			$result = array();
+
+			$stm = $this->pdo->prepare("SELECT * FROM visitacion");
+			$stm->execute();
+
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		}
+		catch(Exception $e)
+		{
+>>>>>>> add some changes for development
 			die($e->getMessage());
 		}
 	}
 
+<<<<<<< refs/remotes/origin/master
 
 	public function Obtener($id){
 		try{
+=======
+	public function Obtener($id)
+	{
+		try
+		{
+>>>>>>> add some changes for development
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM visitacion WHERE id = ?");
 
 
 			$stm->execute(array($id));
 			return $stm->fetch(PDO::FETCH_OBJ);
+<<<<<<< refs/remotes/origin/master
 		}
 		 catch (Exception $e){
 			die($e->getMessage());
@@ -123,10 +176,24 @@ class Visitacion{
 
 	public function Eliminar($id){
 		try{
+=======
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
+
+	public function Eliminar($id)
+	{
+		try
+		{
+>>>>>>> add some changes for development
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM visitacion WHERE id = ?");
 
 			$stm->execute(array($id));
+<<<<<<< refs/remotes/origin/master
 		}
 		catch (Exception $e){
 			die($e->getMessage());
@@ -141,10 +208,15 @@ class Visitacion{
 			$stm->execute(array($id));
 		}
 		catch (Exception $e){
+=======
+		} catch (Exception $e)
+		{
+>>>>>>> add some changes for development
 			die($e->getMessage());
 		}
 	}
 
+<<<<<<< refs/remotes/origin/master
 
 
 
@@ -178,11 +250,34 @@ class Visitacion{
 						tipo_pago       					= ?,
             moneda                    = ?,
 
+=======
+	public function Actualizar($data)
+	{
+		try
+		{
+			$sql = "UPDATE visitacion SET
+            noIdentificacion      = ?,
+						nombre                = ?,
+						fecha_ingreso         = ?,
+            fecha_salida          = ?,
+            acampa                = ?,
+            dias_camping          = ?,
+            cantidadPersonasSurf  = ?,
+            prepago               = ?,
+            exonerado             = ?,
+            numero_diario         = ?,
+            placa_automovil       = ?,
+            tipo_automovil        = ?,
+            monto                 = ?,
+            moneda                = ?,
+            total                 = ?
+>>>>>>> add some changes for development
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
+<<<<<<< refs/remotes/origin/master
 												$data->proposito_visita,
                         $data->noIdentificacion,
                         $data->nombre,
@@ -214,6 +309,24 @@ class Visitacion{
 												$data->moneda,
                         $data->id
 
+=======
+                        $data->noIdentificacion,
+                        $data->nombre,
+                        $data->fecha_ingreso,
+                        $data->fecha_salida,
+                        $data->acampa,
+                        $data->dias_camping,
+                        $data->cantidadPersonasSurf,
+                        $data->prepago,
+                        $data->exonerado,
+                        $data->numero_diario,
+                        $data->placa_automovil,
+                        $data->tipo_automovil,
+                        $data->monto,
+                        $data->moneda,
+                        $data->total,
+                        $data->id
+>>>>>>> add some changes for development
 					)
 				);
 		} catch (Exception $e)
@@ -222,6 +335,7 @@ class Visitacion{
 		}
 	}
 
+<<<<<<< refs/remotes/origin/master
 	public function Registrar(Visitacion $data)
 	{
 		try
@@ -268,6 +382,34 @@ class Visitacion{
 										$data->tipo_pago,
 										$data->moneda,
 //
+=======
+	public function Registrar(Usuario $data)
+	{
+		try
+		{
+		$sql = "INSERT INTO usuarios (noIdentificacion,nombre,fecha_ingreso,fecha_salida,acampa,dias_camping,cantidadPersonasSurf,prepago,exonerado
+                                    numero_diario,placa_automovil,tipo_automovil,monto,moneda,total)
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+		$this->pdo->prepare($sql)
+		     ->execute(
+				array(
+                    $data->noIdentificacion,
+                    $data->nombre,
+                    $data->fecha_ingreso,
+                    $data->fecha_salida,
+                    $data->acampa,
+                    $data->dias_camping,
+                    $data->cantidadPersonasSurf,
+                    $data->prepago,
+                    $data->exonerado,
+                    $data->numero_diario,
+                    $data->placa_automovil,
+                    $data->tipo_automovil,
+                    $data->monto,
+                    $data->moneda,
+                    $data->total
+>>>>>>> add some changes for development
 
                 )
 			);
@@ -276,6 +418,7 @@ class Visitacion{
 			die($e->getMessage());
 		}
 	}
+<<<<<<< refs/remotes/origin/master
 
 	public function ControlSalidas(){/*Metodo que me borra los datos en la bd*/
   		try{
@@ -309,4 +452,6 @@ class Visitacion{
 
 
 
+=======
+>>>>>>> add some changes for development
 }
