@@ -53,25 +53,10 @@ class UsuarioController{
             $user = $this->model->Obtener($_REQUEST['id']);/*Se esta llamndo desde model Usuarios*/
         }
 
-        session_start();
-         if(!isset($_SESSION["email"])){
-         echo "<script type='text/javascript'>alert('Usuario Incorrecto');</script>";
-         header("Location:?c=login&a=index");
-       }
-
-        if ($_SESSION['usuario']['puesto'] == 1) {//Administrador
-            echo "Aqui estoy en Administrador";
           require_once 'view/includes/headerPrincipal.php';
-          require_once 'view/usuario/usuarioRegistro.php';
-          require_once 'view/includes/footer.php';
-        }
-
-        elseif ($_SESSION['usuario']['puesto'] == 2) {//Encargado de sector
-          echo "Aui estoy en encargado de sector";
-          require_once 'view/includes/headerEncargadoSector.php';
           require_once 'view/usuario/usuarioModificar.php';
           require_once 'view/includes/footer.php';
-        }
+
     }
 
 
@@ -94,14 +79,6 @@ class UsuarioController{
         copy($ruta,$destino);
         $user->__SET('foto',$destino);
 
-        $user->id         = $_REQUEST['id'];
-        $user->nombre     = $_REQUEST['nombre'];
-        $user->apellido   = $_REQUEST['apellido'];
-        $user->cedula     = $_REQUEST['cedula'];
-        $user->contrasena = $_REQUEST['contrasena'];
-        $user->puesto     = $_REQUEST['puesto'];
-        $user->email      = $_REQUEST['email'];
-
         $user->id > 0
             ? $this->model->Actualizar($user)/*Se esta llamndo desde model Usuarios*/
             : $this->model->Registrar($user);/*Se esta llamndo desde model Usuarios*/
@@ -121,7 +98,7 @@ class UsuarioController{
     public function CambiarEstado(){
         session_start();
 
-        if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
+        if ($_SESSION['usuario']['puesto'] == 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
           $this->model->Estado($_REQUEST['id']);
           header('Location:?c=Usuario');
         }
