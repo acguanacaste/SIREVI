@@ -35,10 +35,11 @@
               <th>Cédula</th>
               <th>Puesto</th>
               <th>E-mail</th>
-              <th style="width:100px;">Imagen</th>
+              <th style="width:90px; heigth:110px;">Imagen</th>
+              <th style="width:40px;heigth:5px;"></th>
               <th>Estado</th>
-              <th style="width:40px;"></th>
-            <th >Acción</th>
+                <th style="width:40px;heigth:20px;"></th>
+            <th colspan="2" >Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -57,6 +58,7 @@
                 }else{
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";
                 }; ?></td>
+                <td style="heigth:5px;"></td>
                 <td>
                   <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
                     <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>

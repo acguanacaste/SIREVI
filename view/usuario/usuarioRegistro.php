@@ -130,12 +130,15 @@
          </div>
 </fieldset>
 
-
+<br>
+<div class="right hide-on-large-only">
+  <a href="index.php?c=Usuario"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+</div>
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
 
-        <div class="col m2 l2 hide-on-small-only">
+        <div class="input-field col m2 l2 hide-on-med-and-down">
           <div class="toc-wrapper pin-top" style="top: -15px;">
             <div class="buysellads hide-on-small-only">
               <!-- CarbonAds Zone Code -->

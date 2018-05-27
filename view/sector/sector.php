@@ -45,7 +45,6 @@
                     <i class=" circle white small material-icons right z-depth-2">delete</i></a>
                   </td>
                   <td>
-
                   </td>
                 </tr>
               <?php endforeach; ?>

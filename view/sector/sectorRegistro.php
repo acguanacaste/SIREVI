@@ -153,7 +153,10 @@
        </div>
      </div>
 </fieldset>
-
+<br>
+<div class=" right hide-on-large-only">
+  <a href="index.php?c=Sector"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+</div>
 <!--================================================================================================================================-->
         </div>
       </div><!-- Div de los tamanos -->
