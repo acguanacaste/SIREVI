@@ -389,7 +389,25 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteMesSectores`(IN fechaInicio DATE, IN fechaFinal DATE, IN pSector INT)
 BEGIN
+SELECT sector.nombre AS Sector, pais.nombre AS Pais, visitacion.provincia_id AS Provincia,
 
+sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes
++visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.prepago) as Cant_Personas,
+
+sum(visitacion.nacional_exonerado+visitacion.extranjero_exonerado) AS Exonerados,
+
+sum(visitacion.prepago) AS Prepagos,
+
+monthname(fecha) AS Mes, sum(visitacion.montoCancelar) AS Total_Pago
+
+FROM visitacion
+
+INNER JOIN sector ON visitacion.sector = sector.id
+INNER JOIN pais ON visitacion.pais_id = pais.id
+
+WHERE visitacion.sector = pSector AND (fecha BETWEEN fechaInicio AND fechaFinal)
+#WHERE fecha BETWEEN fechaInicio AND fechaFinal
+GROUP BY fecha;
 
 END$$
 
