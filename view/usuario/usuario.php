@@ -13,11 +13,15 @@
 <?php endif; ?>
     <!--   buscar Usuario -->
   <br><br>
-  <div class="">
-  <form action="?c=Usuario&a=busquedaUsuario" method="post">
-  <i class="small material-icons">book</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;" required>
-  <input type="submit" name="name" value="Buscar" class="teal darken-4 waves-effect waves-light btn">
-  </form>
+    <div class="">
+      <br>
+      <fieldset class="left-align input-field col m12 l6 z-depth-2">
+        <form  action="?c=Usuario&a=busquedaUsuario" method="post">
+          <i class="small material-icons">book</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;" required>
+        <center>  <input type="submit" name="name" value="Buscar" class="teal darken-4 waves-effect waves-light btn"></center>
+        </form>
+      </fieldset>
+
   </div>
   <br>
   </div>
@@ -36,10 +40,10 @@
               <th>Puesto</th>
               <th>E-mail</th>
               <th style="width:90px; heigth:110px;">Imagen</th>
-              <th style="width:40px;heigth:5px;"></th>
+              <th style="heigth:5px;"></th>
               <th>Estado</th>
-                <th style="width:40px;heigth:20px;"></th>
-            <th colspan="2" >Acción</th>
+                <th style="heigth:20px;"></th>
+            <th >Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -51,9 +55,9 @@
                 <td><?php echo $r->cedula; ?></td>
                 <td><?php echo $r->Puesto; ?></td>
                 <td><?php echo $r->email; ?></td>
-              <td ><?php echo'<img class="circle responsive-img" src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
+              <td><?php echo'<img class="circle responsive-img" src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
               <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-                <td><?php if($r->estado==1){
+                <td style="width:50px;"><?php if($r->estado==1){
                   echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }else{
                   echo "<a title='Habilitado' onclick='return confirm('¿Estas a un paso de desabilitar un registro, seguro deseas continuar?');' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class='circle green darken-2 small material-icons'>done</i></a>";

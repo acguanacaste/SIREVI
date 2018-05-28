@@ -193,12 +193,6 @@ function pagoOnChange(sel) {
 		<li><a href="?c=login&a=AdminUser"><span class="" data-position="bottom" data-delay="50" >
 		<li class="divider"></li>
 				<i class="Tiny material-icons">home</i></span>&nbsp;Inicio</a></li>
-				<!--<li ><a href="?c=Dollar" title="Cambio dolar"><i class="small material-icons">tab</i>
-					<span class="white-text">Dolar</span></a></li>-->
-		<li class="divider"></li>
-		<li><a href="?c=Dollar"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
-			<i class="Tiny material-icons">tab</i></span>&nbsp;Cambio dolar</a></li>
-
 		<li class="divider"></li>
 		<li><a href="?c=login&a=salir"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 				<i class="Tiny material-icons">settings_power</i></span>&nbsp;Cerrar sesión</a></li>
