@@ -19,6 +19,7 @@ class Visitacion{
     public $sendero;
 		public $subSector;
    	public $dias_camping;
+		public $personas_acampando;
 		public $salida;
 		public $horaSalida;
 	//CATEGORIAS DE PAGO (4 tipos de valor en una sola variable) en este campo se guarda el valor del costo que tiene la persona por ingresar al sector.Nacionales, Extranjeros, ninos nacionales, ninos extranjeros
@@ -150,6 +151,7 @@ public function ConteoIngresosDiarios(){
 -----------------------------------------------------------------------
             sendero                   = ?,
             dias_camping          		= ?,
+						personas_acampando        = ?,
 						subSector                 = ?,
 -----------------------------------------------------------------
 						nacional_adult        		= ?,
@@ -182,14 +184,12 @@ public function ConteoIngresosDiarios(){
 //---------------------------------------------------------------------
 												$data->pais,
 												$data->provincia,
-									//			$data->referencia_visita,
-//--------------------------------------------------------------------
-							//			$data->fecha_ingreso,
-//                        $data->fecha_salida,
+
 //------------------------------------------------------------------
 												$data->sendero,
 //--------------------------------------------------------------------
                         $data->dias_camping,
+												$personas_acampando,
 												$data->subSector,
 //-----------------------------------------------------------------
 												$data->nacional_adult,
@@ -223,12 +223,12 @@ public function ConteoIngresosDiarios(){
 		{
 		$sql ="INSERT INTO visitacion (sector,usuario,asp,proposito_visita, noIdentificacion, nombre, placa_automovil,
        pais_id,provincia_id,referencia_visita,nom_referencia_visita,
-       sendero, dias_camping, subSector,
+       sendero, dias_camping, personas_acampando, subSector,
         nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
 				extranjero_adult, extranjero_kid,extranjero_exonerado,
         personas_surf, prepago, montoCancelar,
          tipo_pago, moneda)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -252,6 +252,7 @@ public function ConteoIngresosDiarios(){
 //-----------------------------------------------------------------------------------------------
                     $data->sendero,
                     $data->dias_camping,
+										$data->personas_acampando,
 										$data->subSector,
 
 

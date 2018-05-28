@@ -58,47 +58,46 @@ class VisitacionController{
       require_once 'view/visitacion/reportes/resultado_SEMEC.php';
       require_once 'view/includes/footer.php';
    }
-/*=====================================================================================================================*/
-
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
-public function Reporte_Diario(){
-  require_once 'view/includes/headerPrincipal.php';
-  require_once 'view/visitacion/reportes/reporteDiario.php';
-  require_once 'view/includes/footer.php';
-}
-
-public function Resultado_Diario($result){
-  require_once 'view/includes/headerPrincipal.php';
-  require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
-  require_once 'view/includes/footer.php';
-}
-/*=====================================================================================================================*/
-
-    public function consultaIngresoSalidaDiario(){
-        require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
-        require_once 'view/includes/footer.php';
+    public function Reporte_Diario(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/reporteDiario.php';
+      require_once 'view/includes/footer.php';
     }
 
-    public function Reporte(){
+    public function Resultado_Diario($result){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+      require_once 'view/includes/footer.php';
+    }
+
+/*==================>> Para trabaar con la parte del reporte Nacionalidade Garupados por Provincia=========================*/
+
+    public function NacionalesAgrupadosXProvincia(){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_Nacionalidades(){
+    public function Resultado_Nacionalidades($result){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+      require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
-   }
+    }
+    public function Excel(){
+        header("Content-type: application/vnd.ms-excel");
+          header("Content-Disposition: attachment; filename=reporte.xls");
+          header("Pragma: no-cache");
+          header("Expires: 0");
+          require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+      }
 
-   public function Excel(){
-      header("Content-type: application/vnd.ms-excel");
-      header("Content-Disposition: attachment; filename=reporte.xls");
-      header("Pragma: no-cache");
-      header("Expires: 0");
-      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
-  }
+/*=====================================================================================================================*/
+    public function consultaIngresoSalidaDiario(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
+        require_once 'view/includes/footer.php';
+    }
 
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
@@ -155,6 +154,7 @@ public function Resultado_Diario($result){
 
         $visit->sendero                   = $_REQUEST['sendero'];
         $visit->dias_camping              = $_REQUEST['dias_camping'];
+        $visit->personas_acampando        = $_REQUEST['personas_acampando'];
         $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
@@ -216,6 +216,15 @@ public function Consulta_ReporteDiario_Controller(){
       $this->Resultado_Diario($result);
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
+
+/*==================================================================================================*/
+public function Consulta_Nacionales_Controller(){
+  $result = $this->model->NacionalesAgrupadosXProvincia($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal']);
+  $this->Resultado_Nacionalidades($result);
+  header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
+}
+
+
 /*==================================================================================================*/
 
 public function Consulta_Cant_Personas_Parque_Cotnroller(){

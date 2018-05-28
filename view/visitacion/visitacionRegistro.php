@@ -76,7 +76,7 @@
 
 
                   <div class="">
-                  <div class="input-field col s12 m4 l6">
+                  <div class="input-field col s12 m6 l6">
                    <fieldset  class="z-depth-1 ">
                      <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
                        <div class="input-field col s12 m12 l12">
@@ -94,7 +94,7 @@
 
 
 
-                  <div class="input-field col s12 m4 l6 ">
+                  <div class="input-field col s12 m6 l6 ">
                     <fieldset>
                       <legend>Sub sector al que se dirije</legend>
                       <div class="input-field col s12 m12 l12">
@@ -174,7 +174,7 @@
                     $query_sendero = mysql_query($sentencia_sendero);
                     ?>
                     <div class="">
-                      <div class="input-field col s12 m4 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+                      <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                       <select name="sendero" multiple required>
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
                            <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
@@ -187,7 +187,7 @@
                 </div>
               </div>
 
-              <fieldset class="input-field col s12 m6 l8 z-depth-2">
+              <fieldset class="input-field col s12 m7 l8 z-depth-2">
                 <legend>Referencia de Visitacion</legend>
                       <div>
                         <div>
@@ -234,9 +234,9 @@
                         </div>
 
                         <div class="input-field col s12 m12 l12">
-                        Cantidad Personas*:
+                        Personas*:
                           <br>
-                          <input  id="cant_personas_camping" type="number" name="cant_personas_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <input  id="personas_acampando" type="number" name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                         </div>
                     </fieldset>
               </div><!--Fin de la tercera fila-->
@@ -248,7 +248,8 @@
 <ul class="" data-collapsible="">
    <li>
      <div class="center-align collapsible-header teal darken-4  white-text z-depth-3">
-                          <i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
+                    <i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
+
      <div class="">
        <fieldset>
        <span>
@@ -257,22 +258,22 @@
             <div class="input-field col s12 m12 l12">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-                <div class="input-field col s6 m4 l3  ">
-                  <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
+                <div class="input-field col s6 m6 l3  ">
+                  <input  id="nacional_adult" type=number name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
 
-                <div class="input-field col s6 m4 l3  ">
-                  <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                <div class="input-field col s6 m6 l3  ">
+                  <input  id="nacional_kid" type="number" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
-              <div class="input-field col s12 m4 l3  ">
-                  <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+              <div class="input-field col s12 m6 l3  ">
+                  <input  id="estudiantes" type="number" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
 
-            <div class="input-field col s6 m4 l3  ">
+            <div class="input-field col s6 m6 l3  ">
               <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
              <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
            </div>
@@ -287,12 +288,12 @@
             <fieldset class="z-depth-3">
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
-              <div class="input-field col s6 m6 l4  ">
+              <div class="input-field col s6 m4 l4  ">
                 <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
               </div>
 
-              <div class="input-field col s6 m6 l4  ">
+              <div class="input-field col s6 m4 l4  ">
                 <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
@@ -311,12 +312,12 @@
           <div class="input-field col s12 m12 l12">
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
-                <div class="input-field col s12 m4 l6  ">
+                <div class="input-field col s12 m6 l6  ">
                 <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
                     <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
-                 <div class="input-field col s6 m4 l6  ">
+                 <div class="input-field col s6 m6 l6  ">
                    <input  id="prepago" type="number" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
                    <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
@@ -393,22 +394,22 @@
 
               <div class="row"><!---Inicio de dos columnas-->
 
-                <div class="input-field col s6 m3 l4">
-                  <fieldset  class="z-depth-2 "><legend>Total Nacionales</legend>
+                <div class="input-field col s6 m4 l4">
+                  <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Nacionales</legend>
                     <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
                     </div>
               </fieldset>
             </div>
 
-            <div class="input-field col s6 m3 l4">
-              <fieldset  class="z-depth-2 "><legend>Total Extranjeros</legend>
+            <div class="input-field col s6 m4 l4">
+              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Extranjeros</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>
 
-            <div class="input-field col s6 m3 l4">
-              <fieldset  class="z-depth-2 "><legend>Personas Surf</legend>
+            <div class="input-field col s6 m4 l4">
+              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Personas Surf</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_PersonasSurf" disabled value="0">
                 </div>
           </fieldset>
@@ -417,17 +418,17 @@
 
         <div class="row">
 
-              <div class="col s6 offset-s3"><span>
+              <div class="col s10 offset-s1"><span>
 
-                <div class="input-field col s12 m5 l6">
-                  <fieldset class="z-depth-2 "><legend>Total de personas</legend>
+                <div class="input-field col s12 m6 l6">
+                  <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Total de personas</legend>
                       <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"  disabled value="0">
                       </div>
                   </fieldset>
               </div>
 
-              <div class="input-field col s12 m5 l6">
-                <fieldset class="z-depth-2 "><legend>Monto a cancelar</legend>
+              <div class="input-field col s12 m6 l6">
+                <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto a cancelar</legend>
                     <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
                 </fieldset>
               </div>

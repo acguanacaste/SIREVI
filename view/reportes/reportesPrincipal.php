@@ -22,7 +22,7 @@
                   A través de este enlace se realiza la creación de un reporte <br>
                   para consultar el total de ingresos a el sector </span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte_SEMEC" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_SEMEC" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte SEMEC">
               <span class="hide-on-small-only"><i class="medium material-icons">account_balance</i></span></a>
             </li>
 
@@ -34,21 +34,20 @@
                   A través de este enlace se realiza la creación de un reporte <br>
                   para consultar el total de ingresos a el sector </span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte_Diario" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
-                <a href="?c=Visitacion&a=" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
-              <span class="hide-on-small-only"><i class="medium material-icons">description</i></span></a>
+                <a href="?c=Visitacion&a=Reporte_Diario" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Diario">
+                <span class="hide-on-small-only"><i class="medium material-icons">description</i></span></a>
             </li>
 
 
             <li class="collection-item avatar">
               <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
-              <a ><p><a href="?c=Visitacion&a=Reporte_Nacionales">Reporte Nacionales</a><br>
+              <a ><p><a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia">Reporte Nacionales</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación del reporte <br>
                   de personas nacionales agrupadas por provincia</span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte_Nacionales" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
-                <a href="?c=Visitacion&a=Reporte" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
+
+                <a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
               <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
             </li>
 

@@ -22,7 +22,7 @@ header("Location:?c=login&a=index");
 
 	<script type="text/javascript">
   	$(document).ready(function () {
-	    $('#cant_personas_camping').attr("hidden", true);
+	    $('#personas_acampando').attr("hidden", true);
 
     	$('#dias_camping').keyup(function () {
         var value = $(this).val();
@@ -33,7 +33,7 @@ header("Location:?c=login&a=index");
 
           }
         else
-        	$('#cant_personas_camping').removeAttr("hidden");
+        	$('#personas_acampando').removeAttr("hidden");
       });
 		});
 /*=================================================================================================*/

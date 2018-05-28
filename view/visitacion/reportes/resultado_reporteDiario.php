@@ -63,7 +63,7 @@
                       <?php
                       $conexion = mysql_connect("localhost","root");
                       mysql_select_db("sirevi",$conexion);
-                      $sentencia = "select nombre from sector order by nombre ASC";
+                      $sentencia = "select nombre from sector order by id ASC";
                       $query = mysql_query($sentencia);
                       ?>
                       <div  class="input-field col s6 m12 l12">
