@@ -95,28 +95,12 @@
          <th> Tipo pago</th>
          <th> Moneda</th>
          <th> Referencia visitacion</th>
- <!--        <th> Sector</th> -->
          <th> Sendero</th>
        </tr>
      </thead>
 
           <tbody>
-        <?php foreach ($this->model->Nacionalidades() as $r): ?>
-        <tr>
 
-          <td><?php echo $r->id; ?></td>
-          <td><?php echo $r->fecha; ?></td>
-          <td><?php echo $r->Pais; ?></td>
-          <td><?php echo $r->Nombre; ?></td>
-          <td><?php echo $r->tipo_pago; ?></td>
-          <td><?php echo $r->moneda; ?></td>
-          <td><?php echo $r->referencia_visita ?></td>
-        <!--  <td><?php echo $r->Sector; ?></td> -->
-          <td><?php echo $r->Sendero; ?></td>
-
-
-        </tr>
-        <?php endforeach; ?>
       </tbody>
 
         </table>

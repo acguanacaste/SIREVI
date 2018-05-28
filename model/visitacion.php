@@ -348,7 +348,7 @@ public function Consulta_Cant_Personas_Parque_Model(){
 
 /*=================================================================================================*/
 
-public function ConsultaNacionalesModel($fechaStart, $fechaEnd){
+public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){
 		$result = array();
 		try {
 			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia($fechaStart, $fechaEnd)");

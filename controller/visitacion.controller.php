@@ -219,9 +219,11 @@ public function Consulta_ReporteDiario_Controller(){
 
 /*==================================================================================================*/
 public function Consulta_Nacionales_Controller(){
-  $result = $this->model->NacionalesAgrupadosXProvincia($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal']);
+  $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal']);
   $this->Resultado_Nacionalidades($result);
+
   header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
+
 }
 
 
