@@ -16,7 +16,9 @@
                     <div><!-- Inicio de las filas y columnas -->
 
                       <div class="row"><!---Inicio de dos columnas-->
+<div class="col m1">
 
+</div>
                       <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Numero diario</legend></center>
                           <center>
@@ -33,7 +35,7 @@
                         </fieldset>
                       </div>
 
-                      <div class="input-field col s6 m4 l3">
+                      <div class="input-field col s6 m6 l3">
                         <fieldset><center><legend>Sector</legend></center>
                           <center>
                             <div class="btn teal darken-4 right-align "><?php echo $_SESSION['sector']['sectorNombre'];?></div>
@@ -41,7 +43,7 @@
                         </fieldset>
                       </div>
 
-                      <div class="input-field col s6 m4 l3">
+                      <div class=" hide-on-med-and-down input-field col s6 m4 l3">
                         <fieldset><center><legend>Usuario</legend></center>
                           <center>
                             <div name="usuario" value="<?php echo $_SESSION['usuario']['nombre'];?>" class="btn teal darken-4 right-align "><?php echo $_SESSION['usuario']['nombre'];?></div>
@@ -342,39 +344,39 @@
 
       <fieldset class="z-depth-3">
         <legend>&nbsp;Categorías de pago&nbsp;</legend>
-        <div class="center-align"><!--Inicio de la "" -->
+        <div class=""><!--Inicio de la "" -->
 
-          <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 input-field col s12 m12 l12">
+          <div class="input-field col s12 m12 l5">
+          <fieldset  class="z-depth-1">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
-              <p class="input-field col s5 m6 l6">
-                <input class="with-gap " value="efectivo" name="tipo_pago"  type="radio"  id="indeterminate-checkbox" checked="default"   />
+              <div class="col m1"></div>
+
+              <p class="input-field col s12 m5 l5">
+                <input class="with-gap " value="" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
                 <label for="indeterminate-checkbox">Efectivo</label>
-
-
-                <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
-                <label for="indeterminate-checkbox">Tarjeta</label>
-
               </p>
-              <!--<p class="input-field col s12 m6 l4">
-                <input class="with-gap" value="tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
-                <label for="indeterminate-checkbox">Transferencia</label>
-              </p>-->
+
+              <p class="input-field col s12 m5 l5">
+                <input class="with-gap" value="" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Tarjeta</label>
+              </p>
             </fieldset>
           </div>
 
-          <div class="input-field col s12 m6 l6">
-            <fieldset  class="z-depth-1 input-field col s12 m12 l12">
+          <div class="input-field col s12 m12 l7">
+            <fieldset  class="z-depth-1 ">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
-              <p class="input-field col s6 m6 l6">
-                <input class="with-gap" value="colones" name="moneda" type="radio" selected id="indeterminate-checkbox" checked="default" />
+              <p class="input-field col s12 m4 l4">
+                <input class="with-gap" value="" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
-
-                <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
+              </p>
+              <p class="input-field col s12 m4 l4">
+                <input class="with-gap" value="" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
-
-                <input class="with-gap" value="dolar" name="moneda" type="radio" id="indeterminate-checkbox" />
-                <label for="indeterminate-checkbox">Ambos</label>
+              </p>
+              <p class="input-field col s12 m4 l4">
+                <input class="with-gap" value="" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <label for="indeterminate-checkbox">Ambas</label>
               </p>
             </fieldset>
 
@@ -382,8 +384,7 @@
           </div><!--Fin del div de la fila ???-->
       </fieldset>
 
-</div><br>
-<!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
+</div><br><!--============================ Fin de lineas de codigo para los pagos y su tipo ==========================================-->
 <!--Inicio de lineas para la parte de muestra de cantda personas y montos totales-->
 <div class="input-field col s12 m12 l12">
   <fieldset>
