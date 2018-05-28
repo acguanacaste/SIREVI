@@ -1,11 +1,20 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+  <div class="container">
+    <a href="?c=Reportes&a=AdminUser"><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+
+    <div class="right hide-on-small-only">
+      <a   href="?c=Reportes&a=AdminUser">
+        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+    </div>
+  </div>
+
 <main>
   <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
     <a href="#">Reporte Diario(Gestion para el dia de trabajo)</a></h4>
-
 <div class="">
 
-    <!--Busqueda avanzada-->
+<!--Busqueda avanzada-->
 <div class="row">
   <div class="col s12 m12 l12">
     <ul class="collapsible" data-collapsible="accordion">
@@ -21,7 +30,7 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
 
-      <div class="col s6 offset-s3"><span class="flow-text">
+      <div class="col s8 offset-s2"><span class="flow-text">
                 <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
                   <center>
 
@@ -32,24 +41,23 @@
                       <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
                     </div>
                     </fieldset>
-     <!--INICIO DE COLUMNA-->
 
-               <fieldset class="input-field col s12 m5 l5">
-  <legend><h6>Fecha Final</h6></legend>
-                 <div class="" >
-                   <i class="material-icons prefix">event_note</i>
-                   <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                    <div class="col s1"></div>
 
-                 </div>
-
-                   </fieldset>
-                </center>
-              </div>
-            </span></div>
+                 <fieldset class="input-field col s12 m5 l5">
+                   <legend><h6>Fecha Final</h6></legend>
+                   <div class="" >
+                     <i class="material-icons prefix">event_note</i>
+                     <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                      </div>
+                     </fieldset>
+                  </center>
+                </div>
+              </span></div>
 
 
           <div class="col s6 offset-s4"><span class="flow-text">
-            <fieldset class="input-field col s12 m6 l6 ">
+            <fieldset class="input-field col s12 m9 l6 ">
               <div class=""><!---Inicio de la segunda fila-->
               <!--==============Cargando los paices==============================-->
                 <?php
@@ -58,7 +66,7 @@
                 $sentencia = "select nombre from sector order by nombre ASC";
                 $query = mysql_query($sentencia);
                 ?>
-                <div  class="input-field col s6 m6 l12">
+                <div  class="input-field col s6 m12 l12">
                   <select name="sector">
                     <option value="" disabled selected>Elija un Sector</option>
                     <?php while ($arreglo = mysql_fetch_array($query)) {  ?>

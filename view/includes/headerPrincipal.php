@@ -245,7 +245,7 @@ function pagoOnChange(sel) {
     	<div class="userView"><!-- Imagen avatar e informacion -->
 				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
 
-  		<a href="#!user"><?php echo'<img class="circle responsive-img" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+  		<a href="#!user"><?php echo'<img class="circle" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
 			<a href="#!name"><span class="white-text name"><?php echo $_SESSION['usuario']['nombre']; ?></span></a>
 			<a href="#!email"><span class="white-text email"><?php echo $_SESSION['usuario']['email']; ?></span></a></div>
 		</li>

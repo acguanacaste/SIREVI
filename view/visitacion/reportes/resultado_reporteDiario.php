@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Visitacion&a=Reporte"><span class="hide-on-med-and-up">
+  <a href="?c=Reportes&a=AdminUser"><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Visitacion&a=Reporte">
+    <a   href="?c=Reportes&a=AdminUser">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -29,7 +29,7 @@
                   <div class="body "><span >
                     <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
 
-            <div class="col s6 offset-s3"><span class="flow-text">
+            <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
                         <center>
 
@@ -40,7 +40,7 @@
                             <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
                           </div>
                           </fieldset>
-           <!--INICIO DE COLUMNA-->
+           <div class="col s1"></div>
 
                      <fieldset class="input-field col s12 m5 l5">
                   <legend><h6>Fecha Final</h6></legend>
@@ -57,7 +57,7 @@
 
 
                 <div class="col s6 offset-s4"><span class="flow-text">
-                  <fieldset class="input-field col s12 m6 l6 ">
+                  <fieldset class="input-field col s12 m9 l6 ">
                     <div class=""><!---Inicio de la segunda fila-->
                     <!--==============Cargando los paices==============================-->
                       <?php
@@ -66,7 +66,7 @@
                       $sentencia = "select nombre from sector order by nombre ASC";
                       $query = mysql_query($sentencia);
                       ?>
-                      <div  class="input-field col s6 m6 l12">
+                      <div  class="input-field col s6 m12 l12">
                         <select name="sector">
                           <option value="" disabled selected>Elija un Sector</option>
                           <?php while ($arreglo = mysql_fetch_array($query)) {  ?>

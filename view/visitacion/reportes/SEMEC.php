@@ -1,17 +1,24 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+  <div class="container">
+    <a href="?c=Reportes&a=AdminUser"><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Pagina anterior</a>
+
+    <div class="right hide-on-small-only">
+      <a   href="?c=Reportes&a=AdminUser">
+        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Pagina anterior</a>
+    </div>
+  </div>
 <main>
   <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
     <a href="#">Reporte SEMEC </a></h4>
-
 <div class="">
-
     <!--Busqueda avanzada-->
 <div class="row">
   <div class="col s12 m12 l12">
     <ul class="collapsible" data-collapsible="accordion">
   <li>
-    <div class=""><i class="material-icons">search</i>Filtro de busqueda</div>
     <div class=""><span><div class="row">
+      <div class=""><i class="material-icons">search</i>Filtro de busqueda</div>
       <div class="col s12 m12 l12">
 
         <fieldset>

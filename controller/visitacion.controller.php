@@ -205,30 +205,22 @@ public function Resultado_Diario($result){
 /*==============================================================================================================*/
 
     public function Consulta_SEMEC_Controller(){
-
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-
           $this->Resultado_SEMEC($result);
-
           header('Location:?c=Visitacion&a=Resultado_SEMEC');
     }
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){
-
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-
       $this->Resultado_Diario($result);
-
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
 /*==================================================================================================*/
 
 public function Consulta_Cant_Personas_Parque_Cotnroller(){
-
       $result = $this->model->Consulta_Cant_Personas_Parque_Model();
       $this->Resultado_Cantidad($result);
-
 }
 
 /*==================================================================================================*/
