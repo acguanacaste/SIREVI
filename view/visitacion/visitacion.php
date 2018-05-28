@@ -35,17 +35,17 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-                <div class="input-field col s12 m4 l3">
-              <i class="small material-icons">contact_mail</i>
-              <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+                <div class="input-field col s12 m3 l3">
+                  <i class="small material-icons">contact_mail</i>
+                  <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
 
-              <div class="input-field col s12 m4 l3">
+              <div class="input-field col s12 m3 l3">
                     <i class="small material-icons">picture_in_picture</i>
                     <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
               </div>
 
-              <div class="input-field col s12 m4 l3">
+              <div class="input-field col s12 m3 l3">
             <i class="small material-icons">directions_car</i>
             <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
               </div>

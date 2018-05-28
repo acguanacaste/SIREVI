@@ -471,11 +471,15 @@
 
 </div>
       </form>
+      <div class="right hide-on-large-only">
+        <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+      </div>
     </div>
 <!--   <h5>El usuario, el ASP, Y EL SECTOR SON VARIABLES QUE SE INGRESARAN CON LA SESION, PENDIENTE DE IMPLEMANTAR</h5>
   -->   </div>
        </div>
      </fieldset>
+
 <!--================================================================================================================================-->
       </div>
     </div><!-- Div de los tamanos -->

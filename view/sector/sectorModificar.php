@@ -7,7 +7,6 @@
         <div id="search-docs" class="section scrollspy">
           <hr>
 
-
 <!--===========================================================================================================-->
 
 <fieldset>
@@ -46,13 +45,13 @@
                      </div>
                    </div>
 
-                   <!--INICIO DE COLUMNA -->
-                   <div class="">
-                     <div class="input-field col s12 m10 l12 ">
-                       <input  id="asp" type="text" name="asp" value="<?php echo $sector->asp; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
-                       <label for="asp"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
-                     </div>
-               </div><!--FIN DEL DIV DE FILA-->
+                   <div class="row">
+                      <div class="input-field col s12">
+                        <input name="asp" disabled value="<?php echo $sector->asp; ?>" id="disabled" type="text" class="validate">
+                        <label for="disabled"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
+                      </div>
+                    </div>
+
 
                <div class="">
                  <fieldset>
