@@ -76,6 +76,36 @@
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
 
+                  <div class="container">
+
+<!--////////////////////////////////  Este es mi Index para la vista de la seleccion de paises             ///////////////////////////////////-->
+                      <p>Elige un pais según la lista :</p>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <!--Basado en la lista de reproduccion me va a desplegar-->
+                            <p>Lista de paises
+                            <select id="lista_pais" name="pais" class="form-control">
+                            </select>
+                          </p>
+                        </div>
+                        <div class="col-md-4">
+                          <p>Provincias de Costa Rica
+                          <select id="provincias" name="provincia" class="form-control">
+                          </select>
+                        </p>
+                        </div>
+                        <div class="col-md-4">
+                          <p><br><button id="enviar" type="submit" class="btn btn-default btn-block">Enviar</button></p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <p><b>El resultado es: </b></p><p id="resultado1"></p>
+                        </div>
+                      </div>
+                    </div>
+
+
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">

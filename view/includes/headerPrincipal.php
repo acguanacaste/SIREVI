@@ -16,7 +16,7 @@ header("Location:?c=login&a=index");
   <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>
 	<link href="assets/js/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-
+	<script type="text/javascript" src="indexAjax.js"></script>
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
