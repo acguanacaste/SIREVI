@@ -1,6 +1,6 @@
 <?php
 try{
-	$base=new PDO("mysql:host=acguanacaste.ac.cr; dbname=sirevi","alex","");
+	$base=new PDO("mysql:host=localhost; dbname=sirevi","root","");
 
 	$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //Sentencia que me busca en la base de datos el email com usuario y la contrasena

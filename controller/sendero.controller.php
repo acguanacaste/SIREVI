@@ -16,6 +16,11 @@ class SenderoController{
         require_once 'view/includes/footer.php';
     }
 
+    public function SectorManagerUser(){
+        require_once 'view/includes/headerEncargadoSector.php';
+        require_once 'view/sendero/sendero.php';
+        require_once 'view/includes/footer.php';
+    }
 
     public function Modificar(){
         $sendero = new Sendero();

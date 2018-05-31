@@ -155,17 +155,15 @@ function pagoOnChange(sel) {
 							data-position="top" data-delay="50" data-tooltip="Inicio">home</i>
 							<span class="hide-on-med-and-down">Inicio</span></a></li>
 
-						<li><a href="?c=Dollar" ><i class="hide-on-large-only small material-icons tooltipped"
-							data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i>
-							<span class="hide-on-med-and-down">Dolar</span></a></li>
-
 						<li><a href="?c=Visitacion&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i>
 							<span class="hide-on-med-and-down">Visitación</span></a></li>
 
-						<li><a href="?c=Reportes&a=AdminUser" > <i class="hide-on-large-only small material-icons tooltipped"
-							data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
-							<span class="hide-on-med-and-down">Reportes</span></a></li>
+							<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+									<li><a href="c=Reportes&a=AdminUser" title="Reportes">
+										<i class="small material-icons hide-on-large-only ">description</i><span class="hide-on-med-and-down white-text">Reportes</span></a></li>
+							<?php endif; ?>
+			<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2):?>
 
 						<li><a href="?c=Usuario&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i>
@@ -182,6 +180,7 @@ function pagoOnChange(sel) {
 						<li><a href="?c=ASP" > <i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i>
 							<span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+				<?php endif; ?>
 				</ul>
 			</div>
 		</nav>
@@ -205,9 +204,12 @@ function pagoOnChange(sel) {
 							<i class="Tiny material-icons white-text">assignment</i></span>&nbsp;Visitación</a></li>
 
 		<li class="divider"></li>
-						<li><a href="?c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
-							<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
+		<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+			<li><a href="c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+				<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
+		<?php endif; ?>
 
+		<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto']== 2):?>
 		<li class="divider"></li>
 						<li><a href="?c=Usuario"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 							<i class="Tiny material-icons white-text">supervisor_account</i></span>&nbsp;Usuarios</a></li>
@@ -225,6 +227,7 @@ function pagoOnChange(sel) {
 	 				<li><a href="?c=ASP"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 						<i class="Tiny material-icons white-text">perm_media</i></span>&nbsp;Áreas Protegidas</a></li>
 					<!--<li><a href="#"> <i class="small material-icons">settinwgs</i><span class="white-text">Perfil</span></a></li>-->
+				<?php endif; ?>
 		<li class="divider"></li>
 
 </ul>

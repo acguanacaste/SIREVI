@@ -147,9 +147,8 @@
                           data-position='bottom' data-delay='50'
                           data-tooltip='Dentro del parque'>directions_walk</i></a>
                           <p  id='time'></p>";
-
-
                     }
+
                     elseif ($r->salida==1) {
                       echo "
                       <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r->id."'>
@@ -159,18 +158,20 @@
                   }; ?>
 
                 </td>
-
                 <td class="center"><?php echo $r->horaSalida; ?></td> <!--Esta es la variable cuando se cambia estado de ingreso a salida del parque-->
 
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>
               </td>
+
+            <?php if($_SESSION['usuario']['puesto']== 1 || $_SESSION['usuario']['puesto']== 2 || $_SESSION['usuario']['puesto']== 3): ?>
               <td>
               <a title="Borrar Información"  onclick="return confirm('¿Seguro de eliminar este registro?');"
                  href="?c=Visitacion&a=Eliminar&id=<?php echo $r->id; ?>">
                   <i class="white circle z-depth-3 small material-icons right">delete</i></a>
               </td>
+            <?php endif;?>
             </tr>
           <?php endforeach; ?>
           </tbody>

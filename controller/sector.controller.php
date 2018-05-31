@@ -17,6 +17,13 @@ class SectorController{
     }
 
 
+
+    public function SectorManagerUser(){
+        require_once 'view/includes/headerEncargadoSector.php';
+        require_once 'view/sector/sector.php';
+        require_once 'view/includes/footer.php';
+    }
+
     public function Modificar(){
         $sector = new Sector();
 

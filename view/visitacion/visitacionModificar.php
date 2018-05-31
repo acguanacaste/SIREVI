@@ -37,7 +37,7 @@
                 <div class="input-field col s6 m6 l3">
                   <fieldset><center><legend>Sector</legend></center>
                     <center>
-                      <div class="btn teal darken-4 right-align "><?php echo $_SESSION['sector']['sectorNombre'];?></div>
+                      <div class="btn teal darken-4 right-align" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" name="sector"><?php echo $_SESSION['sector']['sectorNombre'];?></div>
                     </center>
                   </fieldset>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="hide-on-med-and-down input-field col s6 m4 l3">
                   <fieldset><center><legend>Usuario</legend></center>
                     <center>
-                      <div name="usuario" value="<?php echo $_SESSION['usuario']['nombre'];?>" class="btn teal darken-4 right-align "><?php echo $_SESSION['usuario']['nombre'];?></div>
+                      <div name="usuario" value="<?php echo $_SESSION['usuario']['id'];?>" class="btn teal darken-4 right-align "><?php echo $_SESSION['usuario']['nombre'];?></div>
                     </center>
                   </fieldset>
                 </div>
@@ -71,6 +71,9 @@
               <div class="">
 
                   <input type="hidden" name="id" value="<?php echo $visit->id; ?>" />
+                  <input type="hidden" name="sector" value="<?php echo $_SESSION['usuario']['id']; ?>">
+                  <input type="hidden" name="usuario" value="<?php echo $_SESSION['sector']['id_Sector']; ?>">
+                  <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>">
 
                   <div class="row">
                   <div class="input-field col s12 m6 l4">
@@ -154,7 +157,7 @@
                   $sentencia_pais = "select * from pais order by nombre ASC";
                   $query_pais = mysql_query($sentencia_pais);
                   ?>
-                  <div  class="input-field col s6 m6 l4">
+                  <div  class="input-field col s6 m4 l4">
                     <select name="pais">
                       <option value="" disabled selected>Elija un pais</option>
                       <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
@@ -172,7 +175,7 @@
       $sentencia = "select * from provincia order by nombre ASC";
       $query = mysql_query($sentencia);
       ?>
-      <div class="input-field col s6 m6 l4">
+      <div class="input-field col s6 m4 l4">
         <select name="provincia">
           <option value="" disabled selected>Elija una provincia</option>
             <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
@@ -192,7 +195,7 @@
   $query_sendero = mysql_query($sentencia_sendero);
   ?>
   <div class="">
-    <div class="input-field col s12 m6 l6"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+    <div class="input-field col s12 m4 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
     <select name="sendero" multiple required>
         <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
          <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>

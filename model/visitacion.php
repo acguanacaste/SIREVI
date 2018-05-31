@@ -138,6 +138,10 @@ public function ConteoIngresosDiarios(){
 
 	public function Actualizar($data){
 		try{
+
+			var_dump($_POST);
+			die();
+
 			$sql = "UPDATE visitacion SET
 
 						proposito_visita          = ?,
@@ -189,7 +193,7 @@ public function ConteoIngresosDiarios(){
 												$data->sendero,
 //--------------------------------------------------------------------
                         $data->dias_camping,
-												$personas_acampando,
+												$data->personas_acampando,
 												$data->subSector,
 //-----------------------------------------------------------------
 												$data->nacional_adult,

@@ -487,21 +487,21 @@
   </fieldset>
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-<fieldset>
-  <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-      value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-      <i class="mdi-content-send material-icons right">done</i>
-  </button>
+      <fieldset>
+        <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+            value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
+            <i class="mdi-content-send material-icons right">done</i>
+        </button>
 
-    <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-  <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
-    value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-    <i class="mdi-content-send material-icons right">delete</i>
-  </button>
-</fieldset>
+          <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
+        <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
+          value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
+          <i class="mdi-content-send material-icons right">delete</i>
+        </button>
+      </fieldset>
 
-</div>
-      </form>
+      </div>
+</form>
       <div class="right hide-on-large-only">
         <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
       </div>

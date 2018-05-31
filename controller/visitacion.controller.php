@@ -27,7 +27,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
-    public function ReporteUser(){
+    public function ReportsUser(){
       require_once 'view/includes/headerReportes.php';
       require_once 'view/visitacion/visitacion.php';
       require_once 'view/includes/footer.php';
@@ -130,7 +130,8 @@ class VisitacionController{
 
 
     public function Guardar(){
-
+var_dump($_POST);
+die();
         $visit = new Visitacion();
         $visit->sector                    = $_REQUEST['sector'];
         $visit->usuario                   = $_REQUEST['usuario'];
@@ -193,7 +194,8 @@ class VisitacionController{
     /*======================================================================*/
         public function Salida(){
             session_start();
-            if ($_SESSION['usuario']['puesto'] == 1){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
+            if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2
+          || $_SESSION['usuario']['puesto'] == 4 ){//El numero 1 es administrador, 2 encargado de sector, 3 Reportes, 4 Voluntarios
               $this->model->ControlSalidas($_REQUEST['id']);
               header('Location:?c=Visitacion&a=AdminUser');
             }
@@ -226,10 +228,9 @@ public function Consulta_Nacionales_Controller(){
 
 }
 
+/*=================================================================================================*/
 
-/*==================================================================================================*/
-
-public function Consulta_Cant_Personas_Parque_Cotnroller(){
+public function Consulta_Cant_Personas_Parque_Controller(){
       $result = $this->model->Consulta_Cant_Personas_Parque_Model();
       $this->Resultado_Cantidad($result);
 }
