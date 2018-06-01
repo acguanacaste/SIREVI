@@ -364,5 +364,20 @@ public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){
 
 	}
 
+/*==============================================================================================*/
+
+public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pSector){
+		$result = array();
+		try {
+			$stm = $this->pdo->prepare("call consulta_ReporteMesSectores($fechaStart, $fechaEnd, $pSector)");
+			$stm->execute();
+
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+
+	}
+
+/*=============================================================================================*/
 
 }// fin del PHP.

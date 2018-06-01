@@ -17,13 +17,13 @@ try{
 	$resultado_usuario->bindValue(":login", $login);
 	$resultado_usuario->bindValue(":password", $password);
 	$resultado_sector->bindValue(":sector", $sector);
+
 	$resultado_usuario->execute();
 	$resultado_sector->execute();
 
 
 		$res_usuario = $resultado_usuario->fetchAll();
 		$res_sector = $resultado_sector->fetchAll();
-
 
 
 		$num_registro_usuario=$resultado_usuario->rowcount();

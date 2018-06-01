@@ -92,9 +92,15 @@ class VisitacionController{
           require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
       }
 /*=============================================================================================================*/
-      public function Reporte_Sectores(){
+      public function Reporte_Mes_Sectores(){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
+        require_once 'view/visitacion/reportes/Totales_Mes_Sector.php';
+        require_once 'view/includes/footer.php';
+      }
+
+      public function Resultado_Reporte_Mes_Sectores($result){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/reportes/';
         require_once 'view/includes/footer.php';
       }
 /*==============================================================================================================*/
@@ -230,6 +236,15 @@ public function Consulta_Nacionales_Controller(){
   $this->Resultado_Nacionalidades($result);
 
   header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
+
+}
+
+/*=================================================================================================*/
+public function Consulta_Totales_Mes_Sectores_Controller(){
+  $result = $this->model->Consulta_Reporte_Mes_Sectores_Model($_REQUEST['subSector']);
+  $this->Resultado_Reporte_Mes_Sectores($result);
+
+  header('Location:?c=Visitacion&a=Resultado_Reporte_Mes_Sectores');
 
 }
 
