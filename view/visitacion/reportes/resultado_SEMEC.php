@@ -78,24 +78,41 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th> ID</th>
-       <th> Fecha visitación</th>
-       <th> País</th>
        <th> Nombre</th>
-       <th> Tipo pago</th>
-       <th> Moneda</th>
-       <th> Referencia visitacion</th>
-<!--        <th> Sector</th> -->
-       <th> Sendero</th>
+       <th> AC</th>
+       <th> Centro Operativo</th>
+       <th> Tipo ASP</th>
+       <th> ASP</th>
+       <th> Mes</th>
+       <th> Prepago</th>
+       <th> Nacional Pago</th>
+       <th> Nacional Exonerado</th>
+       <th> Total Nacionales</th>
+       <th> Extranjeros Pago</th>
+       <th> Extranjero Exonerado</th>
+       <th> Total Extranjeros</th>
+       <th> Monto Total</th>
      </tr>
    </thead>
 
         <tbody>
       <?php foreach ($result as $a):?>
       <tr>
+        <td><?php echo $a->nombre;?></td>
+        <td><?php echo $a->AC; ?></td>
+        <td><?php echo $a->Centro_operativo; ?></td>
+        <td><?php echo $a->Tipo_ASP; ?></td>
+        <td><?php echo $a->ASP; ?></td>
+        <td><?php echo $a->Mes; ?></td>
+        <td><center><?php echo $a->Prepagos; ?></center></td>
+        <td><center><?php echo $a->Nacionales_Pago; ?></center></td>
+        <td><center><?php echo $a->Nacionales_Exonerado; ?></center></td>
+        <td><center><?php echo $a->Total_Nacionales; ?></center></td>
+        <td><center><?php echo $a->Extranjeros_Pago; ?></center></td>
+        <td><center><?php echo $a->Extranjeros_Exonerados; ?></center></td>
+        <td><center><?php echo $a->Total_Extranjeros; ?></center></td>
+        <td><center><?php echo $a->Monto_Total; ?></center></td>
 
-        <td><?php echo $a->nombre; //arreglo?></td>
-        <td><?php echo $a->AC ?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>

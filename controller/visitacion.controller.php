@@ -91,8 +91,13 @@ class VisitacionController{
           header("Expires: 0");
           require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
       }
-
-/*=====================================================================================================================*/
+/*=============================================================================================================*/
+      public function Reporte_Sectores(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
+        require_once 'view/includes/footer.php';
+      }
+/*==============================================================================================================*/
     public function consultaIngresoSalidaDiario(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
