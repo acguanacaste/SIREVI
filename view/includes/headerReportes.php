@@ -160,7 +160,7 @@ function pagoOnChange(sel) {
 							<span class="hide-on-med-and-down">Visitación</span></a></li>
 
 							<?php if ($_SESSION['usuario']['puesto'] == 3 ):?>
-									<li><a href="c=Reporte&a=AdminUser" title="Reportes"> <i class="hide-on-large-only small material-icons tooltipped"
+									<li><a href="?c=Reporte&a=AdminUser" title="Reportes"> <i class="hide-on-large-only small material-icons tooltipped"
 										data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down white-text">Reportes</span></a></li>
 							<?php endif; ?>
 
@@ -188,7 +188,7 @@ function pagoOnChange(sel) {
 
 		<li class="divider"></li>
 		<?php if ($_SESSION['usuario']['puesto'] == 3 ):?>
-			<li><a href="c=Reporte&a=ReportsUser" > <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
+			<li><a href="?c=Reporte&a=ReportsUser" > <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
 		<?php endif; ?>
 		<li class="divider"></li>
 

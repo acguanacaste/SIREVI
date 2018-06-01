@@ -275,9 +275,9 @@ public function ConteoIngresosDiarios(){
 
 
 //----------------------------------------------------------------------------------------
-										$data->montoCancelar,
 										$data->tipo_pago,
 										$data->moneda,
+										$data->montoCancelar,
 //
 
                 )

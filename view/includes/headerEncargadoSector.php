@@ -140,7 +140,7 @@ header("Location:?c=login&a=index");
 		<li><a href="?c=Visitacion&a=SectorManagerUser" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
 
 <?php if ($_SESSION['usuario']['puesto'] == 3 ):?>
-		<li><a href="c=Reportes&a=Reportes" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
+		<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
 <?php endif; ?>
 
 		<li><a href="?c=Usuario&a=SectorManagerUser" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>

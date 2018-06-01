@@ -160,8 +160,10 @@ function pagoOnChange(sel) {
 							<span class="hide-on-med-and-down">Visitación</span></a></li>
 
 							<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
-									<li><a href="c=Reportes&a=AdminUser" title="Reportes">
-										<i class="small material-icons hide-on-large-only ">description</i><span class="hide-on-med-and-down white-text">Reportes</span></a></li>
+									<li><a href="?c=Reportes&a=AdminUser" >
+										<i class="small material-icons hide-on-large-only tooltipped"
+											data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
+										<span class="hide-on-med-and-down white-text">Reportes</span></a></li>
 							<?php endif; ?>
 			<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2):?>
 
@@ -205,7 +207,7 @@ function pagoOnChange(sel) {
 
 		<li class="divider"></li>
 		<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
-			<li><a href="c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+			<li><a href="?c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 				<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
 		<?php endif; ?>
 
