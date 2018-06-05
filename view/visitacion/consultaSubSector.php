@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=resultadoBusquedaSubSector" method="post">
+                    <form action="?c=Visitacion&a=Resultado_busquedaSubSector" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -58,23 +58,14 @@
 
                 <div class="col s6 offset-s4"><span class="flow-text">
                   <fieldset class="input-field col s12 m9 l6 ">
-                    <div class=""><!---Inicio de la segunda fila-->
-                    <!--==============Cargando los paices==============================-->
-                      <?php
-                      $conexion = mysql_connect("localhost","root");
-                      mysql_select_db("sirevi",$conexion);
-                      $sentencia = "select nombre from sector order by id ASC";
-                      $query = mysql_query($sentencia);
-                      ?>
-                      <div  class="input-field col s6 m12 l12">
-                        <select name="subSector">
-                          <option value="" disabled selected>Elija un SubSector</option>
-                          <option>
-                        </select>
-                        <label>Sectores</label>
-                      </div>
-                    </fieldset>
-                  </span></div>
+                    <legend><h6>Escriba el Subsector</h6></legend>
+                    <div class="" >
+                      <i class="material-icons prefix">art_track</i>
+                      <input type="text" class="" id="" name="subSector" required>
+
+                    </div>
+                </fieldset>
+              </span></div>
 
 
                       <div class="row">

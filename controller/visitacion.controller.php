@@ -100,7 +100,7 @@ class VisitacionController{
 
     public function Resultado_Nacionalidades($result){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
+      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
       require_once 'view/includes/footer.php';
     }
 
@@ -240,28 +240,28 @@ class VisitacionController{
           }
         }
 /*==============================================================================================================*/
-public function Consulta_SubSector_Controller(){
+public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
       $result = $this->model->Consulta_SubSector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$pSubSector['subSector']);
       $this->Resultado_busquedaSubSector($result);
       header('Location:?c=Visitacion&a=busquedaSubSector');
 }
 /*==============================================================================================================*/
 
-    public function Consulta_SEMEC_Controller(){
+    public function Consulta_SEMEC_Controller(){//GENERA EL REPORTE SEMEMC
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
           $this->Resultado_SEMEC($result);
           header('Location:?c=Visitacion&a=Resultado_SEMEC');
     }
 
 /*======================================================================================================*/
-public function Consulta_ReporteDiario_Controller(){
+public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
       $this->Resultado_Diario($result);
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
 
 /*==================================================================================================*/
-public function Consulta_Nacionales_Controller(){
+public function Consulta_Nacionales_Controller(){//ME HACE LA CONSULTA DE LOS NACIONALES AGRUUPADO POR PROVINCIA
   $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal']);
   $this->Resultado_Nacionalidades($result);
 
@@ -270,10 +270,10 @@ public function Consulta_Nacionales_Controller(){
 }
 
 /*=================================================================================================*/
-public function Consulta_Totales_Mes_Sectores_Controller(){
-  echo "<pre>";
+public function Consulta_Totales_Mes_Sectores_Controller(){//GENERA EL TOTAL DE UN SECTOR EN ESPECIFICO POR EL MES
+  /*echo "<pre>";
   var_dump($fechaStart,$fechaEnd,$pSector);
-  echo "</pre>";
+  echo "</pre>";*/
   $result = $this->model->Consulta_Totales_Mes_Sectores_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['sector']);
   $this->Resultado_Reporte_Totales_por_Sector($result);
   header('Location:?c=Visitacion&a=Resultado_Reporte_Totales_por_Sectores');
@@ -282,7 +282,7 @@ public function Consulta_Totales_Mes_Sectores_Controller(){
 
 /*==================================================================================================*/
 
-public function Consulta_Campistas_Controller(){
+public function Consulta_Campistas_Controller(){//GENERA EL REPORTE DE CAMPISTAS
   $result = $this->model->Consulta_Campistas_Model($_REQUEST['']);
   $this->Resultado_Reporte_Campistas($result);
 
@@ -290,10 +290,10 @@ public function Consulta_Campistas_Controller(){
 
 }
 
-
 /*=================================================================================================*/
 
-public function Consulta_Cant_Personas_Parque_Controller(){
+public function Consulta_Cant_Personas_Parque_Controller(){//ME EJECUTA LA CONSULTA DE LAS PERSONAS DENTRO DEL SECTOR.
+
       $result = $this->model->Consulta_Cant_Personas_Parque_Model();
       $this->Resultado_Cantidad($result);
 }

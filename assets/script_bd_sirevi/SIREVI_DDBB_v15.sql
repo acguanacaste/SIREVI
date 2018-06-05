@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -242,28 +242,11 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 61
+AUTO_INCREMENT = 65
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
 USE `sirevi` ;
-
--- -----------------------------------------------------
--- procedure ConsultaSubSectores
--- -----------------------------------------------------
-
-USE `sirevi`;
-DROP procedure IF EXISTS `sirevi`.`ConsultaSubSectores`;
-
-DELIMITER $$
-USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultaSubSectores`()
-BEGIN
-Select count(subSector) AS Registros, sum(nacional_adult+nacional_kid+extranjero_adult+extranjero_kid+prepago+exonerado) AS Personas
-from visitacion where visitacion.subSector = 'Naranjo';
-END$$
-
-DELIMITER ;
 
 -- -----------------------------------------------------
 -- procedure NacionalesAgrupadosXProvincia
@@ -276,19 +259,20 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`( IN fechaInicio DATE, IN fechaFinal DATE)
 BEGIN
-SELECT visitacion.provincia as ID, provincia.nombre Provincia, visitacion.nombre As Nombre,
- 
- sum(visitacion.prepago) AS Prepagos, sum(visitacion.extranjero_exonerado) AS Exonerado,
- 
- sum(nacional_adult+nacional_kid+estudiantes+nacional_exonerado+extranjero_adult+extranjero_kid+extranjero_exonerado+prepago) AS CantPersonas,
- 
- count(provincia.id)AS RegistrosHechos FROM visitacion
- 
- INNER JOIN provincia ON visitacion.provincia = provincia.id
- 
- AND visitacion.fecha BETWEEN fechaInicio AND fechaFinal 
- 
- GROUP BY provincia.nombre ORDER BY id ASC;
+#call NacionalesAgrupadosXProvincia('2018-05-01', '2018-05-31');
+SELECT provincia.nombre, fecha,
+sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
+FROM visitacion
+INNER JOIN provincia ON visitacion.provincia_id = provincia.id
+WHERE visitacion.provincia_id IS NOT NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
+GROUP BY provincia.nombre
+UNION
+SELECT pais.nombre, fecha,
+sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
+FROM visitacion
+INNER JOIN pais ON visitacion.pais_id
+WHERE visitacion.provincia_id IS NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
+GROUP BY pais.nombre;
 END$$
 
 DELIMITER ;
@@ -311,6 +295,47 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- procedure consulta_Paises
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`consulta_Paises`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_Paises`()
+BEGIN
+SELECT pais.nombre, 
+
+sum(visitacion.extranjero_adult+visitacion.extranjero_kid) AS Extranjeros_Pago,
+sum(visitacion.extranjero_exonerado) AS Extranjero_Exonerados,
+count(visitacion.pais_id) AS Registros
+
+FROM visitacion
+INNER JOIN pais ON visitacion.pais_id = pais.id
+WHERE visitacion.pais_id != 1
+
+GROUP BY pais.nombre;
+
+#=====================================================================================================
+
+SELECT provincia.nombre,
+
+sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes) AS Nacionales_Pago,
+sum(visitacion.nacional_exonerado) AS Nacionales_Exonerados,
+count(visitacion.provincia_id) AS Registros
+
+FROM visitacion
+INNER JOIN pais ON visitacion.pais_id = pais.id
+INNER JOIN provincia ON visitacion.provincia_id = provincia.id
+WHERE visitacion.pais_id = 1
+GROUP BY provincia.nombre;
+
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
 -- procedure consulta_ReporteCampistas
 -- -----------------------------------------------------
 
@@ -319,9 +344,10 @@ DROP procedure IF EXISTS `sirevi`.`consulta_ReporteCampistas`;
 
 DELIMITER $$
 USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteCampistas`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteCampistas`( In fechaInicio DATE, IN fechaFinal DATE)
 BEGIN
-SELECT visitacion.proposito_visita, sector.nombre, visitacion.subSector AS SubSector, monthname(fecha) as Mes,
+SELECT monthname(fecha) as Mes, dayname(fecha) AS Dia, time(fecha) AS Hora_Ingreso, visitacion.dias_camping AS Dias_Acampando,
+visitacion.proposito_visita, sector.nombre AS Sector, visitacion.subSector AS SubSector,
 
 sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado) AS Nacionales,
 sum(visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado) AS Extranjeros,
@@ -331,9 +357,9 @@ FROM visitacion
 
 INNER JOIN sector ON visitacion. sector = sector.id
 
-WHERE proposito_visita = 'Acampando' OR proposito_visita = 'Hospedado Estacion biologica' AND visitacion.fecha between '2018-01-01' AND '2018-01-31'
+WHERE (proposito_visita = 'Acampando' || proposito_visita = 'Hospedado Estacion Biologica') AND (visitacion.fecha between fechaInicio AND fechaFinal)
 
-GROUP BY sector.nombre;
+GROUP BY fecha;
 
 END$$
 
@@ -354,15 +380,18 @@ BEGIN
 SELECT count(fecha) AS Registros, time(fecha) AS Hora_Entrada, visitacion.horaSalida AS Hora_Salida,
 visitacion.nombre AS Nombre, visitacion.noIdentificacion, visitacion.placa_automovil,
 
-visitacion.subSector AS SubSector,
-sector.nombre AS Sector,
+visitacion.subSector AS SubSector, sector.nombre AS Sector,
 
 pais.nombre AS Pais,
 
 sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes) AS Nacionales,
+
 sum(visitacion.extranjero_adult+visitacion.extranjero_kid) AS Extranjeros,
+
 sum(visitacion.extranjero_exonerado+visitacion.nacional_exonerado) AS Total_exonerados,
+
 sum(visitacion.prepago) AS Prepago,
+
 sum(visitacion.montoCancelar) AS Total_Pago
 
 FROM sirevi.visitacion
@@ -370,44 +399,9 @@ FROM sirevi.visitacion
 INNER JOIN sector ON visitacion.sector= sector.id
 INNER JOIN pais on visitacion.pais_id = pais.id
 
-WHERE fecha BETWEEN fechaStart and fechaEnd AND sector.nombre = pSector
+WHERE fecha BETWEEN fechaStart and fechaEnd AND sector.id = pSector
 
 GROUP BY visitacion.noIdentificacion;
-
-END$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
--- procedure consulta_ReporteMesSectores
--- -----------------------------------------------------
-
-USE `sirevi`;
-DROP procedure IF EXISTS `sirevi`.`consulta_ReporteMesSectores`;
-
-DELIMITER $$
-USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteMesSectores`(IN fechaInicio DATE, IN fechaFinal DATE, IN pSector INT)
-BEGIN
-SELECT sector.nombre AS Sector, pais.nombre AS Pais, visitacion.provincia_id AS Provincia,
-
-sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes
-+visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.prepago) as Cant_Personas,
-
-sum(visitacion.nacional_exonerado+visitacion.extranjero_exonerado) AS Exonerados,
-
-sum(visitacion.prepago) AS Prepagos,
-
-monthname(fecha) AS Mes, sum(visitacion.montoCancelar) AS Total_Pago
-
-FROM visitacion
-
-INNER JOIN sector ON visitacion.sector = sector.id
-INNER JOIN pais ON visitacion.pais_id = pais.id
-
-WHERE visitacion.sector = pSector AND (fecha BETWEEN fechaInicio AND fechaFinal)
-#WHERE fecha BETWEEN fechaInicio AND fechaFinal
-GROUP BY fecha;
 
 END$$
 
@@ -425,9 +419,9 @@ USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_SEMEC`( IN fechaStart DATE, IN fechaEnd DATE )
 BEGIN
  
- SELECT count(sector.nombre) as numero_Reg, visitacion.nombre, asp.nombre as AC,sector.nombre as Centro_operativo,
+ SELECT count(sector.nombre) as Cant_Registros, visitacion.nombre, asp.nombre as AC,sector.nombre as Centro_operativo,
  
- month(fecha) AS Mes, asp.tipo as Tipo_ASP, asp.nombre as ASP,
+  asp.tipo as Tipo_ASP, asp.nombre as ASP, monthname(fecha) AS Mes,
 	
     sum( prepago) AS Prepagos,
 	
@@ -458,6 +452,87 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
+-- procedure consulta_SubSectores
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`consulta_SubSectores`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_SubSectores`(IN fechaInicio DATE, IN fechaFinal DATE, IN pSubSector VARCHAR(50))
+BEGIN
+SELECT count(subSector) AS Registros, sector.nombre, subSector AS SubSector, visitacion.fecha AS Fecha,
+
+sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes) AS Nacionales,
+
+sum(visitacion.nacional_exonerado) AS Nacional_Exonerado,
+
+sum(visitacion.extranjero_adult+visitacion.extranjero_kid) AS Extranjeros,
+
+sum(visitacion.extranjero_exonerado) AS Extranjero_Exonerado,
+
+sum(visitacion.prepago) AS Prepago
+ 
+FROM visitacion
+
+INNER JOIN sector ON visitacion.sector = sector.id
+
+WHERE (fecha BETWEEN fechaInicio AND fechaFinal) AND (visitacion.salida = 0) AND (visitacion.subSector = pSubSector)
+
+GROUP BY subSector ORDER BY fecha;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure consulta_Total_Mensual_Sectores
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`consulta_Total_Mensual_Sectores`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_Total_Mensual_Sectores`(IN fechaStart DATE, IN fechaEnd DATE, IN pSector INT)
+BEGIN
+SELECT sector.nombre AS Sector, monthname(fecha) AS Mes,
+
+sum(visitacion.nacional_adult+ visitacion.nacional_kid+ visitacion.estudiantes) as Nacional_No_Exonerado,
+
+sum(visitacion.nacional_exonerado) AS Nacional_Exonerado,
+
+sum(visitacion.nacional_adult+ visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado) AS SubTotal,
+
+sum(visitacion.extranjero_adult+ visitacion.extranjero_kid) AS Extrajero_No_Exonerado,
+
+sum(visitacion.extranjero_exonerado) AS Extranjero_Exonerado,
+
+sum(visitacion.extranjero_adult+ visitacion.extranjero_kid+ visitacion.extranjero_exonerado) AS SubTotal,
+
+sum(visitacion.prepago) AS Prepagos,
+
+sum(visitacion.nacional_adult+ visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado
++visitacion.extranjero_adult+ visitacion.extranjero_kid+ visitacion.extranjero_exonerado
++visitacion.prepago) AS Total,
+
+visitacion.noIdentificacion AS chequeo_campo_notValid
+
+FROM visitacion
+
+INNER JOIN sector ON visitacion.sector = sector.id
+
+WHERE fecha BETWEEN fechaStart and fechaEnd AND sector.id = pSector
+
+#GROUP BY sector.nombre
+
+GROUP BY visitacion.subSector
+ORDER BY fecha ASC;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
 -- procedure conteoRegistrosDiarios
 -- -----------------------------------------------------
 
@@ -469,30 +544,6 @@ USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `conteoRegistrosDiarios`( )
 BEGIN
 select count(visitacion.id) AS Total_Ingresos from visitacion where LEFT(fecha, 10) = curdate();
-END$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
--- procedure totalMensualSectores
--- -----------------------------------------------------
-
-USE `sirevi`;
-DROP procedure IF EXISTS `sirevi`.`totalMensualSectores`;
-
-DELIMITER $$
-USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `totalMensualSectores`(IN fechaStart DATE, IN fechaEnd DATE)
-BEGIN
-select sector.nombre,sum(nacional_adult+nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado+extranjero_kid+prepago+extranjero_exonerado+visitacion.prepago) as Cant_Personas,
-monthname(fecha), visitacion.noIdentificacion AS chequeo_campo_notValid
-from visitacion
-inner join sector on visitacion.sector = sector.id
-WHERE fecha BETWEEN '2018-05-01' AND '2018-05-31'
-group by sector.nombre
-order by fecha ASC;
--- En esta sentencia me esta mostrando cuantas veces el sector ha sido ingresado y no la cantidad de personas que ingresaron al sector --/
-/*select visitacion.sector, sector.nombre from visitacion inner join sector on visitacion.sector = sector.id;*/
 END$$
 
 DELIMITER ;

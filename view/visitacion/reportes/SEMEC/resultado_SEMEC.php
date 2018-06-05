@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Visitacion&a=Reporte"><span class="hide-on-med-and-up">
+  <a href="?c=Visitacion&a=Reporte_SEMEC"><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Visitacion&a=Reporte">
+    <a   href="?c=Visitacion&a=Reporte_SEMEC">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Resultado de las SEMEC</a></h4>
+      <a href="#">Resultado SEMEC</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -95,15 +95,15 @@
      </tr>
    </thead>
 
-        <tbody>
+    <tbody>
       <?php foreach ($result as $a):?>
       <tr>
-        <td><?php echo $a->nombre;?></td>
-        <td><?php echo $a->AC; ?></td>
-        <td><?php echo $a->Centro_operativo; ?></td>
-        <td><?php echo $a->Tipo_ASP; ?></td>
-        <td><?php echo $a->ASP; ?></td>
-        <td><?php echo $a->Mes; ?></td>
+        <td>        <?php echo $a->nombre;?></td>
+        <td>        <?php echo $a->AC; ?></td>
+        <td>        <?php echo $a->Centro_operativo; ?></td>
+        <td>        <?php echo $a->Tipo_ASP; ?></td>
+        <td>        <?php echo $a->ASP; ?></td>
+        <td>        <?php echo $a->Mes; ?></td>
         <td><center><?php echo $a->Prepagos; ?></center></td>
         <td><center><?php echo $a->Nacionales_Pago; ?></center></td>
         <td><center><?php echo $a->Nacionales_Exonerado; ?></center></td>

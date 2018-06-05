@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=resultadoBusquedaSubSector" method="post">
+                    <form action="?c=Visitacion&a=Resultado_busquedaSubSector" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -114,39 +114,21 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th>Ingreso</th>
-       <th>Salida</th>
        <th>Nombre</th>
-       <th>Cedula/Pasaporte</th>
-       <th>Placa vehiculo</th>
-       <th>SubSector</th>
        <th>Sector</th>
-       <th>Nacionales</th>
-       <th>Extranjeros</th>
-       <th>Exonerados</th>
-       <th>Prepagos</th>
-       <th>Monto Cancelado</th>
-
-
+       <th>SubSector</th>
+       <th>Fecha</th>
+       <th>Hora</th>
+       <th>Salida</th>
+       <th>Proposito Visita</th>
      </tr>
    </thead>
 
     <tbody>
         <?php foreach ($result as $r):?>
       <tr>
+<!--Aqui es donde se debe desplegar la informacion de el resultado de busqueda sector-->
 
-        <td><?php echo $r->Hora_Entrada; ?></td>
-        <td><?php echo $r->Hora_Salida; ?></td>
-        <td><?php echo $r->Nombre; ?></td>
-        <td><?php echo $r->noIdentificacion; ?></td>
-        <td><?php echo $r->placa_automovil; ?></td>
-        <td><?php echo $r->SubSector; ?></td>
-        <td><?php echo $r->Sector; ?></td>
-        <td><?php echo $r->Nacionales; ?></td>
-        <td><?php echo $r->Extranjeros; ?></td>
-        <td><?php echo $r->Total_exonerados; ?></td>
-        <td><?php echo $r->Prepago; ?></td>
-        <td><?php echo $r->Total_Pago ?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>
