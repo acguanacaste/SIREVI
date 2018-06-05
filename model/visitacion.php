@@ -304,9 +304,8 @@ public function ConteoIngresosDiarios(){
   			die($e->getMessage());
   		}
   	}
-
+/*==============================================================================================================*/
 		public function Consulta_SubSector_Model($fechaStart, $fechaEnd, $pSubSector){
-
 		 $result = array();
 		 try {
 			 $stm = $this->pdo->prepare("call consulta_SubSectores('$fechaStart', '$fechaEnd', '$pSubSector')");

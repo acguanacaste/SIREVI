@@ -77,7 +77,7 @@
                 </div>
               </fieldset>
             </span></div>
-
+          </div>
 
                 <div class="row">
                   <div class="center"><span class="flow-text">

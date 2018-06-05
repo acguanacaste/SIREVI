@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Visitacion&a=busquedaSubSector"><span class="hide-on-med-and-up">
+  <a href="?c=Visitacion&a=Reporte_Campistas"><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Visitacion&a=busquedaSubSector">
+    <a   href="?c=Visitacion&a=Reporte_Campistas">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Consultar Campistas</a></h4>
+      <a href="#">Resultado consulta Campistas</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -113,6 +113,13 @@
 
      </tr>
    </thead>
+   <tbody>
+     <?php foreach ($result as $a):?>
+     <tr>
+       <td><?php echo $a->nombre;?></td>
+     </tr>
+     <?php endforeach; ?>
+   </tbody>
 
 </table>
 

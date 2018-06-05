@@ -125,7 +125,7 @@ class VisitacionController{
 
       public function Resultado_Reporte_Campistas($result){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/resutado_campistas.php';
+        require_once 'view/visitacion/reportes/resultado_campistas.php';
         require_once 'view/includes/footer.php';
       }
 /*==============================================================================================================*/
@@ -283,17 +283,15 @@ public function Consulta_Totales_Mes_Sectores_Controller(){//GENERA EL TOTAL DE 
 /*==================================================================================================*/
 
 public function Consulta_Campistas_Controller(){//GENERA EL REPORTE DE CAMPISTAS
-  $result = $this->model->Consulta_Campistas_Model($_REQUEST['']);
+  $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['subSector']);
   $this->Resultado_Reporte_Campistas($result);
-
   header('Location:?c=Visitacion&a=Resultado_Reporte_Campistas');
 
 }
 
 /*=================================================================================================*/
-
-public function Consulta_Cant_Personas_Parque_Controller(){//ME EJECUTA LA CONSULTA DE LAS PERSONAS DENTRO DEL SECTOR.
-
+//ME EJECUTA LA CONSULTA DE LAS PERSONAS DENTRO DEL SECTOR.
+public function Consulta_Cant_Personas_Parque_Controller(){
       $result = $this->model->Consulta_Cant_Personas_Parque_Model();
       $this->Resultado_Cantidad($result);
 }
