@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Reportes&a=AdminUser"><span class="hide-on-med-and-up">
+  <a href="?c=Visitacion&a="><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Reportes&a=AdminUser">
+    <a   href="?c=Visitacion&a=">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Resultado de Ingresos</a></h4>
+      <a href="#">Resultado de SubSectoress</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
+                    <form action="?c=Visitacion&a=resultadoBusquedaSubSector" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -147,7 +147,6 @@
         <td><?php echo $r->Total_exonerados; ?></td>
         <td><?php echo $r->Prepago; ?></td>
         <td><?php echo $r->Total_Pago ?></td>
-
       </tr>
       <?php endforeach; ?>
     </tbody>

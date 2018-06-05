@@ -305,7 +305,18 @@ public function ConteoIngresosDiarios(){
   		}
   	}
 
+		public function Consulta_SubSector_Model($fechaStart, $fechaEnd, $pSubSector){
 
+		 $result = array();
+		 try {
+			 $stm = $this->pdo->prepare("call consulta_SubSectores('$fechaStart', '$fechaEnd', '$pSubSector')");
+			 $stm->execute();
+			 $result = $stm->fetchAll(PDO::FETCH_OBJ);
+			 return $result;
+		 } catch (Exception $e) {
+			 die($e->getMessage());
+		 }
+	 }
 /*======================>> Esta es la funcion (carpeta model) con la que se trabaja el reporte para SEMEC <<======================================================================================*/
  		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){//Funcion up and working
 
@@ -367,7 +378,7 @@ public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){
 /*==============================================================================================*/
 
 public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pSector){
-	
+
 		$result = array();
 			try {
 				$stm = $this->pdo->prepare("call consulta_ReporteMesSectores($fechaStart, $fechaEnd, $pSector)");

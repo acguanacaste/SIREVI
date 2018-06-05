@@ -80,12 +80,12 @@
 
               <div>
               <div class="">
-                <a href="?c=Visitacion&a=CONSULTA_SUBSECTOR"><span class="hide-on-med-and-up">
+                <a href="?c=Visitacion&a=busquedaSubSector"><span class="hide-on-med-and-up">
                   <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
               </div>
 
                   <div class="right hide-on-small-only">
-                    <a   href="?c=Visitacion&a=CONSULTA_SUBSECTOR">
+                    <a   href="?c=Visitacion&a=busquedaSubSector">
                       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
                   </div>
                 </div>

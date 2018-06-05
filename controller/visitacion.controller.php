@@ -45,6 +45,18 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function busquedaSubSector(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/consultaSubSector.php';
+        require_once 'view/includes/footer.php';
+    }
+
+    public function  Resultado_busquedaSubSector($result){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/resultadoConsultaSubsector.php';
+        require_once 'view/includes/footer.php';
+    }
+
 /*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
       require_once 'view/includes/headerPrincipal.php';
@@ -227,7 +239,12 @@ class VisitacionController{
               header( 'HTTP/1.0 403 Forbiden');//).
           }
         }
-
+/*==============================================================================================================*/
+public function Consulta_SubSector_Controller(){
+      $result = $this->model->Consulta_SubSector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$pSubSector['subSector']);
+      $this->Resultado_busquedaSubSector($result);
+      header('Location:?c=Visitacion&a=busquedaSubSector');
+}
 /*==============================================================================================================*/
 
     public function Consulta_SEMEC_Controller(){
