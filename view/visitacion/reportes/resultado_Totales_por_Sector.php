@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Resultado de Ingresos</a></h4>
+      <a href="#">Resultado Totales por Sector</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Resultado_Reporte_Mes_Sectores" method="post">
+                    <form action="?c=Visitacion&a=Resultado_Reporte_Totales_por_Sector" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -129,19 +129,19 @@
    </thead>
 
     <tbody>
-        <?php foreach ($result as $r):?>
+        <?php foreach ($result as $a):?>
       <tr>
 
         <td><?php echo $r->Sector; ?></td>
-        <td><?php echo $r->Mes; ?></td>
-        <td><?php echo $r->Nacional_No_Exonerado; ?></td>
-        <td><?php echo $r->Nacional_Exonerado; ?></td>
-        <td><?php echo $r->SubTotal; ?></td>
-        <td><?php echo $r->Extranjero_No_Exonerado; ?></td>
-        <td><?php echo $r->Extranjero_Exonerado; ?></td>
-        <td><?php echo $r->SubTotal; ?></td>
-        <td><?php echo $r->Prepagos; ?></td>
-        <td><?php echo $r->Total ?></td>
+    <!--  <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td>
+        <td><php echo $r->; ?></td> -->
 
       </tr>
       <?php endforeach; ?>

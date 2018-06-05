@@ -120,7 +120,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_SEMEC">Exportar a Excel</a>
           </td>
 
     </div>

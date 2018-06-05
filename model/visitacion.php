@@ -230,8 +230,8 @@ public function ConteoIngresosDiarios(){
        sendero, dias_camping, personas_acampando, subSector,
         nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
 				extranjero_adult, extranjero_kid,extranjero_exonerado,
-        personas_surf, prepago, montoCancelar,
-         tipo_pago, moneda)
+        personas_surf, prepago,
+         tipo_pago, moneda, montoCancelar)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
@@ -367,17 +367,30 @@ public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){
 /*==============================================================================================*/
 
 public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pSector){
+	
 		$result = array();
-		try {
-			$stm = $this->pdo->prepare("call consulta_ReporteMesSectores($fechaStart, $fechaEnd, $pSector)");
-			$stm->execute();
+			try {
+				$stm = $this->pdo->prepare("call consulta_ReporteMesSectores($fechaStart, $fechaEnd, $pSector)");
+				$stm->execute();
 
-		} catch (Exception $e) {
-			die($e->getMessage());
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+
 		}
 
-	}
-
 /*=============================================================================================*/
+
+public function Consulta_Campistas_Model($fechaStart, $fechaEnd , $pSubSector){
+	$result = array();
+		try {
+				$stm = $this->pdo->prepare("call consulta_SubSectores($fechaStart, $fechaEnd, $pSubSector)");
+				$stm->execute();
+
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+		}
+/*==============================================================================================*/
 
 }// fin del PHP.

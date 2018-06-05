@@ -11,7 +11,7 @@
 
 <main>
   <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-    <a href="#">Reporte Totales Mensual Sector</a></h4>
+    <a href="#">Reporte Totales por Sector</a></h4>
 <div class="">
 
 <!--Busqueda avanzada-->
@@ -28,7 +28,7 @@
           <li>
             <div class="header"><i class="material-icons">info_outline</i>La fecha de inicio debe ser menor que la fecha final</div>
             <div class="body "><span >
-              <form action="?c=Visitacion&a=Resultado_Reporte_Mes_Sectores" method="post">
+              <form action="?c=Visitacion&a=Resultado_Reporte_Totales_por_Sector" method="post">
 
       <div class="col s8 offset-s2"><span class="flow-text">
                 <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->

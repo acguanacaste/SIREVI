@@ -52,17 +52,17 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
-                <a><p><a href="?c=Visitacion&a=Reporte_Mes_Sectores">Reporte Total Mensual Sectores </a><br>
+                <a><p><a href="?c=Visitacion&a=Reporte_Totales_por_Sector">Reporte Totales por Sector </a><br>
                 <span class="hide-on-small-only">
-                  A través de este enlace se realiza la creación de un reporte <br>
-                  para consultar el total de personas que ingreso en cada mes <br>
-                  a cada uno de los sectores del A.C.G </span>
+                  Este reporte es el que me muestra los totales <br>
+                  correspondientes a un mes completo o al rango <br>
+                  seleccionado por usuario para cada uno de los sectores </span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte_Sectores" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_Totales_por_Sector" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Totales por Sector">
                 <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
             </li>
 
-            <li class="collection-item avatar">
+      <!--      <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
                 <a><p><a href="?c=Visitacion&a=Reporte_Sectores">Reporte Totales Santa Maria</a><br>
                 <span class="hide-on-small-only">
@@ -72,7 +72,7 @@
                 </p></a>
                 <a href="?c=Visitacion&a=_Sectores" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
                 <span class="hide-on-small-only"><i class="medium material-icons"></i></span></a>
-            </li>
+            </li> -->
 
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
@@ -82,7 +82,7 @@
                   para consultar el total de personas <br> que se acampando en el sector</span>
                 </p></a>
                 <a href="?c=Visitacion&a=Reporte_Campistas" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
-                <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
+                <span class="hide-on-small-only"><i class="medium material-icons">people</i></span></a>
             </li>
           </ul>
         </table>

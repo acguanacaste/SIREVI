@@ -77,7 +77,21 @@
                     <i class="mdi-content-send material-icons right">pageview</i>
                 </button>
               </center>
-              <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
+
+              <div>
+              <div class="">
+                <a href="?c=Visitacion&a=CONSULTA_SUBSECTOR"><span class="hide-on-med-and-up">
+                  <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
+              </div>
+
+                  <div class="right hide-on-small-only">
+                    <a   href="?c=Visitacion&a=CONSULTA_SUBSECTOR">
+                      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
+                  </div>
+                </div>
+
+                </div>
+
               </form><!--FORM end-->
           </span></div>
           <hr>
@@ -89,7 +103,6 @@
     </div>
 </span></div>
   </li>
-
 </ul>
   </div>
 </div>
@@ -132,8 +145,6 @@
               <td><?php echo $r->placa_automovil; ?></td>
 
               <td><?php echo $r->Pais; ?></td>
-            <!--  <td><?php echo $r->Provincia; ?></td> -->
-          <!--    <td><?php echo $r->referencia_visita ?></td>-->
 
               <td><?php echo $r->Sendero; ?></td>
               <td><?php echo $r->tipo_pago; ?></td>

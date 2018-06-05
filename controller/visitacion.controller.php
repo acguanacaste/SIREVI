@@ -45,19 +45,26 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
-
 /*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/SEMEC.php';
+      require_once 'view/visitacion/reportes/SEMEC/SEMEC.php';
       require_once 'view/includes/footer.php';
     }
 
     public function Resultado_SEMEC($result){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/resultado_SEMEC.php';
+      require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
       require_once 'view/includes/footer.php';
    }
+
+   public function Excel_SEMEC(){
+       header("Content-type: application/vnd.ms-excel");
+         header("Content-Disposition: attachment; filename=reporte.xls");
+         header("Pragma: no-cache");
+         header("Expires: 0");
+         require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
+     }
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
     public function Reporte_Diario(){
       require_once 'view/includes/headerPrincipal.php';
@@ -84,26 +91,33 @@ class VisitacionController{
       require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
     }
-    public function Excel(){
-        header("Content-type: application/vnd.ms-excel");
-          header("Content-Disposition: attachment; filename=reporte.xls");
-          header("Pragma: no-cache");
-          header("Expires: 0");
-          require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
-      }
-/*=============================================================================================================*/
-      public function Reporte_Mes_Sectores(){
+
+/*=====================Para trabajar con la seccionde reportes para los sectores individualmente===========*/
+      public function Reporte_Totales_por_Sector(){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/Totales_Mes_Sector.php';
+        require_once 'view/visitacion/reportes/Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Reporte_Mes_Sectores($result){
+      public function Resultado_Reporte_Totales_por_Sector($result){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/';
+        require_once 'view/visitacion/reportes/resultado_Totales_por_Sector.php';
+        require_once 'view/includes/footer.php';
+      }
+/*==============================Para trabajar con el reporte de campistass===========================================================*/
+      public function Reporte_Campistas(){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/reportes/Campistas.php';
+        require_once 'view/includes/footer.php';
+      }
+
+      public function Resultado_Reporte_Campistas($result){
+        require_once 'view/includes/headerPrincipal.php';
+        require_once 'view/visitacion/reportes/resutado_campistas.php';
         require_once 'view/includes/footer.php';
       }
 /*==============================================================================================================*/
+
     public function consultaIngresoSalidaDiario(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
@@ -141,8 +155,7 @@ class VisitacionController{
 
 
     public function Guardar(){
-var_dump($_POST);
-die();
+
         $visit = new Visitacion();
         $visit->sector                    = $_REQUEST['sector'];
         $visit->usuario                   = $_REQUEST['usuario'];
@@ -182,9 +195,9 @@ die();
         $visit->prepago                   = $_REQUEST['prepago'];
 
 //-----------------------------------------------------------------------------------------------------
-        $visit->montoCancelar             = $_REQUEST['montoCancelar'];
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
         $visit->moneda                    = $_REQUEST['moneda'];
+        $visit->montoCancelar             = $_REQUEST['montoCancelar'];
 
         $visit->id > 0
             ? $this->model->Actualizar($visit)
@@ -241,12 +254,25 @@ public function Consulta_Nacionales_Controller(){
 
 /*=================================================================================================*/
 public function Consulta_Totales_Mes_Sectores_Controller(){
-  $result = $this->model->Consulta_Reporte_Mes_Sectores_Model($_REQUEST['subSector']);
-  $this->Resultado_Reporte_Mes_Sectores($result);
-
-  header('Location:?c=Visitacion&a=Resultado_Reporte_Mes_Sectores');
+  echo "<pre>";
+  var_dump($fechaStart,$fechaEnd,$pSector);
+  echo "</pre>";
+  $result = $this->model->Consulta_Totales_Mes_Sectores_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['sector']);
+  $this->Resultado_Reporte_Totales_por_Sector($result);
+  header('Location:?c=Visitacion&a=Resultado_Reporte_Totales_por_Sectores');
 
 }
+
+/*==================================================================================================*/
+
+public function Consulta_Campistas_Controller(){
+  $result = $this->model->Consulta_Campistas_Model($_REQUEST['']);
+  $this->Resultado_Reporte_Campistas($result);
+
+  header('Location:?c=Visitacion&a=Resultado_Reporte_Campistas');
+
+}
+
 
 /*=================================================================================================*/
 
@@ -255,7 +281,6 @@ public function Consulta_Cant_Personas_Parque_Controller(){
       $this->Resultado_Cantidad($result);
 }
 
-/*==================================================================================================*/
-
+/*===================================================================================================*/
 
 }//Fin de la clase
