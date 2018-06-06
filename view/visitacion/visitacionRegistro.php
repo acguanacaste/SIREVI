@@ -20,9 +20,9 @@
 
 </div>
                       <div class="input-field col s6 m4 l2">
-                        <fieldset><center><legend>Numero diario</legend></center>
+                        <fieldset><center><legend>Total Ingresos</legend></center>
                           <center>
-                          <div class="btn teal darken-4 right-align "> #&nbsp;00 </div>
+                          <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
                         </center>
                         </fieldset>
                       </div>
@@ -30,7 +30,7 @@
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>
-                            <div class="btn teal darken-4 right-align "> AquiSesh/<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
+                            <div class="btn teal darken-4 right-align "> <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
                           </center>
                         </fieldset>
                       </div>

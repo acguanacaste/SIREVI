@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=" method="post">
+                    <form action="?c=Visitacion&a=Consulta_SEMEC_Controller" method="post">
 
 
                       <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->

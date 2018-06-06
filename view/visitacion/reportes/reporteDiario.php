@@ -58,23 +58,22 @@
 
           <div class="col s6 offset-s4"><span class="flow-text">
             <fieldset class="input-field col s12 m9 l6 ">
-              <div class=""><!---Inicio de la segunda fila-->
-              <!--==============Cargando los paices==============================-->
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select nombre from sector order by id ASC";
-                $query = mysql_query($sentencia);
-                ?>
-                <div  class="input-field col s6 m12 l12">
-                  <select name="sector">
-                    <option value="" disabled selected>Elija un Sector</option>
-                    <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                    <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                    <?php } ?>
-                  </select>
-                  <label>Sectores</label>
-                </div>
+              <div class="">
+              <div class="input-field col s12 m6 l6">
+               <fieldset  class="z-depth-1 ">
+                 <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
+                   <div class="input-field col s12 m12 l12">
+                     <select id="proposito_visita" name="sector">
+                         <option id="" value="" disabled selected>&nbsp;Sector</option>
+                         <option value="1">Santa Rosa</option>
+                         <option value="2">Junquillal</option>
+                         <option value="3">Pailas</option>
+                       </select>
+                     <label><i class="small material-icons" >info_outline</i></label>
+                   </div>
+                 </fieldset>
+               </div>
+              </div>
               </fieldset>
             </span></div>
           </div>

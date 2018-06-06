@@ -304,6 +304,38 @@ public function ConteoIngresosDiarios(){
   			die($e->getMessage());
   		}
   	}
+
+
+
+		public function Cantidad_Personas_Dentro_Parque(){
+			$result = array();
+			try {
+				$stm = $this->pdo->prepare("call cant_personas_dentro_parque()");
+				$stm->execute();
+				$result = $stm->fetch(PDO::FETCH_OBJ);
+				return $result->Cantidad;
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+		}
+
+
+
+
+public function Consecutivo(){
+	$result = array();
+	try {
+		$stm = $this->pdo->prepare("call Total_Ingresos()");
+		$stm->execute();
+		$result = $stm->fetch(PDO::FETCH_OBJ);
+		return $result->Cantidad;
+	} catch (Exception $e) {
+		die($e->getMessage());
+	}
+}
+
+
+/*==============================================================================================================*/
 /*==============================================================================================================*/
 		public function Consulta_SubSector_Model($fechaStart, $fechaEnd, $pSubSector){
 		 $result = array();
@@ -332,18 +364,21 @@ public function ConteoIngresosDiarios(){
 /*================================================================================================================*/
 
 public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
-	/*echo "<pre>";
-	var_dump($fechaStart,$fechaEnd);
-	echo "</pre>";*/
+
 	$result = array();
 	try {
-		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$fechaEnd', '$pSector')");
+		$tmpFecha1 = $fechaStart+' 00:00:00';
+		$tmpFecha2 = $fechaStart+' 23:59:59';
+		$stm = $this->pdo->prepare("call prueba('$tmpFecha1', '$tmpFecha2', '$pSector')");
 		$stm->execute();
 		$result = $stm->fetchAll(PDO::FETCH_OBJ);
 		return $result;
+
 	} catch (Exception $e) {
 		die($e->getMessage());
+
 	}
+
 }
 
 /*=====================================================================================================*/
@@ -380,7 +415,7 @@ public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pS
 
 		$result = array();
 			try {
-				$stm = $this->pdo->prepare("call consulta_ReporteMesSectores($fechaStart, $fechaEnd, $pSector)");
+				$stm = $this->pdo->prepare("call consulta_Total_Mensual_Sectores($fechaStart, $fechaEnd, $pSector)");
 				$stm->execute();
 
 			} catch (Exception $e) {

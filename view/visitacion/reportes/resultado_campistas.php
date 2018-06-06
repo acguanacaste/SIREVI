@@ -120,7 +120,6 @@
      </tr>
      <?php endforeach; ?>
    </tbody>
-
 </table>
 
       <td colspan="8" class="text-center">

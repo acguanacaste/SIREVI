@@ -111,7 +111,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Reporte_Totales_por_Sector($result){
+      public function Resultado_Reporte_Totales_por_Sector($response){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/reportes/resultado_Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
@@ -218,9 +218,7 @@ class VisitacionController{
         header('Location: index.php?c=Visitacion&a=agregarRegistro');
     }
 
-    public function Conteo(){
-      $this->model->ContarRegistros();
-    }
+    
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
@@ -255,8 +253,13 @@ public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
+  echo "<pre>";
+  var_dump($_POST);
+  echo "</pre>";
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+
       $this->Resultado_Diario($result);
+
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
 
@@ -271,11 +274,15 @@ public function Consulta_Nacionales_Controller(){//ME HACE LA CONSULTA DE LOS NA
 
 /*=================================================================================================*/
 public function Consulta_Totales_Mes_Sectores_Controller(){//GENERA EL TOTAL DE UN SECTOR EN ESPECIFICO POR EL MES
-  /*echo "<pre>";
-  var_dump($fechaStart,$fechaEnd,$pSector);
-  echo "</pre>";*/
-  $result = $this->model->Consulta_Totales_Mes_Sectores_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['sector']);
-  $this->Resultado_Reporte_Totales_por_Sector($result);
+  echo "<pre>";
+  var_dump($_POST);
+  echo "</pre>";
+  $response = $this->model->Consulta_Totales_Mes_Sectores_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['sector']);
+  echo "<pre>";
+  var_dump($response);
+  echo "</pre>";
+  $this->Resultado_Reporte_Totales_por_Sector($response);
+
   header('Location:?c=Visitacion&a=Resultado_Reporte_Totales_por_Sectores');
 
 }

@@ -108,12 +108,15 @@ $query_pais = mysql_query($sentencia_pais);
             $placa_automovil  = $_POST['placa_automovil'];
             $pais = $_POST['pais'];
 
-
            /* echo "valor enviado es ".$_POST['etiqueta']." y ".$etiqueta;*/
-            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR placa_automovil =:placa OR pais = :pai';
+            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id
+            OR placa_automovil =:placa OR pais = :pai';
+
             $stmt = $con->prepare($sql);
-            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':placa'=>$placa_automovil,':pai'=>$pais));
-            $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,
+            ':placa'=>$placa_automovil,':pai'=>$pais));
+
+            $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
           foreach ($rows as $row): ?>
               <tr>
               	<?php if(count($rows)): ?>
