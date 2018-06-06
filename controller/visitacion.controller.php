@@ -4,7 +4,7 @@ require_once 'model/Visitacion.php';
 class VisitacionController{
 
     private $model;
-
+    
     public function __CONSTRUCT(){
         $this->model = new Visitacion();
     }
@@ -80,13 +80,13 @@ class VisitacionController{
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
     public function Reporte_Diario(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/reporteDiario.php';
+      require_once 'view/visitacion/reportes/diario/reporteDiario.php';
       require_once 'view/includes/footer.php';
     }
 
     public function Resultado_Diario($result){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+      require_once 'view/visitacion/reportes//diario/resultado_reporteDiario.php';
       require_once 'view/includes/footer.php';
     }
 
@@ -94,48 +94,41 @@ class VisitacionController{
 
     public function NacionalesAgrupadosXProvincia(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/NacionalesAgrupadosXProvincia.php';
+      require_once 'view/visitacion/reportes/nacionales/NacionalesAgrupadosXProvincia.php';
       require_once 'view/includes/footer.php';
     }
 
     public function Resultado_Nacionalidades($result){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/resultado_Nacionalidades.php';
+      require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
       require_once 'view/includes/footer.php';
     }
 
 /*=====================Para trabajar con la seccionde reportes para los sectores individualmente===========*/
       public function Reporte_Totales_por_Sector(){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/Totales_por_Sector.php';
+        require_once 'view/visitacion/reportes/totales_sector/Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
       }
 
       public function Resultado_Reporte_Totales_por_Sector($response){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/resultado_Totales_por_Sector.php';
+        require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
       }
 /*==============================Para trabajar con el reporte de campistass===========================================================*/
       public function Reporte_Campistas(){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/Campistas.php';
+        require_once 'view/visitacion/reportes/campistas/Campistas.php';
         require_once 'view/includes/footer.php';
       }
 
       public function Resultado_Reporte_Campistas($result){
         require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/resultado_campistas.php';
+        require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
         require_once 'view/includes/footer.php';
       }
 /*==============================================================================================================*/
-
-    public function consultaIngresoSalidaDiario(){
-        require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/consultaIngresoSalidaDiario.php';
-        require_once 'view/includes/footer.php';
-    }
-
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){
@@ -218,7 +211,7 @@ class VisitacionController{
         header('Location: index.php?c=Visitacion&a=agregarRegistro');
     }
 
-    
+
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);

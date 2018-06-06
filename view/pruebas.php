@@ -1,55 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta content="text/html; charset=windows-1252" http-equiv="Content-Type" />
-        <meta charset="utf-8" />
-
-        <title>PROBANDO 1, 2, 3 ...</title>
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-
-        <script type="text/javascript">
-
-            $(document).ready(function () {
-                $('#cadena').attr("disabled", true);
-                $('#comercio').attr("disabled", true);
-
-                $('#compania').keyup(function () {
-                    var value = $(this).val();
-                    if (value.length == 0) {
-                        $('#cadena').val('');
-                        $('#comercio').val('');
-                        $('#cadena').attr("disabled", true);
-                        $('#comercio').attr("disabled", true);
-                    }
-                    else
-                        $('#cadena').removeAttr("disabled");
-                });
-
-                $('#cadena').keyup(function () {
-                    var value = $(this).val();
-                    if (value.length == 0) {
-                        $('#comercio').val('');
-                        $('#comercio').attr("disabled", true);
-                    }
-                    else
-                        $('#comercio').removeAttr("disabled");
-                });
-            });
-        </script>
-
-    </head>
-
-  <body>
-    <div id="body">
-        <form name="formFiltro">
-            <input type="text" id="compania"/>
-            <input type="text" id="cadena" />
-            <input type="text" id="comercio" />
-        </form>
-    </div>
-  </body>
-</html>
 
 
 
@@ -57,6 +5,94 @@
 
 
 
+
+
+
+
+
+<?php
+public function  Resultado_busquedaSubSector($result){
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/visitacion/resultadoConsultaSubsector.php';
+    require_once 'view/includes/footer.php';
+}
+
+/*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
+public function Reporte_SEMEC(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/SEMEC/SEMEC.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_SEMEC($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Excel_SEMEC(){
+   header("Content-type: application/vnd.ms-excel");
+     header("Content-Disposition: attachment; filename=reporte.xls");
+     header("Pragma: no-cache");
+     header("Expires: 0");
+     require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
+ }
+/*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
+public function Reporte_Diario(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/diario/reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Diario($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes//diario/resultado_reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+
+/*==================>> Para trabaar con la parte del reporte Nacionalidade Garupados por Provincia=========================*/
+
+public function NacionalesAgrupadosXProvincia(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/nacionales/NacionalesAgrupadosXProvincia.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Nacionalidades($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
+  require_once 'view/includes/footer.php';
+}
+
+/*=====================Para trabajar con la seccionde reportes para los sectores individualmente===========*/
+  public function Reporte_Totales_por_Sector(){
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/visitacion/reportes/totales_sector/Totales_por_Sector.php';
+    require_once 'view/includes/footer.php';
+  }
+
+  public function Resultado_Reporte_Totales_por_Sector($response){
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
+    require_once 'view/includes/footer.php';
+  }
+
+/*==============================Para trabajar con el reporte de campistass===========================================================*/
+  public function Reporte_Campistas(){
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/visitacion/reportes/campistas/Campistas.php';
+    require_once 'view/includes/footer.php';
+  }
+
+  public function Resultado_Reporte_Campistas($result){
+    require_once 'view/includes/headerPrincipal.php';
+    require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
+    require_once 'view/includes/footer.php';
+  }
+
+
+
+ ?>
 
 
 
