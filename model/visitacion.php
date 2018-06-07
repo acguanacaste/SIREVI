@@ -392,18 +392,20 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 }*/
 
 /*=================================================================================================*/
-
-public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){
+public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){//Funcion up and working
 		$result = array();
 		try {
 			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia('$fechaStart', '$fechaEnd')");
 			$stm->execute();
-
+			$result = $stm->fetchAll(PDO::FETCH_OBJ);
+			return $result;
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
-
 	}
+
+
+
 
 /*==============================================================================================*/
 
