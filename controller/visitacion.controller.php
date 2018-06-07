@@ -111,11 +111,13 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Reporte_Totales_por_Sector($result){
+      public function Resultado_Totales_por_Sector($result){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
-      }
+     }
+
+
 /*==============================Para trabajar con el reporte de campistass===========================================================*/
       public function Reporte_Campistas(){
         require_once 'view/includes/headerPrincipal.php';
@@ -261,27 +263,13 @@ public function Consulta_Nacionales_Controller(){//GENERA EL REPORTE SEMEMC
     header('Location:?c=Visitacion&a=Resultado_Nacionales');
 }
 
-
 /*=================================================================================================*/
-public function Consulta_Totales_Mes_Sectores_Controller(){//GENERA EL TOTAL DE UN SECTOR EN ESPECIFICO POR EL MES
-  echo "<pre>";
-  var_dump($_POST);
-  echo "</pre>";
-  $result = $this->model->Consulta_Totales_Mes_Sectores_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['sector']);
-  $this->Resultado_Reporte_Totales_por_Sector($result);
 
-  header('Location:?c=Visitacion&a=Resultado_Reporte_Totales_por_Sectores');
-
+public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEMEMC
+    $result = $this->model->Consulta_Totales_por_Sector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+    $this->Resultado_Totales_por_Sector($result);
+    header('Location:?c=Visitacion&a=Resultado_Totales_por_Sector');
 }
-
-
-public function Consulta_Nacionales_Controller_2(){//GENERA EL REPORTE SEMEMC
-    $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-    $this->Resultado_Nacionales($result);
-    header('Location:?c=Visitacion&a=Resultado_Nacionales');
-}
-
-
 
 /*==================================================================================================*/
 

@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Resultado_Reporte_Totales_por_Sector" method="post">
+                    <form action="?c=Visitacion&a=Consulta_Totales_por_Sector_Controller" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -56,27 +56,23 @@
                   </span></div>
 
 
-                <div class="col s6 offset-s4"><span class="flow-text">
-                  <fieldset class="input-field col s12 m9 l6 ">
-                    <div class=""><!---Inicio de la segunda fila-->
-                    <!--==============Cargando los paices==============================-->
-                      <?php
-                      $conexion = mysql_connect("localhost","root");
-                      mysql_select_db("sirevi",$conexion);
-                      $sentencia = "select nombre from sector order by id ASC";
-                      $query = mysql_query($sentencia);
-                      ?>
-                      <div  class="input-field col s6 m12 l12">
-                        <select name="sector">
-                          <option value="" disabled selected>Elija un Sector</option>
-                          <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                          <?php } ?>
-                        </select>
-                        <label>Sectores</label>
-                      </div>
-                    </fieldset>
-                  </span></div>
+                  <div class="col s6 offset-s4"><span class="flow-text">
+                    <fieldset class="input-field col s12 m9 l6 ">
+                      <div class="input-field col s12">
+                          <select name="sector">
+                            <option value="" disabled selected>Elija un Sector</option>
+                            <option value="1">Santa Rosa</option>
+                            <option value="2">Junquillal</option>
+                            <option value="3">Pailas</option>
+                            <option value="4">Horizontes</option>
+                            <option value="5">Santa Maria</option>
+                            <option value="6">Murcielago</option>
+                            <option value="7">Marino</option>
+                          </select>
+                          <label>Sectores ACG</label>
+                        </div>
+                      </fieldset>
+                    </span></div>
 
 
                       <div class="row">
@@ -114,6 +110,7 @@
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
        <th>Sector</th>
+       <th>Sub Sector</th>
        <th>Mes</th>
        <th>Nacional No Exonerado</th>
        <th>Nacional Exonerado</th>
@@ -129,19 +126,22 @@
    </thead>
 
     <tbody>
-        <?php foreach ($result as $a):?>
+        <?php foreach ($result as $r):?>
       <tr>
 
         <td><?php echo $r->Sector; ?></td>
-    <!--  <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td>
-        <td><php echo $r->; ?></td> -->
+        <td><?php echo $r->SubSector ?></td>
+        <td><?php echo $r->Mes; ?></td>
+        <td><?php echo $r->Nacional_No_Exonerado; ?></td>
+        <td><?php echo $r->Nacional_Exonerado; ?></td>
+        <td><?php echo $r->SubTotal; ?></td>
+        <td><?php echo $r->Extranjero_No_Exonerado; ?></td>
+        <td><?php echo $r->Extranjero_Exonerado; ?></td>
+        <td><?php echo $r->SubTotal; ?></td>
+        <td><?php echo $r->Prepagos; ?></td>
+        <td><?php echo $r->Total; ?></td>
+        <td><?php echo $r->chequeo_campo_notValid; ?></td>
+
 
       </tr>
       <?php endforeach; ?>

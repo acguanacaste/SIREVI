@@ -28,7 +28,7 @@
           <li>
             <div class="header"><i class="material-icons">info_outline</i>La fecha de inicio debe ser menor que la fecha final</div>
             <div class="body "><span >
-              <form action="?c=Visitacion&a=Resultado_Reporte_Totales_por_Sector" method="post">
+              <form action="?c=Visitacion&a=Consulta_Totales_por_Sector_Controller" method="post">
 
       <div class="col s8 offset-s2"><span class="flow-text">
                 <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -58,22 +58,18 @@
 
           <div class="col s6 offset-s4"><span class="flow-text">
             <fieldset class="input-field col s12 m9 l6 ">
-              <div class=""><!---Inicio de la segunda fila-->
-              <!--==============Cargando los paices==============================-->
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select nombre from sector order by id ASC";
-                $query = mysql_query($sentencia);
-                ?>
-                <div  class="input-field col s6 m12 l12">
+              <div class="input-field col s12">
                   <select name="sector">
                     <option value="" disabled selected>Elija un Sector</option>
-                    <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                    <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                    <?php } ?>
+                    <option value="1">Santa Rosa</option>
+                    <option value="2">Junquillal</option>
+                    <option value="3">Pailas</option>
+                    <option value="4">Horizontes</option>
+                    <option value="5">Santa Maria</option>
+                    <option value="6">Murcielago</option>
+                    <option value="7">Marino</option>
                   </select>
-                  <label>Sectores</label>
+                  <label>Sectores ACG</label>
                 </div>
               </fieldset>
             </span></div>

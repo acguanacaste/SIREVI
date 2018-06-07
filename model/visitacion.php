@@ -422,6 +422,20 @@ public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pS
 
 		}
 
+		public function Consulta_Totales_por_Sector_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
+				$result = array();
+				try {
+					$stm = $this->pdo->prepare("call consulta_Total_Mensual_Sectores('$fechaStart', '$fechaEnd', '$pSector')");
+					$stm->execute();
+					$result = $stm->fetchAll(PDO::FETCH_OBJ);
+					return $result;
+				} catch (Exception $e) {
+					die($e->getMessage());
+				}
+			}
+
+
+
 /*=============================================================================================*/
 
 public function Consulta_Campistas_Model($fechaStart, $fechaEnd , $pSubSector){
