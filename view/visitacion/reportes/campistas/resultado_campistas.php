@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Resultado_Reporte_Campistas" method="post">
+                    <form action="?c=Visitacion&a=Consulta_Nacionales_Controller_2" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -56,16 +56,23 @@
                   </span></div>
 
 
-                <div class="col s6 offset-s4"><span class="flow-text">
-                  <fieldset class="input-field col s12 m9 l6 ">
-                    <legend><h6>Escriba el Subsector</h6></legend>
-                    <div class="" >
-                      <i class="material-icons prefix">art_track</i>
-                      <input type="text" class="" id="" name="subSector" required>
-
-                    </div>
-                </fieldset>
-              </span></div>
+                  <div class="col s6 offset-s4"><span class="flow-text">
+                    <fieldset class="input-field col s12 m9 l6 ">
+                      <div class="input-field col s12">
+                          <select name="sector">
+                            <option value="" disabled selected>Elija un Sector</option>
+                            <option value="1">Santa Rosa</option>
+                            <option value="2">Junquillal</option>
+                            <option value="3">Pailas</option>
+                            <option value="4">Horizontes</option>
+                            <option value="5">Santa Maria</option>
+                            <option value="6">Murcielago</option>
+                            <option value="7">Marino</option>
+                          </select>
+                          <label>Sectores ACG</label>
+                        </div>
+                      </fieldset>
+                    </span></div>
 
 
                       <div class="row">
@@ -103,20 +110,33 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th>Nombre</th>
+       <th>Mes</th>
+       <th>Dia</th>
+       <th>Ingreso</th>
+       <th>Acampando</th>
+       <th>Proposito Visita</th>
        <th>Sector</th>
        <th>SubSector</th>
-       <th>Fecha</th>
-       <th>Hora</th>
-       <th>Salida</th>
-       <th>Proposito Visita</th>
+       <th>Nacionales</th>
+       <th>Extranjeros</th>
+       <th>Prepagos</th>
 
      </tr>
    </thead>
    <tbody>
      <?php foreach ($result as $a):?>
      <tr>
-       <td><?php echo $a->nombre;?></td>
+       <td><?php echo $a->Mes;?></td>
+       <td><?php echo $a->Dia; ?></td>
+       <td><?php echo $a->Hora_Ingreso; ?></td>
+       <td><?php echo $a->Dias_Acampando ?></td>
+       <td><?php echo $a->proposito_visita; ?></td>
+       <td><?php echo $a->Sector; ?></td>
+       <td><?php echo $a->SubSector; ?></td>
+       <td><?php echo $a->Nacionales; ?></td>
+       <td><?php echo $a->Extranjeros; ?></td>
+       <td><?php echo $a->Prepagos; ?></td>
+
      </tr>
      <?php endforeach; ?>
    </tbody>

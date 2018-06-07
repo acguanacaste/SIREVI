@@ -408,31 +408,17 @@ public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){//Funcion up a
 
 
 /*==============================================================================================*/
-
-public function Consulta_Totales_Mes_Sectores_Model($fechaStart, $fechaEnd , $pSector){
-
+public function Consulta_Totales_por_Sector_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
 		$result = array();
-			try {
-				$stm = $this->pdo->prepare("call consulta_Total_Mensual_Sectores($fechaStart, $fechaEnd, $pSector)");
-				$stm->execute();
-
-			} catch (Exception $e) {
-				die($e->getMessage());
-			}
-
+		try {
+			$stm = $this->pdo->prepare("call consulta_Total_Mensual_Sectores('$fechaStart', '$fechaEnd', '$pSector')");
+			$stm->execute();
+			$result = $stm->fetchAll(PDO::FETCH_OBJ);
+			return $result;
+		} catch (Exception $e) {
+			die($e->getMessage());
 		}
-
-		public function Consulta_Totales_por_Sector_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
-				$result = array();
-				try {
-					$stm = $this->pdo->prepare("call consulta_Total_Mensual_Sectores('$fechaStart', '$fechaEnd', '$pSector')");
-					$stm->execute();
-					$result = $stm->fetchAll(PDO::FETCH_OBJ);
-					return $result;
-				} catch (Exception $e) {
-					die($e->getMessage());
-				}
-			}
+}
 
 
 
@@ -448,6 +434,20 @@ public function Consulta_Campistas_Model($fechaStart, $fechaEnd , $pSubSector){
 				die($e->getMessage());
 			}
 		}
+
+
+
+		public function Consulta_Nacionales_Model_2($fechaStart, $fechaEnd, $pSector){//Funcion up and working
+				$result = array();
+				try {
+					$stm = $this->pdo->prepare("call consulta_Campistas('$fechaStart', '$fechaEnd', '$pSector')");
+					$stm->execute();
+					$result = $stm->fetchAll(PDO::FETCH_OBJ);
+					return $result;
+				} catch (Exception $e) {
+					die($e->getMessage());
+				}
+			}
 /*==============================================================================================*/
 
 }// fin del PHP.

@@ -81,7 +81,7 @@
                   A través de este enlace se realiza la creación de un reporte<br>
                   para consultar el total de personas <br> que se acampando en el sector</span>
                 </p></a>
-                <a href="?c=Visitacion&a=Reporte_Campistas" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
+                <a href="?c=Visitacion&a=Reporte_Campistas" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Campistas">
                 <span class="hide-on-small-only"><i class="medium material-icons">people</i></span></a>
             </li>
           </ul>
