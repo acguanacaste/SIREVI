@@ -56,17 +56,6 @@ public function Excel_SEMEC(){
      require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
  }
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
-public function Reporte_Diario(){
-  require_once 'view/includes/headerPrincipal.php';
-  require_once 'view/visitacion/reportes/diario/reporteDiario.php';
-  require_once 'view/includes/footer.php';
-}
-
-public function Resultado_Diario($result){
-  require_once 'view/includes/headerPrincipal.php';
-  require_once 'view/visitacion/reportes/diario/resultado_reporteDiario.php';
-  require_once 'view/includes/footer.php';
-}
 
 /*==================>> Para trabaar con la parte del reporte Nacionalidade Garupados por Provincia=========================*/
 
@@ -76,7 +65,7 @@ public function NacionalesAgrupadosXProvincia(){
   require_once 'view/includes/footer.php';
 }
 
-public function Resultado_Nacionalidades($result){
+public function Resultado_Nacionalidades($response){
   require_once 'view/includes/headerPrincipal.php';
   require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
   require_once 'view/includes/footer.php';

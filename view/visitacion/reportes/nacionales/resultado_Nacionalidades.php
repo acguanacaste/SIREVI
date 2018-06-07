@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Resultado de las Nacionalidades</a></h4>
+      <a href="#">Resultado Nacionalidades</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -103,9 +103,9 @@
    </thead>
 
     <tbody>
-      <?php foreach ($result as $a):?>
+      <?php foreach ($result as $r):?>
       <tr>
-        <td><?php echo $a->fecha; ?></td>
+        <td><?php echo $r->fecha; ?></td>
       </tr>
     <?php endforeach; ?>
     </tbody>

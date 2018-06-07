@@ -246,9 +246,7 @@ public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
-/* echo "<pre>";
-  var_dump($_POST);
-  echo "</pre>";*/
+
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
 
       $this->Resultado_Diario($result);
@@ -256,14 +254,31 @@ public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
 
-/*==================================================================================================*/
+ /*==================================================================================================*/
 public function Consulta_Nacionales_Controller(){//ME HACE LA CONSULTA DE LOS NACIONALES AGRUUPADO POR PROVINCIA
+    echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>";
   $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal']);
+
   $this->Resultado_Nacionalidades($result);
 
   header('Location:?c=Visitacion&a=Resultado_Nacionalidades');
 
 }
+
+
+public function Consulta_SEMEC_Controller2(){//GENERA EL REPORTE SEMEMC
+  echo "<pre>";
+  var_dump($_POST);
+  echo "</pre>";
+      $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+      $this->Resultado_SEMEC($result);
+      header('Location:?c=Visitacion&a=Resultado_SEMEC');
+}
+
+
+
 
 /*=================================================================================================*/
 public function Consulta_Totales_Mes_Sectores_Controller(){//GENERA EL TOTAL DE UN SECTOR EN ESPECIFICO POR EL MES
