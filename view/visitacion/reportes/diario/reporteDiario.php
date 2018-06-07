@@ -57,25 +57,22 @@
 
               <div class="col s6 offset-s4"><span class="flow-text">
                 <fieldset class="input-field col s12 m9 l6 ">
-                  <div class=""><!---Inicio de la segunda fila-->
                   <!--==============Cargando los paices==============================-->
-                    <?php
-                    $conexion = mysql_connect("localhost","root");
-                    mysql_select_db("sirevi",$conexion);
-                    $sentencia = "select nombre from sector order by id ASC";
-                    $query = mysql_query($sentencia);
-                    ?>
-                    <div  class="input-field col s6 m12 l12">
-                      <select name="sector">
-                        <option value="" disabled selected>Elija un Sector</option>
-                        <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                        <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                        <?php } ?>
-                      </select>
-                      <label>Sectores</label>
-                    </div>
-                  </fieldset>
-                </span></div>
+                  <div class="input-field col s12">
+                    <select name="sector" >
+                      <option value="" disabled selected>Elija un Sector</option>
+                      <option value="1">Santa Rosa</option>
+                      <option value="2">Junquillal</option>
+                      <option value="3">Pailas</option>
+                      <option value="4">Horizontes</option>
+                      <option value="5">Santa Maria</option>
+                      <option value="6">Murcielago</option>
+                      <option value="7">Marino</option>
+                    </select>
+                    <label>Sector</label>
+                  </div>
+                </fieldset>
+              </span></div>
 
                 <div class="row">
                   <div class="center"><span class="flow-text">

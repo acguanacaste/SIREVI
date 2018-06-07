@@ -4,7 +4,7 @@ require_once 'model/Visitacion.php';
 class VisitacionController{
 
     private $model;
-    
+
     public function __CONSTRUCT(){
         $this->model = new Visitacion();
     }
@@ -246,9 +246,9 @@ public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
-  echo "<pre>";
+/* echo "<pre>";
   var_dump($_POST);
-  echo "</pre>";
+  echo "</pre>";*/
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
 
       $this->Resultado_Diario($result);

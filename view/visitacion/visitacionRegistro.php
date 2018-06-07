@@ -16,9 +16,9 @@
                     <div><!-- Inicio de las filas y columnas -->
 
                       <div class="row"><!---Inicio de dos columnas-->
-<div class="col m1">
 
-</div>
+                        <div class="col m1"></div>
+
                       <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Total Ingresos</legend></center>
                           <center>

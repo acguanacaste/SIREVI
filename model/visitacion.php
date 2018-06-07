@@ -69,7 +69,6 @@ class Visitacion{
 							//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
 			$stm->execute();
 
-
 			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
 		catch(Exception $e){
@@ -231,7 +230,7 @@ public function ConteoIngresosDiarios(){
         nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
 				extranjero_adult, extranjero_kid,extranjero_exonerado,
         personas_surf, prepago,
-         tipo_pago, moneda, montoCancelar)
+        tipo_pago, moneda, montoCancelar)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
@@ -320,8 +319,6 @@ public function ConteoIngresosDiarios(){
 		}
 
 
-
-
 public function Consecutivo(){
 	$result = array();
 	try {
@@ -333,7 +330,6 @@ public function Consecutivo(){
 		die($e->getMessage());
 	}
 }
-
 
 /*==============================================================================================================*/
 /*==============================================================================================================*/
@@ -349,11 +345,10 @@ public function Consecutivo(){
 		 }
 	 }
 /*======================>> Esta es la funcion (carpeta model) con la que se trabaja el reporte para SEMEC <<======================================================================================*/
- 		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd){//Funcion up and working
-
+ 		public function Consulta_SEMEC_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
 			$result = array();
 			try {
-				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd')");
+				$stm = $this->pdo->prepare("call consulta_SEMEC('$fechaStart', '$fechaEnd', '$pSector')");
 				$stm->execute();
 				$result = $stm->fetchAll(PDO::FETCH_OBJ);
 				return $result;
@@ -362,8 +357,23 @@ public function Consecutivo(){
 			}
 		}
 /*================================================================================================================*/
-
 public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
+	$result = array();
+	try {
+		//$tmpFecha1 = $fechaStart+' 00:00:00';
+		//$tmpFecha2 = $fechaStart+' 23:59:59';
+		//	$stm = $this->pdo->prepare("call consulta_ReporteDiario('$tmpFecha1', '$tmpFecha2')");
+		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$fechaEnd', '$pSector')");
+		$stm->execute();
+		$result = $stm->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+
+	} catch (Exception $e) {
+		die($e->getMessage());
+
+	}
+}
+/*public function Consulta_Diario_Model($fechaStart, $fechaEnd, $pSector){
 
 	$result = array();
 	try {
@@ -379,9 +389,9 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 
 	}
 
-}
+}*/
 
-/*=====================================================================================================*/
+ /*=====================================================================================================*/
 public function Consulta_Cant_Personas_Parque_Model(){
 
 		$result = array();

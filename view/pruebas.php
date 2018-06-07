@@ -1,5 +1,23 @@
 
 
+if ($_POST):
+         require('model/conexion.php');
+         $con = Conectar();
+         $nombre = $_POST['nombre'];
+         $noIdentificacion = $_POST['noIdentificacion'];
+         $placa_automovil  = $_POST['placa_automovil'];
+         $pais = $_POST['pais'];
+
+        /* echo "valor enviado es ".$_POST['etiqueta']." y ".$etiqueta;*/
+         $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR placa_automovil =:placa OR pais = :pai';
+
+         $stmt = $con->prepare($sql);
+         $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':placa'=>$placa_automovil,':pai'=>$pais));
+
+         $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+       foreach ($rows as $row): ?>
+
+
 
 
 
@@ -46,7 +64,7 @@ public function Reporte_Diario(){
 
 public function Resultado_Diario($result){
   require_once 'view/includes/headerPrincipal.php';
-  require_once 'view/visitacion/reportes//diario/resultado_reporteDiario.php';
+  require_once 'view/visitacion/reportes/diario/resultado_reporteDiario.php';
   require_once 'view/includes/footer.php';
 }
 
