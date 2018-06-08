@@ -47,24 +47,19 @@
                   <label for="atractivo" >  <i class="small material-icons">assignment_late</i><span class="hide-on-small-only">Atractivos del sendero</label>
                 </div>
 
-                <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select * from sector order by nombre ASC";
-                $query = mysql_query($sentencia);
-                ?>
-                <div class="row">
-                   <div class="input-field col s12 m4 l4">
-                    <select name="sector">
-                       <option value="" disabled selected>Elija una opcion</option>
-                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                      <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                      <?php } ?>
-                    </select>
-
-                    <label><i class="small material-icons">view_quilt</i>Sector al que Pertenece</label>
-                  </div>
-                 </div>
+                <div class="input-field col s12 m4 l4" >
+                  <select id="puesto" name="puesto" value="<?php echo $sendero->sector; ?>" required>
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="1"<?php echo $sendero->sector==1?"selected":null; ?>>Santa Rosa</option>
+                    <option value="2"<?php echo $sendero->sector==2?"selected":null; ?>>Pailas</option>
+                    <option value="3"<?php echo $sendero->sector==3?"selected":null; ?>>Junquillal</option>
+                    <option value="4"<?php echo $sendero->sector==4?"selected":null; ?>>Murcielago</option>
+                    <option value="5"<?php echo $sendero->sector==5?"selected":null; ?>>Santa Maria</option>
+                    <option value="6"<?php echo $sendero->sector==6?"selected":null; ?>>Horizontez</option>
+                    <option value="7"<?php echo $sendero->sector==7?"selected":null; ?>>Marino</option>
+                  </select>
+                  <label for="puesto">Sector al que pertenece</label>
+                </div>
             </div>
 
 
@@ -140,8 +135,9 @@
 </div>
 
 <!--================================================================================================================================-->
-        </div>
-      </div><!-- Div de los tamanos -->
+
+</div><!-- Div de los tamanos -->
+
 
       <div class="hide-on-med-and-down input-field col l2">
         <div class="toc-wrapper pin-top" style="top: -15px;">

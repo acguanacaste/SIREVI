@@ -40,7 +40,7 @@
               <th>Puesto</th>
               <th>E-mail</th>
               <th style="width:90px; heigth:110px;">Imagen</th>
-              <th style="heigth:5px;"></th>
+              <th style="heigth:30px;"></th>
               <th>Estado</th>
                 <th style="heigth:20px;"></th>
             <th >Acción</th>
@@ -57,6 +57,7 @@
                 <td><?php echo $r->email; ?></td>
               <td><?php echo'<img class="circle responsive-img" src="'.$r->foto.'" width="100" heigth="100">'; ?></td>
               <?php if ($_SESSION['usuario']['puesto'] == 1):?>
+                <td style="width:30px;"></td>
                 <td style="width:50px;"><?php if($r->estado==1){
                   echo "<a  title='Deshabilitado' href='?c=Usuario&a=CambiarEstado&id=".$r->id."'><i class=' circle red darken-2 small material-icons'>not_interested</i></>";
                 }else{

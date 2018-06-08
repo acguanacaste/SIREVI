@@ -62,11 +62,11 @@
                           <select name="sector">
                             <option value="" disabled selected>Elija un Sector</option>
                             <option value="1">Santa Rosa</option>
-                            <option value="2">Junquillal</option>
-                            <option value="3">Pailas</option>
-                            <option value="4">Horizontes</option>
+                            <option value="2">Pailas</option>
+                            <option value="3">Junquillal</option>
+                            <option value="4">Murcielago</option>
                             <option value="5">Santa Maria</option>
-                            <option value="6">Murcielago</option>
+                            <option value="6">Horizontes</option>
                             <option value="7">Marino</option>
                           </select>
                           <label>Sectores ACG</label>

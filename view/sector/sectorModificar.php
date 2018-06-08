@@ -47,8 +47,14 @@
 
                    <div class="row">
                       <div class="input-field col s12">
-                        <input name="asp" disabled value="<?php echo $sector->asp; ?>" id="disabled" type="text" class="validate">
-                        <label for="disabled"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
+                        <div class="input-field col s12 m12 l12" >
+                          <select disabled name="asp" value="<?php echo $sector->asp; ?>" required>
+                            <option value="" disabled selected>Elija una opción</option>
+                            <option value="1"<?php echo $sector->asp==1?"selected":null; ?>>Guanacaste</option>
+                            <option value="2"<?php echo $sector->asp==2?"selected":null; ?>>Tempisque</option>
+                          </select>
+                          <label for="puesto">Área Silvestre Protegida</label>
+                        </div>
                       </div>
                     </div>
 
@@ -111,7 +117,6 @@
                   <legend>Cambio dolar</legend>
                  <div class="">
                    <input  id="" type="number" name="cambio_dolar" value="<?php echo $sector->cambio_dolar; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
-
                  </div>
                </fieldset>
                </div>

@@ -27,9 +27,9 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Consulta_Nacionales_Controller_2" method="post">
+          <form action="?c=Visitacion&a=Consulta_Campistas_Controller" method="post">
 
-            <div class="col s9 offset-s2"><span class="flow-text">
+                  <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
                         <center>
 
@@ -40,7 +40,7 @@
                             <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
                           </div>
                           </fieldset>
-           <div class="col s1"></div>
+                        <div class="col s1"></div>
 
                      <fieldset class="input-field col s12 m5 l5">
                   <legend><h6>Fecha Final</h6></legend>
@@ -62,11 +62,11 @@
                           <select name="sector">
                             <option value="" disabled selected>Elija un Sector</option>
                             <option value="1">Santa Rosa</option>
-                            <option value="2">Junquillal</option>
-                            <option value="3">Pailas</option>
-                            <option value="4">Horizontes</option>
+                            <option value="2">Pailas</option>
+                            <option value="3">Junquillal</option>
+                            <option value="4">Murcielago</option>
                             <option value="5">Santa Maria</option>
-                            <option value="6">Murcielago</option>
+                            <option value="6">Horizontes</option>
                             <option value="7">Marino</option>
                           </select>
                           <label>Sectores ACG</label>
@@ -75,24 +75,22 @@
                     </span></div>
 
 
-                      <div class="row">
-                        <div class="center"><span class="flow-text">
-                          <div class="input-field col s12 m12 l12">
+                    <div class="row">
+                      <div class="center"><span class="flow-text">
+                        <div class="input-field col s12 m12 l12">
                           <fieldset class="z-depth-2">
                             <button title="Enviar" class=" right small btn waves-effect waves-light teal darken-4"
                               value="Buscar"  type="submit" name="action"><span class="hide-on-small-only "><font size=3>Consultar</font></span>
                               <i class=" small material-icons right">pageview</i>
                             </button>
                           </fieldset>
-                          </div></span>
-                        </div>
+                        </div></span>
                       </div>
-
-                     </div>
                     </div>
-
-                    <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
-                  </form><!--FORM end-->
+                  </div>
+                  </div>
+                <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
+                </form><!--FORM end-->
                 </span></div>
                 <hr>
                </li>

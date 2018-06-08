@@ -240,23 +240,6 @@ $(document).ready(function() {
 												</div>
 										 	</div>
 
-<!--<div >
-	<php
-	$conexion = mysql_connect("localhost","root");
-	mysql_select_db("sirevi",$conexion);
-	$sentencia_sector = "select * from sector order by id ASC";
-	$query_sector = mysql_query($sentencia_sector);
-	?>
-	<div  class="input-field col s6 m12 l12">
-		<select name="sector">
-			<option value="" disabled selected>Elija un pais</option>
-			<php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-			<option value="php echo $arreglo_sector['id']?>"><php echo $arreglo_sector['nombre'] ?></option>
-			<php } ?>
-		</select>
-		<label>Sector</label>
-	</div>
-</div> -->
 
 
 											<div class="input-field col s12 m12 l12">
@@ -300,7 +283,7 @@ $(document).ready(function() {
 										 	<div id="" class="center"><!--Div que contiene laa imagen del MINAE-->
 												<ul>
 													<li>
-														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/minae_small_icon.jpg"></a>
+														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/MINAE.png"></a>
 															<br>
 													</li>
 												</ul>

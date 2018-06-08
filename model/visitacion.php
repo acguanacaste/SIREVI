@@ -424,30 +424,17 @@ public function Consulta_Totales_por_Sector_Model($fechaStart, $fechaEnd, $pSect
 
 /*=============================================================================================*/
 
-public function Consulta_Campistas_Model($fechaStart, $fechaEnd , $pSubSector){
-	$result = array();
-		try {
-				$stm = $this->pdo->prepare("call consulta_SubSectores($fechaStart, $fechaEnd, $pSubSector)");
+public function Consulta_Campistas_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
+		$result = array();
+			try {
+				$stm = $this->pdo->prepare("call consulta_Campistas('$fechaStart', '$fechaEnd', '$pSector')");
 				$stm->execute();
-
+				$result = $stm->fetchAll(PDO::FETCH_OBJ);
+				return $result;
 			} catch (Exception $e) {
 				die($e->getMessage());
-			}
 		}
-
-
-
-		public function Consulta_Nacionales_Model_2($fechaStart, $fechaEnd, $pSector){//Funcion up and working
-				$result = array();
-				try {
-					$stm = $this->pdo->prepare("call consulta_Campistas('$fechaStart', '$fechaEnd', '$pSector')");
-					$stm->execute();
-					$result = $stm->fetchAll(PDO::FETCH_OBJ);
-					return $result;
-				} catch (Exception $e) {
-					die($e->getMessage());
-				}
-			}
+	}
 /*==============================================================================================*/
 
 }// fin del PHP.

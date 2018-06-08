@@ -125,14 +125,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Reporte_Campistas($result){
-        require_once 'view/includes/headerPrincipal.php';
-        require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
-        require_once 'view/includes/footer.php';
-      }
-
-
-      public function Resultado_Nacionales_2($result){
+      public function Resultado_Campistas($result){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
         require_once 'view/includes/footer.php';
@@ -282,17 +275,10 @@ public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEM
 
 /*==================================================================================================*/
 
-public function Consulta_Campistas_Controller(){//GENERA EL REPORTE DE CAMPISTAS
-  $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'],$_REQUEST['fechaFinal'], $_REQUEST['subSector']);
-  $this->Resultado_Reporte_Campistas($result);
-  header('Location:?c=Visitacion&a=Resultado_Reporte_Campistas');
-
-}
-
-public function Consulta_Nacionales_Controller_2(){//GENERA EL REPORTE SEMEMC
-    $result = $this->model->Consulta_Nacionales_Model_2($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-    $this->Resultado_Nacionales_2($result);
-    header('Location:?c=Visitacion&a=Resultado_Nacionales_2');
+public function Consulta_Campistas_Controller(){//GENERA EL REPORTE SEMEMC
+    $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+    $this->Resultado_Campistas($result);
+    header('Location:?c=Visitacion&a=Resultado_Campistas');
 }
 
 /*=================================================================================================*/

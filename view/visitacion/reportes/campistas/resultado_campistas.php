@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Consulta_Nacionales_Controller_2" method="post">
+                    <form action="?c=Visitacion&a=Consulta_Campistas_Controller" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -62,11 +62,11 @@
                           <select name="sector">
                             <option value="" disabled selected>Elija un Sector</option>
                             <option value="1">Santa Rosa</option>
-                            <option value="2">Junquillal</option>
-                            <option value="3">Pailas</option>
-                            <option value="4">Horizontes</option>
+                            <option value="2">Pailas</option>
+                            <option value="3">Junquillal</option>
+                            <option value="4">Murcielago</option>
                             <option value="5">Santa Maria</option>
-                            <option value="6">Murcielago</option>
+                            <option value="6">Horizontes</option>
                             <option value="7">Marino</option>
                           </select>
                           <label>Sectores ACG</label>
