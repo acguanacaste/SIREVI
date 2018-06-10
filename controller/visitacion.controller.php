@@ -71,12 +71,29 @@ class VisitacionController{
    }
 
    public function Excel_SEMEC(){
+
+    session_start();
        header("Content-type: application/vnd.ms-excel");
          header("Content-Disposition: attachment; filename=reporte.xls");
          header("Pragma: no-cache");
          header("Expires: 0");
          require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
      }
+
+
+
+
+    public function Excel_CAMPISTAS(){
+
+      session_start();
+         header("Content-type: application/vnd.ms-excel");
+           header("Content-Disposition: attachment; filename=reporte.xls");
+           header("Pragma: no-cache");
+           header("Expires: 0");
+           require_once 'view/visitacion/reportes/CAMPISTAS/resultado_campistas.php';
+
+     }
+
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
     public function Reporte_Diario(){
       require_once 'view/includes/headerPrincipal.php';
@@ -104,6 +121,16 @@ class VisitacionController{
       require_once 'view/includes/footer.php';
    }
 
+  public function Excel_NACIONALES(){
+    session_start();
+    header("Content-type: application/vnd.ms-excel");
+    header("Content-Disposition: attachment; filename=reporte.xls");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
+
+        }
+
 /*=====================Para trabajar con la seccionde reportes para los sectores individualmente===========*/
       public function Reporte_Totales_por_Sector(){
         require_once 'view/includes/headerPrincipal.php';
@@ -116,7 +143,15 @@ class VisitacionController{
         require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
      }
+     public function Excel_TOTALSECTOR(){
+         
+            header("Content-type: application/vnd.ms-excel");
+              header("Content-Disposition: attachment; filename=reporte.xls");
+              header("Pragma: no-cache");
+              header("Expires: 0");
+              require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
 
+    }
 
 /*==============================Para trabajar con el reporte de campistass===========================================================*/
       public function Reporte_Campistas(){
@@ -130,6 +165,16 @@ class VisitacionController{
         require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
         require_once 'view/includes/footer.php';
      }
+
+  public function Excel_DIARIO(){
+    session_start();
+      header("Content-type: application/vnd.ms-excel");
+      header("Content-Disposition: attachment; filename=reporte.xls");
+      header("Pragma: no-cache");
+      header("Expires: 0");
+  require_once 'view/visitacion/reportes/diario/resultado_reporteDiario.php';
+
+          }
 
 
 /*==============================================================================================================*/
@@ -164,7 +209,9 @@ class VisitacionController{
 
 
     public function Guardar(){
-
+      echo "<pre>";
+        var_dump($_POST);
+      echo "</pre>";
         $visit = new Visitacion();
         $visit->sector                    = $_REQUEST['sector'];
         $visit->usuario                   = $_REQUEST['usuario'];
@@ -214,7 +261,6 @@ class VisitacionController{
 
         header('Location: index.php?c=Visitacion&a=agregarRegistro');
     }
-
 
 
     public function Eliminar(){

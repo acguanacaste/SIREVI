@@ -91,21 +91,28 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th> Nombre</th>
-       <th> Fecha</th>
-       <th> Nacionales</th>
-       <th> </th>
-       <th> </th>
-       <th> </th>
+       <th> Provincia</th>
+       <th> Sector</th>
+       <th> SubSector</th>
+       <th> Registros SubSector</th>
+       <th> Cant Personas</th>
+       <th> Prepagos</th>
+       <th> Exonerados</th>
+       <th> Total</th>
      </tr>
    </thead>
 
     <tbody>
       <?php foreach ($result as $r):?>
       <tr>
-        <td><?php echo $r->Nombre; ?></td>
-        <td><?php echo $r->fecha; ?></td>
-        <td><?php echo $r->Nacionales; ?></td>
+        <td><?php echo $r->Provincia; ?></td>
+        <td><?php echo $r->Sector; ?></td>
+        <td><?php echo $r->SubSector; ?></td>
+        <td><?php echo $r->Registros_SubSector; ?></td>
+        <td><?php echo $r->Pagos; ?></td>
+        <td><?php echo $r->Prepagos; ?></td>
+        <td><?php echo $r->Exonerados; ?></td>
+        <td><?php echo $r->Total; ?></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
@@ -113,7 +120,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_Nacionales">Exportar a Excel</a>
           </td>
 
     </div>

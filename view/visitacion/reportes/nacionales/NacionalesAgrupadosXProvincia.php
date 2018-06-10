@@ -88,14 +88,14 @@
           <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
             <thead class="white-text teal darken-4 z-depth-2">
        <tr>
-         <th> ID</th>
-         <th> Fecha visitación</th>
-         <th> País</th>
-         <th> Nombre</th>
-         <th> Tipo pago</th>
-         <th> Moneda</th>
-         <th> Referencia visitacion</th>
-         <th> Sendero</th>
+         <th> Provincia</th>
+         <th> Sector</th>
+         <th> SubSector</th>
+         <th> Registros_SubSector</th>
+         <th> Cant Personas</th>
+         <th> Prepagos</th>
+         <th> Exonerados</th>
+         <th> Total</th>
        </tr>
      </thead>
       </table>

@@ -62,18 +62,6 @@
                 <span class="hide-on-small-only"><i class="medium material-icons">view_quilt</i></span></a>
             </li>
 
-      <!--      <li class="collection-item avatar">
-              <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
-                <a><p><a href="?c=Visitacion&a=Reporte_Sectores">Reporte Totales Santa Maria</a><br>
-                <span class="hide-on-small-only">
-                  A través de este enlace se realiza la creación de un reporte <br>
-                  para consultar el total de personas que ingreso en cada mes <br>
-                  a cada uno de los sectores del A.C.G </span>
-                </p></a>
-                <a href="?c=Visitacion&a=_Sectores" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Sectores">
-                <span class="hide-on-small-only"><i class="medium material-icons"></i></span></a>
-            </li> -->
-
             <li class="collection-item avatar">
               <img src="assets/img/sectores.jpg" alt="Imagen no disponible" class="circle">
               <a><p><a href="?c=Visitacion&a=Reporte_Campistas">Reporte Campistas</a><br>
@@ -84,6 +72,19 @@
                 <a href="?c=Visitacion&a=Reporte_Campistas" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Campistas">
                 <span class="hide-on-small-only"><i class="medium material-icons">people</i></span></a>
             </li>
+
+            <li class="collection-item avatar">
+              <img src="assets/img/Totales_ACG.pNg" alt="Imagen no disponible" class="circle">
+                <a><p><a href="?c=Visitacion&a=">Reporte Totales por ACG </a><br>
+                <span class="hide-on-small-only">
+                  Este reporte es el que me muestra los totales <br>
+                  correspondientes a TODOS LOS SECTORES <br>
+                  en un rango de fecha establecido por usuario </span>
+                </p></a>
+                <a href="?c=Visitacion&a=" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Totales por Sector">
+                <span class="hide-on-small-only"><i class="medium material-icons">satellite</i></span></a>
+            </li>
+
           </ul>
         </table>
       </div><!-- Div de los tamanos -->

@@ -22,6 +22,7 @@ header("Location:?c=login&a=index");
 
 	<script type="text/javascript">
   	$(document).ready(function () {
+
 	    $('#personas_acampando').attr("hidden", true);
 
     	$('#dias_camping').keyup(function () {
@@ -36,6 +37,7 @@ header("Location:?c=login&a=index");
         	$('#personas_acampando').removeAttr("hidden");
       });
 		});
+
 /*=================================================================================================*/
 function pagoOnChange(sel) {
       if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
@@ -75,7 +77,7 @@ function pagoOnChange(sel) {
 
 				$(document).ready(function() {
 	 				$('select').material_select('destroy');
-          $(".button-collapse").sideNav({
+				  $(".button-collapse").sideNav({
             //		menuWidth: 400, // Ancho del sideNav
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
  					});

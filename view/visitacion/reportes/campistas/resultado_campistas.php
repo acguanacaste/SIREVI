@@ -129,7 +129,7 @@
        <td><?php echo $a->Mes;?></td>
        <td><?php echo $a->Dia; ?></td>
        <td><?php echo $a->Hora_Ingreso; ?></td>
-       <td><?php echo $a->Dias_Acampando ?></td>
+       <td><?php echo $a->Dias_Acampando; ?> dia/s</td>
        <td><?php echo $a->proposito_visita; ?></td>
        <td><?php echo $a->Sector; ?></td>
        <td><?php echo $a->SubSector; ?></td>

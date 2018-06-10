@@ -21,7 +21,7 @@
                 <div class="input-field col s6 m4 l2">
                   <fieldset><center><legend>Numero diario</legend></center>
                     <center>
-                    <div class="btn teal darken-4 right-align "> #&nbsp;00 </div>
+                      <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
                   </center>
                   </fieldset>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                   <fieldset><center><legend>Capacidad de Sector</legend></center>
                     <center>
-                      <div class="btn teal darken-4 right-align "> AquiSesh/<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
+                      <div class="btn teal darken-4 right-align "> <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
                     </center>
                   </fieldset>
                 </div>
@@ -75,13 +75,13 @@
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['sector']['id_Sector']; ?>">
                   <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>">
 
-                  <div class="row">
+        <!--          <div class="row">
                   <div class="input-field col s12 m6 l4">
                     <fieldset>
                       <legend>Seleccione la fecha que desea</legend>
                       <div class="input-field col s12 m12 l12">
+                        <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
                         <label for="fecha"> <i class="small material-icons">event</i><span class="hide-on-small-only">Fecha ingreso</span></label>
-                         <input  type="text" class="datepicker" id="fecha" name="fecha" value="" required>
 
                       </div>
                     </fieldset>
@@ -91,15 +91,14 @@
                   </div>
                     <div class="input-field  col s12 m6 l4">
                       <fieldset>
-                        <legend>Seleccione la hora que desea</legend>
+                        <legend> <i class="small material-icons">access_time</i><span class="hide-on-small-only">Hora ingreso <br>  Formato 23:59:59</span></legend>
                         <div class="input-field col s12 m12 l12">
-                          <label for="time"> <i class="small material-icons">access_time</i><span class="hide-on-small-only">Hora ingreso</span></label>
                            <input class="timepicker"  id="time" name="fecha" value="" required>
-
                         </div>
                       </fieldset>
                     </div>
-                  </div>
+                  </div> -->
+
 
 
 <!--==========================================================================================================-->
@@ -109,11 +108,10 @@
    <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
      <div class="input-field col s12 m12 l12">
        <select id="proposito_visita" name="proposito_visita">
-           <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
-
-           <option value="Visita por el dia">Por el dia</option>
-           <option value="Acampando">Acampando</option>
-           <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
+         <option value="" disabled selected>Elija una opción</option>
+         <option  value="Por el dia"<?php echo $visit->proposito_visita=="Por el dia"?"selected":null; ?>>Por el dia</option>
+         <option  value="Acampando"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Acampando</option>
+         <option  value="3"<?php echo $visit->proposito_visita=="Hospedado en Estacion Biologica"?"selected":null; ?>>Hospedado en Estacion Biologica</option>
          </select>
        <label><i class="small material-icons" >info_outline</i></label>
      </div>
@@ -169,18 +167,16 @@
 
 
 <!--==============Cargando las cuidades============================================-->
-      <?php
-      $conexion = mysql_connect("localhost","root");
-      mysql_select_db("sirevi",$conexion);
-      $sentencia = "select * from provincia order by nombre ASC";
-      $query = mysql_query($sentencia);
-      ?>
       <div class="input-field col s6 m4 l4">
         <select name="provincia">
-          <option value="" disabled selected>Elija una provincia</option>
-            <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-            <?php } ?>
+          <option value="" disabled selected>Elija una opción</option>
+          <option value="1"<?php echo $visit->provincia_id==1?"selected":null; ?>>San Jose</option>
+          <option value="2"<?php echo $visit->provincia_id==2?"selected":null; ?>>Alajuela</option>
+          <option value="3"<?php echo $visit->provincia_id==3?"selected":null; ?>>Cartago</option>
+          <option value="4"<?php echo $visit->provincia_id==4?"selected":null; ?>>Heredia</option>
+          <option value="5"<?php echo $visit->provincia_id==5?"selected":null; ?>>Guanacaste</option>
+          <option value="6"<?php echo $visit->provincia_id==6?"selected":null; ?>>Putarenas</option>
+          <option value="7"<?php echo $visit->provincia_id==7?"selected":null; ?>>Limón</option>
           </select>
         <label> Provincia</label>
       </div>
@@ -213,21 +209,22 @@
   <legend>Referencia de Visitación</legend>
         <div>
           <div>
-               <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
+               <SELECT id="referencia_visita" name="referencia_visita" onChange="pagoOnChange(this)">
                   <option value="" disabled selected>&nbsp;Elija una opción</option>
-                  <option value="Expontaneamente en ruta"<?php echo $visit->referencia_visita=="Expontaneamente en ruta"?"selected":null; ?>>Expontaneamente en ruta</option>
-                  <option value="Referencia de alguien mas"<?php echo $visit->referencia_visita=="Referencia de alguien mas"?"selected":null; ?>>Referencia de alguien mas</option>
-                  <option value="Recomendación por amigos"<?php echo $visit->referencia_visita=="Recomendación por amigos"?"selected":null; ?>>Recomendación por amigos</option>
-                  <option value="Visita reiterada"<?php echo $visit->referencia_visita=="Visita reiterada"?"selected":null; ?>>Visita reiterada</option>
-                  <option value="Selección directa personal (Check list)"<?php echo $visit->referencia_visita=="Selección directa personal (Check list)"?"selected":null; ?>>Selección directa personal (Check list)</option>
-                  <option value="Operadora turística"<?php echo $visit->referencia_visita=="Operadora turística"?"selected":null; ?>>Operadora turística</option>
-                  <option value="Medio de comunicación"<?php echo $visit->referencia_visita=="Medio de comunicación"?"selected":null; ?>>Medio de comunicación</option>
-                  <option value="Guías impresas"<?php echo $visit->referencia_visita=="Guías impresas"?"selected":null; ?>>Guías impresas</option>
-                  <option value="Grupo comunal organizado"<?php echo $visit->referencia_visita=="Grupo comunal organizado"?"selected":null; ?>>Grupo comunal organizado</option>
-                  <option value="Empresa privada"<?php echo $visit->referencia_visita=="Empresa privada"?"selected":null; ?>>Empresa privada</option>
-                  <option value="ONGs en proyectos de investigación y conservación"<?php echo $visit->referencia_visita=="ONGs en proyectos de investigación y conservación"?"selected":null; ?>>ONGs en proyectos de investigación y conservación</option>
-                  <option value="Institución pública"<?php echo $visit->referencia_visita=="Institución pública"?"selected":null; ?>>Institución pública</option>
-                  <option value="Otro"<?php echo $visit->referencia_visita=="Otro"?"selected":null; ?>>Otro</option>
+                  <option value="1"<?php echo $visit->referencia_visita=="Espontaneamente en ruta"?"selected":null; ?>>Espontaneamente en Ruta</option>
+                  <option value="2"<?php echo $visit->referencia_visita=="Espontaneamente en ruta"?"selected":null; ?>>Espontaneamente en ruta</option>
+                  <option value="3"<?php echo $visit->referencia_visita=="Referencia de alguien mas"?"selected":null; ?>>Referencia de alguien mas</option>
+                  <option value="4"<?php echo $visit->referencia_visita=="Recomendación por amigos"?"selected":null; ?>>Recomendación por amigos</option>
+                  <option value="5"<?php echo $visit->referencia_visita=="Visita reiterada"?"selected":null; ?>>Visita reiterada</option>
+                  <option value="6"<?php echo $visit->referencia_visita=="Selección directa personal (Check list)"?"selected":null; ?>>Selección directa personal (Check list)</option>
+                  <option value="7"<?php echo $visit->referencia_visita=="Operadora turística"?"selected":null; ?>>Operadora turística</option>
+                  <option value="8"<?php echo $visit->referencia_visita=="Medio de comunicación"?"selected":null; ?>>Medio de comunicación</option>
+                  <option value="9"<?php echo $visit->referencia_visita=="Guías impresas"?"selected":null; ?>>Guías impresas</option>
+                  <option value="10"<?php echo $visit->referencia_visita=="Grupo comunal organizado"?"selected":null; ?>>Grupo comunal organizado</option>
+                  <option value="11"<?php echo $visit->referencia_visita=="Empresa privada"?"selected":null; ?>>Empresa privada</option>
+                  <option value="12"<?php echo $visit->referencia_visita=="ONGs en proyectos de investigación y conservación"?"selected":null; ?>>ONGs en proyectos de investigación y conservación</option>
+                  <option value="13"<?php echo $visit->referencia_visita=="Institución pública"?"selected":null; ?>>Institución pública</option>
+                  <option value="14"<?php echo $visit->referencia_visita=="Otro"?"selected":null; ?>>Otro</option>
                </SELECT>
           </div>
 
@@ -256,7 +253,7 @@
         <div class="input-field col s12 m12 l12">
         Personas*:
           <br>
-          <input  value="<?php echo $visit->personas_acampando; ?>" type="number" name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+          <input   id="dias_camping" type="number" name="personas_acampando" value="<?php echo $visit->personas_acampando;?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
         </div>
     </fieldset>
 </div><!--Fin de la tercera fila-->
@@ -291,6 +288,7 @@
              <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
              </div>
 
+
             <div class="input-field col s6 m6 l3  ">
                <input  id="nacional_exonerado" value="<?php echo $visit->nacional_exonerado; ?>" type="number" name="nacional_exonerado" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
               <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
@@ -321,7 +319,6 @@
      </fieldset>
    </div>
    </div>
-
    <div class=""><!--Tercera fila-->
    <div class="input-field col s12 m12 l12">
      <fieldset class="z-depth-3">
@@ -427,10 +424,12 @@
 </div>
 </main>
 
-  <script>
-      $(document).ready(function(){
-          $("#frm-visitacion").submit(function(){
-              return $(this).validate();
-          });
-      })
+<script>
+
+  $(document).ready(function(){
+    $("#frm-visitacion").submit(function(){
+      return $(this).validate();
+      });
+  })
+  var instance = M.Timepicker.getInstance(elem);
   </script>

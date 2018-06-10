@@ -77,9 +77,6 @@ class Visitacion{
 	}
 
 /*==========================================================================================*/
-
-
-
 public function ConteoIngresosDiarios(){
 	try{
 		$result = array();
@@ -137,7 +134,6 @@ public function ConteoIngresosDiarios(){
 
 	public function Actualizar($data){
 		try{
-
 			var_dump($_POST);
 			die();
 
@@ -224,11 +220,11 @@ public function ConteoIngresosDiarios(){
 	{
 		try
 		{
-		$sql ="INSERT INTO visitacion (sector,usuario,asp,proposito_visita, noIdentificacion, nombre, placa_automovil,
-       pais_id,provincia_id,referencia_visita,nom_referencia_visita,
+		$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
+       pais_id, provincia_id, referencia_visita, nom_referencia_visita,
        sendero, dias_camping, personas_acampando, subSector,
         nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
-				extranjero_adult, extranjero_kid,extranjero_exonerado,
+				extranjero_adult, extranjero_kid, extranjero_exonerado,
         personas_surf, prepago,
         tipo_pago, moneda, montoCancelar)
 						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -251,13 +247,11 @@ public function ConteoIngresosDiarios(){
 										$data->nom_referencia_visita,
 
 //----------------------------------------------------------------------------------------------
-
 //-----------------------------------------------------------------------------------------------
                     $data->sendero,
                     $data->dias_camping,
 										$data->personas_acampando,
 										$data->subSector,
-
 
 //---------------------------------------------------------------------------------------------------
 										$data->nacional_adult,
@@ -272,14 +266,13 @@ public function ConteoIngresosDiarios(){
                     $data->personas_surf,
                     $data->prepago,
 
-
 //----------------------------------------------------------------------------------------
 										$data->tipo_pago,
 										$data->moneda,
 										$data->montoCancelar,
-//
 
                 )
+
 			);
 		} catch (Exception $e)
 		{
@@ -386,9 +379,7 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 
 	} catch (Exception $e) {
 		die($e->getMessage());
-
 	}
-
 }*/
 
 /*=================================================================================================*/
@@ -403,9 +394,6 @@ public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){//Funcion up a
 			die($e->getMessage());
 		}
 	}
-
-
-
 
 /*==============================================================================================*/
 public function Consulta_Totales_por_Sector_Model($fechaStart, $fechaEnd, $pSector){//Funcion up and working
