@@ -57,6 +57,12 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
+    public function Resultado_SEMEC_2($result){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
+      require_once 'view/includes/footer.php';
+   }
+
 /*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
       require_once 'view/includes/headerPrincipal.php';
@@ -78,20 +84,6 @@ class VisitacionController{
          header("Pragma: no-cache");
          header("Expires: 0");
          require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
-     }
-
-
-
-
-    public function Excel_CAMPISTAS(){
-
-      session_start();
-         header("Content-type: application/vnd.ms-excel");
-           header("Content-Disposition: attachment; filename=reporte.xls");
-           header("Pragma: no-cache");
-           header("Expires: 0");
-           require_once 'view/visitacion/reportes/CAMPISTAS/resultado_campistas.php';
-
      }
 
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
@@ -144,7 +136,7 @@ require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
         require_once 'view/includes/footer.php';
      }
      public function Excel_TOTALSECTOR(){
-         
+
             header("Content-type: application/vnd.ms-excel");
               header("Content-Disposition: attachment; filename=reporte.xls");
               header("Pragma: no-cache");
@@ -167,7 +159,6 @@ require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
      }
 
   public function Excel_DIARIO(){
-    session_start();
       header("Content-type: application/vnd.ms-excel");
       header("Content-Disposition: attachment; filename=reporte.xls");
       header("Pragma: no-cache");
@@ -282,9 +273,16 @@ require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
         }
 /*==============================================================================================================*/
 public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
-      $result = $this->model->Consulta_SubSector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$pSubSector['subSector']);
-      $this->Resultado_busquedaSubSector($result);
+      $result = $this->model->Consulta_SubSector_Mode($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$pSubSector['subSector']);
+      $this->Resultado_SEMEC_2($result);
       header('Location:?c=Visitacion&a=busquedaSubSector');
+}
+
+
+public function Consulta_SubSector_Controller_2(){//ME BUSCA EL SUBSECTOR
+      $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+      $this->Resultado_SEMEC($result);
+      header('Location:?c=Visitacion&a=Resultado_SEMEC');
 }
 /*==============================================================================================================*/
 

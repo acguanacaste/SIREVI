@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="input-field col s12 m4 l4" >
-                  <select id="puesto" name="puesto" value="<?php echo $sendero->sector; ?>" required>
+                  <select id="sector" name="sector" value="<?php echo $sendero->sector; ?>" required>
                     <option value="" disabled selected>Elija una opción</option>
                     <option value="1"<?php echo $sendero->sector==1?"selected":null; ?>>Santa Rosa</option>
                     <option value="2"<?php echo $sendero->sector==2?"selected":null; ?>>Pailas</option>

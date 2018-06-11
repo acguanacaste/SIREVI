@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Visitacion&a="><span class="hide-on-med-and-up">
+  <a href="?c=Visitacion&a=AdminUser"><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Visitacion&a=">
+    <a   href="?c=Visitacion&a=AdminUser">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -27,7 +27,7 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-                    <form action="?c=Visitacion&a=Resultado_busquedaSubSector" method="post">
+                    <form action="?c=Visitacion&a=Consulta_SubSector_Controller_2" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
@@ -56,11 +56,11 @@
                   </span></div>
 
 
-                <div class="col s6 offset-s4"><span class="flow-text">
+  <!--              <div class="col s6 offset-s4"><span class="flow-text">
                   <fieldset class="input-field col s12 m9 l6 ">
                     <div class=""><!---Inicio de la segunda fila-->
-                    <!--==============Cargando los paices==============================-->
-                      <?php
+                    <!--==============Cargando los paices==============================--
+                      <php
                       $conexion = mysql_connect("localhost","root");
                       mysql_select_db("sirevi",$conexion);
                       $sentencia = "select nombre from sector order by id ASC";
@@ -69,15 +69,15 @@
                       <div  class="input-field col s6 m12 l12">
                         <select name="sector">
                           <option value="" disabled selected>Elija un Sector</option>
-                          <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
-                          <?php } ?>
+                          <php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                          <option value="<php echo $arreglo['id']?>"><php echo $arreglo['nombre'] ?></option>
+                          <php } ?>
                         </select>
                         <label>Sectores</label>
                       </div>
                     </fieldset>
                   </span></div>
-
+-->
 
                       <div class="row">
                         <div class="center"><span class="flow-text">

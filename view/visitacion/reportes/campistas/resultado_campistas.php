@@ -136,7 +136,6 @@
        <td><?php echo $a->Nacionales; ?></td>
        <td><?php echo $a->Extranjeros; ?></td>
        <td><?php echo $a->Prepagos; ?></td>
-
      </tr>
      <?php endforeach; ?>
    </tbody>
