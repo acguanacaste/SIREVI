@@ -313,7 +313,7 @@
        </div>
 
        <div class="input-field col s6 m4 l4  ">
-       <input  id="extranjero_exonerado" value="<?php echo $visit->extrajero_exonerado; ?>" type="number" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+       <input  id="extranjero_exonerado" value="<?php echo $visit->extranjero_exonerado; ?>" type="number" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
       <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
       </div>
      </fieldset>

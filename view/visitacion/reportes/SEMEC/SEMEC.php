@@ -28,23 +28,32 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=Consulta_SEMEC_Controller" method="post">
 
-              <div class="col m1"></div>
 
-                <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
-                  <center>
-                  <div class="input-field col s12 m4 l4">
-                     <i class="material-icons prefix">event_note</i>
-                    <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
-                  </div>
 
-     <!--INICIO DE COLUMNA-->
+              <div class="col s8 offset-s2"><span class="flow-text">
+                        <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
+                          <center>
 
-                <div class="input-field col s12 m4 l4  " >
-                  <i class="material-icons prefix">event_note</i>
-                  <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
-                </div>
-              </center>
-              </div>
+                            <fieldset class="input-field col s12 m5 l5">
+                              <legend><h6>Fecha Inicio</h6></legend>
+                            <div class="">
+                               <i class="material-icons prefix">event_note</i>
+                              <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
+                            </div>
+                            </fieldset>
+
+                            <div class="col s1"></div>
+
+                         <fieldset class="input-field col s12 m5 l5">
+                           <legend><h6>Fecha Final</h6></legend>
+                           <div class="" >
+                             <i class="material-icons prefix">event_note</i>
+                             <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                              </div>
+                             </fieldset>
+                          </center>
+                        </div>
+                      </span></div>
 
 
                 <div class="row">

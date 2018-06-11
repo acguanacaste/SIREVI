@@ -384,6 +384,9 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 
 /*=================================================================================================*/
 public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){//Funcion up and working
+	/*echo '<pre>';
+	var_dump($_POST);
+	echo '</pre>';*/
 		$result = array();
 		try {
 			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia('$fechaStart', '$fechaEnd')");

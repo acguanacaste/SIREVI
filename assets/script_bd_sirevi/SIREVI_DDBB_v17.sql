@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `adulto_extranjero` INT(11) NOT NULL,
   `nino_extranjero` INT(11) NOT NULL,
   `estudiantes` INT(11) NOT NULL,
+  `personas_surf` INT(10) NULL DEFAULT NULL,
   `cambio_dolar` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -169,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -259,21 +260,16 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`( IN fechaInicio DATE, IN fechaFinal DATE)
 BEGIN
-#call NacionalesAgrupadosXProvincia('2018-05-01', '2018-05-31');
-SELECT provincia.nombre AS Nombre, fecha,
-sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
+SELECT provincia.nombre AS Provincia, sector.nombre AS Sector, subSector AS SubSector, count(visitacion.subSector) AS Registros_SubSector,
+SUM(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes) AS Pagos,
+SUM(visitacion.prepago) AS Prepagos,
+SUM(visitacion.nacional_exonerado) AS Exonerados,
+SUM(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.prepago+visitacion.nacional_exonerado) AS Total
 FROM visitacion
 INNER JOIN provincia ON visitacion.provincia_id = provincia.id
-WHERE visitacion.provincia_id IS NOT NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
-GROUP BY provincia.nombre
-UNION
-SELECT pais.nombre, fecha,
-sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
-FROM visitacion
-INNER JOIN pais ON visitacion.pais_id
-WHERE visitacion.provincia_id IS NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
-GROUP BY pais.nombre;
-
+INNER JOIN sector ON visitacion.sector = sector.id
+WHERE visitacion.fecha BETWEEN fechaInicio AND fechaFinal
+GROUP BY provincia.nombre ORDER BY sector.id ;
 END$$
 
 DELIMITER ;

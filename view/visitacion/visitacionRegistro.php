@@ -75,6 +75,19 @@
                   <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
+                  <input type="hidden" name="adulto_nacional" value="<?php echo $_SESSION['sector']['adultoNacional']; ?>">
+
+              <!--    "adultoNacional"=>$res_sector[0]['adulto_nacional'],
+                  "ninoNacional"=>$res_sector[0]['nino_nacional'],
+                  "adultoExtranjero"=>$res_sector[0]['adulto_extranjero'],
+                  "ninoExtranjero"=>$res_sector[0]['nino_extranjero'],
+                  "estudiantes"=>$res_sector[0]['estudiantes'],
+                  "cambioDolar"=>$res_sector[0]['cambio_dolar']
+--
+
+
+
+
 
                   <div class="container">
 
@@ -530,19 +543,26 @@
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
 
-          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500);
+ var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+ var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
+ var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>"
+          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*500)+(parseFloat(valor3)*precioEstudiantes);
       }
 /*=====================================================================================================================================*/
       function sumaExtranjeros_Dia(){/*Calcula el monto  pagar para personas extranjeros*/
           var valor1=verificar("extranjero_adult");
           var valor2=verificar("extranjero_kid");
 
-          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*15)+(parseFloat(valor2)*5);
+          var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
+          var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>"
+
+
+          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*precioAdultoExtranjero)+(parseFloat(valor2)*precioNinoExtranjero);
 
 }
 /*=====================================================================================================================================*/
       function sumatoria_All(){/*Sumatoria del total de personas que van incluidas en un solo registro de visitacion*/
-          var valor1=verificar("nacional_adult");
+            var valor1=verificar("nacional_adult");
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
           var valor4=verificar("extranjero_adult");
@@ -558,6 +578,12 @@
       }
 /*=====================================================================================================================================*/
       function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
+        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
+        var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>"
+        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
+/*====================================================================================================*/
         var valor1=verificar("nacional_adult");
         var valor2=verificar("nacional_kid");
         var valor3=verificar("estudiantes");
@@ -566,10 +592,13 @@
 
         var valor6=verificar("personas_surf");
 
-        var dolar=verificar("boton_dolar");
+        var dolar=verificar("<?php echo $_SESSION['sector']['cambioDolar']; ?>");
 
-          document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
-                                                  +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550)+((parseFloat(valor6)*15)*550);
+    document.getElementById("montoCancelar").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)
+                                            +(parseFloat(valor3)*precioEstudiantes)
+                                                  +((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
+                                                  +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
+                                                  +((parseFloat(valor6)*16)*dolar);
 
       }
 /*=======================================================================================================================================*/
