@@ -88,7 +88,7 @@
                              <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
                                <option value="Visita por el dia"<?php echo $visit->proposito_visita=="Visita por el dia"?"selected":null; ?>>Visita por el dia</option>
                                 <option value="Acampando"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Acampando</option>
-                                <option value="Hospedado estación biológica"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Hospedado estación biológica</option>
+                                <option value="Hospedado estación biológica"<?php echo $visit->proposito_visita=="Hospedado estación biológica"?"selected":null; ?>>Hospedado estación biológica</option>
                          </select>
                          <label><i class="small material-icons" >info_outline</i></label>
                        </div>

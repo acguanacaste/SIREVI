@@ -142,7 +142,7 @@
 </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_CAMPISTAS&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?> &sec=<?php echo $pSector ?>">Exportar a Excel</a>
           </td>
 
     </div>

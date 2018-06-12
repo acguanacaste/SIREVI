@@ -40,7 +40,7 @@ header("Location:?c=login&a=index");
 
 /*=================================================================================================*/
 function pagoOnChange(sel) {
-      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
+      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien más"
 					|| sel.value=="Recomendación por amigos" || sel.value=="Selección directa personal"
 				|| sel.value=="Visita reiterada" ){
 

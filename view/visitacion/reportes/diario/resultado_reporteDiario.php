@@ -25,7 +25,7 @@
               <fieldset>
                 <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
                 <li>
-                  <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
+                <div class="header"><i class="material-icons">info_outline</i>Seleccione el dia que requiere y un sector para proceder con la busqueda.</div>
                   <div class="body "><span >
                     <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
 
@@ -34,46 +34,33 @@
                         <center>
 
                           <fieldset class="input-field col s12 m5 l5">
-                              <legend><h6>Fecha Inicio</h6></legend>
+                              <legend><h6>Fecha requerida</h6></legend>
                           <div class="">
                              <i class="material-icons prefix">event_note</i>
-                            <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
+                            <input placeholder="Fecha requerida"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
                           </div>
                           </fieldset>
            <div class="col s1"></div>
 
                      <fieldset class="input-field col s12 m5 l5">
-                  <legend><h6>Fecha Final</h6></legend>
+                  <legend><h6>Sectores</h6></legend>
                        <div class="" >
-                         <i class="material-icons prefix">event_note</i>
-                         <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
-
+                         <select name="sector" >
+                           <option value="" disabled selected>Elija un Sector</option>
+                           <option value="1">Santa Rosa</option>
+                           <option value="2">Pailas</option>
+                           <option value="3">Junquillal</option>
+                           <option value="4">Murcielago</option>
+                           <option value="5">Santa Maria</option>
+                           <option value="6">Horizontes</option>
+                           <option value="7">Marino</option>
+                         </select>
                        </div>
-
-                         </fieldset>
+                       </fieldset>
                       </center>
                     </div>
                   </span></div>
 
-
-                  <div class="col s6 offset-s4"><span class="flow-text">
-                    <fieldset class="input-field col s12 m9 l6 ">
-                      <!--==============Cargando los paices==============================-->
-                      <div class="input-field col s12">
-                        <select name="sector" >
-                          <option value="" disabled selected>Elija un Sector</option>
-                          <option value="1">Santa Rosa</option>
-                          <option value="2">Pailas</option>
-                          <option value="3">Junquillal</option>
-                          <option value="4">Murcielago</option>
-                          <option value="5">Santa Maria</option>
-                          <option value="6">Horizontes</option>
-                          <option value="7">Marino</option>
-                        </select>
-                        <label>Sector</label>
-                      </div>
-                    </fieldset>
-                  </span></div>
 
 
                       <div class="row">
@@ -152,7 +139,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel_DIARIO&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?> &sec=<?php echo $pSector ?>">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_DIARIO&fi=<?php echo $fechaStart;?>&sec=<?php echo $pSector ?>">Exportar a Excel</a>
           </td>
 
     </div>

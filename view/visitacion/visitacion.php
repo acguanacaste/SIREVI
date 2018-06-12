@@ -35,24 +35,29 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
+  <div class="col s11 offset-s1"><span class="flow-text">
                 <div class="input-field col s12 m3 l3">
                   <i class="small material-icons">contact_mail</i>
                   <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
+<div class="col s1">
 
+</div>
               <div class="input-field col s12 m3 l3">
                     <i class="small material-icons">picture_in_picture</i>
                     <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
               </div>
+<div class="col s1">
 
+</div>
               <div class="input-field col s12 m3 l3">
             <i class="small material-icons">directions_car</i>
             <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
               </div>
-
+</span></div>
               <!--==============Cargando los paices==============================-->
-<div class="row">
-  <?php
+<!--<div class="row">
+  <php
   $conexion = mysql_connect("localhost","root");
   mysql_select_db("sirevi",$conexion);
   $sentencia_pais = "select * from pais order by nombre ASC";
@@ -61,14 +66,14 @@
   <div  class="input-field col s6 m12 l3">
     <select name="pais">
       <option value="" selected>Elija un pais</option>
-      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-      <?php } ?>
+      <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+      <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
+      <php } ?>
     </select>
     <label>País</label>
   </div>
 
-</div>
+</div> -->
 
 
               <center>
@@ -78,7 +83,7 @@
                 </button>
               </center>
 
-              <div>
+              <!--<div>
               <div class="">
                 <a href="?c=Visitacion&a=busquedaSubSector"><span class="hide-on-med-and-up">
                   <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
@@ -88,7 +93,7 @@
                     <a   href="?c=Visitacion&a=busquedaSubSector">
                       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
                   </div>
-                </div>
+                </div>-->
 
                 </div>
 

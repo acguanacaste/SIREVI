@@ -313,13 +313,12 @@ public function ConteoIngresosDiarios(){
 				$tmpFecha1 = $fechaStart.' 00:00:00';//ESTA ES LA FECHA DEL DIA ACTUAL
 				$tmpFecha2 = $fechaStart.' 23:59:59';
 
-
 				$stm = $this->pdo->prepare("call cant_personas_dentro_parque('$tmpFecha1','$tmpFecha2')");
 				$stm->execute();
+
 				$result = $stm->fetch(PDO::FETCH_OBJ);
 
 				return $result->Cantidad;
-
 
 			} catch (Exception $e) {
 				die($e->getMessage());
@@ -365,13 +364,13 @@ public function Consecutivo(){
 			}
 		}
 /*================================================================================================================*/
-public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
+public function Consulta_ReporteDiario_Model($fechaStart, $pSector){
 	$result = array();
 	try {
 		//$tmpFecha1 = $fechaStart+' 00:00:00';
 		//$tmpFecha2 = $fechaStart+' 23:59:59';
 		//	$stm = $this->pdo->prepare("call consulta_ReporteDiario('$tmpFecha1', '$tmpFecha2')");
-		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$fechaEnd', '$pSector')");
+		$stm = $this->pdo->prepare("call consulta_ReporteDiario('$fechaStart', '$pSector')");
 		$stm->execute();
 		$result = $stm->fetchAll(PDO::FETCH_OBJ);
 		return $result;

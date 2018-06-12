@@ -113,14 +113,14 @@ function outputCSV($data) {
       require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_Diario($result,$fechaStart,$fechaEnd,$pSector){
+    public function Resultado_Diario($result,$fechaStart,$pSector){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes//diario/resultado_reporteDiario.php';
       require_once 'view/includes/footer.php';
     }
 
     public function Excel_DIARIO(){
-      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fi'],$_REQUEST['ff'], $_REQUEST['sec']);
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fi'], $_REQUEST['sec']);
       date_default_timezone_set("America/Costa_Rica");
       $filename = "SEMEC-".date(strtotime("now"));
 
@@ -192,12 +192,24 @@ function outputCSV($data) {
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Campistas($result){
+      public function Resultado_Campistas($result,$fechaStart,$fechaEnd,$pSector){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
         require_once 'view/includes/footer.php';
      }
 
+     public function Excel_CAMPISTAS(){
+        $result = $this->model->Consulta_Campistas_Model($_REQUEST['fi'],$_REQUEST['ff'], $_REQUEST['sec']);
+        date_default_timezone_set("America/Costa_Rica");
+        $filename = "Reporte_Campistas-".date(strtotime("now"));
+
+        header("Content-type: text/csv");
+        header("Content-Disposition: attachment; filename={$filename}.csv");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+
+        $this->outputCSV($result);
+      }
 /*==============================================================================================================*/
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
@@ -321,8 +333,8 @@ public function Consulta_SubSector_Controller_2(){//ME BUSCA EL SUBSECTOR
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
 
-      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-      $this->Resultado_Diario($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['sector']);
+      $this->Resultado_Diario($result, $_REQUEST['fechaInicio'], $_REQUEST['sector']);
 
 }
 
@@ -347,8 +359,8 @@ public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEM
 
 public function Consulta_Campistas_Controller(){//GENERA EL REPORTE SEMEMC
     $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-    $this->Resultado_Campistas($result);
-    header('Location:?c=Visitacion&a=Resultado_Campistas');
+    $this->Resultado_Campistas($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
+
 }
 
 /*=================================================================================================*/
