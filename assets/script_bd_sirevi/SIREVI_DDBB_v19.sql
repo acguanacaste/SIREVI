@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `adulto_extranjero` INT(11) NOT NULL,
   `nino_extranjero` INT(11) NOT NULL,
   `estudiantes` INT(11) NOT NULL,
+  `personas_surf` INT(10) NULL DEFAULT NULL,
   `cambio_dolar` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -169,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -242,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 65
+AUTO_INCREMENT = 73
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -259,20 +260,32 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `NacionalesAgrupadosXProvincia`( IN fechaInicio DATE, IN fechaFinal DATE)
 BEGIN
-#call NacionalesAgrupadosXProvincia('2018-05-01', '2018-05-31');
-SELECT provincia.nombre, fecha,
-sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
+SELECT provincia.nombre AS Provincia, sector.nombre AS Sector, subSector AS SubSector, count(visitacion.subSector) AS Registros_SubSector,
+SUM(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes) AS Pagos,
+SUM(visitacion.prepago) AS Prepagos,
+SUM(visitacion.nacional_exonerado) AS Exonerados,
+SUM(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.prepago+visitacion.nacional_exonerado) AS Total
 FROM visitacion
 INNER JOIN provincia ON visitacion.provincia_id = provincia.id
-WHERE visitacion.provincia_id IS NOT NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
-GROUP BY provincia.nombre
-UNION
-SELECT pais.nombre, fecha,
-sum(visitacion.nacional_adult+visitacion.nacional_kid) AS Nacionales
-FROM visitacion
-INNER JOIN pais ON visitacion.pais_id
-WHERE visitacion.provincia_id IS NULL AND (visitacion.fecha BETWEEN fechaInicio AND fechaFinal)
-GROUP BY pais.nombre;
+INNER JOIN sector ON visitacion.sector = sector.id
+WHERE visitacion.fecha BETWEEN fechaInicio AND fechaFinal
+GROUP BY provincia.nombre ORDER BY sector.id ;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure Total_Ingresos
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`Total_Ingresos`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Total_Ingresos`()
+BEGIN
+SELECT count(visitacion.id) AS Cantidad FROM visitacion where DATE(fecha) = DATE(noW());
 END$$
 
 DELIMITER ;
@@ -286,10 +299,42 @@ DROP procedure IF EXISTS `sirevi`.`cant_personas_dentro_parque`;
 
 DELIMITER $$
 USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `cant_personas_dentro_parque`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cant_personas_dentro_parque`(IN fechaInicio VARCHAR(50), IN fechaFinal VARCHAR(50))
 BEGIN
-SELECT count(salida) FROM visitacion
-WHERE salida = 0;
+SELECT sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes
+			+visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado+visitacion.prepago) AS Cantidad 
+FROM visitacion
+WHERE salida = 0 AND fecha BETWEEN fechaInicio AND fechaFinal;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure consulta_Campistas
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`consulta_Campistas`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_Campistas`( In fechaInicio DATE, IN fechaFinal DATE, IN pSector INT)
+BEGIN
+SELECT monthname(fecha) as Mes, dayname(fecha) AS Dia, time(fecha) AS Hora_Ingreso, visitacion.dias_camping AS Dias_Acampando,
+visitacion.proposito_visita, sector.nombre AS Sector, visitacion.subSector AS SubSector,
+
+sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado) AS Nacionales,
+sum(visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado) AS Extranjeros,
+sum(visitacion.prepago) AS Prepagos
+
+FROM visitacion
+
+INNER JOIN sector ON visitacion. sector = sector.id
+
+WHERE (proposito_visita = 'Acampando' AND visitacion.sector = pSector) AND (visitacion.fecha between fechaInicio AND fechaFinal)
+
+GROUP BY fecha;
+
 END$$
 
 DELIMITER ;
@@ -330,36 +375,6 @@ INNER JOIN pais ON visitacion.pais_id = pais.id
 INNER JOIN provincia ON visitacion.provincia_id = provincia.id
 WHERE visitacion.pais_id = 1
 GROUP BY provincia.nombre;
-
-END$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
--- procedure consulta_ReporteCampistas
--- -----------------------------------------------------
-
-USE `sirevi`;
-DROP procedure IF EXISTS `sirevi`.`consulta_ReporteCampistas`;
-
-DELIMITER $$
-USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteCampistas`( In fechaInicio DATE, IN fechaFinal DATE)
-BEGIN
-SELECT monthname(fecha) as Mes, dayname(fecha) AS Dia, time(fecha) AS Hora_Ingreso, visitacion.dias_camping AS Dias_Acampando,
-visitacion.proposito_visita, sector.nombre AS Sector, visitacion.subSector AS SubSector,
-
-sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado) AS Nacionales,
-sum(visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado) AS Extranjeros,
-sum(visitacion.prepago) AS Prepagos
-
-FROM visitacion
-
-INNER JOIN sector ON visitacion. sector = sector.id
-
-WHERE (proposito_visita = 'Acampando' || proposito_visita = 'Hospedado Estacion Biologica') AND (visitacion.fecha between fechaInicio AND fechaFinal)
-
-GROUP BY fecha;
 
 END$$
 
@@ -496,7 +511,7 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_Total_Mensual_Sectores`(IN fechaStart DATE, IN fechaEnd DATE, IN pSector INT)
 BEGIN
-SELECT sector.nombre AS Sector, monthname(fecha) AS Mes,
+SELECT sector.nombre AS Sector, visitacion.subSector AS SubSector, monthname(fecha) AS Mes,
 
 sum(visitacion.nacional_adult+ visitacion.nacional_kid+ visitacion.estudiantes) as Nacional_No_Exonerado,
 
@@ -504,7 +519,7 @@ sum(visitacion.nacional_exonerado) AS Nacional_Exonerado,
 
 sum(visitacion.nacional_adult+ visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado) AS SubTotal,
 
-sum(visitacion.extranjero_adult+ visitacion.extranjero_kid) AS Extrajero_No_Exonerado,
+sum(visitacion.extranjero_adult+ visitacion.extranjero_kid) AS Extranjero_No_Exonerado,
 
 sum(visitacion.extranjero_exonerado) AS Extranjero_Exonerado,
 
@@ -514,9 +529,8 @@ sum(visitacion.prepago) AS Prepagos,
 
 sum(visitacion.nacional_adult+ visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado
 +visitacion.extranjero_adult+ visitacion.extranjero_kid+ visitacion.extranjero_exonerado
-+visitacion.prepago) AS Total,
++visitacion.prepago) AS Total
 
-visitacion.noIdentificacion AS chequeo_campo_notValid
 
 FROM visitacion
 
@@ -524,10 +538,8 @@ INNER JOIN sector ON visitacion.sector = sector.id
 
 WHERE fecha BETWEEN fechaStart and fechaEnd AND sector.id = pSector
 
-#GROUP BY sector.nombre
+GROUP BY fecha ORDER BY fecha ASC;
 
-GROUP BY visitacion.subSector
-ORDER BY fecha ASC;
 END$$
 
 DELIMITER ;
@@ -544,6 +556,23 @@ USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `conteoRegistrosDiarios`( )
 BEGIN
 select count(visitacion.id) AS Total_Ingresos from visitacion where LEFT(fecha, 10) = curdate();
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure prueba
+-- -----------------------------------------------------
+
+USE `sirevi`;
+DROP procedure IF EXISTS `sirevi`.`prueba`;
+
+DELIMITER $$
+USE `sirevi`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `prueba`( IN fechaInicio VARCHAR(50), IN fechaFinal VARCHAR(50),IN pSector INT)
+BEGIN
+SELECT * FROM visitacion
+WHERE (fecha BETWEEN  fechaInicio AND fechaFinal) AND visitacion.sector = pSector;
 END$$
 
 DELIMITER ;

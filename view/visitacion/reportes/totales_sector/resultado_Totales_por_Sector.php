@@ -120,7 +120,6 @@
        <th>Sub Total</th>
        <th>Prepagos</th>
        <th>Total</th>
-       <th>Campo Verify</th>
 
      </tr>
    </thead>
@@ -140,7 +139,7 @@
         <td><?php echo $r->SubTotal; ?></td>
         <td><?php echo $r->Prepagos; ?></td>
         <td><?php echo $r->Total; ?></td>
-        <td><?php echo $r->chequeo_campo_notValid; ?></td>
+
 
 
       </tr>
@@ -150,7 +149,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_TOTALSECTOR&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?> &sec=<?php echo $pSector ?>">Exportar a Excel</a>
           </td>
 
     </div>

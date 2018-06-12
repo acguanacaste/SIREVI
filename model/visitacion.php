@@ -330,13 +330,6 @@ public function ConteoIngresosDiarios(){
 public function Consecutivo(){
 	$result = array();
 	try {
-
-		date_default_timezone_set("America/Costa_Rica");
-		$fechaStart = date("Y/m/d");
-
-		$tmpFecha1 = $fechaStart.' 00:00:00';//ESTA ES LA FECHA DEL DIA ACTUAL
-		$tmpFecha2 = $fechaStart.' 23:59:59';
-
 		$stm = $this->pdo->prepare("call Total_Ingresos()");
 		$stm->execute();
 		$result = $stm->fetch(PDO::FETCH_OBJ);
@@ -388,27 +381,10 @@ public function Consulta_ReporteDiario_Model($fechaStart, $fechaEnd, $pSector){
 
 	}
 }
-/*public function Consulta_Diario_Model($fechaStart, $fechaEnd, $pSector){
-
-	$result = array();
-	try {
-		$tmpFecha1 = $fechaStart+' 00:00:00';
-		$tmpFecha2 = $fechaStart+' 23:59:59';
-		$stm = $this->pdo->prepare("call prueba('$tmpFecha1', '$tmpFecha2', '$pSector')");
-		$stm->execute();
-		$result = $stm->fetchAll(PDO::FETCH_OBJ);
-		return $result;
-
-	} catch (Exception $e) {
-		die($e->getMessage());
-	}
-}*/
 
 /*=================================================================================================*/
 public function Consulta_Nacionales_Model($fechaStart, $fechaEnd){//Funcion up and working
-	/*echo '<pre>';
-	var_dump($_POST);
-	echo '</pre>';*/
+
 		$result = array();
 		try {
 			$stm = $this->pdo->prepare("call NacionalesAgrupadosXProvincia('$fechaStart', '$fechaEnd')");

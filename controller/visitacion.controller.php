@@ -29,7 +29,6 @@ function outputCSV($data) {
 }//Fin de la funcion
 
 
-
     public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
@@ -114,10 +113,23 @@ function outputCSV($data) {
       require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_Diario($result){
+    public function Resultado_Diario($result,$fechaStart,$fechaEnd,$pSector){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes//diario/resultado_reporteDiario.php';
       require_once 'view/includes/footer.php';
+    }
+
+    public function Excel_DIARIO(){
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fi'],$_REQUEST['ff'], $_REQUEST['sec']);
+      date_default_timezone_set("America/Costa_Rica");
+      $filename = "SEMEC-".date(strtotime("now"));
+
+      header("Content-type: text/csv");
+      header("Content-Disposition: attachment; filename={$filename}.csv");
+      header("Pragma: no-cache");
+      header("Expires: 0");
+
+      $this->outputCSV($result);
     }
 
 /*==================>> Para trabaar con la parte del reporte Nacionalidade Garupados por Provincia=========================*/
@@ -137,7 +149,7 @@ function outputCSV($data) {
    public function Excel_NACIONALES(){
      $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fi'],$_REQUEST['ff']);
      date_default_timezone_set("America/Costa_Rica");
-     $filename = "import-".date(strtotime("now"));
+     $filename = "Reporte_Diario-".date(strtotime("now"));
 
      header("Content-type: text/csv");
      header("Content-Disposition: attachment; filename={$filename}.csv");
@@ -154,20 +166,24 @@ function outputCSV($data) {
         require_once 'view/includes/footer.php';
       }
 
-      public function Resultado_Totales_por_Sector($result){
+      public function Resultado_Totales_por_Sector($result,$fechaStart,$fechaEnd,$pSector){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
         require_once 'view/includes/footer.php';
      }
-     public function Excel_TOTALSECTOR(){
 
-            header("Content-type: application/vnd.ms-excel");
-              header("Content-Disposition: attachment; filename=reporte.xls");
-              header("Pragma: no-cache");
-              header("Expires: 0");
-              require_once 'view/visitacion/reportes/totales_sector/resultado_Totales_por_Sector.php';
+    public function Excel_TOTALSECTOR(){
+       $result = $this->model->Consulta_Totales_por_Sector_Model($_REQUEST['fi'],$_REQUEST['ff'], $_REQUEST['sec']);
+       date_default_timezone_set("America/Costa_Rica");
+       $filename = "Total_por_Sector-".date(strtotime("now"));
 
-    }
+       header("Content-type: text/csv");
+       header("Content-Disposition: attachment; filename={$filename}.csv");
+       header("Pragma: no-cache");
+       header("Expires: 0");
+
+       $this->outputCSV($result);
+     }
 
 /*==============================Para trabajar con el reporte de campistass===========================================================*/
       public function Reporte_Campistas(){
@@ -181,16 +197,6 @@ function outputCSV($data) {
         require_once 'view/visitacion/reportes/campistas/resultado_campistas.php';
         require_once 'view/includes/footer.php';
      }
-
-  public function Excel_DIARIO(){
-      header("Content-type: application/vnd.ms-excel");
-      header("Content-Disposition: attachment; filename=reporte.xls");
-      header("Pragma: no-cache");
-      header("Expires: 0");
-  require_once 'view/visitacion/reportes/diario/resultado_reporteDiario.php';
-
-          }
-
 
 /*==============================================================================================================*/
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
@@ -309,19 +315,20 @@ public function Consulta_SubSector_Controller_2(){//ME BUSCA EL SUBSECTOR
     public function Consulta_SEMEC_Controller(){//GENERA EL REPORTE SEMEMC
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
           $this->Resultado_SEMEC($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-          //header('Location:?c=Visitacion&a=Resultado_SEMEC');
+
     }
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
 
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-      $this->Resultado_Diario($result);
-      header('Location:?c=Visitacion&a=Resultado_Diario');
+      $this->Resultado_Diario($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
+
 }
 
  /*==================================================================================================*/
 public function Consulta_Nacionales_Controller(){//GENERA EL REPORTE SEMEMC
+
     $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
     $this->Resultado_Nacionales($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
 
@@ -330,9 +337,10 @@ public function Consulta_Nacionales_Controller(){//GENERA EL REPORTE SEMEMC
 /*=================================================================================================*/
 
 public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEMEMC
+
     $result = $this->model->Consulta_Totales_por_Sector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-    $this->Resultado_Totales_por_Sector($result);
-    header('Location:?c=Visitacion&a=Resultado_Totales_por_Sector');
+    $this->Resultado_Totales_por_Sector($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
+
 }
 
 /*==================================================================================================*/
