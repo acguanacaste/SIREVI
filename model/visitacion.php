@@ -330,14 +330,12 @@ public function ConteoIngresosDiarios(){
 public function Consecutivo(){
 	$result = array();
 	try {
-		
+
 		date_default_timezone_set("America/Costa_Rica");
 		$fechaStart = date("Y/m/d");
 
 		$tmpFecha1 = $fechaStart.' 00:00:00';//ESTA ES LA FECHA DEL DIA ACTUAL
 		$tmpFecha2 = $fechaStart.' 23:59:59';
-
-
 
 		$stm = $this->pdo->prepare("call Total_Ingresos()");
 		$stm->execute();

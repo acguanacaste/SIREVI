@@ -28,8 +28,7 @@
                       </div>
                       <?php
                       $disponibles =  $_SESSION['sector']['capacidadDiaria'] - $this->model->Cantidad_Personas_Dentro_Parque();
-                      $warning = $disponibles < 26 ?"yellow":"teal";
-                       ?>
+                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"teal":"yellow" ?>
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>
@@ -79,7 +78,6 @@
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
                   <input type="hidden" name="adulto_nacional" value="<?php echo $_SESSION['sector']['adultoNacional']; ?>">
-                  <input type="hidden" name="montoCancelar"  value="<?php echo $visit->montoCancelar; ?>">
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">
@@ -88,10 +86,10 @@
                        <div class="input-field col s12 m12 l12">
                          <select id="proposito_visita" name="proposito_visita">
                              <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
-                             <option value="Visita por el dia"<?php echo $visit->proposito_visita=="Por el dia"?"selected":null; ?>>Por el dia</option>
-                             <option value="Acampando"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Acampando</option>
-                             <option value="Hospedado en estacion biologica"<?php echo $visit->proposito_visita=="Hospedado en estacion biologica"?"selected":null; ?>>Hospedado estación biológica.</option>
-                           </select>
+                               <option value="Visita por el dia"<?php echo $visit->proposito_visita=="Visita por el dia"?"selected":null; ?>>Visita por el dia</option>
+                                <option value="Acampando"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Acampando</option>
+                                <option value="Hospedado estación biológica"<?php echo $visit->proposito_visita=="Acampando"?"selected":null; ?>>Hospedado estación biológica</option>
+                         </select>
                          <label><i class="small material-icons" >info_outline</i></label>
                        </div>
                      </fieldset>
@@ -105,8 +103,9 @@
                       <legend>Sub sector al que se dirije</legend>
                       <div class="input-field col s12 m12 l12">
                         <label for="subSector"> <i class="small material-icons"></i><span class="hide-on-small-only">Sub Sector</span></label>
-                        <input  type="text" id="subSector" name="subSector" value="<?php echo $visit->subSector; ?>" required>
-                        </div>
+                          <input  type="text" id="subSector" name="subSector" value="<?php echo $visit->subSector; ?>" required>
+
+                      </div>
                     </fieldset>
                   </div>
 
@@ -116,11 +115,11 @@
 
                   <div><!--Inicio de la primera fila-->
                     <div class="input-field col s6 m6 l4  ">
-                      <input  id="name" type="text" name="nombre" value="<?php echo $visit->nombre ?>" class="validate" class="form-control"  required >
+                        <input  id="name" type="text" name="nombre" value="<?php echo $visit->nombre ?>" class="validate" class="form-control"  required >
                       <label for="name" ><i class="small material-icons">face</i></span>&nbsp;Nombre</label>
                     </div>
                       <div class="input-field col s6 m6 l4  ">
-                          <input  id="noIdentificacion" type="text" name="noIdentificacion" value="<?php echo $visit->noIdentificacion ?>" class="validate" class="form-control"  required >
+                        <input  id="noIdentificacion" type="text" name="noIdentificacion" value="<?php echo $visit->noIdentificacion ?>" class="validate" class="form-control"  required >
                         <label for="noIdentifiacion" >  <i class="small material-icons">subtitles</i>&nbsp;Número de identifiación</label>
                       </div>
                       <div  class="input-field col s6 m6 l4  ">
@@ -151,7 +150,7 @@
 
 <!--==============Cargando las cuidades============================================-->
 
-      <div class="input-field col s6 m4 l4">
+      <div class="input-field col s6 m6 l4">
         <select name="provincia">
           <option value="" disabled selected>Elija una opción</option>
           <option value="1"<?php echo $visit->provincia_id==1?"selected":null; ?>>San Jose</option>
@@ -170,13 +169,13 @@
 
                 <div class=""><!--Inicio de la tercera fila-->
                   <div class=""><!--Columna-->
-                    <!--================Cargando los senderos==============================-->
                     <?php
                     $conexion = mysql_connect("localhost","root");
                     mysql_select_db("sirevi",$conexion);
                     $sentencia_sendero = "select * from sendero order by nombre ASC";
                     $query_sendero = mysql_query($sentencia_sendero);
                     ?>
+                    <!--================Cargando los senderos==============================-->
                     <div class="">
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                         <select name="sendero" multiple required>
@@ -195,22 +194,22 @@
                 <legend>Referencia de Visitacion</legend>
                       <div>
                         <div>
-                             <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
-                               <option value="" disabled selected>&nbsp;Elija una opción</option>
-                               <option value="Espontaneamente en ruta"<?php echo $visit->referencia_visita=="Espontaneamente en ruta"?"selected":null; ?>>Espontaneamente en ruta</option>
-                               <option value="Referencia de alguien más"<?php echo $visit->referencia_visita=="Referencia de alguien más"?"selected":null; ?>>Referencia de alguien más</option>
-                               <option value="Recomendación por amigos"<?php echo $visit->referencia_visita=="Recomendación por amigos"?"selected":null; ?>>Recomendación por amigos</option>
-                               <option value="Visita reiterada"<?php echo $visit->referencia_visita=="Visita reiterada"?"selected":null; ?>>Visita reiterada</option>
-                               <option value="Selección directa personal"<?php echo $visit->referencia_visita=="Selección directa personal (Check list)"?"selected":null; ?>>Selección directa personal (Check list)</option>
-                               <option value="Guías impresas"<?php echo $visit->referencia_visita=="Operadora turística"?"selected":null; ?>>Operadora turística</option>
-                               <option value="Operadora turistica"<?php echo $visit->referencia_visita=="Medio de comunicación"?"selected":null; ?>>Medio de comunicación</option>
-                               <option value="Medio de comunicación"<?php echo $visit->referencia_visita=="Guías impresas"?"selected":null; ?>>Guías impresas</option>
-                               <option value="Grupo comunal organizado"<?php echo $visit->referencia_visita=="Grupo comunal organizado"?"selected":null; ?>>Grupo comunal organizado</option>
-                               <option value="Empresa privada"<?php echo $visit->referencia_visita=="Empresa privada"?"selected":null; ?>>Empresa privada</option>
-                               <option value="ONGs en proyectos de investigación y conservación"<?php echo $visit->referencia_visita=="ONGs en proyectos de investigación y conservación"?"selected":null; ?>>ONGs en proyectos de investigación y conservación</option>
-                               <option value="Institución pública"<?php echo $visit->referencia_visita=="Institución pública"?"selected":null; ?>>Institución pública</option>
-                               <option value="Otro"<?php echo $visit->referencia_visita=="Otro"?"selected":null; ?>>Otro</option>
-                             </SELECT>
+                          <SELECT id="referencia_visita" name="referencia_visita" onChange="pagoOnChange(this)">
+                             <option value="" disabled selected>&nbsp;Elija una opción</option>
+                             <option value="Espontaneamente en ruta"<?php echo $visit->referencia_visita=="Espontaneamente en ruta"?"selected":null; ?>>Espontaneamente en ruta</option>
+                             <option value="Referencia de alguien más"<?php echo $visit->referencia_visita=="Referencia de alguien más"?"selected":null; ?>>Referencia de alguien más</option>
+                             <option value="Recomendación por amigos"<?php echo $visit->referencia_visita=="Recomendación por amigos"?"selected":null; ?>>Recomendación por amigos</option>
+                             <option value="Visita reiterada"<?php echo $visit->referencia_visita=="Visita reiterada"?"selected":null; ?>>Visita reiterada</option>
+                             <option value="Selección directa personal"<?php echo $visit->referencia_visita=="Selección directa personal (Check list)"?"selected":null; ?>>Selección directa personal (Check list)</option>
+                             <option value="Operadora turística"<?php echo $visit->referencia_visita=="Operadora turística"?"selected":null; ?>>Operadora turística</option>
+                             <option value="Medio de comunicación"<?php echo $visit->referencia_visita=="Medio de comunicación"?"selected":null; ?>>Medio de comunicación</option>
+                             <option value="Guías impresas"<?php echo $visit->referencia_visita=="Guías impresas"?"selected":null; ?>>Guías impresas</option>
+                             <option value="Grupo comunal organizado"<?php echo $visit->referencia_visita=="Grupo comunal organizado"?"selected":null; ?>>Grupo comunal organizado</option>
+                             <option value="Empresa privada"<?php echo $visit->referencia_visita=="Empresa privada"?"selected":null; ?>>Empresa privada</option>
+                             <option value="ONGs en proyectos de investigación y conservación"<?php echo $visit->referencia_visita=="ONGs en proyectos de investigación y conservación"?"selected":null; ?>>ONGs en proyectos de investigación y conservación</option>
+                             <option value="Institución pública"<?php echo $visit->referencia_visita=="Institución pública"?"selected":null; ?>>Institución pública</option>
+                             <option value="Otro"<?php echo $visit->referencia_visita=="Otro"?"selected":null; ?>>Otro</option>
+                          </SELECT>
                         </div>
 
                         <div id="no_name_input" style="display:none;"></div>
@@ -220,7 +219,7 @@
                              <br>
                              Nombre*:
                              <br>
-                           <input type='text' value="<?php echo $visit->nom_referencia_visita; ?>" name='nom_referencia_visita' size='20' maxLength='60'>
+                        <input type='text' value="<?php echo $visit->nom_referencia_visita; ?>" name='nom_referencia_visita' size='20' maxLength='60'>
 
                         </div>
                       </fieldset>
@@ -231,14 +230,14 @@
                     <fieldset ><legend>Dias acampando</legend>
 
                         <div class="input-field col s12 m12 l12  ">
-                          <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                          <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
+                          <input   type="number" name="dias_camping" value="<?php echo $visit->dias_camping; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <label > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
                         </div>
 
                         <div class="input-field col s12 m12 l12">
                         Personas*:
                           <br>
-                          <input  id="personas_acampando" type="number" name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <input type="number" name="personas_acampando" value="<?php echo $visit->personas_acampando; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                         </div>
                     </fieldset>
               </div><!--Fin de la tercera fila-->
@@ -261,22 +260,22 @@
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
                 <div class="input-field col s6 m6 l3  ">
-                  <input  id="nacional_adult" type=number name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
+                  <input  id="nacional_adult" type=number value="<?php echo $visit->nacional_adult; ?>" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
 
                 <div class="input-field col s6 m6 l3  ">
-                  <input  id="nacional_kid" type="number" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                  <input  id="nacional_kid" type="number" value="<?php echo $visit->nacional_kid; ?>" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
               <div class="input-field col s12 m6 l3  ">
-                  <input  id="estudiantes" type="number" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                  <input  id="estudiantes" type="number" value="<?php echo $visit->estudiantes; ?>" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
 
             <div class="input-field col s6 m6 l3  ">
-              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
+              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="<?php echo $visit->nacional_exonerado; ?>" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
              <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
            </div>
 
@@ -291,17 +290,17 @@
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_adult" type="number" value="<?php echo $visit->extranjero_adult; ?>" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
               </div>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_kid" type="number" value="<?php echo $visit->extranjero_kid; ?>" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_exonerado" type="number" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_exonerado" type="number" value="<?php echo $visit->extranjero_exonerado; ?>" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
                <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
              </div>
 
@@ -315,18 +314,17 @@
             <fieldset class="z-depth-3">
               <div class=""><!--Inicio de la segunda fila-->
                 <div class="input-field col s12 m6 l6  ">
-                <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
+                <input  id="personas_surf" type="number" value="<?php echo $visit->personas_surf; ?>" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
                     <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
                 </div>
 
                  <div class="input-field col s6 m6 l6  ">
-                   <input  id="prepago" type="number" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <input  id="prepago" type="number" value="<?php echo $visit->prepago; ?>" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
                    <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
                  </div>
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
-
 
         </div><!--Fin de la tercera Fila-->
 <!--<h6>Preguntar sobre como se calcula el precio para hacer la funcion en javascript</h6>-->
@@ -352,12 +350,12 @@
               <div class="col m1"></div>
 
               <p class="input-field col s12 m5 l5">
-                <input class="with-gap " value="Efectivo" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
+                <input class="with-gap " value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
 
               <p class="input-field col s12 m5 l5">
-                <input class="with-gap" value="Tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="<?php echo $visit->tipo_pago; ?>" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
               </p>
             </fieldset>
@@ -367,15 +365,15 @@
             <fieldset  class="z-depth-1 ">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="Colones" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
+                <input class="with-gap" value="<?php echo $visit->moneda; ?>" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
               </p>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="Dolares" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="<?php echo $visit->moneda; ?>" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
               </p>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="Ambas" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="<?php echo $visit->moneda; ?>" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Ambas</label>
               </p>
             </fieldset>
@@ -393,47 +391,14 @@
         <div class="">
             <div><!-- Inicio de las filas y columnas -->
 
-              <div class="row"><!---Inicio de dos columnas-->
-
-                <div class="input-field col s6 m4 l4">
-                  <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Nacionales</legend>
-                    <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
-                    </div>
-              </fieldset>
-            </div>
-
-            <div class="input-field col s6 m4 l4">
-              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Extranjeros</legend>
-                <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
-                </div>
-          </fieldset>
-        </div>
-
-            <div class="input-field col s6 m4 l4">
-              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Personas Surf</legend>
-                <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_PersonasSurf" disabled value="0">
-                </div>
-          </fieldset>
-        </div>
-
-
-        <div class="row">
-
-              <div class="col s10 offset-s1"><span>
-
-                <div class="input-field col s12 m6 l6">
-                  <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Total de personas</legend>
-                      <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"  disabled value="0">
-                      </div>
-                  </fieldset>
-              </div>
-
+        <div class="row"><!---Inicio de dos columnas-->
+          <div class="row">
+            <div class="col s12 offset-s3"><span>
               <div class="input-field col s12 m6 l6">
                 <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto a cancelar</legend>
-                    <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
+                  <center><div >Colones*: <input class="center teal darken-4 white-text" value="<?php echo $visit->montoCancelar; ?>" name="montoCancelar" type="text" id="montoCancelar" value="0"></div></center>
                 </fieldset>
               </div>
-
             </span></div>
           </div>
 
@@ -462,6 +427,7 @@
             value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
             <i class="mdi-content-send material-icons right">done</i>
         </button>
+
       </fieldset>
 
       </div>
@@ -544,13 +510,6 @@
         var valor4=verificar("extranjero_adult");
         var valor5=verificar("extranjero_kid");
         var valor6=verificar("personas_surf");
-
-  var dolar=verificar("<?php echo $_SESSION['sector']['cambioDolar']; ?>");
-  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
-  var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
 
     document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)+((parseFloat(valor4)*19)*560)
                                                   +((parseFloat(valor5)*15)*560)

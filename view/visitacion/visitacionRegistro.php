@@ -79,49 +79,6 @@
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
                   <input type="hidden" name="adulto_nacional" value="<?php echo $_SESSION['sector']['adultoNacional']; ?>">
 
-              <!--    "adultoNacional"=>$res_sector[0]['adulto_nacional'],
-                  "ninoNacional"=>$res_sector[0]['nino_nacional'],
-                  "adultoExtranjero"=>$res_sector[0]['adulto_extranjero'],
-                  "ninoExtranjero"=>$res_sector[0]['nino_extranjero'],
-                  "estudiantes"=>$res_sector[0]['estudiantes'],
-                  "cambioDolar"=>$res_sector[0]['cambio_dolar']
---
-
-
-
-
-
-                  <div class="container">
-
-<!--////////////////////////////////  Este es mi Index para la vista de la seleccion de paises             ///////////////////////////////////-->
-                      <p>Elige un pais según la lista :</p>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <!--Basado en la lista de reproduccion me va a desplegar-->
-                            <p>Lista de paises
-                            <select id="lista_pais" name="pais" class="form-control">
-                            </select>
-                          </p>
-                        </div>
-                        <div class="col-md-4">
-                          <p>Provincias de Costa Rica
-                          <select id="provincias" name="provincia" class="form-control">
-                          </select>
-                        </p>
-                        </div>
-                        <div class="col-md-4">
-                          <p><br><button id="enviar" type="submit" class="btn btn-default btn-block">Enviar</button></p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <p><b>El resultado es: </b></p><p id="resultado1"></p>
-                        </div>
-                      </div>
-                    </div>
-
-
-
                   <div class="">
                   <div class="input-field col s12 m6 l6">
                    <fieldset  class="z-depth-1 ">
@@ -131,6 +88,7 @@
                              <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
                              <option value="Visita por el dia">Por el dia</option>
                              <option value="Acampando">Acampando</option>
+
                              <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
                            </select>
                          <label><i class="small material-icons" >info_outline</i></label>
@@ -247,7 +205,7 @@
                                 <option value="Visita reiterada">4. Visita reiterada</option>
                                 <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
                                 <option value="Guías impresas">6. Guías impresas</option>
-                                <option value="Operadora turistica">7. Operadora turística</option>
+                                <option value="Operadora turística">7. Operadora turística</option>
                                 <option value="Medio de comunicación">8. Medio de comunicación</option>
                                 <option value="Grupo comunal organizado">9. Grupo comunal organizado</option>
                                 <option value="Empresa privada">10. Empresa privada</option>
@@ -336,12 +294,12 @@
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_adult" type="number" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
               </div>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_kid" type="number" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
@@ -371,7 +329,6 @@
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
-
 
         </div><!--Fin de la tercera Fila-->
 <!--<h6>Preguntar sobre como se calcula el precio para hacer la funcion en javascript</h6>-->
@@ -596,12 +553,12 @@
         var valor5=verificar("extranjero_kid");
         var valor6=verificar("personas_surf");
 
-  var dolar=verificar("<?php echo $_SESSION['sector']['cambioDolar']; ?>");
-  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
-  var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
+  /*var dolar=verificar("<php echo $_SESSION['sector']['cambioDolar']; ?>");
+  var precioAdultoNacional = "<php echo $_SESSION['sector']['adultoNacional']; ?>";
+  var precioNinoNacional   = "<php echo $_SESSION['sector']['ninoNacional']; ?>";
+  var precioEstudiantes    = "<php echo $_SESSION['sector']['estudiantes']; ?>";
+  var precioAdultoNacional = "<php echo $_SESSION['sector']['adultoNacional']; ?>";
+  var precioNinoNacional   = "<php echo $_SESSION['sector']['ninoNacional']; ?>";*/
 
     document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)+((parseFloat(valor4)*19)*560)
                                                   +((parseFloat(valor5)*15)*560)
