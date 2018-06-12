@@ -470,7 +470,8 @@
  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
  var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*500)+(parseFloat(valor3)*precioEstudiantes);
+
+          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)+(parseFloat(valor3)*precioEstudiantes);
       }
 /*=====================================================================================================================================*/
       function sumaExtranjeros_Dia(){/*Calcula el monto  pagar para personas extranjeros*/
@@ -511,9 +512,22 @@
         var valor5=verificar("extranjero_kid");
         var valor6=verificar("personas_surf");
 
-    document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)+((parseFloat(valor4)*19)*560)
-                                                  +((parseFloat(valor5)*15)*560)
-                                                  +((parseFloat(valor6)*16)*560);
+
+        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
+        var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
+        var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
+        var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
+
+        var dolar = "<?php echo $_SESSION['sector']['cambioDolar']; ?>";
+        var surf = "<?php echo $_SESSION['sector']['personaSurfing']; ?>";
+
+
+
+    document.getElementById("montoCancelar").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)
+                                            +(parseFloat(valor3)*precioEstudiantes)+((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
+                                                  +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
+                                                  +((parseFloat(valor6)*surf)*dolar);
 
       }
 /*=======================================================================================================================================*/
