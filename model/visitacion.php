@@ -134,59 +134,64 @@ public function ConteoIngresosDiarios(){
 
 	public function Actualizar($data){
 		try{
-			var_dump($_POST);
-			die();
 
 			$sql = "UPDATE visitacion SET
 
+						sector                    = ?,
+						usuario                   = ?,
+						asp                       = ?,
 						proposito_visita          = ?,
             noIdentificacion      		= ?,
+
 						nombre                		= ?,
 						placa_automovil       		= ?,
+						pais_id       								= ?,
+						provincia_id             		= ?,
+						referencia_visita         = ?,
 
-						pais       								= ?,
-						provincia             		= ?,
-
------------------------------------------------------------------------
+						nom_referencia_visita     = ?,
             sendero                   = ?,
             dias_camping          		= ?,
 						personas_acampando        = ?,
 						subSector                 = ?,
------------------------------------------------------------------
+
+
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
 						nacional_exonerado     		= ?,
-
 						extranjero_adult      		= ?,
+
 						extranjero_kid  					= ?,
 						extranjero_exonerado   		= ?,
---------------------------------------------------------------------------
             personas_surf             = ?,
 						prepago               		= ?,
---------------------------------------------------------------------------------
-
-
--------------------------------------------------------------------
 						tipo_pago       					= ?,
+
             moneda                    = ?,
+						montoCancelar							= ?
 
 				    WHERE id = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
 				    array(
+												$data->sector,
+												$data->usuario,
+												$data->asp,
+//--------------------------------------------------------
+
 												$data->proposito_visita,
                         $data->noIdentificacion,
-                        $data->nombre,
+						            $data->nombre,
 												$data->placa_automovil,
-//---------------------------------------------------------------------
+//--------------------------------------------------------
 												$data->pais,
 												$data->provincia,
+												$data->referencia_visita,
+												$data->nom_referencia_visita,
 
-//------------------------------------------------------------------
 												$data->sendero,
-//--------------------------------------------------------------------
                         $data->dias_camping,
 												$data->personas_acampando,
 												$data->subSector,
@@ -195,31 +200,32 @@ public function ConteoIngresosDiarios(){
 												$data->nacional_kid,
 												$data->estudiantes,
 												$data->nacional_exonerado,
-
 												$data->extranjero_adult,
+//--------------------------------------------------------------------------------
 												$data->extranjero_kid,
 												$data->extranjero_exonerado,
-
                         $data->personas_surf,
                         $data->prepago,
-
+												$data->tipo_pago,
 //-----------------------------------------------------------------
-                        $data->tipo_pago,
 												$data->moneda,
+												$data->montoCancelar,
                         $data->id
 
 					)
+
 				);
+
 		} catch (Exception $e)
 		{
 			die($e->getMessage());
 		}
 	}
 
-	public function Registrar(Visitacion $data)
-	{
-		try
-		{
+	public function Registrar(Visitacion $data) {
+
+		try	{
+
 		$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
        pais_id, provincia_id, referencia_visita, nom_referencia_visita,
        sendero, dias_camping, personas_acampando, subSector,
@@ -270,7 +276,6 @@ public function ConteoIngresosDiarios(){
 										$data->tipo_pago,
 										$data->moneda,
 										$data->montoCancelar,
-
                 )
 
 			);
@@ -302,10 +307,20 @@ public function ConteoIngresosDiarios(){
 		public function Cantidad_Personas_Dentro_Parque(){
 			$result = array();
 			try {
-				$stm = $this->pdo->prepare("call cant_personas_dentro_parque()");
+				date_default_timezone_set("America/Costa_Rica");
+				$fechaStart = date("Y/m/d");
+
+				$tmpFecha1 = $fechaStart.' 00:00:00';//ESTA ES LA FECHA DEL DIA ACTUAL
+				$tmpFecha2 = $fechaStart.' 23:59:59';
+
+
+				$stm = $this->pdo->prepare("call cant_personas_dentro_parque('$tmpFecha1','$tmpFecha2')");
 				$stm->execute();
 				$result = $stm->fetch(PDO::FETCH_OBJ);
+
 				return $result->Cantidad;
+
+
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
@@ -315,6 +330,15 @@ public function ConteoIngresosDiarios(){
 public function Consecutivo(){
 	$result = array();
 	try {
+		
+		date_default_timezone_set("America/Costa_Rica");
+		$fechaStart = date("Y/m/d");
+
+		$tmpFecha1 = $fechaStart.' 00:00:00';//ESTA ES LA FECHA DEL DIA ACTUAL
+		$tmpFecha2 = $fechaStart.' 23:59:59';
+
+
+
 		$stm = $this->pdo->prepare("call Total_Ingresos()");
 		$stm->execute();
 		$result = $stm->fetch(PDO::FETCH_OBJ);

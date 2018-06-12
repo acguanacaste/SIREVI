@@ -75,6 +75,7 @@ function pagoOnChange(sel) {
 
 				$(document).ready(function() {
 	 				$('select').material_select('destroy');
+					$('select').formSelect();
           $(".button-collapse").sideNav({
             //		menuWidth: 400, // Ancho del sideNav
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav

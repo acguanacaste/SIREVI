@@ -120,7 +120,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel_Nacionales">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_Nacionales&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?>">Exportar a Excel</a>
           </td>
 
     </div>

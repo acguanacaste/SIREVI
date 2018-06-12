@@ -109,7 +109,11 @@
    </thead>
 
     <tbody>
-      <?php foreach ($result as $a):?>
+      <?php foreach ($result as $a):
+        // echo "<pre>";
+        // var_dump($a);
+        // echo "</pre>";
+        ?>
       <tr>
         <td>        <?php echo $a->nombre;?></td>
         <td>        <?php echo $a->AC; ?></td>
@@ -133,7 +137,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel_SEMEC">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_SEMEC&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?>">Exportar a Excel</a>
           </td>
 
     </div>

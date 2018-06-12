@@ -58,7 +58,7 @@
                     <option value="6"<?php echo $sendero->sector==6?"selected":null; ?>>Horizontez</option>
                     <option value="7"<?php echo $sendero->sector==7?"selected":null; ?>>Marino</option>
                   </select>
-                  <label for="puesto">Sector al que pertenece</label>
+                  <label for="sector">Sector al que pertenece</label>
                 </div>
             </div>
 

@@ -9,6 +9,27 @@ class VisitacionController{
         $this->model = new Visitacion();
     }
 
+
+function outputCSV($data) {
+    $outputBuffer = fopen("php://output", 'w');
+    $count=0;
+    foreach($data as $val) {
+      if ($count ==0){
+        $encabezados = array();
+        foreach ((array)$val as $key => $value){
+          $encabezados[]=$key;
+        }
+        fputcsv($outputBuffer, $encabezados,",",'"');
+        $count++;
+      }
+        fputcsv($outputBuffer, (array)$val,",",'"');
+        //@todo ponerle al csv enclosed by
+      }
+    fclose($outputBuffer);
+}//Fin de la funcion
+
+
+
     public function Index(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/visitacion.php';
@@ -57,11 +78,7 @@ class VisitacionController{
         require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_SEMEC_2($result){
-      require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
-      require_once 'view/includes/footer.php';
-   }
+
 
 /*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
     public function Reporte_SEMEC(){
@@ -70,21 +87,25 @@ class VisitacionController{
       require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_SEMEC($result){
+    public function Resultado_SEMEC($result,$fechaStart,$fechaEnd){
+
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
       require_once 'view/includes/footer.php';
    }
 
    public function Excel_SEMEC(){
+     $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fi'],$_REQUEST['ff']);
+     date_default_timezone_set("America/Costa_Rica");
+     $filename = "SEMEC-".date(strtotime("now"));
 
-    session_start();
-       header("Content-type: application/vnd.ms-excel");
-         header("Content-Disposition: attachment; filename=reporte.xls");
-         header("Pragma: no-cache");
-         header("Expires: 0");
-         require_once 'view/visitacion/reportes/SEMEC/resultado_SEMEC.php';
-     }
+     header("Content-type: text/csv");
+     header("Content-Disposition: attachment; filename={$filename}.csv");
+     header("Pragma: no-cache");
+     header("Expires: 0");
+
+     $this->outputCSV($result);
+   }
 
 /*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
     public function Reporte_Diario(){
@@ -107,21 +128,24 @@ class VisitacionController{
       require_once 'view/includes/footer.php';
     }
 
-    public function Resultado_Nacionales($result){
+    public function Resultado_Nacionales($result,$fechaStart,$fechaEnd){
       require_once 'view/includes/headerPrincipal.php';
       require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
       require_once 'view/includes/footer.php';
    }
 
-  public function Excel_NACIONALES(){
-    session_start();
-    header("Content-type: application/vnd.ms-excel");
-    header("Content-Disposition: attachment; filename=reporte.xls");
-    header("Pragma: no-cache");
-    header("Expires: 0");
-require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
+   public function Excel_NACIONALES(){
+     $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fi'],$_REQUEST['ff']);
+     date_default_timezone_set("America/Costa_Rica");
+     $filename = "import-".date(strtotime("now"));
 
-        }
+     header("Content-type: text/csv");
+     header("Content-Disposition: attachment; filename={$filename}.csv");
+     header("Pragma: no-cache");
+     header("Expires: 0");
+
+     $this->outputCSV($result);
+   }
 
 /*=====================Para trabajar con la seccionde reportes para los sectores individualmente===========*/
       public function Reporte_Totales_por_Sector(){
@@ -200,31 +224,27 @@ require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
 
 
     public function Guardar(){
-      echo "<pre>";
-        var_dump($_POST);
-      echo "</pre>";
+      echo '<pre>';
+      var_dump($_POST);
+      echo '</pre>';
         $visit = new Visitacion();
+
+        $visit->id                        = $_REQUEST['id'];
         $visit->sector                    = $_REQUEST['sector'];
         $visit->usuario                   = $_REQUEST['usuario'];
         $visit->asp                       = $_REQUEST['asp'];
-
-        $visit->id                        = $_REQUEST['id'];
         $visit->proposito_visita          = $_REQUEST['proposito_visita'];
-
         $visit->noIdentificacion          = $_REQUEST['noIdentificacion'];
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
 //----------------------------------------------------------------------------------------------------
-        $visit->pais                      = $_REQUEST['pais'];
-        $visit->provincia                 = $_REQUEST['provincia'];
-        $visit->referencia_visita         = $_REQUEST['referencia_visita'];
+        $visit->pais                      = $_REQUEST['pais'];//-------------
+        $visit->provincia                 = $_REQUEST['provincia'];//--------
+        $visit->referencia_visita         = $_REQUEST['referencia_visita'];//------
         $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
 
-//--------------------------------------------------------------------------------------------------------
-//        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
 //------------------------------------------------------------------------------------------------------
-
-        $visit->sendero                   = $_REQUEST['sendero'];
+        $visit->sendero                   = $_REQUEST['sendero'];//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->personas_acampando        = $_REQUEST['personas_acampando'];
         $visit->subSector                 = $_REQUEST['subSector'];
@@ -288,25 +308,23 @@ public function Consulta_SubSector_Controller_2(){//ME BUSCA EL SUBSECTOR
 
     public function Consulta_SEMEC_Controller(){//GENERA EL REPORTE SEMEMC
           $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-          $this->Resultado_SEMEC($result);
-          header('Location:?c=Visitacion&a=Resultado_SEMEC');
+          $this->Resultado_SEMEC($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+          //header('Location:?c=Visitacion&a=Resultado_SEMEC');
     }
 
 /*======================================================================================================*/
 public function Consulta_ReporteDiario_Controller(){//GENERA EL REPORTE DIARIO
 
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
-
       $this->Resultado_Diario($result);
-
       header('Location:?c=Visitacion&a=Resultado_Diario');
 }
 
  /*==================================================================================================*/
 public function Consulta_Nacionales_Controller(){//GENERA EL REPORTE SEMEMC
     $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
-    $this->Resultado_Nacionales($result);
-    header('Location:?c=Visitacion&a=Resultado_Nacionales');
+    $this->Resultado_Nacionales($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+
 }
 
 /*=================================================================================================*/

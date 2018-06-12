@@ -26,11 +26,13 @@
                         </center>
                         </fieldset>
                       </div>
-
+                      <?php
+                      $disponibles =  $_SESSION['sector']['capacidadDiaria'] - $this->model->Cantidad_Personas_Dentro_Parque();
+                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"teal":"yellow" ?>
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>
-                            <div class="btn teal darken-4 right-align "> <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
+                            <div class="btn <?php echo $warning ?> darken-4 right-align "> <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
                           </center>
                         </fieldset>
                       </div>
@@ -240,7 +242,7 @@
                                 <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
                                 <option value="" disabled selected>&nbsp;Elija una opción</option>
                                 <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
-                                <option value="Referencia de alguien mas">2. Referencia de alguien mas</option>
+                                <option value="Referencia de alguien más">2. Referencia de alguien más</option>
                                 <option value="Recomendación por amigos">3. Recomendación por amigos</option>
                                 <option value="Visita reiterada">4. Visita reiterada</option>
                                 <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
@@ -395,12 +397,12 @@
               <div class="col m1"></div>
 
               <p class="input-field col s12 m5 l5">
-                <input class="with-gap " value="" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
+                <input class="with-gap " value="Efectivo" name="tipo_pago" type="radio"  id="indeterminate-checkbox" checked="default"  />
                 <label for="indeterminate-checkbox">Efectivo</label>
               </p>
 
               <p class="input-field col s12 m5 l5">
-                <input class="with-gap" value="" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="Tarjeta" name="tipo_pago" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Tarjeta</label>
               </p>
             </fieldset>
@@ -410,15 +412,15 @@
             <fieldset  class="z-depth-1 ">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
+                <input class="with-gap" value="Colones" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
                 <label for="indeterminate-checkbox">Colones</label>
               </p>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="Dolares" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Dolares</label>
               </p>
               <p class="input-field col s12 m4 l4">
-                <input class="with-gap" value="" name="moneda" type="radio" id="indeterminate-checkbox" />
+                <input class="with-gap" value="Ambas" name="moneda" type="radio" id="indeterminate-checkbox" />
                 <label for="indeterminate-checkbox">Ambas</label>
               </p>
             </fieldset>
@@ -534,6 +536,13 @@
 <script>
     $(document).ready(function(){
           $("#frm-visitacion").submit(function(){
+            //@todo: terminar de sumar todos los campos de cantidad de personas
+            //@todo arreglar el procedimiento que cuenta la cantida de gente
+              var cantidadPersonas = $("#nacional_adult").value ;
+              var disponibles = <?php echo  $_SESSION['sector']['capacidadDiaria'] ?> - (<?php echo $this->model->Cantidad_Personas_Dentro_Parque()?> +cantidadPersonas)
+              if (disponibles < 0){
+                alert("Se ha llegado a la capacidad del sector");
+              }
               return $(this).validate();
           });
       })
@@ -544,8 +553,8 @@
           var valor3=verificar("estudiantes");
 
  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
- var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
- var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>"
+ var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
+ var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
           document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*500)+(parseFloat(valor3)*precioEstudiantes);
       }
 /*=====================================================================================================================================*/
@@ -554,7 +563,7 @@
           var valor2=verificar("extranjero_kid");
 
           var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
-          var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>"
+          var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
 
 
           document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*precioAdultoExtranjero)+(parseFloat(valor2)*precioNinoExtranjero);
@@ -578,33 +587,30 @@
       }
 /*=====================================================================================================================================*/
       function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
-        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
-        var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>"
-        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>"
+
 /*====================================================================================================*/
         var valor1=verificar("nacional_adult");
         var valor2=verificar("nacional_kid");
         var valor3=verificar("estudiantes");
         var valor4=verificar("extranjero_adult");
         var valor5=verificar("extranjero_kid");
-
         var valor6=verificar("personas_surf");
 
-        var dolar=verificar("<?php echo $_SESSION['sector']['cambioDolar']; ?>");
+  var dolar=verificar("<?php echo $_SESSION['sector']['cambioDolar']; ?>");
+  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
+  var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
+  var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
+  var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
 
-    document.getElementById("montoCancelar").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)
-                                            +(parseFloat(valor3)*precioEstudiantes)
-                                                  +((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
-                                                  +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
-                                                  +((parseFloat(valor6)*16)*dolar);
+    document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)+((parseFloat(valor4)*19)*560)
+                                                  +((parseFloat(valor5)*15)*560)
+                                                  +((parseFloat(valor6)*16)*560);
 
       }
 /*=======================================================================================================================================*/
 function sumaPersonasSurf(){
     var valor1=verificar("personas_surf");
-
     document.getElementById("total_PersonasSurf").value=(parseFloat(valor1)*15);
 
 }

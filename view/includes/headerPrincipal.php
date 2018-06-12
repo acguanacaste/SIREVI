@@ -84,6 +84,7 @@ function pagoOnChange(sel) {
 
 
           $('select').material_select();
+
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
 				  $('.datepicker').pickadate({
