@@ -1,4 +1,5 @@
-<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 )
+|| $_SESSION['usuario']['puesto'] == 3 ) || $_SESSION['usuario']['puesto'] == 4 ) :?>
 <main>
   <div class="">
     <h4 class="header left"><span>&nbsp;</span><a href="#">

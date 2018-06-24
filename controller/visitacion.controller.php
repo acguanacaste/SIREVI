@@ -122,7 +122,7 @@ function outputCSV($data) {
     public function Excel_DIARIO(){
       $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fi'], $_REQUEST['sec']);
       date_default_timezone_set("America/Costa_Rica");
-      $filename = "SEMEC-".date(strtotime("now"));
+      $filename = "Reporte_Diario-".date(strtotime("now"));
 
       header("Content-type: text/csv");
       header("Content-Disposition: attachment; filename={$filename}.csv");
@@ -242,9 +242,7 @@ function outputCSV($data) {
 
 
     public function Guardar(){
-      echo '<pre>';
-      var_dump($_POST);
-      echo '</pre>';
+
         $visit = new Visitacion();
 
         $visit->id                        = $_REQUEST['id'];
@@ -260,7 +258,7 @@ function outputCSV($data) {
         $visit->provincia                 = $_REQUEST['provincia'];//--------
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];//------
         $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
-
+        $visit->salida                    = $_REQUEST['salida'];
 //------------------------------------------------------------------------------------------------------
         $visit->sendero                   = $_REQUEST['sendero'];//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];

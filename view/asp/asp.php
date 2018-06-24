@@ -21,7 +21,7 @@
             <tr>
               <th>Área Conservación</th>
               <th>Tipo</th>
-              <th>Ubicación geográfica</th>
+              <th style="width:80px;">Ubicación geográfica</th>
               <th style="height:75px;" colspan="2">Acción</th>
             </tr>
           </thead>

@@ -73,15 +73,22 @@ function pagoOnChange(sel) {
 	<!--ME DA LA PROPIEDAD DE HACER MAS PEQUENO EL AREA DONDE ESCRIBO -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 	</head>
+				<!-- <script type="text/javascript">
+				document.addEventListener('DOMContentLoaded', function() {
+					var elems = document.querySelectorAll('.modal');
+					var instances = M.Modal.init(elems, options);
+				});
+				</script> -->
+
 				<script>
 
 				$(document).ready(function() {
 	 				$('select').material_select('destroy');
+				$('.modal').modal();
 				  $(".button-collapse").sideNav({
             //		menuWidth: 400, // Ancho del sideNav
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
  					});
-
 
           $('select').material_select();
 

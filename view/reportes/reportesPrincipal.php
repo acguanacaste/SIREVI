@@ -47,7 +47,7 @@
                   de personas nacionales agrupadas por provincia</span>
                 </p></a>
                 <a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
-                <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
+                <span class="hide-on-small-only"><i class="medium material-icons">rv_hookup</i></span></a>
             </li>
 
             <li class="collection-item avatar">
@@ -75,7 +75,7 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/Totales_ACG.pNg" alt="Imagen no disponible" class="circle">
-                <a><p><a href="?c=Visitacion&a=">Reporte Totales por ACG </a><br>
+                <a><p><a href="?c=Visitacion&a=">Reporte Totales ACG </a><br>
                 <span class="hide-on-small-only">
                   Este reporte es el que me muestra los totales <br>
                   correspondientes a TODOS LOS SECTORES <br>

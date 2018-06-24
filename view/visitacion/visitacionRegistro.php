@@ -78,6 +78,7 @@
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
                   <input type="hidden" name="adulto_nacional" value="<?php echo $_SESSION['sector']['adultoNacional']; ?>">
+                  <input type="hidden" name="salida" value="0">
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">
