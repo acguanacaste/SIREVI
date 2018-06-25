@@ -1,3 +1,209 @@
+
+
+
+
+
+
+
+
+
+<?php require_once "controller/pagination-controller.php"; ?>
+<?php $page = (isset($_GET["page"])) ? $_GET["page"] : 1; ?>
+<?php Pagination::config($page, 10, "visitacion", null , 2); ?>
+<?php $data = Pagination::data(); ?>
+<?php $active = ""; ?>
+<?php if ($data["error"]): header("location: ruta/error.php"); endif;?>
+
+<main>
+  <h4 class="header left"><span>&nbsp;</span><a href="#">
+    <i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
+
+
+  <div class="container">
+    <a href="?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up">
+      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
+
+
+      <div class="right hide-on-small-only">
+        <a   href="?c=Visitacion&a=agregarRegistro">
+          <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
+      </div>
+    </div>
+
+<div class="left">
+
+</div>
+
+<div class="">
+    <!--Busqueda avanzada-->
+<div class="row">
+  <div class="col s12 m12 l12">
+    <ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">search</i>Filtro de busqueda</div>
+    <div class="collapsible-body"><span><div class="row">
+      <div class="col s12 m12 l12">
+
+        <fieldset>
+          <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+          <li>
+            <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro(s)</div>
+            <div class="body "><span >
+              <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
+
+  <div class="col s11 offset-s1"><span class="flow-text">
+                <div class="input-field col s12 m3 l3">
+                  <i class="small material-icons">contact_mail</i>
+                  <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+                </div>
+<div class="col s1">
+
+</div>
+              <div class="input-field col s12 m3 l3">
+                    <i class="small material-icons">picture_in_picture</i>
+                    <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+              </div>
+<div class="col s1">
+
+</div>
+              <div class="input-field col s12 m3 l3">
+            <i class="small material-icons">directions_car</i>
+            <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
+              </div>
+</span></div>
+
+              <center>
+                <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
+                  value="Buscar"  type="submit" name="action"> <span class="hide-on-small-only">Consultar</span>
+                    <i class="mdi-content-send material-icons right">pageview</i>
+                </button>
+              </center>
+
+
+                </div>
+              </form><!--FORM end-->
+          </span></div>
+          <hr>
+
+         </li>
+        </ul>
+        </fieldset>
+      </div>
+    </div>
+</span></div>
+  </li>
+</ul>
+  </div>
+</div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <!-- Inicio de mi codigo -->
+          <table id="data-table-simple" class="responsive-table grey lighten-1 centered highlight z-depth-5">
+            <thead class="white-text teal darken-4 z-depth-2">
+<!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
+            <tr>
+              <th>ID</th>
+              <th>Proposito</th>
+              <th>Fecha ingreso</th>
+              <th>Nombre</th>
+              <th>Identificación</th>
+              <th>Placa automovil</th>
+              <th>País</th>
+              <th>Sendero</th>
+              <th>Tipo pago</th>
+              <th>Moneda</th>
+              <th>Ingresos</th>
+              <th>Salida</th>
+              <th style=""></th>
+              <th colspan="2">Acción</th>
+            </tr>
+<!--================================================================================================================== -->
+          </thead>
+
+          <tbody>
+            <?php foreach (Pagination::show_rows("visitacion") as $row): ?>
+        <tr>
+            <td><?php echo $row["id"]; ?></td>
+            <td><?php echo $row["proposito_visita"]; ?></td>
+            <td><?php echo $row["fecha"]; ?></td>
+            <td><?php echo $row["nombre"]; ?></td>
+            <td><?php echo $row["noIdentificacion"]; ?></td>
+            <td><?php echo $row["placa_automovil"]; ?></td>
+            <td><?php echo $row["pais_id"]; ?></td>
+            <td><?php echo $row["sendero"]; ?></td>
+            <td><?php echo $row["tipo_pago"]; ?></td>
+
+
+        </tr>
+        <?php endforeach; ?>
+          </tbody>
+        </table>
+        <nav>
+		  	<ul class="pagination">
+		  		<?php if ($data["actual-section"] != 1): ?>
+		    		<li><a href="pagination-view.php?page=1">Inicio</a></li>
+		    		<li><a href="pagination-view.php?page=<?php echo $data['previous']; ?>">&laquo;</a></li>
+				<?php endif; ?>
+
+				<?php for ($i = $data["section-start"]; $i <= $data["section-end"]; $i++): ?>
+				<?php if ($i > $data["total-pages"]): break; endif; ?>
+				<?php $active = ($i == $data["this-page"]) ? "active" : ""; ?>
+			    	<li class="<?php echo $active; ?>">
+					<a href="view/visitacion/pagination-view.php?page=<?php echo $i; ?>">
+						<?php echo $i; ?>
+					</a>
+			    	</li>
+			    	<?php endfor; ?>
+
+				<?php if ($data["actual-section"] != $data["total-sections"]): ?>
+			    	<li><a href="pagination-view.php?page=<?php echo $data['next']; ?>">&raquo;</a></li>
+			    	<li><a href="pagination-view.php?page=<?php echo $data['total-pages']; ?>">Final</a></li>
+		    		<?php endif; ?>
+		  	</ul>
+		</nav>
+
+      </div><!-- Div de los tamanos -->
+    </div><!--Div del row-->
+  </div><!--Div del container-->
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <main>
   <div class="container">
     <div class="">

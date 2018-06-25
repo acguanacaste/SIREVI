@@ -1,3 +1,9 @@
+<?php require_once ("controller/pagination-controller.controller.php"); ?>
+<?php $page = (isset($_GET["page"])) ? $_GET["page"] : 1; ?>
+<?php Pagination::config($page, 5, "visitacion", null , 2); ?>
+<?php $data = Pagination::data(); ?>
+<?php $active = ""; ?>
+<?php if ($data["error"]): header("location: ruta/error.php"); endif;?>
 
 <main>
   <h4 class="header left"><span>&nbsp;</span><a href="#">
@@ -56,26 +62,6 @@
             <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
               </div>
 </span></div>
-              <!--==============Cargando los paices==============================-->
-<!--<div class="row">
-  <php
-  $conexion = mysql_connect("localhost","root");
-  mysql_select_db("sirevi",$conexion);
-  $sentencia_pais = "select * from pais order by nombre ASC";
-  $query_pais = mysql_query($sentencia_pais);
-  ?>
-  <div  class="input-field col s6 m12 l3">
-    <select name="pais">
-      <option value="" selected>Elija un pais</option>
-      <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-      <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
-      <php } ?>
-    </select>
-    <label>País</label>
-  </div>
-
-</div> -->
-
 
               <center>
                 <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -133,59 +119,54 @@
               <th>Moneda</th>
               <th>Ingresos</th>
               <th>Salida</th>
-              <th style=""></th>
               <th colspan="2">Acción</th>
             </tr>
 <!--================================================================================================================== -->
           </thead>
 
           <tbody>
-            <?php foreach ($this->model->Listar() as $r): ?>
-            <tr>
+            <?php foreach (Pagination::show_rows("id") as $r): ?>
+          		    	<tr>
+          			        <td><?php echo $r["id"]; ?></td>
+                        <td><?php echo $r["proposito_visita"]; ?></td>
+          			        <td><?php echo $r["nombre"]; ?></td>
+                        <td><?php echo $r["fecha"]; ?></td>
+                        <td><?php echo $r["noIdentificacion"]; ?></td>
+                        <td><?php echo $r["placa_automovil"]; ?></td>
+                        <td><?php echo $r["pais_id"]; ?></td>
+                        <td><?php echo $r["sendero"]; ?></td>
+                        <td><?php echo $r["tipo_pago"]; ?></td>
+                        <td><?php echo $r["moneda"]; ?></td>
 
-              <td><?php echo $r->id; ?></td>
-              <td><?php echo $r->proposito_visita; ?></td>
-              <td><?php echo $r->fecha; ?></td>
-              <td><?php echo $r->Nombre; ?></td>
-              <td><?php echo $r->noIdentificacion; ?></td>
-              <td><?php echo $r->placa_automovil; ?></td>
-
-              <td><?php echo $r->Pais; ?></td>
-
-              <td><?php echo $r->Sendero; ?></td>
-              <td><?php echo $r->tipo_pago; ?></td>
-              <td><?php echo $r->moneda; ?></td>
-
-
-              <td ><?php if($r->salida==0){
+              <td ><?php if($r["salida"]==0){
                 echo "
-                <a onclick='setTime()' href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                <a onclick='setTime()' href='?c=Visitacion&a=Salida&id=".$r["id"]."'>
                         <i  class='circle white darken-2 small material-icons tooltipped'
                           data-position='bottom' data-delay='50'
                           data-tooltip='Dentro del parque'>directions_walk</i></a>
                           <p  id='time'></p>";
                     }
 
-                    elseif ($r->salida==1) {
+                    elseif ($r["salida"]==1) {
                       echo "
-                      <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                      <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r["id"]."'>
                               <i  class='circle red darken-2 small material-icons tooltipped'
                                 data-position='bottom' data-delay='50'
                                 data-tooltip='Fuera del parque'>do_not_disturb_off</i></a>";
                   }; ?>
 
                 </td>
-                <td class="center"><?php echo $r->horaSalida; ?></td> <!--Esta es la variable cuando se cambia estado de ingreso a salida del parque-->
+                <td class="center"><?php echo $r["horaSalida"]; ?></td> <!--Esta es la variable cuando se cambia estado de ingreso a salida del parque-->
 
               <td>
-                <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
+                <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r["id"]; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>
               </td>
 
             <?php if($_SESSION['usuario']['puesto']== 1 || $_SESSION['usuario']['puesto']== 2 || $_SESSION['usuario']['puesto']== 3): ?>
               <td>
               <a title="Borrar Información"  onclick="return confirm('¿Seguro de eliminar este registro?');"
-                 href="?c=Visitacion&a=Eliminar&id=<?php echo $r->id; ?>">
+                 href="?c=Visitacion&a=Eliminar&id=<?php echo $r["id"]; ?>">
                   <i class="white circle z-depth-3 small material-icons right">delete</i></a>
               </td>
             <?php endif;?>
@@ -193,6 +174,30 @@
           <?php endforeach; ?>
           </tbody>
         </table>
+
+		<nav>
+		  	<ul class="pagination">
+		  		<?php if ($data["actual-section"] != 1): ?>
+		    		<li><a href="view/visitacion/pagination-view.php?page=1">Inicio</a></li>
+		    		<li><a href="view/visitacion/pagination-view.php?page=<?php echo $data['previous']; ?>">&laquo;</a></li>
+				<?php endif; ?>
+
+				<?php for ($i = $data["section-start"]; $i <= $data["section-end"]; $i++): ?>
+				<?php if ($i > $data["total-pages"]): break; endif; ?>
+				<?php $active = ($i == $data["this-page"]) ? "active" : ""; ?>
+			    	<li class="<?php echo $active; ?>">
+					<a href="view/visitacion/pagination-view.php?page=<?php echo $i; ?>">
+						<?php echo $i; ?>
+					</a>
+			    	</li>
+			    	<?php endfor; ?>
+
+				<?php if ($data["actual-section"] != $data["total-sections"]): ?>
+			    	<li><a href="view/visitacion/pagination-view.php?page=<?php echo $data['next']; ?>">&raquo;</a></li>
+			    	<li><a href="view/visitacion/pagination-view.php?page=<?php echo $data['total-pages']; ?>">Final</a></li>
+		    		<?php endif; ?>
+		  	</ul>
+		</nav>
       </div><!-- Div de los tamanos -->
     </div><!--Div del row-->
   </div><!--Div del container-->

@@ -121,7 +121,7 @@ echo "<div id='alert_box'>
               inner join pais on visitacion.pais_id = pais.id
               inner join sendero on visitacion.sendero = sendero.id order by id asc limit $empezar_desde,$tamano_paginas");
 		$sql_limit = array();//Convierto la consulta en arreglo
-		$stm->execute($sql_limit);//Ejecuto el arreglo que contiene el LIMIT
+		$stm->execute($sql_limit);//Ejecuto el arreglo que contiene el LIMITE
 
 		/*------------------- Paginacion de los registros Visitacion*/
 
