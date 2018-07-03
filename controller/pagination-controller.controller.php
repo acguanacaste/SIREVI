@@ -24,7 +24,7 @@ class Pagination{
 		}
 	}
 
-	public static function show_rows($order_by, $sort = "ASC")	{
+	public static function show_rows($order_by, $sort = "DESC")	{
 		$page = self::$page;
 		$range = self::$range;
 		$pagination_model = self::$pagination_model;

@@ -129,8 +129,8 @@
           		    	<tr>
           			        <td><?php echo $r["id"]; ?></td>
                         <td><?php echo $r["proposito_visita"]; ?></td>
-          			        <td><?php echo $r["nombre"]; ?></td>
                         <td><?php echo $r["fecha"]; ?></td>
+          			        <td><?php echo $r["nombre"]; ?></td>
                         <td><?php echo $r["noIdentificacion"]; ?></td>
                         <td><?php echo $r["placa_automovil"]; ?></td>
                         <td><?php echo $r["pais_id"]; ?></td>

@@ -59,7 +59,8 @@ try{
 				"adultoExtranjero"=>$res_sector[0]['adulto_extranjero'],
 				"ninoExtranjero"=>$res_sector[0]['nino_extranjero'],
 				"estudiantes"=>$res_sector[0]['estudiantes'],
-				"personaSurfing"=>$res_sector[0]['personas_surf'],
+				"nacionalSurfing"=>$res_sector[0]['surf_nacional'],
+				"extranjeroSurfing"=>$res_sector[0]['surf_extranjero'],
 				"TarifaCamping"=>$res_sector[0]['tarifa_camping'],
 				"cambioDolar"=>$res_sector[0]['cambio_dolar']
 

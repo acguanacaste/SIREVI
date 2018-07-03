@@ -96,7 +96,7 @@
             <thead class="white-text teal darken-4 z-depth-2">
        <tr>
          <th>AC</th>
-         <th>Centro operativo</th>
+         <th>SUB</th>
          <th>Tipo ASP</th>
          <th>ASP</th>
          <th>Mes</th>

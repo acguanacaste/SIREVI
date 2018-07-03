@@ -28,7 +28,7 @@
                       </div>
                       <?php
                       $disponibles =  $_SESSION['sector']['capacidadDiaria'] - $this->model->Cantidad_Personas_Dentro_Parque();
-                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"teal":"yellow" ?>
+                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"yellow":"teal" ?>
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>

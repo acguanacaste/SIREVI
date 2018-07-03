@@ -268,14 +268,15 @@ function outputCSV($data) {
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
         $visit->estudiantes               = $_REQUEST['estudiantes'];
+        $visit->surf_nacional             = $_REQUEST['surf_nacional'];
+        $visit->prepago_nacional          = $_REQUEST['prepago_nacional'];
         $visit->nacional_exonerado        = $_REQUEST['nacional_exonerado'];
 
         $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
         $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
+        $visit->surf_extranjero           = $_REQUEST['surf_extranjero'];
+        $visit->prepago_extranjero        = $_REQUEST['prepago_extranjero'];;
         $visit->extranjero_exonerado      = $_REQUEST['extranjero_exonerado'];
-
-        $visit->personas_surf             = $_REQUEST['personas_surf'];
-        $visit->prepago                   = $_REQUEST['prepago'];
 
 //-----------------------------------------------------------------------------------------------------
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];

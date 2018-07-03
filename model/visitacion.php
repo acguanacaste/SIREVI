@@ -26,14 +26,17 @@ class Visitacion{
 		public $nacional_adult;//Se guarda la cantidad por visitante nacional
 		public $nacional_kid;//Se guarda la cantidad por ninos Nacionales
 		public $estudiantes;//Se guarda la cantidad pde estudiantes
+		public $prepago_nacional;//Por funcionalidad para el reporte SEMEC, se necesita saber si el prepago fue, nacional, o extranjero
 		public $nacional_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+		public $surf_nacional;//Me guarda el valor de los nacionales que vaya a surfear.
 
 		public $extranjero_adult;//Se guarda la cantida de visitantes estrnjeros
 		public $extranjero_kid;//Se guarda el monto por ninos Extranjeros
 		public $extranjero_exonerado;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+		public $surf_extranjero;//Me guarda el valor de los extranjeros que vayan a surfear.
+		public $prepago_extranjero;////Por funcionalidad para el reporte SEMEC, se necesita saber si el prepago fue, nacional, o extranjero
 
-    public $personas_surf;//Valor numerico que se sumara al total de la visitacion mediante una funcion.
-		public $prepago;//Este campo debe ser numerico para calcular junto la cantidad de personas que ingresaron
+
 
     public $tipo_pago;//Para saber si se hizo con tarjeta o Efectivo.
     public $moneda;//Tipo de moneda con la que se realizao el pago.
@@ -235,15 +238,17 @@ public function ConteoIngresosDiarios(){
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
+						surf_nacional             = ?,
+						prepago_nacional					= ?,
 						nacional_exonerado     		= ?,
-						extranjero_adult      		= ?,
 
+						extranjero_adult      		= ?,
 						extranjero_kid  					= ?,
 						extranjero_exonerado   		= ?,
-            personas_surf             = ?,
-						prepago               		= ?,
-						tipo_pago       					= ?,
+						surf_extranjero						= ?,
+						prepago_extranjero     		= ?,
 
+						tipo_pago       					= ?,
             moneda                    = ?,
 						montoCancelar							= ?
 
@@ -275,12 +280,17 @@ public function ConteoIngresosDiarios(){
 												$data->nacional_adult,
 												$data->nacional_kid,
 												$data->estudiantes,
+												$data->surf_nacional,
+												$data->prepago_nacional,
 												$data->nacional_exonerado,
-												$data->extranjero_adult,
+
 //--------------------------------------------------------------------------------
+												$data->extranjero_adult,
 												$data->extranjero_kid,
+												$data->surf_extranjero,
+												$data->prepago_extranjero,
 												$data->extranjero_exonerado,
-                        $data->personas_surf,
+
                         $data->prepago,
 												$data->tipo_pago,
 //-----------------------------------------------------------------
@@ -305,11 +315,10 @@ public function ConteoIngresosDiarios(){
 		$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
        pais_id, provincia_id, referencia_visita, nom_referencia_visita, salida,
        sendero, dias_camping, personas_acampando, subSector,
-        nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
-				extranjero_adult, extranjero_kid, extranjero_exonerado,
-        personas_surf, prepago,
+        nacional_adult, nacional_kid, estudiantes, surf_nacional, prepago_nacional, nacional_exonerado,
+				extranjero_adult, extranjero_kid,  surf_extranjero, prepago_extranjero, extranjero_exonerado,
         tipo_pago, moneda, montoCancelar)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -340,14 +349,15 @@ public function ConteoIngresosDiarios(){
 										$data->nacional_adult,
 										$data->nacional_kid,
 										$data->estudiantes,
+										$data->surf_nacional,
+										$data->prepago_nacional,
 										$data->nacional_exonerado,
 
 										$data->extranjero_adult,
 										$data->extranjero_kid,
+										$data->surf_extranjero,
+										$data->prepago_extranjero,
 										$data->extranjero_exonerado,
-
-                    $data->personas_surf,
-                    $data->prepago,
 
 //----------------------------------------------------------------------------------------
 										$data->tipo_pago,

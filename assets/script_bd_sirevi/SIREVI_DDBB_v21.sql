@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `puesto` INT(11) NOT NULL,
   `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `estado` INT(3) NOT NULL,
-  `foto` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `foto` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_imagen_idx` (`foto` ASC),
   INDEX `usuarioSec_idx` (`estado` ASC),
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -182,36 +182,36 @@ DROP TABLE IF EXISTS `sirevi`.`visitacion` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `usuario` INT(11) NULL DEFAULT NULL,
   `proposito_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `subSector` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
   `fecha` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `noIdentificacion` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
   `placa_automovil` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `referencia_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `nom_referencia_visita` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `sector` INT(11) NULL DEFAULT NULL,
-  `sendero` INT(11) NULL DEFAULT NULL,
-  `salida` INT(3) NULL DEFAULT NULL,
-  `subSector` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `dias_camping` INT(3) UNSIGNED NULL DEFAULT NULL,
-  `personas_acampando` INT(11) NULL DEFAULT NULL,
-  `nacional_adult` INT(11) UNSIGNED NULL DEFAULT NULL,
-  `nacional_kid` INT(11) UNSIGNED NULL DEFAULT NULL,
-  `estudiantes` INT(11) UNSIGNED NULL DEFAULT NULL,
-  `nacional_exonerado` INT(3) UNSIGNED NULL DEFAULT NULL,
-  `extranjero_adult` INT(11) UNSIGNED NULL DEFAULT NULL,
-  `extranjero_kid` INT(11) UNSIGNED NULL DEFAULT NULL,
-  `extranjero_exonerado` INT(3) UNSIGNED NULL DEFAULT NULL,
-  `personas_surf` INT(3) UNSIGNED NOT NULL,
-  `prepago` INT(3) UNSIGNED NULL DEFAULT NULL,
-  `montoCancelar` INT(4) UNSIGNED NOT NULL,
-  `tipo_pago` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `usuario` INT(11) NULL DEFAULT NULL,
-  `asp` INT(11) NOT NULL,
-  `horaSalida` TIME NULL DEFAULT NULL,
   `provincia_id` INT(11) NULL DEFAULT NULL,
   `pais_id` INT(11) NULL DEFAULT NULL,
+  `referencia_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nom_referencia_visita` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `asp` INT(11) NOT NULL,
+  `sector` INT(11) NOT NULL,
+  `sendero` INT(11) NOT NULL,
+  `salida` INT(3) NULL DEFAULT NULL,
+  `dias_camping` INT(3) UNSIGNED NULL DEFAULT NULL,
+  `personas_acampando` INT(11) NULL DEFAULT NULL,
+  `nacional_adult` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `nacional_kid` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `estudiantes` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `nacional_exonerado` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `extranjero_adult` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `extranjero_kid` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `extranjero_exonerado` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `personas_surf` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `prepago` INT(4) UNSIGNED NULL DEFAULT NULL,
+  `tipo_pago` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `montoCancelar` INT(4) UNSIGNED NOT NULL,
+  `horaSalida` TIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_usuario_idx` (`usuario` ASC),
   INDEX `fk_asp_idx` (`asp` ASC),
@@ -219,16 +219,6 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   INDEX `fk_sendero_idx` (`sendero` ASC),
   INDEX `fk_visitacion_provincia1_idx` (`provincia_id` ASC),
   INDEX `fk_visitacion_pais1_idx` (`pais_id` ASC),
-  CONSTRAINT `fk_visit_sector`
-    FOREIGN KEY (`sector`)
-    REFERENCES `sirevi`.`sector` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_visit_sendero`
-    FOREIGN KEY (`sendero`)
-    REFERENCES `sirevi`.`sendero` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_visit_user`
     FOREIGN KEY (`usuario`)
     REFERENCES `sirevi`.`usuarios` (`id`),
@@ -241,9 +231,24 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
     FOREIGN KEY (`provincia_id`)
     REFERENCES `sirevi`.`provincia` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_visitacion_asp`
+    FOREIGN KEY (`asp`)
+    REFERENCES `sirevi`.`asp` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_visitacion_sector`
+    FOREIGN KEY (`sector`)
+    REFERENCES `sirevi`.`sector` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_visitacion_sendero`
+    FOREIGN KEY (`sendero`)
+    REFERENCES `sirevi`.`sendero` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 73
+AUTO_INCREMENT = 82
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -301,8 +306,8 @@ DELIMITER $$
 USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cant_personas_dentro_parque`(IN fechaInicio VARCHAR(50), IN fechaFinal VARCHAR(50))
 BEGIN
-SELECT sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes
-			+visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado+visitacion.prepago) AS Cantidad 
+SELECT sum(visitacion.nacional_adult+visitacion.nacional_kid+visitacion.estudiantes+visitacion.nacional_exonerado+visitacion.prepago
++visitacion.extranjero_adult+visitacion.extranjero_kid+visitacion.extranjero_exonerado) AS Cantidad 
 FROM visitacion
 WHERE salida = 0 AND fecha BETWEEN fechaInicio AND fechaFinal;
 END$$
@@ -389,7 +394,7 @@ DROP procedure IF EXISTS `sirevi`.`consulta_ReporteDiario`;
 
 DELIMITER $$
 USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteDiario`(IN fechaStart DATE, IN fechaEnd DATE, IN pSector INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_ReporteDiario`(IN fechaStart DATE, IN pSector INT)
 BEGIN
 /*------- ESTA ES MI CONSULTA PARA EL REPORTE DIARIO*/
 SELECT count(fecha) AS Registros, time(fecha) AS Hora_Entrada, visitacion.horaSalida AS Hora_Salida,
@@ -414,7 +419,7 @@ FROM sirevi.visitacion
 INNER JOIN sector ON visitacion.sector= sector.id
 INNER JOIN pais on visitacion.pais_id = pais.id
 
-WHERE fecha BETWEEN fechaStart and fechaEnd AND sector.id = pSector
+ where sector.id = pSector AND DATE(fecha) = DATE(noW())
 
 GROUP BY visitacion.noIdentificacion;
 
@@ -434,11 +439,9 @@ USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `consulta_SEMEC`( IN fechaStart DATE, IN fechaEnd DATE )
 BEGIN
  
- SELECT count(sector.nombre) as Cant_Registros, visitacion.nombre, asp.nombre as AC,sector.nombre as Centro_operativo,
+  SELECT count(visitacion.id) as Cant_Registros, asp.nombre as AC, sector.nombre as Centro_operativo,
  
-  asp.tipo as Tipo_ASP, asp.nombre as ASP, monthname(fecha) AS Mes,
-	
-    sum( prepago) AS Prepagos,
+  asp.tipo as Tipo_ASP, monthname(fecha) AS Mes,
 	
     sum( nacional_adult+nacional_kid+visitacion.estudiantes) AS Nacionales_Pago,
 	
@@ -461,7 +464,7 @@ BEGIN
 
 	WHERE visitacion.fecha BETWEEN fechaStart AND fechaEnd
 
-	GROUP BY sector.nombre ORDER BY month(fecha), sector.nombre DESC;
+	GROUP BY asp.nombre ORDER BY month(fecha) DESC;
 END$$
 
 DELIMITER ;
@@ -556,23 +559,6 @@ USE `sirevi`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `conteoRegistrosDiarios`( )
 BEGIN
 select count(visitacion.id) AS Total_Ingresos from visitacion where LEFT(fecha, 10) = curdate();
-END$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
--- procedure prueba
--- -----------------------------------------------------
-
-USE `sirevi`;
-DROP procedure IF EXISTS `sirevi`.`prueba`;
-
-DELIMITER $$
-USE `sirevi`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `prueba`( IN fechaInicio VARCHAR(50), IN fechaFinal VARCHAR(50),IN pSector INT)
-BEGIN
-SELECT * FROM visitacion
-WHERE (fecha BETWEEN  fechaInicio AND fechaFinal) AND visitacion.sector = pSector;
 END$$
 
 DELIMITER ;
