@@ -16,23 +16,25 @@
                     <div><!-- Inicio de las filas y columnas -->
 
                       <div class="row"><!---Inicio de dos columnas-->
+<div class="col m1">
 
-                        <div class="col m1"></div>
-
+</div>
                       <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Total Ingresos</legend></center>
                           <center>
-                          <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
-                        </center>
+                            <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
+                          </center>
                         </fieldset>
                       </div>
+
                       <?php
                       $disponibles =  $_SESSION['sector']['capacidadDiaria'] - $this->model->Cantidad_Personas_Dentro_Parque();
-                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"yellow":"teal" ?>
+                      $warning = $disponibles < ($_SESSION['sector']['capacidadDiaria']-1) ?"teal":"yellow" ?>
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>
-                            <div class="btn <?php echo $warning ?> darken-4 right-align "> <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
+                            <div class="btn <?php echo $warning ?> darken-4 right-align ">
+                              <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
                           </center>
                         </fieldset>
                       </div>
@@ -77,8 +79,7 @@
                   <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
-                  <input type="hidden" name="adulto_nacional" value="<?php echo $_SESSION['sector']['adultoNacional']; ?>">
-                  <input type="hidden" name="salida" value="0">
+
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">
@@ -89,7 +90,6 @@
                              <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
                              <option value="Visita por el dia">Por el dia</option>
                              <option value="Acampando">Acampando</option>
-
                              <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
                            </select>
                          <label><i class="small material-icons" >info_outline</i></label>
@@ -197,24 +197,24 @@
                 <legend>Referencia de Visitacion</legend>
                       <div>
                         <div>
-                             <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
-                                <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
-                                <option value="" disabled selected>&nbsp;Elija una opción</option>
-                                <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
-                                <option value="Referencia de alguien más">2. Referencia de alguien más</option>
-                                <option value="Recomendación por amigos">3. Recomendación por amigos</option>
-                                <option value="Visita reiterada">4. Visita reiterada</option>
-                                <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
-                                <option value="Guías impresas">6. Guías impresas</option>
-                                <option value="Operadora turística">7. Operadora turística</option>
-                                <option value="Medio de comunicación">8. Medio de comunicación</option>
-                                <option value="Grupo comunal organizado">9. Grupo comunal organizado</option>
-                                <option value="Empresa privada">10. Empresa privada</option>
-                                <option value="ONGs en proyectos de investigación y conservación">11. ONGs en proyectos de investigación y conservación</option>
-                                <option value="Institución pública">12. Institución pública</option>
-                                <option value="Otro">Otro</option>
+                          <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
+                         <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
+                         <option value="" disabled selected>&nbsp;Elija una opción</option>
+                         <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
+                         <option value="Referencia de alguien más">2. Referencia de alguien más</option>
+                         <option value="Recomendación por amigos">3. Recomendación por amigos</option>
+                         <option value="Visita reiterada">4. Visita reiterada</option>
+                         <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
+                         <option value="Guías impresas">6. Guías impresas</option>
+                         <option value="Operadora turística">7. Operadora turística</option>
+                         <option value="Medio de comunicación">8. Medio de comunicación</option>
+                         <option value="Grupo comunal organizado">9. Grupo comunal organizado</option>
+                         <option value="Empresa privada">10. Empresa privada</option>
+                         <option value="ONGs en proyectos de investigación y conservación">11. ONGs en proyectos de investigación y conservación</option>
+                         <option value="Institución pública">12. Institución pública</option>
+                         <option value="Otro">Otro</option>
 
-                             </SELECT>
+                      </SELECT>
                         </div>
 
                         <div id="no_name_input" style="display:none;"></div>
@@ -295,12 +295,12 @@
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_adult" type="number" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
               </div>
 
               <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_kid" type="number" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
+                <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
@@ -330,6 +330,7 @@
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
+
 
         </div><!--Fin de la tercera Fila-->
 <!--<h6>Preguntar sobre como se calcula el precio para hacer la funcion en javascript</h6>-->
@@ -490,16 +491,10 @@
   </div>
 </div>
 </main>
+
 <script>
     $(document).ready(function(){
           $("#frm-visitacion").submit(function(){
-            //@todo: terminar de sumar todos los campos de cantidad de personas
-            //@todo arreglar el procedimiento que cuenta la cantida de gente
-              var cantidadPersonas = $("#nacional_adult").value ;
-              var disponibles = <?php echo  $_SESSION['sector']['capacidadDiaria'] ?> - (<?php echo $this->model->Cantidad_Personas_Dentro_Parque()?> +cantidadPersonas)
-              if (disponibles < 0){
-                alert("Se ha llegado a la capacidad del sector");
-              }
               return $(this).validate();
           });
       })
@@ -509,27 +504,19 @@
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
 
- var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
- var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
- var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-
-          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)+(parseFloat(valor3)*precioEstudiantes);
+          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500);
       }
 /*=====================================================================================================================================*/
       function sumaExtranjeros_Dia(){/*Calcula el monto  pagar para personas extranjeros*/
           var valor1=verificar("extranjero_adult");
           var valor2=verificar("extranjero_kid");
 
-          var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
-          var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
-
-
-          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*precioAdultoExtranjero)+(parseFloat(valor2)*precioNinoExtranjero);
+          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*15)+(parseFloat(valor2)*5);
 
 }
 /*=====================================================================================================================================*/
       function sumatoria_All(){/*Sumatoria del total de personas que van incluidas en un solo registro de visitacion*/
-            var valor1=verificar("nacional_adult");
+          var valor1=verificar("nacional_adult");
           var valor2=verificar("nacional_kid");
           var valor3=verificar("estudiantes");
           var valor4=verificar("extranjero_adult");
@@ -545,36 +532,24 @@
       }
 /*=====================================================================================================================================*/
       function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
-
-/*====================================================================================================*/
         var valor1=verificar("nacional_adult");
         var valor2=verificar("nacional_kid");
         var valor3=verificar("estudiantes");
         var valor4=verificar("extranjero_adult");
         var valor5=verificar("extranjero_kid");
+
         var valor6=verificar("personas_surf");
 
+        var dolar=verificar("boton_dolar");
 
-        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
-        var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-        var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
-        var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
-
-        var dolar = "<?php echo $_SESSION['sector']['cambioDolar']; ?>";
-        var surf = "<?php echo $_SESSION['sector']['personaSurfing']; ?>";
-
-
-
-    document.getElementById("montoCancelar").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)
-                                            +(parseFloat(valor3)*precioEstudiantes)+((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
-                                                  +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
-                                                  +((parseFloat(valor6)*surf)*dolar);
+          document.getElementById("montoCancelar").value=(parseFloat(valor1)*1500)+(parseFloat(valor2)*500)+(parseFloat(valor3)*500)
+                                                  +((parseFloat(valor4)*15)*550)+((parseFloat(valor5)*5)*550)+((parseFloat(valor6)*15)*550);
 
       }
 /*=======================================================================================================================================*/
 function sumaPersonasSurf(){
     var valor1=verificar("personas_surf");
+
     document.getElementById("total_PersonasSurf").value=(parseFloat(valor1)*15);
 
 }

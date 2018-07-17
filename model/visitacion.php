@@ -310,67 +310,67 @@ public function ConteoIngresosDiarios(){
 
 	public function Registrar(Visitacion $data) {
 
-		try	{
+			try	{
 
-		$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
-       pais_id, provincia_id, referencia_visita, nom_referencia_visita, salida,
-       sendero, dias_camping, personas_acampando, subSector,
-        nacional_adult, nacional_kid, estudiantes, surf_nacional, prepago_nacional, nacional_exonerado,
-				extranjero_adult, extranjero_kid,  surf_extranjero, prepago_extranjero, extranjero_exonerado,
-        tipo_pago, moneda, montoCancelar)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
+	       pais_id, provincia_id, referencia_visita, nom_referencia_visita, salida,
+	       sendero, dias_camping, personas_acampando, subSector,
+	        nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
+					extranjero_adult, extranjero_kid, extranjero_exonerado,
+	        personas_surf, prepago,
+	        tipo_pago, moneda, montoCancelar)
+							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-										$data->sector,
-										$data->usuario,
-										$data->asp,
-/*================================================================================================*/
-					 					$data->proposito_visita,
-                    $data->noIdentificacion,
-                    $data->nombre,
-										$data->placa_automovil,
-//------------------------------------------------------------------------------------------------
-										$data->pais,
-										$data->provincia,
-										$data->referencia_visita,
-										$data->nom_referencia_visita,
-										$data->salida,
+			$this->pdo->prepare($sql)
+			     ->execute(
+					array(
+											$data->sector,
+											$data->usuario,
+											$data->asp,
+	/*================================================================================================*/
+						 					$data->proposito_visita,
+	                    $data->noIdentificacion,
+	                    $data->nombre,
+											$data->placa_automovil,
+	//------------------------------------------------------------------------------------------------
+											$data->pais,
+											$data->provincia,
+											$data->referencia_visita,
+											$data->nom_referencia_visita,
+											$data->salida,
 
-//----------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------
-                    $data->sendero,
-                    $data->dias_camping,
-										$data->personas_acampando,
-										$data->subSector,
+	//----------------------------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------
+	                    $data->sendero,
+	                    $data->dias_camping,
+											$data->personas_acampando,
+											$data->subSector,
 
-//---------------------------------------------------------------------------------------------------
-										$data->nacional_adult,
-										$data->nacional_kid,
-										$data->estudiantes,
-										$data->surf_nacional,
-										$data->prepago_nacional,
-										$data->nacional_exonerado,
+	//---------------------------------------------------------------------------------------------------
+											$data->nacional_adult,
+											$data->nacional_kid,
+											$data->estudiantes,
+											$data->nacional_exonerado,
 
-										$data->extranjero_adult,
-										$data->extranjero_kid,
-										$data->surf_extranjero,
-										$data->prepago_extranjero,
-										$data->extranjero_exonerado,
+											$data->extranjero_adult,
+											$data->extranjero_kid,
+											$data->extranjero_exonerado,
 
-//----------------------------------------------------------------------------------------
-										$data->tipo_pago,
-										$data->moneda,
-										$data->montoCancelar,
-                )
+	                    $data->personas_surf,
+	                    $data->prepago,
 
-			);
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
+	//----------------------------------------------------------------------------------------
+											$data->tipo_pago,
+											$data->moneda,
+											$data->montoCancelar,
+	                )
+
+				);
+			} catch (Exception $e)
+			{
+				die($e->getMessage());
+			}
 		}
-	}
 
 	public function ControlSalidas(){/*Metodo que me borra los datos en la bd*/
   		try{
