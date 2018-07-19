@@ -238,15 +238,15 @@ public function ConteoIngresosDiarios(){
 						nacional_adult        		= ?,
 						nacional_kid          		= ?,
 						estudiantes               = ?,
-						surf_nacional             = ?,
-						prepago_nacional					= ?,
+						nacional_surf             = ?,
+						nacional_prepago					= ?,
 						nacional_exonerado     		= ?,
 
 						extranjero_adult      		= ?,
 						extranjero_kid  					= ?,
 						extranjero_exonerado   		= ?,
-						surf_extranjero						= ?,
-						prepago_extranjero     		= ?,
+						extranjero_surf						= ?,
+						extranjero_prepago     		= ?,
 
 						tipo_pago       					= ?,
             moneda                    = ?,
@@ -280,18 +280,17 @@ public function ConteoIngresosDiarios(){
 												$data->nacional_adult,
 												$data->nacional_kid,
 												$data->estudiantes,
-												$data->surf_nacional,
-												$data->prepago_nacional,
+												$data->nacional_surf,
+												$data->nacional_prepago,
 												$data->nacional_exonerado,
 
 //--------------------------------------------------------------------------------
 												$data->extranjero_adult,
 												$data->extranjero_kid,
-												$data->surf_extranjero,
-												$data->prepago_extranjero,
+												$data->extranjero_surf,
+												$data->extranjero_prepago,
 												$data->extranjero_exonerado,
 
-                        $data->prepago,
 												$data->tipo_pago,
 //-----------------------------------------------------------------
 												$data->moneda,

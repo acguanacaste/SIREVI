@@ -259,25 +259,36 @@
             <div class="input-field col s12 m12 l12">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-                <div class="input-field col s6 m6 l3  ">
-                  <input  id="nacional_adult" type=number value="<?php echo $visit->nacional_adult; ?>" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
+                <div class="input-field col s6 m6 l4  ">
+                  <input  id="nacional_adult" type=number name="nacional_adult" value="<?php echo $visit->nacional_adult; ?>" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
                </div>
 
-                <div class="input-field col s6 m6 l3  ">
-                  <input  id="nacional_kid" type="number" value="<?php echo $visit->nacional_kid; ?>" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+                <div class="input-field col s6 m6 l4  ">
+                  <input  id="nacional_kid" type="number" name="nacional_kid" class="validate" value="<?php echo $visit->nacional_kid; ?>" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
-              <div class="input-field col s12 m6 l3  ">
-                  <input  id="estudiantes" type="number" value="<?php echo $visit->estudiantes; ?>" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
+              <div class="input-field col s12 m6 l4  ">
+                  <input  id="estudiantes" type="number" name="estudiantes" value="<?php echo $visit->estudiantes; ?>" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
 
-            <div class="input-field col s6 m6 l3  ">
-              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="<?php echo $visit->nacional_exonerado; ?>" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
-             <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
-           </div>
+
+            <div class="row">
+                <div class="col s6 offset-s3"><span class="flow-text">
+                    <div class="input-field col s6 m6 l6  ">
+                        <input  id="nacional_prepago" type="number" name="nacional_prepago" value="<?php echo $visit->nacional_prepago; ?>" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
+                       <label for="nacional_prepago" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Prepago</label>
+                     </div>
+
+                      <div class="input-field col s6 m6 l6  ">
+                        <input  id="nacional_exonerado" type="number" name="nacional_exonerado"  value="<?php echo $visit->nacional_exonerado; ?>" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
+                       <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
+                     </div>
+
+               </span></div>
+            </div>
 
             </fieldset>
           </div><!--Fin de columnas cantidad de ncionales por el dia-->
@@ -289,21 +300,25 @@
             <fieldset class="z-depth-3">
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
-              <div class="input-field col s6 m4 l4  ">
+              <div class="input-field col s6 m4 l3  ">
                 <input  id="extranjero_adult" type="number" value="<?php echo $visit->extranjero_adult; ?>" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
               </div>
 
-              <div class="input-field col s6 m4 l4  ">
+              <div class="input-field col s6 m4 l3  ">
                 <input  id="extranjero_kid" type="number" value="<?php echo $visit->extranjero_kid; ?>" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
                 <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
               </div>
 
-              <div class="input-field col s6 m4 l4  ">
+              <div class="input-field col s6 m4 l3  ">
+                <input  id="extranjero_prepago" type="number" value="<?php echo $visit->extranjero_prepago; ?>" name="extranjero_prepago" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
+               <label for="extranjero_prepago" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Prepago</label>
+             </div>
+
+              <div class="input-field col s6 m4 l3  ">
                 <input  id="extranjero_exonerado" type="number" value="<?php echo $visit->extranjero_exonerado; ?>" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
                <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
              </div>
-
             </fieldset>
           </div>
 
@@ -312,16 +327,19 @@
         <div class=""><!--Tercera fila-->
           <div class="input-field col s12 m12 l12">
             <fieldset class="z-depth-3">
+              <legend>Personas surfistas</legend>
               <div class=""><!--Inicio de la segunda fila-->
+
                 <div class="input-field col s12 m6 l6  ">
-                <input  id="personas_surf" type="number" value="<?php echo $visit->personas_surf; ?>" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
-                    <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
+                <input  id="nacional_surf" type="number" name="nacional_surf" value="<?php echo $visit->nacional_surf; ?>" class="validate" onkeyup="suma_Surf_Nacionales(); monto_total_pagar();" >
+                    <label for="nacional_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Surfistas Nacionales</label>
                 </div>
 
                  <div class="input-field col s6 m6 l6  ">
-                   <input  id="prepago" type="number" value="<?php echo $visit->prepago; ?>" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
+                   <input  id="extranjero_surf" type="number" name="extranjero_surf" value="<?php echo $visit->extranjero_surf; ?>" class="validate" onkeyup="suma_Surf_Extranjeros(); monto_total_pagar();"  class="form-control" data-validacion-tipo="requerido|min:10" >
+                   <label for="extranjero_surf"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Surfistas Extranjeros</label>
                  </div>
+
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
@@ -401,7 +419,7 @@
               </div>
             </span></div>
           </div>
-
+<input type="hidden" name="salida" value="<?php echo $visit->salida; ?>">
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
              </div><!--Fin de columnas -->
            </div><!-- Fin de filas y columnas -->
@@ -447,138 +465,3 @@
   </div>
 </div>
 </main>
-
-<script>
-    $(document).ready(function(){
-          $("#frm-visitacion").submit(function(){
-            //@todo: terminar de sumar todos los campos de cantidad de personas
-            //@todo arreglar el procedimiento que cuenta la cantida de gente
-              var cantidadPersonas = $("#nacional_adult").value ;
-              var disponibles = <?php echo  $_SESSION['sector']['capacidadDiaria'] ?> - (<?php echo $this->model->Cantidad_Personas_Dentro_Parque()?> +cantidadPersonas)
-              if (disponibles < 0){
-                alert("Se ha llegado a la capacidad del sector");
-              }
-              return $(this).validate();
-          });
-      })
-
-      function sumaNacionales_Dia(){/*Calcula el total a pagar por personas nacionales*/
-          var valor1=verificar("nacional_adult");
-          var valor2=verificar("nacional_kid");
-          var valor3=verificar("estudiantes");
-
- var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
- var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
- var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-
-          document.getElementById("total_Nacionales_Dia").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)+(parseFloat(valor3)*precioEstudiantes);
-      }
-/*=====================================================================================================================================*/
-      function sumaExtranjeros_Dia(){/*Calcula el monto  pagar para personas extranjeros*/
-          var valor1=verificar("extranjero_adult");
-          var valor2=verificar("extranjero_kid");
-
-          var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
-          var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
-
-
-          document.getElementById("total_Extranjeros_Dia").value=(parseFloat(valor1)*precioAdultoExtranjero)+(parseFloat(valor2)*precioNinoExtranjero);
-
-}
-/*=====================================================================================================================================*/
-      function sumatoria_All(){/*Sumatoria del total de personas que van incluidas en un solo registro de visitacion*/
-            var valor1=verificar("nacional_adult");
-          var valor2=verificar("nacional_kid");
-          var valor3=verificar("estudiantes");
-          var valor4=verificar("extranjero_adult");
-          var valor5=verificar("extranjero_kid");
-          var valor6=verificar("nacional_exonerado");
-          var valor7=verificar("extranjero_exonerado");
-          var valor8=verificar("prepago");
-
-
-          document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)
-          +parseFloat(valor4)+parseFloat(valor5)+parseFloat(valor6)+parseFloat(valor7)+parseFloat(valor8);
-
-      }
-/*=====================================================================================================================================*/
-      function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
-
-/*====================================================================================================*/
-        var valor1=verificar("nacional_adult");
-        var valor2=verificar("nacional_kid");
-        var valor3=verificar("estudiantes");
-        var valor4=verificar("extranjero_adult");
-        var valor5=verificar("extranjero_kid");
-        var valor6=verificar("personas_surf");
-
-
-        var precioAdultoNacional = "<?php echo $_SESSION['sector']['adultoNacional']; ?>";
-        var precioNinoNacional   = "<?php echo $_SESSION['sector']['ninoNacional']; ?>";
-        var precioEstudiantes    = "<?php echo $_SESSION['sector']['estudiantes']; ?>";
-        var precioAdultoExtranjero = "<?php echo $_SESSION['sector']['adultoExtranjero']; ?>";
-        var precioNinoExtranjero   = "<?php echo $_SESSION['sector']['ninoExtranjero']; ?>";
-
-        var dolar = "<?php echo $_SESSION['sector']['cambioDolar']; ?>";
-        var surf = "<?php echo $_SESSION['sector']['personaSurfing']; ?>";
-
-
-
-    document.getElementById("montoCancelar").value=(parseFloat(valor1)*precioAdultoNacional)+(parseFloat(valor2)*precioNinoNacional)
-                                            +(parseFloat(valor3)*precioEstudiantes)+((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
-                                                  +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
-                                                  +((parseFloat(valor6)*surf)*dolar);
-
-      }
-/*=======================================================================================================================================*/
-function sumaPersonasSurf(){
-    var valor1=verificar("personas_surf");
-    document.getElementById("total_PersonasSurf").value=(parseFloat(valor1)*15);
-
-}
-/*=======================================================================================================================================*/
-function sumaPersonasDentroParque(){
-    var valor1=verificar("cant_personas_camping");
-//El monto a cobrar esta en dolares para mas agilidad, a los nacionales se les cobre en colones 2000 por persona
-    document.getElementById("total_personas_camping").value=(parseFloat(valor1)*4);
-
-}
-/*================================================================================================================================*/
-
-
-
-      function verificar(id){//Verifica que sean datos numericos
-          var obj=document.getElementById(id);
-          if(obj.value=="")
-              value="0";
-          else
-              value=obj.value;
-          if(validate_importe(value,1)){
-              // marcamos como erroneo
-              obj.style.borderColor="#808080";
-              return value;
-          }else{
-              // marcamos como erroneo
-              obj.style.borderColor="#f00";
-              return 0;
-          }
-      }
-//=========================================================================================================================================
-      function validate_importe(value,decimal){
-          if(decimal==undefined)
-              decimal=0;
-          if(decimal==1){
-              // Permite decimales tanto por . como por ,
-              var patron=new RegExp("^[0-9]+((,|\.)[0-9]{1,2})?$");
-          }
-          else{
-              // Numero entero normal
-              var patron=new RegExp("^([0-9])*$")
-          }
-
-          if(value && value.search(patron)==0){
-              return true;
-          }
-          return false;
-      }
-  </script>

@@ -289,7 +289,7 @@ function outputCSV($data) {
             ? $this->model->Actualizar($visit)
             : $this->model->Registrar($visit);
 
-        header('Location: index.php?c=Visitacion&a=agregarRegistro');
+        header('Location: index.php?c=Visitacion&a=AdminUser');
     }
 
     public function Eliminar(){
