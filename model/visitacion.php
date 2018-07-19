@@ -315,11 +315,10 @@ public function ConteoIngresosDiarios(){
 			$sql ="INSERT INTO visitacion (sector, usuario, asp, proposito_visita, noIdentificacion, nombre, placa_automovil,
 	       pais_id, provincia_id, referencia_visita, nom_referencia_visita, salida,
 	       sendero, dias_camping, personas_acampando, subSector,
-	        nacional_adult, nacional_kid, estudiantes, nacional_exonerado,
-					extranjero_adult, extranjero_kid, extranjero_exonerado,
-	        personas_surf, prepago,
-	        tipo_pago, moneda, montoCancelar)
-							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        nacional_adult, nacional_kid, estudiantes,nacional_prepago, nacional_exonerado, nacional_surf,
+					extranjero_adult, extranjero_kid, extranjero_prepago, extranjero_exonerado, extranjero_surf,
+	         tipo_pago, moneda, montoCancelar)
+							VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			$this->pdo->prepare($sql)
 			     ->execute(
@@ -350,14 +349,15 @@ public function ConteoIngresosDiarios(){
 											$data->nacional_adult,
 											$data->nacional_kid,
 											$data->estudiantes,
+											$data->nacional_prepago,
 											$data->nacional_exonerado,
+											$data->nacional_surf,
 
 											$data->extranjero_adult,
 											$data->extranjero_kid,
+											$data->extranjero_prepago,
 											$data->extranjero_exonerado,
-
-	                    $data->personas_surf,
-	                    $data->prepago,
+											$data->extranjero_surf,
 
 	//----------------------------------------------------------------------------------------
 											$data->tipo_pago,
