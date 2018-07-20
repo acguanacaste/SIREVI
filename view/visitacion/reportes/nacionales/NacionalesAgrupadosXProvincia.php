@@ -1,7 +1,7 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <main>
-  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-    <a href="#">Reporte Nacionalidades</a></h4>
+  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">rv_hookup</i>
+    <a href="#">Reporte Nacionales</a></h4>
 
 <div class="">
 

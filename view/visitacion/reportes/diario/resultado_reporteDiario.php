@@ -11,7 +11,7 @@
 
 <main>
   <div class="">
-    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
+    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">description</i>
       <a href="#">Resultado de Ingresos</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">

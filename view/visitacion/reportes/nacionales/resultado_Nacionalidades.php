@@ -11,8 +11,8 @@
 
 <main>
   <div class="">
-    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Resultado Nacionalidades</a></h4>
+    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">rv_hookup</i>
+      <a href="#">Resultado Nacionales</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">

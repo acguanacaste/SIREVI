@@ -10,7 +10,7 @@
   </div>
 
 <main>
-  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
+  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">view_quilt</i>
     <a href="#">Reporte Totales por Sector</a></h4>
 <div class="">
 

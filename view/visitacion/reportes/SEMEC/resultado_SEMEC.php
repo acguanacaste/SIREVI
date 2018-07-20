@@ -11,7 +11,7 @@
 
 <main>
   <div class="">
-    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
+    <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">account_balance</i>
       <a href="#">Resultado SEMEC</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
@@ -97,9 +97,11 @@
        <th> Tipo ASP</th>
        <th> Mes</th>
        <th> Nacional Pago</th>
+       <th> Nacional Prepago</th>
        <th> Nacional Exonerado</th>
        <th> Total Nacionales</th>
        <th> Extranjeros Pago</th>
+       <th> Extranjero Prepago</th>
        <th> Extranjero Exonerado</th>
        <th> Total Extranjeros</th>
        <th> Monto Total</th>
@@ -115,9 +117,11 @@
         <td>        <?php echo $a->Tipo_ASP; ?></td>
         <td>        <?php echo $a->Mes; ?></td>
         <td><center><?php echo $a->Nacionales_Pago; ?></center></td>
+        <td><center><?php echo $a->Nac_Prepago; ?></center></td>
         <td><center><?php echo $a->Nacionales_Exonerado; ?></center></td>
         <td><center><?php echo $a->Total_Nacionales; ?></center></td>
         <td><center><?php echo $a->Extranjeros_Pago; ?></center></td>
+        <td><center><?php echo $a->Extranjero_Prepago; ?></center></td>
         <td><center><?php echo $a->Extranjeros_Exonerados; ?></center></td>
         <td><center><?php echo $a->Total_Extranjeros; ?></center></td>
         <td><center><?php echo $a->Monto_Total; ?></center></td>

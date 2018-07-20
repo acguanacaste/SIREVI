@@ -9,7 +9,7 @@
     </div>
   </div>
 <main>
-  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
+  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">account_balance</i>
     <a href="#">Reporte SEMEC </a></h4>
 <div class="">
     <!--Busqueda avanzada-->
@@ -95,17 +95,20 @@
           <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
             <thead class="white-text teal darken-4 z-depth-2">
        <tr>
-         <th>AC</th>
-         <th>SUB</th>
-         <th>Tipo ASP</th>
-         <th>ASP</th>
-         <th>Mes</th>
-         <th>Nac. Pagos</th>
-         <th>Exonerdado</th>
-         <th>Total Nac.</th>
-         <th>Ext. Pagos</th>
-         <th>Total Ext</th>
-         <th>Monto Total</th>
+         <th>Cantidad Registros</th>
+         <th> AC</th>
+         <th> Centro Operativo</th>
+         <th> Tipo ASP</th>
+         <th> Mes</th>
+         <th> Nacional Pago</th>
+         <th> Nacional Prepago</th>
+         <th> Nacional Exonerado</th>
+         <th> Total Nacionales</th>
+         <th> Extranjeros Pago</th>
+         <th> Extranjero Prepago</th>
+         <th> Extranjero Exonerado</th>
+         <th> Total Extranjeros</th>
+         <th> Monto Total</th>
        </tr>
      </thead>
 
