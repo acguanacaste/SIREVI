@@ -2,6 +2,77 @@
 
 
 
+<div  class="input-field col s12 m4 l3"><!--Columna-->
+    <fieldset ><legend>Dias acampando</legend>
+        <div class="input-field col s12 m12 l12  ">
+          <input  id="dias_camping" type="number"
+                name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+          <label for="dias_camping" > <span class="hide-on-small-only">
+            <i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
+        </div>
+<!--=-->
+        <div class="input-field col s12 m12 l12">
+        Personas*:
+          <br>
+          <input  id="personas_acampando" type="number"
+              name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+        </div>
+    </fieldset>
+</div><!--Fin de la tercera fila-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php foreach ($this->model->Listar() as $r): ?>
+  <tr>
+    <td><?php echo $r->id; ?></td>
+    <td><?php echo $r->proposito_visita; ?></td>
+    <td><?php echo $r->fecha; ?></td>
+    <td><?php echo $r->Nombre; ?></td>
+    <td><?php echo $r->noIdentificacion; ?></td>
+    <td><?php echo $r->placa_automovil; ?></td>
+    <td><?php echo $r->Pais; ?></td>
+    <td><?php echo $r->tipo_pago; ?></td>
+    <td><?php echo $r->moneda; ?></td>
+
+  <td ><?php if($r->salida ==0){
+    echo "
+    <a onclick='setTime()' href='?c=Visitacion&a=Salida&id=".$r->id."'>
+            <i  class='circle white darken-2 small material-icons tooltipped'
+              data-position='bottom' data-delay='50'
+              data-tooltip='Dentro del parque'>directions_walk</i></a>
+              <p  id='time'></p>";
+        }
+
+        elseif ($r->salida==1) {
+          echo "
+          <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r->id."'>
+                  <i  class='circle red darken-2 small material-icons tooltipped'
+                    data-position='bottom' data-delay='50'
+                    data-tooltip='Fuera del parque'>do_not_disturb_off</i></a>";
+      };
 
 
 

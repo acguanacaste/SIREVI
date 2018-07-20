@@ -232,16 +232,16 @@
 
                 <div  class="input-field col s12 m4 l3"><!--Columna-->
                     <fieldset ><legend>Dias acampando</legend>
-
                         <div class="input-field col s12 m12 l12  ">
-                          <input  id="dias_camping" type="number" name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                          <label for="dias_camping" > <span class="hide-on-small-only"><i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
+                          <input  id="dias_camping" type="number" name="dias_camping" onkeyup="monto_Personas_Acampando();" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <label for="dias_camping" > <span class="hide-on-small-only">
+                            <i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
                         </div>
 
                         <div class="input-field col s12 m12 l12">
                         Personas*:
                           <br>
-                          <input  id="personas_acampando" type="number" name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <input  id="personas_acampando" type="number" name="personas_acampando" onkeyup="monto_Personas_Acampando();" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
                         </div>
                     </fieldset>
               </div><!--Fin de la tercera fila-->
@@ -451,20 +451,28 @@
 
               <div class="col s10 offset-s1"><span>
 
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m6 l4">
                   <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Total de personas</legend>
                       <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"  disabled value="0">
                       </div>
                   </fieldset>
               </div>
 
-              <div class="input-field col s12 m6 l6">
+              <div class="input-field col s12 m6 l4">
+                <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto Campistas</legend>
+                    <div>Colones*: <input class="teal darken-4 white-text" type="text" id="monto_personas_camping"  disabled value="0">
+                    </div>
+                </fieldset>
+            </div>
+
+              <div class="input-field col s12 m6 l4">
                 <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto a cancelar</legend>
                     <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
                 </fieldset>
               </div>
 
             </span></div>
+
           </div>
 
 <!--====================================  Fin de lineas para mostrar el total por nacionalidad   ==========================================================================-->
@@ -609,32 +617,31 @@ function suma_Surf_Extranjeros(){
 }
 
 /*=======================================================================================================================================*/
-function sumaPersonasDentroParque(){
-    var valor1=verificar("cant_personas_camping");
+function monto_Personas_Acampando(){
+    var valor1=verificar("dias_camping");
+    var valor2=verificar("personas_acampando")
 //El monto a cobrar esta en dolares para mas agilidad, a los nacionales se les cobre en colones 2000 por persona
-    document.getElementById("total_personas_camping").value=(parseFloat(valor1)*4);
-
+    document.getElementById("monto_personas_camping").value=(parseFloat(valor1)*4)*(parseFloat(valor2));
 }
+
+
 /*================================================================================================================================*/
-
-
-
-      function verificar(id){//Verifica que sean datos numericos
-          var obj=document.getElementById(id);
-          if(obj.value=="")
-              value="0";
-          else
-              value=obj.value;
-          if(validate_importe(value,1)){
-              // marcamos como erroneo
-              obj.style.borderColor="#808080";
-              return value;
-          }else{
-              // marcamos como erroneo
-              obj.style.borderColor="#f00";
-              return 0;
-          }
+function verificar(id){//Verifica que sean datos numericos
+    var obj=document.getElementById(id);
+      if(obj.value=="")
+          value="0";
+      else
+          value=obj.value;
+      if(validate_importe(value,1)){
+          // marcamos como erroneo
+          obj.style.borderColor="#808080";
+          return value;
+      }else{
+      // marcamos como erroneo
+      obj.style.borderColor="#f00";
+      return 0;
       }
+  }
 //=========================================================================================================================================
       function validate_importe(value,decimal){
           if(decimal==undefined)
