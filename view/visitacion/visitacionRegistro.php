@@ -68,6 +68,7 @@
     <fieldset>
       <legend><h5>Formulario de Visitación </h5>
         <h6>Completar la información con los datos correspondientes</h6></legend>
+
         <div class="">
           <hr> <br>
           <div class="row"><!--la clase en este div me permite tener los elementos del formulario en orden y en las filas correspondientes-->
@@ -177,6 +178,7 @@
                     mysql_select_db("sirevi",$conexion);
                     $sentencia_sendero = "select * from sendero order by nombre ASC";
                     $query_sendero = mysql_query($sentencia_sendero);
+                    json_encode($query_sendero);
                     ?>
                     <div class="">
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
@@ -233,7 +235,7 @@
                 <div  class="input-field col s12 m4 l3"><!--Columna-->
                     <fieldset ><legend>Dias acampando</legend>
                         <div class="input-field col s12 m12 l12  ">
-                          <input  id="dias_camping" type="number" name="dias_camping" onkeyup="monto_Personas_Acampando();" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <input  id="dias_camping" type="number" name="dias_camping" onkeyup="monto_Personas_Acampando();" value="" class="validate" >
                           <label for="dias_camping" > <span class="hide-on-small-only">
                             <i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
                         </div>
@@ -241,7 +243,7 @@
                         <div class="input-field col s12 m12 l12">
                         Personas*:
                           <br>
-                          <input  id="personas_acampando" type="number" name="personas_acampando" onkeyup="monto_Personas_Acampando();" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
+                          <input  id="personas_acampando" type="number" name="personas_acampando" onkeyup="monto_Personas_Acampando();" value="" class="validate" >
                         </div>
                     </fieldset>
               </div><!--Fin de la tercera fila-->
@@ -460,7 +462,8 @@
 
               <div class="input-field col s12 m6 l4">
                 <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto Campistas</legend>
-                    <div>Colones*: <input class="teal darken-4 white-text" type="text" id="monto_personas_camping"  disabled value="0">
+                    <div>Dolares*: <input class="teal darken-4 white-text" type="text"
+                        name="monto_personas_camping" id="monto_personas_camping"  disabled value="0">
                     </div>
                 </fieldset>
             </div>
@@ -585,6 +588,8 @@
         var valor5=verificar("extranjero_kid");
         var valor6=verificar("nacional_surf");
         var valor7=verificar("extranjero_surf");
+        var diaCamping=verificar("dias_camping");
+        var personasCamping=verificar("personas_acampando");
       //  var valor6=verificar("personas_surf");
         var dolar=verificar("boton_dolar");
 
@@ -602,7 +607,8 @@
                                                           +(parseFloat(valor6)*1100)
                                                           +((parseFloat(valor4)*precioAdultoExtranjero)*dolar)
                                                           +((parseFloat(valor5)*precioNinoExtranjero)*dolar)
-                                                          +((parseFloat(valor7)+15)*dolar);
+                                                          +((parseFloat(valor7)+15)*dolar)
+                                                          +(parseFloat(diaCamping));
                                                     //      +((parseFloat(valor6)*15)*550);
       }
 /*=======================================================================================================================================*/

@@ -339,7 +339,7 @@ public function ConteoIngresosDiarios(){
 
 	//----------------------------------------------------------------------------------------------
 	//-----------------------------------------------------------------------------------------------
-	                    $data->sendero,
+	                    json_encode($data->sendero),
 	                    $data->dias_camping,
 											$data->personas_acampando,
 											$data->subSector,

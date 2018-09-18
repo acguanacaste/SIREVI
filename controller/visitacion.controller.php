@@ -262,7 +262,7 @@ function outputCSV($data) {
         $visit->salida                    = $_REQUEST['salida'];
             $visit->salida = 0;
 //------------------------------------------------------------------------------------------------------
-        $visit->sendero                   = $_REQUEST['sendero'];//-----
+        json_encode($visit->sendero                   = $_REQUEST['sendero']);//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->personas_acampando        = $_REQUEST['personas_acampando'];
         $visit->subSector                 = $_REQUEST['subSector'];
