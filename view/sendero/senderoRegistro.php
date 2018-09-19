@@ -49,16 +49,14 @@
                 </div>
 
                 <?php
-                $conexion = mysql_connect("localhost","root");
-                mysql_select_db("sirevi",$conexion);
-                $sentencia = "select * from sector order by nombre ASC";
-                $query = mysql_query($sentencia);
+                $conexion = mysqli_connect("localhost","root","","sirevi");
+                $query_sector = mysqli_query($conexion, "select * from sector order by nombre ASC");
                 ?>
                 <div class="row">
                    <div class="input-field col s12 m4 l4">
                     <select name="sector">
-                       <option value="" disabled selected>Elija una opcion</option>
-                      <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                     <option value="" disabled selected>Elija una opcion</option>
+                      <?php while ($arreglo = mysqli_fetch_array($query_sector)) {  ?>
                       <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
                       <?php } ?>
                     </select>

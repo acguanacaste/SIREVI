@@ -58,19 +58,17 @@
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
-          <?php
-          $conexion = mysql_connect("localhost","root");
-          mysql_select_db("sirevi",$conexion);
-          $sentencia = "select * from puestos_institucion order by nombre_puesto ASC";
-          $query = mysql_query($sentencia);
-          ?>
+               <?php
+               $conexion = mysqli_connect("localhost","root","","sirevi");
+               $query_puesto = mysqli_query($conexion, "select * from puestos_institucion order by nombre ASC");
+               ?>
     <!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
 
          <div class="">
             <div class="input-field col s12 m12 l12">
              <select  id="puesto" name="puesto">
-                <option id="puesto" value="" disabled selected>Elija una opcion</option>
-               <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+               <option id="puesto" value="" disabled selected>Elija una opcion</option>
+               <?php while ($arreglo = mysqli_fetch_array($query_puesto)) {  ?>
                <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre_puesto'] ?></option>
                <?php } ?>
 

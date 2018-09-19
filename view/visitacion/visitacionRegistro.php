@@ -18,7 +18,7 @@
                       <div class="col m1">
 
                       </div>
-                      <div class="input-field col s6 m4 l2">
+                       <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Total Ingresos</legend></center>
                           <center>
                             <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
@@ -134,15 +134,14 @@
                 <div class=""><!---Inicio de la segunda fila-->
                 <!--==============Cargando los paices==============================-->
                   <?php
-                  $conexion = mysql_connect("localhost","root");
-                  mysql_select_db("sirevi",$conexion);
-                  $sentencia_pais = "select * from pais order by nombre ASC";
-                  $query_pais = mysql_query($sentencia_pais);
+                  $conexion = mysqli_connect("localhost","root","","sirevi");
+                  $query_pais = mysqli_query($conexion, "select * from pais order by nombre ASC");
                   ?>
+
                   <div  class="input-field col s6 m6 l4">
                     <select name="pais">
                       <option value="" disabled selected>Elija un pais</option>
-                      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                      <?php while ($arreglo_pais = mysqli_fetch_array($query_pais)) {  ?>
                       <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
                       <?php } ?>
                     </select>
@@ -151,16 +150,15 @@
 
 
 <!--==============Cargando las cuidades============================================-->
-      <?php
-      $conexion = mysql_connect("localhost","root");
-      mysql_select_db("sirevi",$conexion);
-      $sentencia = "select * from provincia order by nombre ASC";
-      $query = mysql_query($sentencia);
-      ?>
+        <?php
+        $conexion = mysqli_connect("localhost","root","","sirevi");
+        $query_provincia = mysqli_query($conexion, "select * from provincia order by nombre ASC");
+        ?>
+
       <div class="input-field col s6 m6 l4">
         <select name="provincia">
           <option value="" disabled selected>Elija una provincia</option>
-            <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+            <?php while ($arreglo = mysqli_fetch_array($query_provincia)) {  ?>
           <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
             <?php } ?>
           </select>
@@ -173,24 +171,22 @@
                 <div class=""><!--Inicio de la tercera fila-->
                   <div class=""><!--Columna-->
                     <!--================Cargando los senderos==============================-->
-                    <?php
-                    $conexion = mysql_connect("localhost","root");
-                    mysql_select_db("sirevi",$conexion);
-                    $sentencia_sendero = "select * from sendero order by nombre ASC";
-                    $query_sendero = mysql_query($sentencia_sendero);
+                    <!-- <php
+                    $conexion = mysqli_connect("localhost","root","","sirevi");
+                    $query_sendero = mysqli_query($conexion, "select * from sendero order by nombre ASC");
                     json_encode($query_sendero);
                     ?>
                     <div class="">
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
-                      <select name="sendero" multiple required>
+                      <!-- <select name="sendero" multiple required>
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
-                           <?php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
-                           <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
-                           <?php } ?>
+                           <php while ($arreglo_sendero = mysqli_fetch_array($query_sendero)) {  ?>
+                           <option value="<php echo $arreglo_sendero['id']?>"><php echo $arreglo_sendero['nombre'] ?></option>
+                           <php } ?>
                         </select>
                       <label><span class="hide-on-small-only"><i class="small material-icons">swap_calls</i></span></label>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
