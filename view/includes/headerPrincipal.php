@@ -11,6 +11,7 @@ header("Location:?c=login&a=index");
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
+	<link rel="icon" href="assets\img\acg_personalized_icon.ico">
 	<script  src="assets/data-tables/data-tables-script.js"></script>
 	<script type="text/javascript" src="assets/data-tables/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>

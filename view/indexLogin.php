@@ -67,7 +67,6 @@ $(document).ready(function() {
 		}
 	);
 
-
 	$('select').material_select();
 	$('.slider').slider({full_width: true});
 	/*Para la funcionalidad de las fechas */
@@ -80,38 +79,7 @@ $(document).ready(function() {
 							accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 						});
 
-/*=======================================================================================================================================*/
-	$('input.autocomplete').autocomplete({
-		 data: {
-			 "Argentina": null, "Australia":null, "Austria":null,
-			 "Bélgica":null,"Bielorrusia":null,"Brasil":null,
-			 "Canadá":null,"China":null,"Colombia":null,
-			 "Dinamarca":null,
-			 "Ecuador":null, "El Salvador":null, "Escocia":null, "España":null, "Estados Unidos":null, "Estonia":null,
-			 "Finlandia":null, "Francia":null,
-			 "Guatemala":null,
-			 "Holanda":null, "Honduras":null,
-			 "Inglaterra":null, "Israel":null, "Italia":null,
-			 "Japón":null,
-			 "Líbano":null,
-			 "México":null,
-			 "Nicaragua":null,
-			 "Panamá":null,	 "Portugal":null,
-			 "R. Checa":null, "Rusia":null,
-			 "Suecia":null, "Suiza":null,
-			 "Venezuela": null,
-			 "Costa Rica": 'http://placehold.it/250x250'
-		 },
-		 limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
-		 onAutocomplete: function(val) {
-			 // Callback function when value is autcompleted.
-		 },
-		 minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
-	 });
-
-/*==========================================================================================================================================*/
-
-});
+});//Cierre de la llave principal (ready)
 
 
 </script>

@@ -259,8 +259,8 @@ function outputCSV($data) {
         $visit->provincia                 = $_REQUEST['provincia'];//--------
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];//------
         $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
-  //      $visit->salida                    = $_REQUEST['salida'];
-    //        $visit->salida = 0;
+      //  $visit->salida                    = $_REQUEST['salida'];
+            $visit->salida = 0;
 //------------------------------------------------------------------------------------------------------
         json_encode($visit->sendero                   = $_REQUEST['sendero']);//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];

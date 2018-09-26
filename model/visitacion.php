@@ -55,120 +55,141 @@ class Visitacion{
 		}
 	}
 
+
 	public function Listar(){
 		try{
-			$tamano_paginas = 5;//Los registros que quiero mostrar
-
-if(isset($_GET["pagina"])) {//Este if es para hacerle saber al sistem que el usuario no ha cargado ninguna de las paginas,
-
-				if ($GET["pagina"]==1){
-						header('Location: index.php?c=Visitacion&a=AdminUser');
-
-				}else{
-					$pagina = $_GET["pagina"];//Me guarda temporalmente el valor que tiene pagina.
-
-				}//Fin del if $_GET(["pagina"]);
-			}else{
-				$pagina = 1;//La pagina en la que el usuario esta.
-			}
-
-			$empezar_desde = ($pagina-1)*$tamano_paginas;
 			$result = array();
 
-			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
-       visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
-        pais.nombre as Pais, referencia_visita,
-         sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
-		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-          personas_surf, prepago,
-			     tipo_pago, moneda, horaSalida
-            from visitacion
-              inner join pais on visitacion.pais_id = pais.id
-              inner join sendero on visitacion.sendero = sendero.id order by id asc");
+			$stm = $this->pdo->prepare("select visitacion.id, visitacion.proposito_visita, visitacion.fecha,
+																	visitacion.Nombre, visitacion.noIdentificacion, visitacion.placa_automovil,
+																	pais.nombre As Pais, tipo_pago, moneda, salida, horaSalida
+																		from visitacion
+																			inner join pais on visitacion.pais_id = pais.id order by fecha DESC;");
+			$stm->execute();
 
- 			//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
-			$stm->execute();//Este es la primero ejecucion de la conculta, luego pasa a la siguiente donde se deben ingresar las variables dinamicas
-			$num_filas =  $stm->rowCount();
-			$total_paginas = ceil($num_filas/$tamano_paginas);//24/5 = 5, para que me uestre un numero entero con la funcion ceil redondea el resultado
-
-echo "<div id='alert_box'>
-  <div class='col s12 m12'>
-    <div class='card teal darken-2 z-depth-3'>
-      <div class='row'>
-        <div class='col s12 m10'>
-          <div class='card-content white-text'>
-            <p>1. Numero de registros en el sistema: &nbsp; $num_filas </p>
-            <p>2. $total_paginas registros por página</p>
-            <p>3. Página $pagina  de &nbsp; $total_paginas</p>
-        </div>
-      </div>
-      <div class='col s12 m2'><i class='fa fa-times icon_style' id='alert_close' aria-hidden='true'></i>
-      </div>
-    </div>
-   </div>
-  </div>
-</div>";
-
-			//echo "Numero de registros en el sistema: ". $num_filas . "<br>";//Muestra cantidad de registros totales
-			//echo $total_paginas . " registros por pagina <br>";//Me muestra la contidad de paginas por cada pagina desplegada
-			//echo "Página ". $pagina . " de " . $total_paginas . "<br>";
-
-			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
-       visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
-        pais.nombre as Pais, referencia_visita,
-         sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
-		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
-          personas_surf, prepago,
-			     tipo_pago, moneda, horaSalida
-            from visitacion
-              inner join pais on visitacion.pais_id = pais.id
-              inner join sendero on visitacion.sendero = sendero.id order by id asc limit $empezar_desde,$tamano_paginas");
-		$sql_limit = array();//Convierto la consulta en arreglo
-		$stm->execute($sql_limit);//Ejecuto el arreglo que contiene el LIMITE
-
-		/*------------------- Paginacion de los registros Visitacion*/
-
-			echo "Páginas: ";
-			for ($i=1; $i<$total_paginas; $i++) {
-				echo "<a href='?pagina=". $i . "'> " . $i . "</a> ";
-//pagina es la variable que me muestra en la URL la pagina que el usuario ha seleccionado
-			}
-
-
-// while ($pagina <= $total_paginas):
-//     echo  "<ul  class='pagination'>
-// 			<li class='waves-effect'><a href='#!'><i class='material-icons'>chevron_left</i></a></li>
-// 		    <li style='inline-block' class='active'><a href=''> " . $pagina . "</li>
-// 		    <li class='waves-effect'><a href='#!'><i class='material-icons'>chevron_right</i></a></li>
-// 		  </ul>" ;
-//     $pagina++;
-// endwhile;
-
-
-		return $stm->fetchAll(PDO::FETCH_OBJ);
-
+			return $stm->fetchAll(PDO::FETCH_OBJ);
 		}
-
 		catch(Exception $e){
 			die($e->getMessage());
 		}
-
-
 	}
+
+
+ 	public function ListarObsoleto(){
+ 		try{
+ 			$tamano_paginas = 5;//Los registros que quiero mostrar
+
+ if(isset($_GET["pagina"])) {//Este if es para hacerle saber al sistem que el usuario no ha cargado ninguna de las paginas,
+
+ 				if ($GET["pagina"]==1){
+ 						header('Location: index.php?c=Visitacion&a=AdminUser');
+
+ 				}else{
+ 					$pagina = $_GET["pagina"];//Me guarda temporalmente el valor que tiene pagina.
+
+ 				}//Fin del if $_GET(["pagina"]);
+ 			}else{
+ 				$pagina = 1;//La pagina en la que el usuario esta.
+ 			}
+
+ 			$empezar_desde = ($pagina-1)*$tamano_paginas;
+ 			$result = array();
+
+ 			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
+        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
+         pais.nombre as Pais, referencia_visita,
+          sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
+ 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
+           personas_surf, prepago,
+ 			     tipo_pago, moneda, horaSalida
+             from visitacion
+               inner join pais on visitacion.pais_id = pais.id
+               inner join sendero on visitacion.sendero = sendero.id order by id asc");
+
+  			//  Este ejemplo sirve para realizar los cambios en los botones a la hora de querer cambiar el orden de los dats en la tabla
+ 			$stm->execute();//Este es la primero ejecucion de la conculta, luego pasa a la siguiente donde se deben ingresar las variables dinamicas
+ 			$num_filas =  $stm->rowCount();
+ 			$total_paginas = ceil($num_filas/$tamano_paginas);//24/5 = 5, para que me uestre un numero entero con la funcion ceil redondea el resultado
+
+ echo "<div id='alert_box'>
+   <div class='col s12 m12'>
+   <div class='card teal darken-2 z-depth-3'>
+       <div class='row'>
+         <div class='col s12 m10'>
+           <div class='card-content white-text'>
+             <p>1. Numero de registros en el sistema: &nbsp; $num_filas </p>
+             <p>2. $total_paginas registros por página</p>
+             <p>3. Página $pagina  de &nbsp; $total_paginas</p>
+         </div>
+       </div>
+       <div class='col s12 m2'><i class='fa fa-times icon_style' id='alert_close' aria-hidden='true'></i>
+       </div>
+     </div>
+    </div>
+   </div>
+ </div>";
+
+ 			//echo "Numero de registros en el sistema: ". $num_filas . "<br>";//Muestra cantidad de registros totales
+ 			//echo $total_paginas . " registros por pagina <br>";//Me muestra la contidad de paginas por cada pagina desplegada
+ 			//echo "Página ". $pagina . " de " . $total_paginas . "<br>";
+
+ 			$stm = $this->pdo->prepare("select visitacion.id, proposito_visita,visitacion.fecha,
+        visitacion.nombre as Nombre, noIdentificacion, placa_automovil,
+         pais.nombre as Pais, referencia_visita,
+          sendero.nombre as Sendero, dias_camping as Dias, visitacion.salida,
+ 		      nacional_adult, nacional_kid, estudiantes, extranjero_adult, extranjero_kid,
+           personas_surf, prepago,
+ 			     tipo_pago, moneda, horaSalida
+             from visitacion
+               inner join pais on visitacion.pais_id = pais.id
+               inner join sendero on visitacion.sendero = sendero.id order by id asc limit $empezar_desde,$tamano_paginas");
+ 		$sql_limit = array();//Convierto la consulta en arreglo
+ 		$stm->execute($sql_limit);//Ejecuto el arreglo que contiene el LIMITE
+
+ 		/*------------------- Paginacion de los registros Visitacion*/
+
+ 			echo "Páginas: ";
+ 			for ($i=1; $i<$total_paginas; $i++) {
+ 				echo "<a href='?pagina=". $i . "'> " . $i . "</a> ";
+//pagina es la variable que me muestra en la URL la pagina que el usuario ha seleccionado
+ 			}
+
+
+ while ($pagina <= $total_paginas):
+     echo  "<ul  class='pagination'>
+ 			<li class='waves-effect'><a href='#!'><i class='material-icons'>chevron_left</i></a></li>
+ 		    <li style='inline-block' class='active'><a href=''> " . $pagina . "</li>
+ 		    <li class='waves-effect'><a href='#!'><i class='material-icons'>chevron_right</i></a></li>
+ 		  </ul>" ;
+     $pagina++;
+ endwhile;
+
+
+ 		return $stm->fetchAll(PDO::FETCH_OBJ);
+
+ 		}
+
+ 		catch(Exception $e){
+ 			die($e->getMessage());
+		}
+
+
+
+ 	}
 
 /*==========================================================================================*/
-public function ConteoIngresosDiarios(){
-	try{
-		$result = array();
-		$stm = $this->pdo->prepare("");
-
-		$stm->execute();
-		return $stm->fetchAll(PDO::FETCH_OBJ);
-	}
-	catch(Exception $e){
-		die($e->getMessage());
-	}
-}
+// public function ConteoIngresosDiarios(){
+// 	try{
+// 		$result = array();
+// 		$stm = $this->pdo->prepare("");
+//
+// 		$stm->execute();
+// 		return $stm->fetchAll(PDO::FETCH_OBJ);
+// 	}
+// 	catch(Exception $e){
+// 		die($e->getMessage());
+// 	}
+// }
 
 /*=========================================================================================*/
 	public function Obtener($id){
@@ -261,7 +282,6 @@ public function ConteoIngresosDiarios(){
 												$data->usuario,
 												$data->asp,
 //--------------------------------------------------------
-
 												$data->proposito_visita,
                         $data->noIdentificacion,
 						            $data->nombre,
@@ -296,9 +316,7 @@ public function ConteoIngresosDiarios(){
 												$data->moneda,
 												$data->montoCancelar,
                         $data->id
-
 					)
-
 				);
 
 		} catch (Exception $e)
@@ -330,15 +348,14 @@ public function ConteoIngresosDiarios(){
 	                    $data->noIdentificacion,
 	                    $data->nombre,
 											$data->placa_automovil,
-	//------------------------------------------------------------------------------------------------
+	//=================================================================================================
 											$data->pais,
 											$data->provincia,
 											$data->referencia_visita,
 											$data->nom_referencia_visita,
 											$data->salida,
 
-	//----------------------------------------------------------------------------------------------
-	//-----------------------------------------------------------------------------------------------
+	//===================================================================================================
 	                    json_encode($data->sendero),
 	                    $data->dias_camping,
 											$data->personas_acampando,

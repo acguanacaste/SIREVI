@@ -63,19 +63,6 @@
                     <i class="mdi-content-send material-icons right">pageview</i>
                 </button>
               </center>
-
-              <!--<div>
-              <div class="">
-                <a href="?c=Visitacion&a=busquedaSubSector"><span class="hide-on-med-and-up">
-                  <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
-              </div>
-
-                  <div class="right hide-on-small-only">
-                    <a   href="?c=Visitacion&a=busquedaSubSector">
-                      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">art_track</i>Consultar SubSector</a>
-                  </div>
-                </div>-->
-
                 </div>
 
               </form><!--FORM end-->
@@ -118,7 +105,6 @@
               <th>Identificación</th>
               <th>Placa automovil</th>
               <th>País</th>
-              <th>Sendero</th>
               <th>Tipo pago</th>
               <th>Moneda</th>
               <th>Ingresos</th>
@@ -138,6 +124,7 @@
                 <td><?php echo $r->noIdentificacion; ?></td>
                 <td><?php echo $r->placa_automovil; ?></td>
                 <td><?php echo $r->Pais; ?></td>
+
                 <td><?php echo $r->tipo_pago; ?></td>
                 <td><?php echo $r->moneda; ?></td>
 

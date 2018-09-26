@@ -58,24 +58,38 @@
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
-               <?php
+
+
+
+               <div class="input-field col s12 m11 l12" >
+                 <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>" required>
+                   <option value="" disabled selected>Elija una opción</option>
+                   <option value="1" <?php echo $user->puesto==1?"selected":null; ?>>Administrador</option>
+                   <option value="2"<?php echo $user->puesto==2?"selected":null;?>>Encargado de sector</option>
+                   <option value="3"<?php echo $user->puesto==3?"selected":null; ?>>Reportes</option>
+                   <option value="4"<?php echo $user->puesto==4?"selected":null; ?>>Voluntario</option>
+                 </select>
+                 <label for="puesto">Puesto en la Institución</label>
+               </div>
+<!--
+               <php
                $conexion = mysqli_connect("localhost","root","","sirevi");
                $query_puesto = mysqli_query($conexion, "select * from puestos_institucion order by nombre ASC");
                ?>
-    <!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
+    <!--======================Inicio del codigo para el select y final de codigo PHP ====================--
 
          <div class="">
             <div class="input-field col s12 m12 l12">
              <select  id="puesto" name="puesto">
                <option id="puesto" value="" disabled selected>Elija una opcion</option>
-               <?php while ($arreglo = mysqli_fetch_array($query_puesto)) {  ?>
-               <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre_puesto'] ?></option>
-               <?php } ?>
+               <php while ($arreglo = mysqli_fetch_array($query_puesto)) {  ?>
+               <option value="<php echo $arreglo['id']?>" ><php echo $arreglo['nombre_puesto'] ?></option>
+               <php } ?>
 
              </select>
              <label for="puesto">Seleccione puesto en institución</label>
            </div>
-          </div>
+          </div> -->
 
  <!--INICIO DE LINEAS PARA EL CORREO-->
        <div class="">

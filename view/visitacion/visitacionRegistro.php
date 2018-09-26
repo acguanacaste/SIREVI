@@ -171,22 +171,21 @@
                 <div class=""><!--Inicio de la tercera fila-->
                   <div class=""><!--Columna-->
                     <!--================Cargando los senderos==============================-->
-                    <!-- <php
+                    <?php
                     $conexion = mysqli_connect("localhost","root","","sirevi");
                     $query_sendero = mysqli_query($conexion, "select * from sendero order by nombre ASC");
-                    json_encode($query_sendero);
                     ?>
                     <div class="">
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
-                      <!-- <select name="sendero" multiple required>
+                     <select name="sendero" multiple required>
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
-                           <php while ($arreglo_sendero = mysqli_fetch_array($query_sendero)) {  ?>
-                           <option value="<php echo $arreglo_sendero['id']?>"><php echo $arreglo_sendero['nombre'] ?></option>
-                           <php } ?>
+                           <?php while ($arreglo_sendero = mysqli_fetch_array($query_sendero)) {  ?>
+                           <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
+                           <?php } ?>
                         </select>
                       <label><span class="hide-on-small-only"><i class="small material-icons">swap_calls</i></span></label>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
 
