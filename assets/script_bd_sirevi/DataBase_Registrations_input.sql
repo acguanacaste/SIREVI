@@ -44,3 +44,26 @@ INSERT INTO sendero  VALUES(3, 'otrosendero', 'natural', 'ijbib', 'jbibi', '12',
 INSERT INTO sendero  VALUES(4, 'carbonal', 'natural', 'ijbib', 'jbibi', '12', 1, 'sd', '87', '78', 'ugv', '87', '89');
 
 /*INSERTANDO VISITACION*/
+INSERT INTO `sirevi`.`visitacion` (`id`, `usuario`, `proposito_visita`, `subSector`, `noIdentificacion`, `nombre`, `placa_automovil`,
+                                    `pais_id`, `referencia_visita`, `asp`, `sector`, `sendero`, `salida`, `nacional_adult`, `nacional_kid`,
+                                    `estudiantes`, `nacional_surf`,`nacional_prepago`, `nacional_exonerado`, `extranjero_adult`, `extranjero_kid`,
+                                    `extranjero_surf`, `extranjero_prepago`, `extranjero_exonerado`, `tipo_pago`, `moneda`, `montoCancelar`) 
+						VALUES ('7', '3', 'Visita por el dia', 'Naranjo', '78787878', 'Julian', 'placaautito', '2', 'Visita Reiterada', '1', '1', '2', '0', '2', '0',
+								'0', '0', '0', '0', '2', '1', '1', '2', '0', 'Efectivo', 'Colones', '12000');
+
+INSERT INTO `sirevi`.`visitacion` (`id`, `usuario`, `proposito_visita`, `subSector`, `noIdentificacion`, `nombre`, `placa_automovil`,
+                                    `pais_id`, `referencia_visita`, `asp`, `sector`, `sendero`, `salida`, `nacional_adult`, `nacional_kid`,
+                                    `estudiantes`, `nacional_surf`,`nacional_prepago`, `nacional_exonerado`, `extranjero_adult`, `extranjero_kid`,
+                                    `extranjero_surf`, `extranjero_prepago`, `extranjero_exonerado`, `tipo_pago`, `moneda`, `montoCancelar`) 
+						VALUES ('8', '3', 'Acampando', 'Naranjo', '5555555', 'Arnold', 'placaautito', '2', 'Visita Reiterada', '1', '1', '2', '0', '2', '0',
+								'0', '0', '0', '0', '2', '1', '1', '2', '0', 'Efectivo', 'Colones', '12000');
+
+INSERT INTO `sirevi`.`visitacion` (`id`, `usuario`, `proposito_visita`, `subSector`, `noIdentificacion`, `nombre`, `placa_automovil`,
+                                    `pais_id`, `referencia_visita`, `asp`, `sector`, `sendero`, `salida`, `nacional_adult`, `nacional_kid`,
+                                    `estudiantes`, `nacional_surf`,`nacional_prepago`, `nacional_exonerado`, `extranjero_adult`, `extranjero_kid`,
+                                    `extranjero_surf`, `extranjero_prepago`, `extranjero_exonerado`, `tipo_pago`, `moneda`, `montoCancelar`) 
+						VALUES ('9', '3', 'Hospedado en reserva Biologica', 'Naranjo', '5555555', 'Erick', 'placaautito', '2', 'Visita Reiterada', '1', '1', '2', '0', '2', '0',
+								'0', '0', '0', '0', '2', '1', '1', '2', '0', 'Efectivo', 'Colones', '12000');
+
+
+
