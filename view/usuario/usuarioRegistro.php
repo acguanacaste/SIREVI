@@ -58,9 +58,7 @@
                    </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
-
-
-
+<!--=========================Block DIV temporal ===========================================-->
                <div class="input-field col s12 m11 l12" >
                  <select id="puesto" name="puesto" value="<?php echo $user->puesto; ?>" required>
                    <option value="" disabled selected>Elija una opción</option>
