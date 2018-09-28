@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `sirevi`.`asp` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`asp` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `tipo` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `ubicacion` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(30) NOT NULL,
+  `tipo` VARCHAR(50) NOT NULL,
+  `ubicacion` VARCHAR(500) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -41,8 +41,8 @@ DROP TABLE IF EXISTS `sirevi`.`pais` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`pais` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `codigo` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(40) NOT NULL,
+  `codigo` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS `sirevi`.`provincia` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`provincia` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(15) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(15) NOT NULL,
   `id_lista` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -73,7 +73,7 @@ DROP TABLE IF EXISTS `sirevi`.`puestos_institucion` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`puestos_institucion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre_puesto` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish_ci' NOT NULL,
+  `nombre_puesto` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS `sirevi`.`sector` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(50) NOT NULL,
   `capacidad_diaria` INT(11) NOT NULL,
   `capacidad_acampar` INT(11) NOT NULL,
   `tarifa_camping` INT(11) NULL DEFAULT NULL,
@@ -103,13 +103,13 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sector` (
   `cambio_dolar` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_asp_idx` (`asp` ASC),
-  CONSTRAINT `fk_area_Silvestre_Protegida`
+  CONSTRAINT `fk_asp`
     FOREIGN KEY (`asp`)
     REFERENCES `sirevi`.`asp` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -121,18 +121,18 @@ DROP TABLE IF EXISTS `sirevi`.`sendero` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `caracterizacion_sendero` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `tipo_sendero` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `atractivo` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `distancia` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(30) NOT NULL,
+  `caracterizacion_sendero` VARCHAR(50) NOT NULL,
+  `tipo_sendero` VARCHAR(100) NOT NULL,
+  `atractivo` VARCHAR(50) NOT NULL,
+  `distancia` VARCHAR(45) NOT NULL,
   `sector` INT(11) NOT NULL,
-  `tiempo_recorrido` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `punto_alto` VARCHAR(10) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `punto_inicio` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `punto_llegada` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `descripcion` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `regulaciones` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `tiempo_recorrido` VARCHAR(20) NOT NULL,
+  `punto_alto` VARCHAR(10) NOT NULL,
+  `punto_inicio` VARCHAR(45) NOT NULL,
+  `punto_llegada` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR(100) NOT NULL,
+  `regulaciones` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_sector_idx` (`sector` ASC),
   CONSTRAINT `fk_sector`
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`sendero` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -153,25 +153,25 @@ DROP TABLE IF EXISTS `sirevi`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`usuarios` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `apellido` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `cedula` VARCHAR(25) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `contrasena` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `nombre` VARCHAR(20) NOT NULL,
+  `apellido` VARCHAR(40) NOT NULL,
+  `cedula` VARCHAR(25) NOT NULL,
+  `contrasena` VARCHAR(30) NOT NULL,
   `puesto` INT(11) NOT NULL,
-  `email` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `email` VARCHAR(30) NOT NULL,
   `estado` INT(3) NOT NULL,
-  `foto` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `foto` VARCHAR(150) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_imagen_idx` (`foto` ASC),
   INDEX `usuarioSec_idx` (`estado` ASC),
-  INDEX `fk__cargo_institucion_idx` (`puesto` ASC),
-  CONSTRAINT `fk__cargo_institucion`
+  INDEX `fk_puesto_idx` (`puesto` ASC),
+  CONSTRAINT `fk_puesto`
     FOREIGN KEY (`puesto`)
     REFERENCES `sirevi`.`puestos_institucion` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish2_ci;
 
@@ -183,17 +183,17 @@ DROP TABLE IF EXISTS `sirevi`.`visitacion` ;
 
 CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `usuario` INT(11) NULL DEFAULT NULL,
-  `proposito_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
-  `subSector` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `usuario` INT(11) NOT NULL,
+  `proposito_visita` VARCHAR(50) NULL DEFAULT NULL,
+  `subSector` VARCHAR(45) NULL DEFAULT NULL,
   `fecha` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `noIdentificacion` VARCHAR(30) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `nombre` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `placa_automovil` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `noIdentificacion` VARCHAR(30) NOT NULL,
+  `nombre` VARCHAR(20) NOT NULL,
+  `placa_automovil` VARCHAR(20) NULL DEFAULT NULL,
   `provincia_id` INT(11) NULL DEFAULT NULL,
-  `pais_id` INT(11) NULL DEFAULT NULL,
-  `referencia_visita` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `nom_referencia_visita` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NULL DEFAULT NULL,
+  `pais_id` INT(11) NOT NULL,
+  `referencia_visita` VARCHAR(50) NOT NULL,
+  `nom_referencia_visita` VARCHAR(45) NULL DEFAULT NULL,
   `asp` INT(11) NOT NULL,
   `sector` INT(11) NOT NULL,
   `sendero` INT(11) NOT NULL,
@@ -211,35 +211,30 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   `extranjero_surf` INT(4) UNSIGNED NULL DEFAULT NULL,
   `extranjero_prepago` INT(4) UNSIGNED NULL DEFAULT NULL,
   `extranjero_exonerado` INT(4) UNSIGNED NULL DEFAULT NULL,
-  `tipo_pago` VARCHAR(40) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
-  `moneda` VARCHAR(20) CHARACTER SET 'utf8' COLLATE 'utf8_spanish2_ci' NOT NULL,
+  `tipo_pago` VARCHAR(40) NOT NULL,
+  `moneda` VARCHAR(20) NOT NULL,
   `montoCancelar` INT(4) UNSIGNED NOT NULL,
   `horaSalida` TIME NULL DEFAULT NULL,
   `personas_surf` INT(4) NULL DEFAULT NULL,
   `prepago` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_usuario_idx` (`usuario` ASC),
-  INDEX `fk_asp_idx` (`asp` ASC),
-  INDEX `fk_sector_idx` (`sector` ASC),
-  INDEX `fk_sendero_idx` (`sendero` ASC),
-  INDEX `fk_visitacion_provincia1_idx` (`provincia_id` ASC),
-  INDEX `fk_visitacion_pais1_idx` (`pais_id` ASC),
-  CONSTRAINT `fk_visit_user`
-    FOREIGN KEY (`usuario`)
-    REFERENCES `sirevi`.`usuarios` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  INDEX `fk_visitacion_usuario_idx` (`usuario` ASC),
+  INDEX `fk_visitacion_asp_idx` (`asp` ASC),
+  INDEX `fk_visitacion_sector_idx` (`sector` ASC),
+  INDEX `fk_visitacion_sendero_idx` (`sendero` ASC),
+  INDEX `fk_visitacion_pais_idx` (`pais_id` ASC),
+  INDEX `fk_visitacion_prpovincia_idx` (`provincia_id` ASC),
   CONSTRAINT `fk_visitacion_asp`
     FOREIGN KEY (`asp`)
     REFERENCES `sirevi`.`asp` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `fk_visitacion_pais1`
+  CONSTRAINT `fk_visitacion_pais`
     FOREIGN KEY (`pais_id`)
     REFERENCES `sirevi`.`pais` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `fk_visitacion_provincia1`
+  CONSTRAINT `fk_visitacion_provincia`
     FOREIGN KEY (`provincia_id`)
     REFERENCES `sirevi`.`provincia` (`id`)
     ON DELETE CASCADE
@@ -247,6 +242,11 @@ CREATE TABLE IF NOT EXISTS `sirevi`.`visitacion` (
   CONSTRAINT `fk_visitacion_sector`
     FOREIGN KEY (`sector`)
     REFERENCES `sirevi`.`sector` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_visitacion_usuario`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `sirevi`.`usuarios` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_visitacion_sendero`

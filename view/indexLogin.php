@@ -91,7 +91,7 @@ $(document).ready(function() {
 			<div  class="container" >
 
 					<div class="nav-wrapper">
-						<a style="top: -7px;" href="#" class="brand-logo left"><img  class="circle" src="assets/img/acg_personalized_icon.png">
+						<a style="top: -7px;" href="#" class="brand-logo left"><img  class="circle" src="assets/img/acg_personalized.png">
 							<span style="top:-15px;" class=""><a class="right hide-on-med-and-up" href="#"><h4>&nbsp;SIREVI </h4></a></span></a>
 
 							<ul class="right hide-on-small-only">

@@ -1,26 +1,46 @@
+<html>
+<head>
+<title>Untitled</title>
+<script>
+function habilitarCombo(valor){
+    if(valor==2){
+    document.getElementById("estado").disabled = false;
+    document.getElementById("articulo").disabled = false;
+}
+else {
+document.getElementById("departamento").disabled = true;
+document.getElementById("articulo").disabled = true;
+}
+}
+</script>
+</head>
+<body>
+<label>Departamento
+<span class="small">Departamento al que pertenece el equipo</span>
+</label>
+<select name="departamento" id="departamento" disabled="true">
+<option selected="" value="">[Seleccione un departamento]</option>
+<option value="op01">op01</option>
+</select>
 
+<label>Articulo
+<span class="small">Articulo asignado al equipo</span>
+</label>
+<select name="articulo" id="articulo" disabled="true">
+<option selected="" value="">[Seleccione un articulo]</option>
+<option value="op22">op22</option>
+</select>
 
-
-
-<div  class="input-field col s12 m4 l3"><!--Columna-->
-    <fieldset ><legend>Dias acampando</legend>
-        <div class="input-field col s12 m12 l12  ">
-          <input  id="dias_camping" type="number"
-                name="dias_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-          <label for="dias_camping" > <span class="hide-on-small-only">
-            <i class="small material-icons">perm_contact_calendar</i></span>&nbsp;Dias acampando</label>
-        </div>
-<!--=-->
-        <div class="input-field col s12 m12 l12">
-        Personas*:
-          <br>
-          <input  id="personas_acampando" type="number"
-              name="personas_acampando" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-        </div>
-    </fieldset>
-</div><!--Fin de la tercera fila-->
-
-
+<label>Estado
+<span class="small">Status del equipo</span>
+</label>
+<select name="estado" id="estado" onchange="habilitarCombo(this.value);">
+<option value="1">[Seleccione estado del equipo]</option>
+<option value="2">En Uso</option>
+<option value="3">Stock</option>
+</select>
+</body>
+</html>
 
 
 

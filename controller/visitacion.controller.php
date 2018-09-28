@@ -255,14 +255,16 @@ function outputCSV($data) {
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
 //----------------------------------------------------------------------------------------------------
-        $visit->pais                      = $_REQUEST['pais'];//-------------
-        $visit->provincia                 = $_REQUEST['provincia'];//--------
+        $visit->pais                      = $_REQUEST['pais'];//-------------  
+      //  $visit->provincia                 = $_REQUEST['provincia'];//--------
+        $visit->provincia = !empty($_REQUEST['provincia']) ? $_REQUEST['provincia'] : null;
+
         $visit->referencia_visita         = $_REQUEST['referencia_visita'];//------
         $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
       //  $visit->salida                    = $_REQUEST['salida'];
             $visit->salida = 0;
 //------------------------------------------------------------------------------------------------------
-        json_encode($visit->sendero                   = $_REQUEST['sendero']);//-----
+        $visit->sendero                   = $_REQUEST['sendero'];//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->personas_acampando        = $_REQUEST['personas_acampando'];
         $visit->subSector                 = $_REQUEST['subSector'];

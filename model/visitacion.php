@@ -356,7 +356,7 @@ class Visitacion{
 											$data->salida,
 
 	//===================================================================================================
-	                    json_encode($data->sendero),
+	                    $data->sendero,
 	                    $data->dias_camping,
 											$data->personas_acampando,
 											$data->subSector,
