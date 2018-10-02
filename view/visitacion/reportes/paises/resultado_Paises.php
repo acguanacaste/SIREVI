@@ -28,7 +28,7 @@
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
 
-                    <form action="?c=Visitacion&a=Consulta_Nacionales_Controller" method="post">
+                    <form action="?c=Visitacion&a=Consulta_Reporte_Paises_Controller" method="post">
 
                       <div class="z-depth-2"><!--INICIO DEL DIV DE LA FILA-->
                         <div class="col s8 offset-s2"><span class="flow-text">
@@ -91,7 +91,7 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th> Provincia</th>
+       <th> País / Provincia</th>
        <th> Sector</th>
        <th> SubSector</th>
        <th> Registros SubSector</th>
@@ -105,7 +105,7 @@
     <tbody>
       <?php foreach ($result as $r):?>
       <tr>
-        <td><?php echo $r->Provincia; ?></td>
+        <td><?php echo $r->Pais_Provincia; ?></td>
         <td><?php echo $r->Sector; ?></td>
         <td><?php echo $r->SubSector; ?></td>
         <td><?php echo $r->Registros_SubSector; ?></td>
@@ -120,7 +120,7 @@
       </table>
 
       <td colspan="8" class="text-center">
-              <a href="?c=Visitacion&a=Excel_Nacionales&fi=<?php echo $fechaStart;?> &ff=<?php echo $fechaEnd;?>">Exportar a Excel</a>
+              <a href="?c=Visitacion&a=Excel_Consulta_Reporte_Paises">Exportar a Excel</a>
           </td>
 
     </div>

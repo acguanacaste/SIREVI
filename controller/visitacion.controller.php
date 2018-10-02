@@ -136,20 +136,20 @@ function outputCSV($data) {
 
     public function NacionalesAgrupadosXProvincia(){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/nacionales/NacionalesAgrupadosXProvincia.php';
+      require_once 'view/visitacion/reportes/paises/paises.php';
       require_once 'view/includes/footer.php';
     }
 
     public function Resultado_Nacionales($result,$fechaStart,$fechaEnd){
       require_once 'view/includes/headerPrincipal.php';
-      require_once 'view/visitacion/reportes/nacionales/resultado_Nacionalidades.php';
+      require_once 'view/visitacion/reportes/paises/resultado_Paises.php';
       require_once 'view/includes/footer.php';
    }
 
    public function Excel_NACIONALES(){
-     $result = $this->model->Consulta_Nacionales_Model($_REQUEST['fi'],$_REQUEST['ff']);
+     $result = $this->model->Consulta_Reporte_Paises_Model();
      date_default_timezone_set("America/Costa_Rica");
-     $filename = "Reporte_Diario-".date(strtotime("now"));
+     $filename = "Reporte_Paises".date(strtotime("now"));
 
      header("Content-type: text/csv");
      header("Content-Disposition: attachment; filename={$filename}.csv");
@@ -211,6 +211,31 @@ function outputCSV($data) {
         $this->outputCSV($result);
       }
 /*==============================================================================================================*/
+public function Reporte_Paises(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/paises/paises.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Paises($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/paises/resultado_Paises.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Excel_Consulta_Reporte_Paises(){
+  $result = $this->model->Consulta_Reporte_Paises_Model();
+  date_default_timezone_set("America/Costa_Rica");
+  $filename = "Reporte_Paises-".date(strtotime("now"));
+
+  header("Content-type: text/csv");
+  header("Content-Disposition: attachment; filename={$filename}.csv");
+  header("Pragma: no-cache");
+  header("Expires: 0");
+
+  $this->outputCSV($result);
+}
+/*================================================================================================================*/
 //SE DEBE DE HACER LA VALIDACION DE LOS USUARIOS EN ESTE MODULO, SE REQUIERE DE MUCHO CUIDADO.
 
     public function Modificar(){
@@ -255,7 +280,7 @@ function outputCSV($data) {
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
 //----------------------------------------------------------------------------------------------------
-        $visit->pais                      = $_REQUEST['pais'];//-------------  
+        $visit->pais                      = $_REQUEST['pais'];//-------------
       //  $visit->provincia                 = $_REQUEST['provincia'];//--------
         $visit->provincia = !empty($_REQUEST['provincia']) ? $_REQUEST['provincia'] : null;
 
@@ -350,7 +375,7 @@ public function Consulta_Nacionales_Controller(){//GENERA EL REPORTE SEMEMC
 
 /*=================================================================================================*/
 
-public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEMEMC
+public function Consulta_Totales_por_Sector_Controller(){//
 
     $result = $this->model->Consulta_Totales_por_Sector_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
     $this->Resultado_Totales_por_Sector($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
@@ -359,13 +384,19 @@ public function Consulta_Totales_por_Sector_Controller(){//GENERA EL REPORTE SEM
 
 /*==================================================================================================*/
 
-public function Consulta_Campistas_Controller(){//GENERA EL REPORTE SEMEMC
+public function Consulta_Campistas_Controller(){//
     $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
     $this->Resultado_Campistas($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
 
 }
 
 /*=================================================================================================*/
+public function Consulta_Reporte_Paises_Controller(){//GENERA EL REPORTE SEMEMC
+    $result = $this->model->Consulta_Reporte_Paises_Model();
+    $this->Resultado_Paises($result);
+
+}
+/*====================================================================================================*/
 //ME EJECUTA LA CONSULTA DE LAS PERSONAS DENTRO DEL SECTOR.
 public function Consulta_Cant_Personas_Parque_Controller(){
       $result = $this->model->Consulta_Cant_Personas_Parque_Model();

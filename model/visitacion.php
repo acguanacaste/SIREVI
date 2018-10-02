@@ -245,8 +245,8 @@ class Visitacion{
 
 						nombre                		= ?,
 						placa_automovil       		= ?,
-						pais_id       								= ?,
-						provincia_id             		= ?,
+						pais_id       						= ?,
+						provincia_id            	= ?,
 						referencia_visita         = ?,
 
 						nom_referencia_visita     = ?,
@@ -523,5 +523,22 @@ public function Consulta_Campistas_Model($fechaStart, $fechaEnd, $pSector){//Fun
 		}
 	}
 /*==============================================================================================*/
+
+public function Consulta_Reporte_Paises_Model(){
+	$result = array();
+	try {
+		$stm = $this->pdo->prepare("call Consulta_Reporte_Paises()");
+		$stm->execute();
+		$result = $stm->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+
+	} catch (\Exception $e) {
+			die($e->getMessage());
+	}
+
+
+}
+
+
 
 }// fin del PHP.
