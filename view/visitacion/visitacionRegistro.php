@@ -1,3 +1,7 @@
+<?php
+require_once 'config/config.php'
+?>
+
 <main>
   <div class="container">
     <div class="">
@@ -133,10 +137,6 @@
     <!--===================================================================================================================================================-->
                 <div class=""><!---Inicio de la segunda fila-->
                 <!--==============Cargando los paices==============================-->
-                  <?php
-                  $conexion = mysqli_connect("localhost","root","","sirevi");
-                  $query_pais = mysqli_query($conexion, "select * from pais order by nombre ASC");
-                  ?>
 
                   <div  class="input-field col s6 m6 l4">
                     <select name="pais">
@@ -150,10 +150,6 @@
 
 
 <!--==============Cargando las cuidades============================================-->
-        <?php
-        $conexion = mysqli_connect("localhost","root","","sirevi");
-        $query_provincia = mysqli_query($conexion, "select * from provincia order by nombre ASC");
-        ?>
 
       <div class="input-field col s6 m6 l4">
         <select name="provincia">
@@ -171,10 +167,6 @@
                 <div class=""><!--Inicio de la tercera fila-->
                   <div class=""><!--Columna-->
                     <!--================Cargando los senderos==============================-->
-                    <?php
-                    $conexion = mysqli_connect("localhost","root","","sirevi");
-                    $query_sendero = mysqli_query($conexion, "select * from sendero order by nombre ASC");
-                    ?>
                     <div class="">
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                      <select name="sendero" multiple required>

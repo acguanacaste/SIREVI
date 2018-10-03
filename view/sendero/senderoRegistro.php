@@ -1,3 +1,4 @@
+<?php require_once 'config/config.php' ?>
 <main>
   <div class="container">
     <div class="row">
@@ -48,10 +49,6 @@
                   <label for="atractivo" >  <i class="small material-icons">assignment_late</i><span class="hide-on-small-only">Atractivos del sendero</label>
                 </div>
 
-                <?php
-                $conexion = mysqli_connect("localhost","root","","sirevi");
-                $query_sector = mysqli_query($conexion, "select * from sector order by nombre ASC");
-                ?>
                 <div class="row">
                    <div class="input-field col s12 m4 l4">
                     <select name="sector">

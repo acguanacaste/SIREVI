@@ -1,6 +1,6 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <main>
-  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">rv_hookup</i>
+  <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
     <a href="#">Reporte Nacionales</a></h4>
 
 <div class="">
@@ -82,25 +82,6 @@
   </div>
 </div>
 
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <!-- Inicio de mi codigo -->
-          <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-            <thead class="white-text teal darken-4 z-depth-2">
-       <tr>
-         <th> Provincia</th>
-         <th> Sector</th>
-         <th> SubSector</th>
-         <th> Registros_SubSector</th>
-         <th> Cant Personas</th>
-         <th> Prepagos</th>
-         <th> Exonerados</th>
-         <th> Total</th>
-       </tr>
-     </thead>
-      </table>
-      </div><!-- Div de los tamanos -->
-    </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
 <?php endif; ?>

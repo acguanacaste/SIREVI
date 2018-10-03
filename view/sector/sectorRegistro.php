@@ -1,3 +1,4 @@
+<?php require_once 'config/config.php' ?>
 <main>
   <div class="container">
     <div class="row">
@@ -46,10 +47,6 @@
 
 
 <!--===========Codigo PHP para cargar el select con la informacionde la base de datos==========================-->
-              <?php
-              $conexion = mysqli_connect("localhost","root","","sirevi");
-              $query_asp = mysqli_query($conexion, "select * from asp order by nombre ASC");
-              ?>
 <!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
 
              <div class="">

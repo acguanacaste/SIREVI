@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Log-in SIREVI</title>
+<link rel="icon" href="assets\img\acg_personalized_icon.ico">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 		<link href="//estilos.php" rel="stylesheet" type="text/css" />

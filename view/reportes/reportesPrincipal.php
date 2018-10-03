@@ -41,13 +41,14 @@
 
             <li class="collection-item avatar">
               <img src="assets/img/paises.jpg" alt="Imagen no disponible" class="circle">
-              <a ><p><a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia">Reporte Nacionales</a><br>
+              <a ><p><a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia">Reporte Paises</a><br>
                 <span class="hide-on-small-only">
                   A través de este enlace se realiza la creación del reporte <br>
-                  de personas nacionales agrupadas por provincia</span>
+                  de personas nacionales agrupadas por provincia y de los  <br>
+                  personas de otros paises </span>
                 </p></a>
                 <a href="?c=Visitacion&a=NacionalesAgrupadosXProvincia" class="secondary-content tooltipped " data-position="left" data-delay="50" data-tooltip="Reporte Nacionalidades">
-                <span class="hide-on-small-only"><i class="medium material-icons">rv_hookup</i></span></a>
+                <span class="hide-on-small-only"><i class="medium material-icons">public</i></span></a>
             </li>
 
             <li class="collection-item avatar">
