@@ -80,6 +80,7 @@
         });
 				</script>
 <body>
+		<?php require_once 'config/config.php' ?>
 	<?php
 session_start();
 if(!isset($_SESSION["email"])){

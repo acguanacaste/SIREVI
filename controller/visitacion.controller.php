@@ -289,7 +289,7 @@ public function Excel_Consulta_Reporte_Paises(){
       //  $visit->salida                    = $_REQUEST['salida'];
             $visit->salida = 0;
 //------------------------------------------------------------------------------------------------------
-        $visit->sendero                   = $_REQUEST['sendero'];//-----
+      $visit->sendero                   = $_REQUEST['sendero'];//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->personas_acampando        = $_REQUEST['personas_acampando'];
         $visit->subSector                 = $_REQUEST['subSector'];

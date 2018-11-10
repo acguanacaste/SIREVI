@@ -177,20 +177,6 @@ class Visitacion{
 
  	}
 
-/*==========================================================================================*/
-// public function ConteoIngresosDiarios(){
-// 	try{
-// 		$result = array();
-// 		$stm = $this->pdo->prepare("");
-//
-// 		$stm->execute();
-// 		return $stm->fetchAll(PDO::FETCH_OBJ);
-// 	}
-// 	catch(Exception $e){
-// 		die($e->getMessage());
-// 	}
-// }
-
 /*=========================================================================================*/
 	public function Obtener($id){
 		try{
@@ -356,7 +342,7 @@ class Visitacion{
 											$data->salida,
 
 	//===================================================================================================
-	                    $data->sendero,
+	                   $data->sendero,
 	                    $data->dias_camping,
 											$data->personas_acampando,
 											$data->subSector,
