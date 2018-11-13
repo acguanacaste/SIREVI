@@ -1,3 +1,4 @@
+<?php require_once 'config/config.php' ?>
 <main>
   <div class="container">
     <div class="row">
@@ -46,20 +47,14 @@
 
 
 <!--===========Codigo PHP para cargar el select con la informacionde la base de datos==========================-->
-              <?php
-              $conexion = mysql_connect("localhost","root");
-              mysql_select_db("sirevi",$conexion);
-              $sentencia = "select * from ASP order by nombre ASC";
-              $query = mysql_query($sentencia);
-              ?>
 <!--======================Inicio del codigo para el select y final de codigo PHP ====================-->
 
              <div class="">
                 <div class="input-field col s12 m12 l12">
                  <select name="asp">
-                    <option value="" disabled selected>Elija una opcion</option>
-                   <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
-                   <option value="<?php echo $arreglo['id']?>" ><?php echo $arreglo['nombre'] ?></option>
+                   <option value="" disabled selected>Elija Área Protegida</option>
+                   <?php while ($arreglo_asp = mysqli_fetch_array($query_asp)) {  ?>
+                   <option value="<?php echo $arreglo_asp['id']?>"><?php echo $arreglo_asp['nombre'] ?></option>
                    <?php } ?>
 
                  </select>

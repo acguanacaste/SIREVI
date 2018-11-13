@@ -50,11 +50,12 @@
                </div><!--FIN DEL DIV DE LA PRIMERA FILA -->
 
         <!--BOTON QUE ME ENVIA EL FORMULARIO-->
+      <center>
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
           value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
                <i class="mdi-content-send material-icons right">done</i>
         </button>
-
+      </center>
       <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
              </div>
            </form>

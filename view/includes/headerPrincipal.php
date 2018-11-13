@@ -11,18 +11,20 @@ header("Location:?c=login&a=index");
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
+	<link rel="icon" href="assets\img\acg_personalized_icon.ico">
 	<script  src="assets/data-tables/data-tables-script.js"></script>
 	<script type="text/javascript" src="assets/data-tables/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>
 	<link href="assets/js/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-
+	<script type="text/javascript" src="indexAjax.js"></script>
 
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 	<script type="text/javascript">
   	$(document).ready(function () {
-	    $('#cant_personas_camping').attr("hidden", true);
+
+	    $('#personas_acampando').attr("hidden", true);
 
     	$('#dias_camping').keyup(function () {
         var value = $(this).val();
@@ -33,12 +35,13 @@ header("Location:?c=login&a=index");
 
           }
         else
-        	$('#cant_personas_camping').removeAttr("hidden");
+        	$('#personas_acampando').removeAttr("hidden");
       });
 		});
+
 /*=================================================================================================*/
 function pagoOnChange(sel) {
-      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
+      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien más"
 					|| sel.value=="Recomendación por amigos" || sel.value=="Selección directa personal"
 				|| sel.value=="Visita reiterada" ){
 
@@ -75,13 +78,14 @@ function pagoOnChange(sel) {
 
 				$(document).ready(function() {
 	 				$('select').material_select('destroy');
-          $(".button-collapse").sideNav({
+				  $(".button-collapse").sideNav({
             //		menuWidth: 400, // Ancho del sideNav
             //  		edge: 'right', // Se elije que extremo de la ppantalla se abre el sideNav
  					});
 
 
           $('select').material_select();
+
 					$('.slider').slider({full_width: true});
 					/*Para la funcionalidad de las fechas */
 				  $('.datepicker').pickadate({
@@ -99,6 +103,9 @@ function pagoOnChange(sel) {
           $('.collapsible').collapsible({
                       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
+
+/*===================================================================================================================*/
+
 /*=======================================================================================================================================*/
 					$('input.autocomplete').autocomplete({
 				     data: {
@@ -155,17 +162,17 @@ function pagoOnChange(sel) {
 							data-position="top" data-delay="50" data-tooltip="Inicio">home</i>
 							<span class="hide-on-med-and-down">Inicio</span></a></li>
 
-						<li><a href="?c=Dollar" ><i class="hide-on-large-only small material-icons tooltipped"
-							data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i>
-							<span class="hide-on-med-and-down">Dolar</span></a></li>
-
 						<li><a href="?c=Visitacion&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i>
 							<span class="hide-on-med-and-down">Visitación</span></a></li>
 
-						<li><a href="?c=Reportes&a=AdminUser" > <i class="hide-on-large-only small material-icons tooltipped"
-							data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
-							<span class="hide-on-med-and-down">Reportes</span></a></li>
+							<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+									<li><a href="?c=Reportes&a=AdminUser" >
+										<i class="small material-icons hide-on-large-only tooltipped"
+											data-position="top" data-delay="50" data-tooltip="Reportes">description</i>
+										<span class="hide-on-med-and-down white-text">Reportes</span></a></li>
+							<?php endif; ?>
+			<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2):?>
 
 						<li><a href="?c=Usuario&a=AdminUser" ><i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i>
@@ -182,6 +189,7 @@ function pagoOnChange(sel) {
 						<li><a href="?c=ASP" > <i class="hide-on-large-only small material-icons tooltipped"
 							data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i>
 							<span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+				<?php endif; ?>
 				</ul>
 			</div>
 		</nav>
@@ -193,12 +201,6 @@ function pagoOnChange(sel) {
 		<li><a href="?c=login&a=AdminUser"><span class="" data-position="bottom" data-delay="50" >
 		<li class="divider"></li>
 				<i class="Tiny material-icons">home</i></span>&nbsp;Inicio</a></li>
-				<!--<li ><a href="?c=Dollar" title="Cambio dolar"><i class="small material-icons">tab</i>
-					<span class="white-text">Dolar</span></a></li>-->
-		<li class="divider"></li>
-		<li><a href="?c=Dollar"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
-			<i class="Tiny material-icons">tab</i></span>&nbsp;Cambio dolar</a></li>
-
 		<li class="divider"></li>
 		<li><a href="?c=login&a=salir"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 				<i class="Tiny material-icons">settings_power</i></span>&nbsp;Cerrar sesión</a></li>
@@ -211,9 +213,12 @@ function pagoOnChange(sel) {
 							<i class="Tiny material-icons white-text">assignment</i></span>&nbsp;Visitación</a></li>
 
 		<li class="divider"></li>
-						<li><a href="?c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
-							<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
+		<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
+			<li><a href="?c=Reportes&a=AdminUser"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
+				<i class="Tiny material-icons white-text">description</i></span>&nbsp;Reportes</a></li>
+		<?php endif; ?>
 
+		<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto']== 2):?>
 		<li class="divider"></li>
 						<li><a href="?c=Usuario"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 							<i class="Tiny material-icons white-text">supervisor_account</i></span>&nbsp;Usuarios</a></li>
@@ -231,6 +236,7 @@ function pagoOnChange(sel) {
 	 				<li><a href="?c=ASP"><span class="" data-position="bottom" data-delay="50" data-tooltip="">
 						<i class="Tiny material-icons white-text">perm_media</i></span>&nbsp;Áreas Protegidas</a></li>
 					<!--<li><a href="#"> <i class="small material-icons">settinwgs</i><span class="white-text">Perfil</span></a></li>-->
+				<?php endif; ?>
 		<li class="divider"></li>
 
 </ul>
@@ -245,7 +251,7 @@ function pagoOnChange(sel) {
     	<div class="userView"><!-- Imagen avatar e informacion -->
 				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
 
-  		<a href="#!user"><?php echo'<img class="circle responsive-img" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+  		<a href="#!user"><?php echo'<img class="circle" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
 			<a href="#!name"><span class="white-text name"><?php echo $_SESSION['usuario']['nombre']; ?></span></a>
 			<a href="#!email"><span class="white-text email"><?php echo $_SESSION['usuario']['email']; ?></span></a></div>
 		</li>

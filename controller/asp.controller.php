@@ -16,6 +16,11 @@ class ASPController{
         require_once 'view/includes/footer.php';
     }
 
+    public function SectorManagerUser(){
+        require_once 'view/includes/headerEncargadoSector.php';
+        require_once 'view/asp/asp.php';
+        require_once 'view/includes/footer.php';
+    }
     public function Modificar(){
         $asp = new ASP();
 

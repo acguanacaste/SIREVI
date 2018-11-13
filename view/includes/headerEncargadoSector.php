@@ -104,16 +104,18 @@ header("Location:?c=login&a=index");
 					<a href="#" class="brand-logo right ">SIREVI</a>
 <a href="" data-activates="slide-out"  class="button-collapse"><i style="color:white" class=" small material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="Menú" >toc</i></a>
 					<ul id="nav-mobile" class="left hide-on-small-only">
-						<li><a href="index.php?c=login&a=SectorManagerUser" >
+						<li><a href="?c=login&a=SectorManagerUser" >
 							<i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Inicio">home </i>
 							 <span class="hide-on-med-and-down">Inicio</span></a></li>
-						<li><a href="index.php?c=Dollar" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Cambio dolar">tab</i> <span class="hide-on-med-and-down">Dolar</span></a></li>
+
 						<li><a href="?c=Visitacion&a=SectorManagerUser" title="Visitacion"><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Visitación">assignment</i> <span class="hide-on-med-and-down">Visitación</span></a></li>
-						<li><a href="index.php?c=Reportes" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
-						<li><a href="index.php?c=Usuario" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
-						<li><a href="index.php?c=Sector" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
-						<li><a href="index.php?c=Sendero" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
-						<li><a href="index.php?c=ASP" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
+<?php if ( $_SESSION['usuario']['puesto'] == 3 ):?>
+						<li><a href="?c=Reportes&a=SectorManagerUser" > <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Reportes">description</i><span class="hide-on-med-and-down">Reportes</span></a></li>
+<?php endif; ?>
+						<li><a href="?c=Usuario&a=SectorManagerUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Usuarios">supervisor_account</i> <span class="hide-on-med-and-down">Usuarios</span></a></li>
+						<li><a href="?c=Sector&a=SectorManagerUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Sectores">view_quilt</i><span class="hide-on-med-and-down">Sectores</span></a></li>
+						<li><a href="?c=Sendero&a=SectorManagerUser" ><i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Senderos">swap_calls</i> <span class="hide-on-med-and-down">Senderos</span></a></li>
+						<li><a href="?c=ASP&a=SectorManagerUser"> <i class="small material-icons hide-on-large-only tooltipped" data-position="top" data-delay="50" data-tooltip="Áreas Protegidas">terrain</i><span class="hide-on-med-and-down">Áreas Protegidas</span></a></li>
 				</ul>
 
 			</div>
@@ -123,24 +125,28 @@ header("Location:?c=login&a=index");
 <!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
 	<ul id="slide-out" class="side-nav fixed hide-on-large-only  teal lighten-3 ">
   	<li>
-    	<div class="userView"><!-- Imagen avatar e informacion -->
+			<div class="userView"><!-- Imagen avatar e informacion -->
 				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
-  		<a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
-			<a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
-			<a href="#!email"><span class="white-text email">cheeto12@gmail.com</span></a></div>
+
+			<a href="#!user"><?php echo'<img class="circle" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+			<a href="#!name"><span class="white-text name"><?php echo $_SESSION['usuario']['nombre']; ?></span></a>
+			<a href="#!email"><span class="white-text email"><?php echo $_SESSION['usuario']['email']; ?></span></a></div>
 		</li>
 		<!--============================= Fin de la Barra del buscador ===========================================================-->
 		<hr>
 		<li class="divider"></li>
 		<!--============================= Inicio de los modulos del sistemas ====================================================-->
-		<li><a href="index.php?c=login&a=bienvenido" title="Inicio"><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
-		<li><a href="index.php?c=Dollar" title="Visitación"><i class="small material-icons">tab</i> <span class="white-text">Dolar</span></a></li>
-		<li><a href="index.php?c=Visitacion" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
-		<li><a href="#" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
-		<li><a href="index.php?c=Usuario" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
-		<li><a href="index.php?c=Sector" title="Sectores"><i class="small material-icons">view_quilt</i><span class="white-text">Sectores</span></a></li>
-		<li><a href="index.php?c=Sendero" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="white-text">Senderos</span></a></li>
-		<li><a href="index.php?c=ASP" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="white-text">Áreas Protegidas</span></a></li>
+		<li><a href="?c=login&a=SectorManagerUser" ><i class="small material-icons">home</i> <span class="white-text">Inicio</span></a></li>
+		<li><a href="?c=Visitacion&a=SectorManagerUser" title="Visitación"><i class="small material-icons">assignment</i> <span class="white-text">Visitación</span></a></li>
+
+<?php if ($_SESSION['usuario']['puesto'] == 3 ):?>
+		<li><a href="?c=Reportes&a=AdminUser" title="Reportes"> <i class="small material-icons ">description</i><span class="white-text">Reportes</span></a></li>
+<?php endif; ?>
+
+		<li><a href="?c=Usuario&a=SectorManagerUser" title="Usuarios"><i class="small material-icons">supervisor_account</i> <span class="white-text">Usuarios</span></a></li>
+		<li><a href="?c=Sector&a=SectorManagerUser" title="Sectores"><i class="small material-icons">view_quilt</i><span class="white-text">Sectores</span></a></li>
+		<li><a href="?c=Sendero&a=SectorManagerUser" title="Senderos"><i class="small material-icons">swap_calls</i> <span class="white-text">Senderos</span></a></li>
+		<li><a href="?c=ASP&a=SectorManagerUser" title="Áreas Protegidas"> <i class="small material-icons">perm_media</i><span class="white-text">Áreas Protegidas</span></a></li>
 		<!--<li><a href="#"> <i class="small material-icons">settings</i><span class="white-text">Perfil</span></a></li>-->
 		<li><a href=""> <i class="small material-icons">settings_power</i><span class="white-text">Cerrar sesión</span></a></li>
 	</ul><!--Fin del slide out-->

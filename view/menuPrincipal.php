@@ -89,6 +89,16 @@
                                 caminatas de aventura y práctica de ciclismo de montaña.</p></h5>
                     </div>
                 </li>
+
+
+                <li>
+                    <img src="assets/img/SectorMarino.jpg"> <!-- random image -->
+                    <div class="caption center-align">
+                        <h3>Sector Marino A.C.G. </h3>
+                        <h5 class="light grey-text text-lighten-3"><p>El Sector Marino del Área de Conservación Guanacaste (ACG) posee 43.000 hectáreas
+                           incluyendo el Archipiélago Islas Murciélago.</p></h5>
+                    </div>
+                </li>
             </ul>
             <nav class="blue-grey darken-4">
 

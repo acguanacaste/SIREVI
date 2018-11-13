@@ -49,7 +49,7 @@
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class=""><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m6 l6 ">
-                       <input disabled value="<?php echo $user->cedula; ?>" id="disabled" type="text" name="cedula"  value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                       <input name="cedula" value="<?php echo $user->cedula; ?>" id="disabled" type="text"  class="validate form-control" data-validacion-tipo="requerido|min:15">
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
                    <!--INICIO DE COLUMNA CONTRASENA-->
@@ -119,8 +119,8 @@
   <a href="index.php?c=Usuario"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
 </div>
 <!--================================================================================================================================-->
-        </div>
-      </div><!-- Div de los tamanos -->
+</div>
+</div><!-- Div de los tamanos -->
 
         <div class="col l2 hide-on-med-and-down">
           <div class="toc-wrapper pin-top" style="top: -15px;">

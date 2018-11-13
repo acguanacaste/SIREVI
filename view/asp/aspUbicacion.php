@@ -31,7 +31,6 @@
                   </div>
                 </div>
 
-
               <fieldset>
                 <div class="row"><!---INICIO DE LA SEGUNDA FILA-->
                   <div class="">

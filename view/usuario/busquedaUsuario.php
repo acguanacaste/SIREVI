@@ -1,6 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
 <main>
+
   <div class="container">
+    <div class="right hide-on-small-only">
+      <a href="index.php?c=Usuario"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+    </div>
   <h4>Usuarios</h4>
   </div>
 

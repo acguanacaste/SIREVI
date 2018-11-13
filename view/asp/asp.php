@@ -21,7 +21,7 @@
             <tr>
               <th>Área Conservación</th>
               <th>Tipo</th>
-              <th colspan="2">Ubicación geográfica</th>
+              <th style="width:80px;">Ubicación geográfica</th>
               <th style="height:75px;" colspan="2">Acción</th>
             </tr>
           </thead>
@@ -37,14 +37,16 @@
                 </td>
 
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
-                <td>
+                <td style="height:55px;">
                   <a title="Editar Información" href="?c=ASP&a=Modificar&id=<?php echo $r->id; ?>"><i
-                    class="circle white small material-icons right z-depth-2">edit</i></a>
+                    class="circle white small material-icons right z-depth-2 tooltipped"
+                      data-position="top" data-delay="50" data-tooltip="Modificar Información">edit</i></a>
                   </td>
                   <td>
                     <a title="Borrar Información" onclick="return confirm('Estas a un paso de borrar un registro, seguro deseas continuar?');"
                     href="?c=ASP&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
+                    <i class=" circle white small material-icons right z-depth-2 tooltipped"
+                      data-position="top" data-delay="50" data-tooltip="Eliminar Información">delete</i></a>
                   </td>
                 <?php endif; ?>
                 </tr>

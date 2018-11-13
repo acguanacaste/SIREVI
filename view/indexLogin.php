@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Log-in SIREVI</title>
+<link rel="icon" href="assets\img\acg_personalized_icon.ico">
 <meta charset="utf-8"/>
 <meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 		<link href="//estilos.php" rel="stylesheet" type="text/css" />
@@ -67,7 +68,6 @@ $(document).ready(function() {
 		}
 	);
 
-
 	$('select').material_select();
 	$('.slider').slider({full_width: true});
 	/*Para la funcionalidad de las fechas */
@@ -80,38 +80,7 @@ $(document).ready(function() {
 							accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
 						});
 
-/*=======================================================================================================================================*/
-	$('input.autocomplete').autocomplete({
-		 data: {
-			 "Argentina": null, "Australia":null, "Austria":null,
-			 "Bélgica":null,"Bielorrusia":null,"Brasil":null,
-			 "Canadá":null,"China":null,"Colombia":null,
-			 "Dinamarca":null,
-			 "Ecuador":null, "El Salvador":null, "Escocia":null, "España":null, "Estados Unidos":null, "Estonia":null,
-			 "Finlandia":null, "Francia":null,
-			 "Guatemala":null,
-			 "Holanda":null, "Honduras":null,
-			 "Inglaterra":null, "Israel":null, "Italia":null,
-			 "Japón":null,
-			 "Líbano":null,
-			 "México":null,
-			 "Nicaragua":null,
-			 "Panamá":null,	 "Portugal":null,
-			 "R. Checa":null, "Rusia":null,
-			 "Suecia":null, "Suiza":null,
-			 "Venezuela": null,
-			 "Costa Rica": 'http://placehold.it/250x250'
-		 },
-		 limit: 3, // The max amount of results that can be shown at once. Default: Infinity.
-		 onAutocomplete: function(val) {
-			 // Callback function when value is autcompleted.
-		 },
-		 minLength: 4, // The minimum length of the input for the autocomplete to start. Default: 1.
-	 });
-
-/*==========================================================================================================================================*/
-
-});
+});//Cierre de la llave principal (ready)
 
 
 </script>
@@ -123,7 +92,7 @@ $(document).ready(function() {
 			<div  class="container" >
 
 					<div class="nav-wrapper">
-						<a style="top: -7px;" href="#" class="brand-logo left"><img  class="circle" src="assets/img/acg_personalized_icon.png">
+						<a style="top: -7px;" href="#" class="brand-logo left"><img  class="circle" src="assets/img/acg_personalized.png">
 							<span style="top:-15px;" class=""><a class="right hide-on-med-and-up" href="#"><h4>&nbsp;SIREVI </h4></a></span></a>
 
 							<ul class="right hide-on-small-only">
@@ -240,23 +209,6 @@ $(document).ready(function() {
 												</div>
 										 	</div>
 
-<!--<div >
-	<php
-	$conexion = mysql_connect("localhost","root");
-	mysql_select_db("sirevi",$conexion);
-	$sentencia_sector = "select * from sector order by id ASC";
-	$query_sector = mysql_query($sentencia_sector);
-	?>
-	<div  class="input-field col s6 m12 l12">
-		<select name="sector">
-			<option value="" disabled selected>Elija un pais</option>
-			<php while ($arreglo_sector = mysql_fetch_array($query_sector)) {  ?>
-			<option value="php echo $arreglo_sector['id']?>"><php echo $arreglo_sector['nombre'] ?></option>
-			<php } ?>
-		</select>
-		<label>Sector</label>
-	</div>
-</div> -->
 
 
 											<div class="input-field col s12 m12 l12">
@@ -300,7 +252,7 @@ $(document).ready(function() {
 										 	<div id="" class="center"><!--Div que contiene laa imagen del MINAE-->
 												<ul>
 													<li>
-														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/minae_small_icon.jpg"></a>
+														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/MINAE.png"></a>
 															<br>
 													</li>
 												</ul>

@@ -19,7 +19,7 @@
             <h5 class="white-text">Créditos</h5>
             <!--<a href="#!user"><img class="square" src="assets/img/minae.jpg"></a>
             <a href="#!user"><img class="square" src="assets/img/sinac.jpg"></a>-->
-            <a href=""><img class="" src="assets/img/logo_2017_UNA.png"></a>
+            <a href=""><img class="z-depth-5" src="assets/img/logo_2018_UNA.png"></a>
             <br>
           </div>
         </div>

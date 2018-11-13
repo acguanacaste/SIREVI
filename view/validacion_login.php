@@ -17,13 +17,13 @@ try{
 	$resultado_usuario->bindValue(":login", $login);
 	$resultado_usuario->bindValue(":password", $password);
 	$resultado_sector->bindValue(":sector", $sector);
+
 	$resultado_usuario->execute();
 	$resultado_sector->execute();
 
 
 		$res_usuario = $resultado_usuario->fetchAll();
 		$res_sector = $resultado_sector->fetchAll();
-
 
 
 		$num_registro_usuario=$resultado_usuario->rowcount();
@@ -59,6 +59,9 @@ try{
 				"adultoExtranjero"=>$res_sector[0]['adulto_extranjero'],
 				"ninoExtranjero"=>$res_sector[0]['nino_extranjero'],
 				"estudiantes"=>$res_sector[0]['estudiantes'],
+				"nacionalSurfing"=>$res_sector[0]['surf_nacional'],
+				"extranjeroSurfing"=>$res_sector[0]['surf_extranjero'],
+				"TarifaCamping"=>$res_sector[0]['tarifa_camping'],
 				"cambioDolar"=>$res_sector[0]['cambio_dolar']
 
 //meter tipo decambio aqui hacer consulta y ponerlo aca

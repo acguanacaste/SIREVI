@@ -1,3 +1,4 @@
+
 <main>
   <h4 class="header left"><span>&nbsp;</span><a href="#">
     <i class="medium material-icons circle blue-grey darken-2">assignment</i>Módulo Visitación</a></h4>
@@ -35,41 +36,26 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-                <div class="input-field col s12 m4 l3">
-              <i class="small material-icons">contact_mail</i>
-              <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+  <div class="col s11 offset-s1"><span class="flow-text">
+                <div class="input-field col s12 m3 l3">
+                  <i class="small material-icons">contact_mail</i>
+                  <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
+<div class="col s1">
 
-              <div class="input-field col s12 m4 l3">
+</div>
+              <div class="input-field col s12 m3 l3">
                     <i class="small material-icons">picture_in_picture</i>
                     <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
               </div>
+<div class="col s1">
 
-              <div class="input-field col s12 m4 l3">
+</div>
+              <div class="input-field col s12 m3 l3">
             <i class="small material-icons">directions_car</i>
             <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
               </div>
-
-              <!--==============Cargando los paices==============================-->
-<div class="row">
-  <?php
-  $conexion = mysql_connect("localhost","root");
-  mysql_select_db("sirevi",$conexion);
-  $sentencia_pais = "select * from pais order by nombre ASC";
-  $query_pais = mysql_query($sentencia_pais);
-  ?>
-  <div  class="input-field col s6 m12 l3">
-    <select name="pais">
-      <option value="" selected>Elija un pais</option>
-      <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-      <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-      <?php } ?>
-    </select>
-    <label>País</label>
-  </div>
-
-</div>
-
+</span></div>
 
               <center>
                 <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
@@ -77,7 +63,8 @@
                     <i class="mdi-content-send material-icons right">pageview</i>
                 </button>
               </center>
-              <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
+                </div>
+
               </form><!--FORM end-->
           </span></div>
           <hr>
@@ -89,12 +76,21 @@
     </div>
 </span></div>
   </li>
-
 </ul>
   </div>
 </div>
-
-
+<!--=====================================>> Inicio de los numeros correspondientes a la paginacion <<======================-->
+<!--<ul class="pagination">
+   <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+   <li class="active"><a href="#!">1</a></li>
+   <li class="waves-effect"><a href="#!">2</a></li>
+   <li class="waves-effect"><a href="#!">3</a></li>
+   <li class="waves-effect"><a href="#!">4</a></li>
+   <li class="waves-effect"><a href="#!">5</a></li>
+   <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+ </ul>
+ -->
+ <!--=====================================>> Fin de los numeros correspondientes a la paginacion <<======================-->
     <div class="row">
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
@@ -109,12 +105,10 @@
               <th>Identificación</th>
               <th>Placa automovil</th>
               <th>País</th>
-              <th>Sendero</th>
               <th>Tipo pago</th>
               <th>Moneda</th>
               <th>Ingresos</th>
               <th>Salida</th>
-              <th style=""></th>
               <th colspan="2">Acción</th>
             </tr>
 <!--================================================================================================================== -->
@@ -122,34 +116,27 @@
 
           <tbody>
             <?php foreach ($this->model->Listar() as $r): ?>
-            <tr>
+              <tr>
+                <td><?php echo $r->id; ?></td>
+                <td><?php echo $r->proposito_visita; ?></td>
+                <td><?php echo $r->fecha; ?></td>
+                <td><?php echo $r->Nombre; ?></td>
+                <td><?php echo $r->noIdentificacion; ?></td>
+                <td><?php echo $r->placa_automovil; ?></td>
+                <td><?php echo $r->Pais; ?></td>
 
-              <td><?php echo $r->id; ?></td>
-              <td><?php echo $r->proposito_visita; ?></td>
-              <td><?php echo $r->fecha; ?></td>
-              <td><?php echo $r->Nombre; ?></td>
-              <td><?php echo $r->noIdentificacion; ?></td>
-              <td><?php echo $r->placa_automovil; ?></td>
+                <td><?php echo $r->tipo_pago; ?></td>
+                <td><?php echo $r->moneda; ?></td>
 
-              <td><?php echo $r->Pais; ?></td>
-            <!--  <td><?php echo $r->Provincia; ?></td> -->
-          <!--    <td><?php echo $r->referencia_visita ?></td>-->
-
-              <td><?php echo $r->Sendero; ?></td>
-              <td><?php echo $r->tipo_pago; ?></td>
-              <td><?php echo $r->moneda; ?></td>
-
-
-              <td ><?php if($r->salida==0){
+              <td ><?php if($r->salida ==0){
                 echo "
                 <a onclick='setTime()' href='?c=Visitacion&a=Salida&id=".$r->id."'>
                         <i  class='circle white darken-2 small material-icons tooltipped'
                           data-position='bottom' data-delay='50'
                           data-tooltip='Dentro del parque'>directions_walk</i></a>
                           <p  id='time'></p>";
-
-
                     }
+
                     elseif ($r->salida==1) {
                       echo "
                       <a onclick='setTime()'   href='?c=Visitacion&a=Salida&id=".$r->id."'>
@@ -159,22 +146,25 @@
                   }; ?>
 
                 </td>
-
                 <td class="center"><?php echo $r->horaSalida; ?></td> <!--Esta es la variable cuando se cambia estado de ingreso a salida del parque-->
 
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
                     class="white circle z-depth-3 small material-icons right">edit</i></a>
               </td>
+
+            <?php if($_SESSION['usuario']['puesto']== 1 || $_SESSION['usuario']['puesto']== 2 || $_SESSION['usuario']['puesto']== 3): ?>
               <td>
               <a title="Borrar Información"  onclick="return confirm('¿Seguro de eliminar este registro?');"
                  href="?c=Visitacion&a=Eliminar&id=<?php echo $r->id; ?>">
                   <i class="white circle z-depth-3 small material-icons right">delete</i></a>
               </td>
+            <?php endif;?>
             </tr>
           <?php endforeach; ?>
           </tbody>
         </table>
+
       </div><!-- Div de los tamanos -->
     </div><!--Div del row-->
   </div><!--Div del container-->

@@ -1,4 +1,4 @@
-<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ):?>
+<?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 2 ) :?>
 <main>
   <div class="">
     <h4 class="header left"><span>&nbsp;</span><a href="#">
@@ -20,25 +20,32 @@
           <div class="body "><span >
             <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-              <div class="input-field col s12 m5 l3">
-            <i class="small material-icons">contact_mail</i>
-            <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+
+                <div class="col s11 offset-s1"><span class="flow-text">
+                              <div class="input-field col s12 m3 l3">
+                                <i class="small material-icons">contact_mail</i>
+                                <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
+                              </div>
+              <div class="col s1">
+
               </div>
+                            <div class="input-field col s12 m3 l3">
+                                  <i class="small material-icons">picture_in_picture</i>
+                                  <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
+                            </div>
+              <div class="col s1">
 
-            <div class="input-field col s12 m5 l3">
-                  <i class="small material-icons">picture_in_picture</i>
-                  <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
-            </div>
-
-            <div class="input-field col s12 m4 l3">
-              <i class="small material-icons">directions_car</i>
-              <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
-            </div>
+              </div>
+                            <div class="input-field col s12 m3 l3">
+                          <i class="small material-icons">directions_car</i>
+                          <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
+                            </div>
+              </span></div>
 
 
             <!--==============Cargando los paices==============================-->
-<div class="row">
-<?php
+<!--<div class="row">
+<php
 $conexion = mysql_connect("localhost","root");
 mysql_select_db("sirevi",$conexion);
 $sentencia_pais = "select * from pais order by nombre ASC";
@@ -47,14 +54,13 @@ $query_pais = mysql_query($sentencia_pais);
 <div  class="input-field col s6 m12 l3">
   <select name="pais">
     <option value="" selected>Elija un pais</option>
-    <?php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
-    <option value="<?php echo $arreglo_pais['id']?>"><?php echo $arreglo_pais['nombre'] ?></option>
-    <?php } ?>
+    <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+    <option value="<php echo $arreglo_pais['id']?>"><php echo $arreglo_pais['nombre'] ?></option>
+    <php } ?>
   </select>
   <label>País</label>
 </div>
-
-</div>
+</div>-->
 
 
             <center>
@@ -65,17 +71,16 @@ $query_pais = mysql_query($sentencia_pais);
             </center>
             <!--<input type="submit" name="pais" value="Buscar" class="teal darken-4 waves-effect waves-light btn">-->
             </form><!--FORM end-->
-        </span></div>
+           </span></div>
         <hr>
-       </li>
-      </ul>
-      </fieldset>
-    </div>
-  </div>
-</span></div>
-</li>
-
+        </li>
+        </ul>
+        </fieldset>
+      </div>
+    </div></span></div>
+  </li>
 </ul>
+
 </div>
 </div>
 
@@ -92,7 +97,6 @@ $query_pais = mysql_query($sentencia_pais);
               <th>Nombre</th>
               <th>Identificación</th>
               <th>Placa</th>
-              <th>Pais</th>
               <th>Pago</th>
               <th>Moneda</th>
               <th>Estado</th>
@@ -100,22 +104,21 @@ $query_pais = mysql_query($sentencia_pais);
           </thead>
           <tbody>
 <?php
-   if ($_POST):
-            require('model/conexion.php');
-            $con = Conectar();
-            $nombre = $_POST['nombre'];
-            $noIdentificacion = $_POST['noIdentificacion'];
-            $placa_automovil  = $_POST['placa_automovil'];
-            $pais = $_POST['pais'];
+if ($_POST):
+         require('model/conexion.php');
+         $con = Conectar();
+         $nombre = $_POST['nombre'];
+         $noIdentificacion = $_POST['noIdentificacion'];
+         $placa_automovil  = $_POST['placa_automovil'];
+      //   $pais = $_POST['pais'];//Cuando incluyo el input para el pais este no me esta realizando la accion y revienta la consulta.
 
+         $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :identificacion OR placa_automovil = :placa';
+         $stmt = $con->prepare($sql);
+       $result = $stmt->execute(array(':nom'=>$nombre, 'identificacion'=>$noIdentificacion,':placa'=>$placa_automovil/*, ':country'=>$pais*/));
+         $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
-           /* echo "valor enviado es ".$_POST['etiqueta']." y ".$etiqueta;*/
-            $sql = 'SELECT * FROM visitacion WHERE nombre = :nom OR noIdentificacion = :id OR placa_automovil =:placa OR pais = :pai';
-            $stmt = $con->prepare($sql);
-            $result = $stmt->execute(array(':nom'=>$nombre,':id'=>$noIdentificacion,':placa'=>$placa_automovil,':pai'=>$pais));
-            $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-          foreach ($rows as $row): ?>
-              <tr>
+       foreach ($rows as $row):
+?>            <tr>
               	<?php if(count($rows)): ?>
                 <td> <?php echo $row->id;?> </td>
                 <td> <?php echo $row->proposito_visita;?> </td>
@@ -124,7 +127,7 @@ $query_pais = mysql_query($sentencia_pais);
                 <td> <?php echo $row->noIdentificacion;?> </td>
                 <!--<td> <php echo $row->estado;?> </td>-->
                 <td> <?php echo $row->placa_automovil;?> </td>
-                <td> <?php echo $row->pais;?> </td>
+          <!--      <td> <php echo $row->pais;?> </td> -->
                 <td><?php echo $row->tipo_pago; ?></td>
                 <td><?php echo $row->moneda; ?></td>
 
