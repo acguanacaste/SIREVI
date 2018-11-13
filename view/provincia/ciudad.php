@@ -13,6 +13,8 @@
       <a href="#" data-activates="slide-out"  class="button-collapse"><i class=" small material-icons">menu</i></a>
     </div>
   </nav>
+  <hr>
+  
 
 
 <!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
