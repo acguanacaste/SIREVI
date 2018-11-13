@@ -8,7 +8,7 @@
           <hr>
 <!--===========================================================================================================-->
 <fieldset>
-  <legend><h5>Modulo Usuarios</h5>
+  <legend><h5>Modulo Usuarios Modificado</h5>
    <h6>Utilice los campos habilitados para completar información </h6></legend>
     <div class=" contact">
       <br>
@@ -55,7 +55,7 @@
                    <div class="input-field col s6 m6 l6  ">
                    <input  id="contrasena" type="password" name="contrasena"  value=""  class="validate form-control" data-validacion-tipo="requerido|min:10"  required>
                    <label for="contrasena" >  <i class="small material-icons">vpn_key</i><span class="hide-on-small-only">Contraseña</span></label>
-                   </div>    
+                   </div>
                </div><!--FIN DEL DIV DE LA SEGUNDA FILA-->
 
 <!--=========================Block DIV temporal ===========================================-->
