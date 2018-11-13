@@ -65,6 +65,7 @@ function outputCSV($data) {
         require_once 'view/includes/footer.php';
     }
 
+<<<<<<< HEAD
     public function busquedaSubSector(){
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/consultaSubSector.php';
@@ -72,6 +73,38 @@ function outputCSV($data) {
     }
 
     public function  Resultado_busquedaSubSector($result){
+=======
+
+/*=============================>> Para trabajar con la seccion de reporte SEMEC <<====================================*/
+    public function Reporte_SEMEC(){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/SEMEC.php';
+      require_once 'view/includes/footer.php';
+    }
+
+    public function Resultado_SEMEC($result){
+      require_once 'view/includes/headerPrincipal.php';
+      require_once 'view/visitacion/reportes/resultado_SEMEC.php';
+      require_once 'view/includes/footer.php';
+   }
+/*=====================================================================================================================*/
+
+/*==========================================>>Para trabajar con la seccion de reporte Diario<<=========================*/
+public function Reporte_Diario(){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+
+public function Resultado_Diario($result){
+  require_once 'view/includes/headerPrincipal.php';
+  require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+  require_once 'view/includes/footer.php';
+}
+/*=====================================================================================================================*/
+
+    public function consultaIngresoSalidaDiario(){
+>>>>>>> master
         require_once 'view/includes/headerPrincipal.php';
         require_once 'view/visitacion/resultadoConsultaSubsector.php';
         require_once 'view/includes/footer.php';
@@ -128,6 +161,11 @@ function outputCSV($data) {
       header("Content-Disposition: attachment; filename={$filename}.csv");
       header("Pragma: no-cache");
       header("Expires: 0");
+<<<<<<< HEAD
+=======
+      require_once 'view/visitacion/reportes/resultado_reporteDiario.php';
+  }
+>>>>>>> master
 
       $this->outputCSV($result);
     }
@@ -270,6 +308,12 @@ public function Excel_Consulta_Reporte_Paises(){
     public function Guardar(){
 
         $visit = new Visitacion();
+<<<<<<< HEAD
+=======
+        $visit->sector                    = $_REQUEST['sector'];
+        $visit->usuario                   = $_REQUEST['usuario'];
+        $visit->asp                       = $_REQUEST['asp'];
+>>>>>>> master
 
         $visit->id                        = $_REQUEST['id'];
         $visit->sector                    = $_REQUEST['sector'];
@@ -280,6 +324,7 @@ public function Excel_Consulta_Reporte_Paises(){
         $visit->nombre                    = $_REQUEST['nombre'];
         $visit->placa_automovil           = $_REQUEST['placa_automovil'];
 //----------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
         $visit->pais                      = $_REQUEST['pais'];//-------------
       //  $visit->provincia                 = $_REQUEST['provincia'];//--------
         $visit->provincia = !empty($_REQUEST['provincia']) ? $_REQUEST['provincia'] : null;
@@ -292,11 +337,25 @@ public function Excel_Consulta_Reporte_Paises(){
       $visit->sendero                   = $_REQUEST['sendero'];//-----
         $visit->dias_camping              = $_REQUEST['dias_camping'];
         $visit->personas_acampando        = $_REQUEST['personas_acampando'];
+=======
+        $visit->pais                      = $_REQUEST['pais'];
+        $visit->provincia                 = $_REQUEST['provincia'];
+        $visit->referencia_visita         = $_REQUEST['referencia_visita'];
+        $visit->nom_referencia_visita     = $_REQUEST['nom_referencia_visita'];
+
+//--------------------------------------------------------------------------------------------------------
+//        $visit->fecha_salida          = $_REQUEST['fecha_salida'];
+//------------------------------------------------------------------------------------------------------
+
+        $visit->sendero                   = $_REQUEST['sendero'];
+        $visit->dias_camping              = $_REQUEST['dias_camping'];
+>>>>>>> master
         $visit->subSector                 = $_REQUEST['subSector'];
 //-------------------------------------------------------------------------------------------------------
         $visit->nacional_adult            = $_REQUEST['nacional_adult'];
         $visit->nacional_kid              = $_REQUEST['nacional_kid'];
         $visit->estudiantes               = $_REQUEST['estudiantes'];
+<<<<<<< HEAD
         $visit->nacional_prepago          = $_REQUEST['nacional_prepago'];
         $visit->nacional_exonerado        = $_REQUEST['nacional_exonerado'];
         $visit->nacional_surf             = $_REQUEST['nacional_surf'];
@@ -307,6 +366,17 @@ public function Excel_Consulta_Reporte_Paises(){
         $visit->extranjero_exonerado      = $_REQUEST['extranjero_exonerado'];
         $visit->extranjero_surf           = $_REQUEST['extranjero_surf'];
 
+=======
+        $visit->nacional_exonerado        = $_REQUEST['nacional_exonerado'];
+
+        $visit->extranjero_adult          = $_REQUEST['extranjero_adult'];
+        $visit->extranjero_kid            = $_REQUEST['extranjero_kid'];
+        $visit->extranjero_exonerado      = $_REQUEST['extranjero_exonerado'];
+
+        $visit->personas_surf             = $_REQUEST['personas_surf'];
+        $visit->prepago                   = $_REQUEST['prepago'];
+
+>>>>>>> master
 //-----------------------------------------------------------------------------------------------------
         $visit->tipo_pago                 = $_REQUEST['tipo_pago'];
         $visit->moneda                    = $_REQUEST['moneda'];
@@ -343,7 +413,23 @@ public function Consulta_SubSector_Controller(){//ME BUSCA EL SUBSECTOR
       header('Location:?c=Visitacion&a=busquedaSubSector');
 }
 
+/*==============================================================================================================*/
 
+    public function Consulta_SEMEC_Controller(){
+
+          $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
+
+          $this->Resultado_SEMEC($result);
+
+          header('Location:?c=Visitacion&a=Resultado_SEMEC');
+    }
+
+/*======================================================================================================*/
+public function Consulta_ReporteDiario_Controller(){
+
+      $result = $this->model->Consulta_ReporteDiario_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
+
+<<<<<<< HEAD
 public function Consulta_SubSector_Controller_2(){//ME BUSCA EL SUBSECTOR
       $result = $this->model->Consulta_SEMEC_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal']);
       $this->Resultado_SEMEC($result);
@@ -387,8 +473,13 @@ public function Consulta_Totales_por_Sector_Controller(){//
 public function Consulta_Campistas_Controller(){//
     $result = $this->model->Consulta_Campistas_Model($_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'], $_REQUEST['sector']);
     $this->Resultado_Campistas($result, $_REQUEST['fechaInicio'], $_REQUEST['fechaFinal'],$_REQUEST['sector']);
+=======
+      $this->Resultado_Diario($result);
+>>>>>>> master
 
+      header('Location:?c=Visitacion&a=Resultado_Diario');
 }
+<<<<<<< HEAD
 
 /*=================================================================================================*/
 public function Consulta_Reporte_Paises_Controller(){//GENERA EL REPORTE SEMEMC
@@ -404,5 +495,18 @@ public function Consulta_Cant_Personas_Parque_Controller(){
 }
 
 /*===================================================================================================*/
+=======
+/*==================================================================================================*/
+
+public function Consulta_Cant_Personas_Parque_Cotnroller(){
+
+      $result = $this->model->Consulta_Cant_Personas_Parque_Model();
+      $this->Resultado_Cantidad($result);
+
+}
+
+/*==================================================================================================*/
+
+>>>>>>> master
 
 }//Fin de la clase

@@ -12,6 +12,7 @@ header("Location:?c=login&a=index");
 	<meta name="viewport" content="width= device-width, user-scale=no, initial-scale=1.0, minimum-scale=1.0">
 	<title>Sistema de Información para Registro de Visitación</title>
 	<link rel="icon" href="assets\img\acg_personalized_icon.ico">
+
 	<script  src="assets/data-tables/data-tables-script.js"></script>
 	<script type="text/javascript" src="assets/data-tables/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>
@@ -23,8 +24,9 @@ header("Location:?c=login&a=index");
 
 	<script type="text/javascript">
   	$(document).ready(function () {
+	  $('#personas_acampando').attr("hidden", true);
+	    $('#cant_personas_camping').attr("hidden", true);
 
-	    $('#personas_acampando').attr("hidden", true);
 
     	$('#dias_camping').keyup(function () {
         var value = $(this).val();
@@ -35,6 +37,7 @@ header("Location:?c=login&a=index");
 
           }
         else
+
         	$('#personas_acampando').removeAttr("hidden");
       });
 		});
@@ -42,6 +45,14 @@ header("Location:?c=login&a=index");
 /*=================================================================================================*/
 function pagoOnChange(sel) {
       if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien más"
+
+        	$('#cant_personas_camping').removeAttr("hidden");
+      });
+		});
+/*=================================================================================================*/
+function pagoOnChange(sel) {
+      if (sel.value=="Espontaneamente en ruta" || sel.value == "Referencia de alguien mas"
+
 					|| sel.value=="Recomendación por amigos" || sel.value=="Selección directa personal"
 				|| sel.value=="Visita reiterada" ){
 
@@ -252,7 +263,9 @@ function pagoOnChange(sel) {
     	<div class="userView"><!-- Imagen avatar e informacion -->
 				<img class="background" src="assets/img/CasonaSantaRosa.jpg">
 
-  		<a href="#!user"><?php echo'<img class="circle" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+  	
+  		<a href="#!user"><?php echo'<img class="circle responsive-img" src="'.$_SESSION["usuario"]["foto"].'" width="100" heigth="100">'; ?></a>
+
 			<a href="#!name"><span class="white-text name"><?php echo $_SESSION['usuario']['nombre']; ?></span></a>
 			<a href="#!email"><span class="white-text email"><?php echo $_SESSION['usuario']['email']; ?></span></a></div>
 		</li>

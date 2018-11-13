@@ -49,7 +49,11 @@
      <!--INICION DE COLUMNA DEL CEDULA-->
                    <div class=""><!--INICIO DEL DIV DE LA SEGUNDA FILA-->
                      <div class="input-field col s6 m6 l6 ">
+<<<<<<< HEAD
                        <input name="cedula" value="<?php echo $user->cedula; ?>" id="disabled" type="text"  class="validate form-control" data-validacion-tipo="requerido|min:15">
+=======
+                       <input disabled value="<?php echo $user->cedula; ?>" id="disabled" type="text" name="cedula"  value="<?php echo $user->cedula; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+>>>>>>> master
                        <label for="cedula"> <i class="small material-icons">picture_in_picture</i><span class="hide-on-small-only">Cédula</span></label>
                      </div>
                    <!--INICIO DE COLUMNA CONTRASENA-->

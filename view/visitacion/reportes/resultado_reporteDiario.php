@@ -1,10 +1,10 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
-  <a href="?c=Visitacion&a=busquedaSubSector"><span class="hide-on-med-and-up">
+  <a href="?c=Visitacion&a=Reporte"><span class="hide-on-med-and-up">
     <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
-    <a   href="?c=Visitacion&a=Consulta_SubSector_Controller_2">
+    <a   href="?c=Visitacion&a=Reporte">
       <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
@@ -12,7 +12,7 @@
 <main>
   <div class="">
     <h4 class="header-left"><span>&nbsp;</span><i class="medium material-icons circle blue-text">public</i>
-      <a href="#">Consultar SubSector</a></h4>
+      <a href="#">Resultado de Ingresos</a></h4>
     <!-- Busqueda Avanzada -->
       <div class="row">
         <div class="col s12 m12 l12">
@@ -27,10 +27,9 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-<<<<<<< HEAD:view/visitacion/consultaSubSector.php
-                    <form action="?c=Visitacion&a=Consulta_SubSector_Controller_2" method="post">
+                    <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
 
-            <div class="col s9 offset-s2"><span class="flow-text">
+            <div class="col s6 offset-s3"><span class="flow-text">
                       <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
                         <center>
 
@@ -41,14 +40,7 @@
                             <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
                           </div>
                           </fieldset>
-           <div class="col s1"></div>
-=======
-<<<<<<< HEAD
-                    <form action="?c=Visitacion&a=ConsultaNacionalesController_2" method="post">
-=======
-                    <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
->>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
->>>>>>> master:view/visitacion/reportes/resultado_Nacionalidades.php
+           <!--INICIO DE COLUMNA-->
 
                      <fieldset class="input-field col s12 m5 l5">
                   <legend><h6>Fecha Final</h6></legend>
@@ -65,15 +57,26 @@
 
 
                 <div class="col s6 offset-s4"><span class="flow-text">
-                  <fieldset class="input-field col s12 m9 l6 ">
-                    <legend><h6>Escriba el Subsector</h6></legend>
-                    <div class="" >
-                      <i class="material-icons prefix">art_track</i>
-                      <input type="text" class="" id="" name="subSector" required>
-
-                    </div>
-                </fieldset>
-              </span></div>
+                  <fieldset class="input-field col s12 m6 l6 ">
+                    <div class=""><!---Inicio de la segunda fila-->
+                    <!--==============Cargando los paices==============================-->
+                      <?php
+                      $conexion = mysql_connect("localhost","root");
+                      mysql_select_db("sirevi",$conexion);
+                      $sentencia = "select nombre from sector order by nombre ASC";
+                      $query = mysql_query($sentencia);
+                      ?>
+                      <div  class="input-field col s6 m6 l12">
+                        <select name="sector">
+                          <option value="" disabled selected>Elija un Sector</option>
+                          <?php while ($arreglo = mysql_fetch_array($query)) {  ?>
+                          <option value="<?php echo $arreglo['id']?>"><?php echo $arreglo['nombre'] ?></option>
+                          <?php } ?>
+                        </select>
+                        <label>Sectores</label>
+                      </div>
+                    </fieldset>
+                  </span></div>
 
 
                       <div class="row">
@@ -103,7 +106,6 @@
           </div>
       </span>
       </div>
-    </div>
 <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
   <div class="">
     <div class="row">
@@ -111,57 +113,45 @@
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
           <thead class="white-text teal darken-4 z-depth-2">
      <tr>
-       <th>Nombre</th>
-       <th>Sector</th>
-       <th>SubSector</th>
-       <th>Fecha</th>
-       <th>Hora</th>
+       <th>Ingreso</th>
        <th>Salida</th>
-       <th>Proposito Visita</th>
+       <th>Nombre</th>
+       <th>Cedula/Pasaporte</th>
+       <th>Placa vehiculo</th>
+       <th>SubSector</th>
+       <th>Sector</th>
+       <th>Nacionales</th>
+       <th>Extranjeros</th>
+       <th>Exonerados</th>
+       <th>Prepagos</th>
+       <th>Monto Cancelado</th>
+
 
      </tr>
    </thead>
 
-<<<<<<< HEAD:view/visitacion/consultaSubSector.php
-</table>
-=======
-<<<<<<< HEAD
     <tbody>
-      <?php foreach ($this->model->ConsultaNacionalesModel_2() as $r): ?>
+        <?php foreach ($result as $r):?>
       <tr>
 
-<!--        <td><php echo $r->id; ?></td>
-        <td><php echo $r->fecha; ?></td>
-        <td><php echo $r->Pais; ?></td>
-        <td><php echo $r->Nombre; ?></td>
-        <td><php echo $r->tipo_pago; ?></td>
-        <td><php echo $r->moneda; ?></td>
-        <td><php echo $r->referencia_visita ?></td>
-      <!--  <td><php echo $r->Sector; ?></td> -->
-        <td><?php echo $r->fecha; ?></td>
-=======
-        <tbody>
-      <?php foreach ($this->model->Nacionalidades() as $r): ?>
-      <tr>
-
-        <td><?php echo $r->id; ?></td>
-        <td><?php echo $r->fecha; ?></td>
-        <td><?php echo $r->Pais; ?></td>
+        <td><?php echo $r->Hora_Entrada; ?></td>
+        <td><?php echo $r->Hora_Salida; ?></td>
         <td><?php echo $r->Nombre; ?></td>
-        <td><?php echo $r->tipo_pago; ?></td>
-        <td><?php echo $r->moneda; ?></td>
-        <td><?php echo $r->referencia_visita ?></td>
-      <!--  <td><?php echo $r->Sector; ?></td> -->
-        <td><?php echo $r->Sendero; ?></td>
+        <td><?php echo $r->noIdentificacion; ?></td>
+        <td><?php echo $r->placa_automovil; ?></td>
+        <td><?php echo $r->SubSector; ?></td>
+        <td><?php echo $r->Sector; ?></td>
+        <td><?php echo $r->Nacionales; ?></td>
+        <td><?php echo $r->Extranjeros; ?></td>
+        <td><?php echo $r->Total_exonerados; ?></td>
+        <td><?php echo $r->Prepago; ?></td>
+        <td><?php echo $r->Total_Pago ?></td>
 
-
->>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
       </tr>
       <?php endforeach; ?>
     </tbody>
 
       </table>
->>>>>>> master:view/visitacion/reportes/resultado_Nacionalidades.php
 
       <td colspan="8" class="text-center">
               <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>

@@ -22,6 +22,9 @@ try{
 	$resultado_sector->execute();
 
 
+	$resultado_usuario->execute();
+	$resultado_sector->execute();
+
 		$res_usuario = $resultado_usuario->fetchAll();
 		$res_sector = $resultado_sector->fetchAll();
 

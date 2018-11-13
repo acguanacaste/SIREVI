@@ -59,6 +59,15 @@
                     </div>
 
 
+                   <!--INICIO DE COLUMNA -->
+                   <div class="">
+                     <div class="input-field col s12 m10 l12 ">
+                       <input  id="asp" type="text" name="asp" value="<?php echo $sector->asp; ?>"   class="validate form-control" data-validacion-tipo="requerido|min:15">
+                       <label for="asp"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
+                     </div>
+               </div><!--FIN DEL DIV DE FILA-->
+
+
                <div class="">
                  <fieldset>
                    <legend>Tarifas de admisión por el día</legend>
@@ -117,6 +126,7 @@
                   <legend>Cambio dolar</legend>
                  <div class="">
                    <input  id="" type="number" name="cambio_dolar" value="<?php echo $sector->cambio_dolar; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
+
                  </div>
                </fieldset>
                </div>
