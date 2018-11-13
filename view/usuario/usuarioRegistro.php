@@ -8,7 +8,7 @@
           <hr>
 <!--===========================================================================================================-->
 <fieldset>
-  <legend><h5>Modulo Usuarios Modificado</h5>
+  <legend><h5>Modulo Usuarios</h5>
    <h6>Utilice los campos habilitados para completar información </h6></legend>
     <div class=" contact">
       <br>

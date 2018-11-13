@@ -1,12 +1,12 @@
 <?php
-require_once 'model/Ciudad.php';
+require_once 'model/Provincia.php';
 
-class CiudadController{
+class ProvinciaController{
 
     private $model;
 
     public function __CONSTRUCT(){
-        $this->model = new Ciudad();
+        $this->model = new Provincia();
     }
 
     public function Index(){
@@ -18,7 +18,7 @@ class CiudadController{
 
 
     public function Modificar(){
-        $provincia = new Ciudad();
+        $provincia = new Provincia();
 
         if(isset($_REQUEST['id'])){
             $provincia = $this->model->Obtener($_REQUEST['id']);
@@ -31,10 +31,10 @@ class CiudadController{
 
 
     public function agregarRegistro(){
-        $ciudad = new Ciudad();
+        $provincia = new Provincia();
 
         if(isset($_REQUEST['id'])){
-            $ciudad = $this->model->Obtener($_REQUEST['id']);
+            $provincia = $this->model->Obtener($_REQUEST['id']);
         }
 
         require_once 'view/includes/header.php';
@@ -45,21 +45,21 @@ class CiudadController{
 
 
     public function Guardar(){
-        $ciudad = new Ciudad();
-        $ciudad->id = $_REQUEST['id'];
-        $ciudad->nombre = $_REQUEST['nombre'];
-        $ciudad->codigo = $_REQUEST['codigo'];
+        $provincia = new Provincia();
+        $provincia->id = $_REQUEST['id'];
+        $provincia->nombre = $_REQUEST['nombre'];
+        $provincia->codigo = $_REQUEST['codigo'];
 
 
-        $ciudad->id > 0
-            ? $this->model->Actualizar($ciudad)
-            : $this->model->Registrar($ciudad);
+        $provincia->id > 0
+            ? $this->model->Actualizar($provincia)
+            : $this->model->Registrar($provincia);
 
-        header('Location: index.php?c=Ciudad');
+        header('Location: index.php?c=Provincia');
     }
 
     public function Eliminar(){
         $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=Ciudad');
+        header('Location: index.php?c=Provincia');
     }
 }

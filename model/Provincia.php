@@ -1,5 +1,5 @@
 <?php
-class Ciudad{
+class Provincia{
 	private $pdo;
 
     public $id;
