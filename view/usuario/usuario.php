@@ -40,10 +40,10 @@
               <th>Puesto</th>
               <th>E-mail</th>
               <th style="width:90px; heigth:110px;">Imagen</th>
-              <th style="width:40px;heigth:5px;"></th>
+              <th style="heigth:30px;"></th>
               <th>Estado</th>
-                <th style="width:40px;heigth:20px;"></th>
-            <th colspan="2" >Acción</th>
+                <th style="heigth:20px;"></th>
+            <th >Acción</th>
             </tr>
           </thead>
           <tbody>

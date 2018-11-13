@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <?php
 require_once 'config/config.php'
 ?>
-=======
->>>>>>> master
 
 <main>
   <div class="container">
@@ -24,20 +21,12 @@ require_once 'config/config.php'
                       <div class="row"><!---Inicio de dos columnas-->
                       <div class="col m1">
 
-<<<<<<< HEAD
                       </div>
                        <div class="input-field col s6 m4 l2">
                         <fieldset><center><legend>Total Ingresos</legend></center>
                           <center>
                             <div class="btn teal darken-4 right-align "><?php echo $this->model->Consecutivo(); ?></div>
                           </center>
-=======
-                      <div class="input-field col s6 m4 l2">
-                        <fieldset><center><legend>Numero diario</legend></center>
-                          <center>
-                          <div class="btn teal darken-4 right-align "> #&nbsp;00 </div>
-                        </center>
->>>>>>> master
                         </fieldset>
                       </div>
 
@@ -47,21 +36,13 @@ require_once 'config/config.php'
                       <div class="input-field col s6 m4 l3 hide-on-med-and-down">
                         <fieldset><center><legend>Capacidad de Sector</legend></center>
                           <center>
-<<<<<<< HEAD
                             <div class="btn <?php echo $warning ?> darken-4 right-align ">
                               <?php echo $this->model->Cantidad_Personas_Dentro_Parque();?>&nbsp;/&nbsp;<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
-=======
-                            <div class="btn teal darken-4 right-align "> AquiSesh/<?php echo $_SESSION['sector']['capacidadDiaria'] ?> </div>
->>>>>>> master
                           </center>
                         </fieldset>
                       </div>
 
-<<<<<<< HEAD
                       <div class="input-field col s6 m6 l3">
-=======
-                      <div class="input-field col s6 m4 l3">
->>>>>>> master
                         <fieldset><center><legend>Sector</legend></center>
                           <center>
                             <div class="btn teal darken-4 right-align "><?php echo $_SESSION['sector']['sectorNombre'];?></div>
@@ -69,11 +50,7 @@ require_once 'config/config.php'
                         </fieldset>
                       </div>
 
-<<<<<<< HEAD
                       <div class=" hide-on-med-and-down input-field col s6 m4 l3">
-=======
-                      <div class="input-field col s6 m4 l3">
->>>>>>> master
                         <fieldset><center><legend>Usuario</legend></center>
                           <center>
                             <div name="usuario" value="<?php echo $_SESSION['usuario']['nombre'];?>" class="btn teal darken-4 right-align "><?php echo $_SESSION['usuario']['nombre'];?></div>
@@ -106,17 +83,10 @@ require_once 'config/config.php'
                   <input type="hidden" name="asp" value="<?php echo $_SESSION['sector']['areaSilvestreProtegida']; ?>" />
                   <input type="hidden" name="sector" value="<?php echo $_SESSION['sector']['id_Sector']; ?>" />
                   <input type="hidden" name="usuario" value="<?php echo $_SESSION['usuario']['id']; ?>">
-<<<<<<< HEAD
 
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">
-=======
-
-
-                  <div class="">
-                  <div class="input-field col s12 m4 l6">
->>>>>>> master
                    <fieldset  class="z-depth-1 ">
                      <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
                        <div class="input-field col s12 m12 l12">
@@ -134,11 +104,7 @@ require_once 'config/config.php'
 
 
 
-<<<<<<< HEAD
                   <div class="input-field col s12 m6 l6 ">
-=======
-                  <div class="input-field col s12 m4 l6 ">
->>>>>>> master
                     <fieldset>
                       <legend>Sub sector al que se dirije</legend>
                       <div class="input-field col s12 m12 l12">
@@ -202,13 +168,8 @@ require_once 'config/config.php'
                   <div class=""><!--Columna-->
                     <!--================Cargando los senderos==============================-->
                     <div class="">
-<<<<<<< HEAD
                       <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
                      <select name="sendero" multiple required>
-=======
-                      <div class="input-field col s12 m4 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
-                      <select name="sendero" multiple required>
->>>>>>> master
                           <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
                            <?php while ($arreglo_sendero = mysqli_fetch_array($query_sendero)) {  ?>
                            <option value="<?php echo $arreglo_sendero['id']?>"><?php echo $arreglo_sendero['nombre'] ?></option>
@@ -220,7 +181,6 @@ require_once 'config/config.php'
                 </div>
               </div>
 
-<<<<<<< HEAD
               <fieldset class="input-field col s12 m7 l8 z-depth-2">
                 <legend>Referencia de Visitacion</legend>
                       <div>
@@ -243,30 +203,6 @@ require_once 'config/config.php'
                          <option value="Otro">Otro</option>
 
                       </SELECT>
-=======
-              <fieldset class="input-field col s12 m6 l8 z-depth-2">
-                <legend>Referencia de Visitacion</legend>
-                      <div>
-                        <div>
-                             <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
-                                <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
-                                <option value="" disabled selected>&nbsp;Elija una opción</option>
-                                <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
-                                <option value="Referencia de alguien mas">2. Referencia de alguien mas</option>
-                                <option value="Recomendación por amigos">3. Recomendación por amigos</option>
-                                <option value="Visita reiterada">4. Visita reiterada</option>
-                                <option value="Selección directa personal">5. Selección directa personal (Check list)</option>
-                                <option value="Guías impresas">6. Guías impresas</option>
-                                <option value="Operadora turistica">7. Operadora turística</option>
-                                <option value="Medio de comunicación">8. Medio de comunicación</option>
-                                <option value="Grupo comunal organizado">9. Grupo comunal organizado</option>
-                                <option value="Empresa privada">10. Empresa privada</option>
-                                <option value="ONGs en proyectos de investigación y conservación">11. ONGs en proyectos de investigación y conservación</option>
-                                <option value="Institución pública">12. Institución pública</option>
-                                <option value="Otro">Otro</option>
-
-                             </SELECT>
->>>>>>> master
                         </div>
 
                         <div id="no_name_input" style="display:none;"></div>
@@ -285,10 +221,6 @@ require_once 'config/config.php'
 
                 <div  class="input-field col s12 m4 l3"><!--Columna-->
                     <fieldset ><legend>Dias acampando</legend>
-<<<<<<< HEAD
-=======
-
->>>>>>> master
                         <div class="input-field col s12 m12 l12  ">
                           <input  id="dias_camping" type="number" name="dias_camping" onkeyup="monto_Personas_Acampando();" value="" class="validate" >
                           <label for="dias_camping" > <span class="hide-on-small-only">
@@ -300,15 +232,6 @@ require_once 'config/config.php'
                           <br>
                           <input  id="personas_acampando" type="number" name="personas_acampando" onkeyup="monto_Personas_Acampando();" value="" class="validate" >
                         </div>
-<<<<<<< HEAD
-=======
-
-                        <div class="input-field col s12 m12 l12">
-                        Cantidad Personas*:
-                          <br>
-                          <input  id="cant_personas_camping" type="number" name="cant_personas_camping" value="" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" >
-                        </div>
->>>>>>> master
                     </fieldset>
               </div><!--Fin de la tercera fila-->
 
@@ -329,7 +252,6 @@ require_once 'config/config.php'
             <div class="input-field col s12 m12 l12">
               <fieldset class="z-depth-3">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
-<<<<<<< HEAD
                 <div class="input-field col s6 m6 l4  ">
                   <input  id="nacional_adult" type=number name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
                   <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
@@ -342,27 +264,9 @@ require_once 'config/config.php'
 
               <div class="input-field col s12 m6 l4  ">
                   <input  id="estudiantes" type="number" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
-=======
-                <div class="input-field col s6 m4 l3  ">
-                  <input  id="nacional_adult" type="text" name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
-                  <label for="nacional_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
-               </div>
-
-                <div class="input-field col s6 m4 l3  ">
-                  <input  id="nacional_kid" type="text" name="nacional_kid" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
-                  <label for="nacional_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
-              </div>
-
-              <div class="input-field col s12 m4 l3  ">
-                  <input  id="estudiantes" type="text" name="estudiantes"  class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" >
->>>>>>> master
                   <label for="estudiantes" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Estudiantes </label>
             </div>
 
-            <div class="input-field col s6 m4 l3  ">
-              <input  id="nacional_exonerado" type="number" name="nacional_exonerado" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
-             <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
-           </div>
 
             <div class="row">
                 <div class="col s6 offset-s3"><span class="flow-text">
@@ -371,7 +275,6 @@ require_once 'config/config.php'
                        <label for="nacional_prepago" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Prepago</label>
                      </div>
 
-<<<<<<< HEAD
                       <div class="input-field col s6 m6 l6  ">
                         <input  id="nacional_exonerado" type="number" name="nacional_exonerado"  value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10">
                        <label for="nacional_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
@@ -414,41 +317,11 @@ require_once 'config/config.php'
         </div>
 
 
-=======
-        </div><!--Fin de la primera fila-->
-
-        <div class="">
-          <div class="input-field col s12 m12 l12">
-            <fieldset class="z-depth-3">
-              <legend>&nbsp;Extranjeros&nbsp;</legend>
-
-              <div class="input-field col s6 m6 l4  ">
-                <input  id="extranjero_adult" type="text" name="extranjero_adult" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="extranjero_adult" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Adultos </label>
-              </div>
-
-              <div class="input-field col s6 m6 l4  ">
-                <input  id="extranjero_kid" type="text" name="extranjero_kid" class="validate" onkeyup="sumaExtranjeros_Dia(); sumatoria_All(); monto_total_pagar();" class="form-control" data-validacion-tipo="requerido|min:10">
-                <label for="extranjero_kid" ><span class="hide-on-small-only"><i class="small material-icons">offline_pin</i></span>&nbsp;Niños </label>
-              </div>
-
-              <div class="input-field col s6 m4 l4  ">
-                <input  id="extranjero_exonerado" type="number" name="extranjero_exonerado" value="" onkeyup="sumatoria_All();" class="validate" class="form-control" data-validacion-tipo="requerido|min:10">
-               <label for="extranjero_exonerado" > <span class="hide-on-small-only"><i class="small material-icons">perm_identity</i></span>&nbsp;Exonerado</label>
-             </div>
-
-            </fieldset>
-          </div>
-
-        </div>
-
->>>>>>> master
         <div class=""><!--Tercera fila-->
           <div class="input-field col s12 m12 l12">
             <fieldset class="z-depth-3">
               <legend>Personas surfistas</legend>
               <div class=""><!--Inicio de la segunda fila-->
-<<<<<<< HEAD
 
                 <div class="input-field col s12 m6 l6  ">
                 <input  id="nacional_surf" type="number" name="nacional_surf" value="" class="validate" onkeyup="suma_Surf_Nacionales(); monto_total_pagar();" >
@@ -460,17 +333,6 @@ require_once 'config/config.php'
                    <label for="extranjero_surf"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Surfistas Extranjeros</label>
                  </div>
 
-=======
-                <div class="input-field col s12 m4 l6  ">
-                <input  id="personas_surf" type="number" name="personas_surf" value="" class="validate" onkeyup="sumaPersonasSurf(); monto_total_pagar();" >
-                    <label for="personas_surf" >  <i class="small material-icons">supervisor_account</i>&nbsp;Cantidad Personas Surf</label>
-                </div>
-
-                 <div class="input-field col s6 m4 l6  ">
-                   <input  id="prepago" type="number" name="prepago" value="" class="validate" onkeyup="sumatoria_All();" class="form-control" data-validacion-tipo="requerido|min:10" >
-                   <label for="prepago"><span class="hide-on-small-only"><i class="small material-icons">picture_in_picture</i></span>&nbsp;Prepago</label>
-                 </div>
->>>>>>> master
               </div><!--Fin del div de la segunda fila -->
             </fieldset>
           </div>
@@ -623,7 +485,6 @@ require_once 'config/config.php'
   </fieldset>
 
   <!--BOTON QUE ME ENVIA EL FORMULARIO-->
-<<<<<<< HEAD
       <fieldset>
         <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
             value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
@@ -642,23 +503,6 @@ require_once 'config/config.php'
       <div class="right hide-on-large-only">
         <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
       </div>
-=======
-<fieldset>
-  <button title="Enviar" class="btn waves-effect waves-light teal darken-4"
-      value="enviar"  type="submit" name="action"><span class="hide-on-small-only">Enviar</span>
-      <i class="mdi-content-send material-icons right">done</i>
-  </button>
-
-    <!--BOTON QUE ME BORRA LO QUE ESCRIBI EN EL FORMULARIO-->
-  <button title="Limpiar Pantalla" class="btn waves-effect waves-light teal darken-4"
-    value="reset"  type="reset" name="action"><span class="hide-on-small-only">Limpiar</span>
-    <i class="mdi-content-send material-icons right">delete</i>
-  </button>
-</fieldset>
-
-</div>
-      </form>
->>>>>>> master
     </div>
 <!--   <h5>El usuario, el ASP, Y EL SECTOR SON VARIABLES QUE SE INGRESARAN CON LA SESION, PENDIENTE DE IMPLEMANTAR</h5>
   -->   </div>
@@ -714,23 +558,13 @@ require_once 'config/config.php'
           var valor5=verificar("extranjero_kid");
           var valor6=verificar("nacional_exonerado");
           var valor7=verificar("extranjero_exonerado");
-<<<<<<< HEAD
       //    var valor8=verificar("prepago");
           var valor9=verificar("nacional_prepago");
           var valor10=verificar("extranjero_prepago");
-=======
-          var valor8=verificar("prepago");
->>>>>>> master
 
           document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)
           +parseFloat(valor4)+parseFloat(valor5)+parseFloat(valor6)+parseFloat(valor7)+parseFloat(valor9)+parseFloat(valor10);
 
-<<<<<<< HEAD
-=======
-          document.getElementById("total_All").value=parseFloat(valor1)+parseFloat(valor2)+parseFloat(valor3)
-          +parseFloat(valor4)+parseFloat(valor5)+parseFloat(valor6)+parseFloat(valor7)+parseFloat(valor8);
-
->>>>>>> master
       }
 /*=====================================================================================================================================*/
       function monto_total_pagar(){/*Calcula el total a pagr inluyendo el derecho de surfing en playa naranjo*/
@@ -776,7 +610,6 @@ function suma_Surf_Extranjeros(){
 }
 
 /*=======================================================================================================================================*/
-<<<<<<< HEAD
 function monto_Personas_Acampando(){
     var valor1=verificar("dias_camping");
     var valor2=verificar("personas_acampando")
@@ -800,33 +633,6 @@ function verificar(id){//Verifica que sean datos numericos
       // marcamos como erroneo
       obj.style.borderColor="#f00";
       return 0;
-=======
-function sumaPersonasDentroParque(){
-    var valor1=verificar("cant_personas_camping");
-//El monto a cobrar esta en dolares para mas agilidad, a los nacionales se les cobre en colones 2000 por persona
-    document.getElementById("total_personas_camping").value=(parseFloat(valor1)*4);
-
-}
-/*================================================================================================================================*/
-
-
-
-      function verificar(id){//Verifica que sean datos numericos
-          var obj=document.getElementById(id);
-          if(obj.value=="")
-              value="0";
-          else
-              value=obj.value;
-          if(validate_importe(value,1)){
-              // marcamos como erroneo
-              obj.style.borderColor="#808080";
-              return value;
-          }else{
-              // marcamos como erroneo
-              obj.style.borderColor="#f00";
-              return 0;
-          }
->>>>>>> master
       }
   }
 //=========================================================================================================================================

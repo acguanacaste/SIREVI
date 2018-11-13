@@ -24,7 +24,6 @@
               <th>Sector</th>
               <th>Caracterización</th>
               <th>Tipo</th>
-              <th>Descripción</th>
               <th style="width:40px;"></th>
               <th colspan="3">Acción</th>
             </tr>

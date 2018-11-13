@@ -27,7 +27,6 @@
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
-<<<<<<< HEAD:view/visitacion/consultaSubSector.php
                     <form action="?c=Visitacion&a=Consulta_SubSector_Controller_2" method="post">
 
             <div class="col s9 offset-s2"><span class="flow-text">
@@ -42,13 +41,6 @@
                           </div>
                           </fieldset>
            <div class="col s1"></div>
-=======
-<<<<<<< HEAD
-                    <form action="?c=Visitacion&a=ConsultaNacionalesController_2" method="post">
-=======
-                    <form action="?c=Visitacion&a=ConsultaNacionalesController" method="post">
->>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
->>>>>>> master:view/visitacion/reportes/resultado_Nacionalidades.php
 
                      <fieldset class="input-field col s12 m5 l5">
                   <legend><h6>Fecha Final</h6></legend>
@@ -122,46 +114,7 @@
      </tr>
    </thead>
 
-<<<<<<< HEAD:view/visitacion/consultaSubSector.php
 </table>
-=======
-<<<<<<< HEAD
-    <tbody>
-      <?php foreach ($this->model->ConsultaNacionalesModel_2() as $r): ?>
-      <tr>
-
-<!--        <td><php echo $r->id; ?></td>
-        <td><php echo $r->fecha; ?></td>
-        <td><php echo $r->Pais; ?></td>
-        <td><php echo $r->Nombre; ?></td>
-        <td><php echo $r->tipo_pago; ?></td>
-        <td><php echo $r->moneda; ?></td>
-        <td><php echo $r->referencia_visita ?></td>
-      <!--  <td><php echo $r->Sector; ?></td> -->
-        <td><?php echo $r->fecha; ?></td>
-=======
-        <tbody>
-      <?php foreach ($this->model->Nacionalidades() as $r): ?>
-      <tr>
-
-        <td><?php echo $r->id; ?></td>
-        <td><?php echo $r->fecha; ?></td>
-        <td><?php echo $r->Pais; ?></td>
-        <td><?php echo $r->Nombre; ?></td>
-        <td><?php echo $r->tipo_pago; ?></td>
-        <td><?php echo $r->moneda; ?></td>
-        <td><?php echo $r->referencia_visita ?></td>
-      <!--  <td><?php echo $r->Sector; ?></td> -->
-        <td><?php echo $r->Sendero; ?></td>
-
-
->>>>>>> 5dcb12cff601f083d8d8057e37f4b8b93f3ef03d
-      </tr>
-      <?php endforeach; ?>
-    </tbody>
-
-      </table>
->>>>>>> master:view/visitacion/reportes/resultado_Nacionalidades.php
 
       <td colspan="8" class="text-center">
               <a href="?c=Visitacion&a=Excel">Exportar a Excel</a>

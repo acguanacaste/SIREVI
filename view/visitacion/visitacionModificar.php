@@ -131,16 +131,21 @@
     <!--===================================================================================================================================================-->
                 <div class=""><!---Inicio de la segunda fila-->
                 <!--==============Cargando los paices==============================-->
-
+                  <!-- <php
+                  $conexion = mysql_connect("localhost","root");
+                  mysql_select_db("sirevi",$conexion);
+                  $sentencia_pais = "select * from pais order by nombre ASC";
+                  $query_pais = mysql_query($sentencia_pais);
+                  ?>
                   <div  class="input-field col s6 m6 l4">
                     <select name="pais">
                       <option value="" disabled selected>Elija un pais</option>
-                      <?php while ($arreglo_pais = mysqli_fetch_array($query_pais)) {  ?>
-                      <option value="<?php echo $arreglo_pais['id']?>" <?php echo $visit->pais_id ==$arreglo_pais['id']?"selected":null; ?>> <?php echo $arreglo_pais['nombre'] ?></option>
-                      <?php } ?>
+                      <php while ($arreglo_pais = mysql_fetch_array($query_pais)) {  ?>
+                      <option value="<php echo $arreglo_pais['id']?>" <php echo $visit->pais_id ==$arreglo_pais['id']?"selected":null; ?>> <?php echo $arreglo_pais['nombre'] ?></option>
+                      <php } ?>
                     </select>
                     <label>País</label>
-                  </div>
+                  </div> -->
 
 
 <!--==============Cargando las cuidades============================================-->
@@ -161,24 +166,29 @@
 <!--=================Fin del codigo para ciudades ===============-->
 <!--==================================================================================================================================-->
     <!--==================================================Lineas de codigo, respecto visitacion=========================================================-->
-
-                <div class=""><!--Inicio de la tercera fila-->
-                  <div class=""><!--Columna-->
-
-                    <!--================Cargando los senderos==============================-->
+<!--
+                <div class=""><!--Inicio de la tercera fila--
+                  <div class=""><!--Columna--
+                    <php
+                    $conexion = mysql_connect("localhost","root");
+                    mysql_select_db("sirevi",$conexion);
+                    $sentencia_sendero = "select * from sendero order by nombre ASC";
+                    $query_sendero = mysql_query($sentencia_sendero);
+                    ?>
+                    <!--================Cargando los senderos==============================--
                     <div class="">
-                      <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo-->
+                      <div class="input-field col s12 m6 l4"><!--vista small numero 12 araque abarque todo el ancho del dispositivo--
                         <select name="sendero" multiple required>
                             <option value="" disabled selected>&nbsp;Seleccionar Senderos</option>
-                             <?php while ($arreglo_sendero = mysqli_fetch_array($query_sendero)) {  ?>
-                             <option value="<?php echo $arreglo_sendero['id']?>" <?php echo $visit->sendero ==$arreglo_sendero['id']?"selected":null; ?>> <?php echo $arreglo_sendero['nombre'] ?></option>
-                           <?php } ?>
+                             <php while ($arreglo_sendero = mysql_fetch_array($query_sendero)) {  ?>
+                             <option value="<php echo $arreglo_sendero['id']?>" <php echo $visit->sendero ==$arreglo_sendero['id']?"selected":null; ?>> <?php echo $arreglo_sendero['nombre'] ?></option>
+                             <php } ?>
                           </select>
                       <label><span class="hide-on-small-only"><i class="small material-icons">swap_calls</i></span></label>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <fieldset class="input-field col s12 m7 l8 z-depth-2">
                 <legend>Referencia de Visitacion</legend>
