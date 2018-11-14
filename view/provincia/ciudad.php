@@ -17,7 +17,7 @@
 
 <!--==================================   Inicio de la barra lateral y desplegable ===================================================-->
       <ul id="slide-out" class="side-nav fixed">
-        <li><div class="userView">
+        <li><div class="userView"><!-- Imagen avatar e informacion -->
           <img class="background" src="assets/img/CasonaSantaRosa.jpg">
           <a href="#!user"><img class="circle" src="assets/img/yo.JPG"></a>
           <a href="#!name"><span class="white-text name">Alex M.Luna</span></a>
