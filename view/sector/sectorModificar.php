@@ -47,6 +47,7 @@
 
                    <div class="row">
                       <div class="input-field col s12">
+<<<<<<< HEAD
                         <div class="input-field col s12 m12 l12" >
                           <select disabled name="asp" value="<?php echo $sector->asp; ?>" required>
                             <option value="" disabled selected>Elija una opción</option>
@@ -55,6 +56,10 @@
                           </select>
                           <label for="puesto">Área Silvestre Protegida</label>
                         </div>
+=======
+                        <input name="asp" disabled value="<?php echo $sector->asp; ?>" id="disabled" type="text" class="validate">
+                        <label for="disabled"> <i class="small material-icons">location_on</i><span class="hide-on-small-only">Área Silvestre Protegida</span></label>
+>>>>>>> User experience has been improved making sure the medium screen and large screen matches on every input on Modificar Informacion and Registro Visitacion, also adding Pagina Anterior button to make it more user friendly an easier way to surf on the system
                       </div>
                     </div>
 
