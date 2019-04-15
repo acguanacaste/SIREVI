@@ -15,6 +15,8 @@ header("Location:?c=login&a=index");
 	<script  src="assets/data-tables/data-tables-script.js"></script>
 	<script type="text/javascript" src="assets/data-tables/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="aseets/data-tables/data-tables-script.js"></script>
+
+	
 	<link href="assets/js/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<script type="text/javascript" src="indexAjax.js"></script>
@@ -65,7 +67,7 @@ function pagoOnChange(sel) {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--Fin de lineas de codigo bootstrap-->
+<!-Fin de lineas de codigo bootstrap-->
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--PARA LOS ICONOS-->
 	<!-- Compiled and minified CSS -->

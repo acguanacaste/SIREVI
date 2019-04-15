@@ -498,13 +498,8 @@ require_once 'config/config.php'
         </button>
       </fieldset>
 
-<<<<<<< HEAD
       </div>
 </form>
-=======
-</div>
-      </form>
->>>>>>> User experience has been improved making sure the medium screen and large screen matches on every input on Modificar Informacion and Registro Visitacion, also adding Pagina Anterior button to make it more user friendly an easier way to surf on the system
       <div class="right hide-on-large-only">
         <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
       </div>

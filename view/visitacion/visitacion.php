@@ -36,30 +36,21 @@
             <div class="body "><span >
               <form action="?c=Visitacion&a=busquedaVisitacion" method="post">
 
-<<<<<<< HEAD
   <div class="col s11 offset-s1"><span class="flow-text">
-=======
->>>>>>> User experience has been improved making sure the medium screen and large screen matches on every input on Modificar Informacion and Registro Visitacion, also adding Pagina Anterior button to make it more user friendly an easier way to surf on the system
                 <div class="input-field col s12 m3 l3">
                   <i class="small material-icons">contact_mail</i>
                   <input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;">
                 </div>
 <div class="col s1">
 
-<<<<<<< HEAD
 </div>
-=======
->>>>>>> User experience has been improved making sure the medium screen and large screen matches on every input on Modificar Informacion and Registro Visitacion, also adding Pagina Anterior button to make it more user friendly an easier way to surf on the system
               <div class="input-field col s12 m3 l3">
                     <i class="small material-icons">picture_in_picture</i>
                     <input type="text" name="noIdentificacion" class="black-text" placeholder="Identificacion" style="width:200px;">
               </div>
 <div class="col s1">
 
-<<<<<<< HEAD
 </div>
-=======
->>>>>>> User experience has been improved making sure the medium screen and large screen matches on every input on Modificar Informacion and Registro Visitacion, also adding Pagina Anterior button to make it more user friendly an easier way to surf on the system
               <div class="input-field col s12 m3 l3">
             <i class="small material-icons">directions_car</i>
             <input type="text" name="placa_automovil" class="black-text" placeholder="No.Placa" style="width:200px;">
