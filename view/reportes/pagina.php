@@ -81,3 +81,53 @@ $(document).ready(function(){
     </div>
 
   </div>
+
+
+
+<!--This is the code javascript for the date Validation-->
+<!--<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Dates Greater than the other</h2>
+
+<form onsubmit="dateValidation()">
+  Start Date:<br>
+  <input type="date" id="fechaInicio"><br>
+  
+  End Date:<br>
+  <input type="date" id="fechaFinal">
+  
+    <button title="Enviar" type="submit"><font size=3>Consultar</font>
+      
+   </button>
+</form>
+
+<script>
+function dateValidation() {
+	var inicio;
+	var final;
+
+	document.getElementById("fechaInicio").innerHTML = inicio;
+	document.getElementById("fechaFinal").innerHTML = final;
+
+    if (final == inicio){
+      alert("The start date is greater than end date, please try again!!!")
+    }
+
+}
+</script> 
+
+</body>
+
+var startDate = new Date($('#startDate').val());
+var endDate = new Date($('#endDate').val());
+
+if (startDate < endDate){
+// Do something
+}
+</html>-->
+
+
+
+

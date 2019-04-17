@@ -121,4 +121,20 @@
     </div><!--Div del row-->
   </div><!--Div del container-->
 </main>
+
+<script>
+function dateValidation() {
+	var StartDate = $_REQUEST['fechaInicio'];
+  var EndDate = $_REQUEST['fechaFinal'];
+
+if (EndDate > StartDate) {
+  alert("The date has been inserted")
+  
+} else {
+  alert("The date has been inserted from else")
+}
+
+
+}
+</script>
 <?php endif; ?>

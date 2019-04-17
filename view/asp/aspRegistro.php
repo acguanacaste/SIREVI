@@ -22,8 +22,8 @@
             <form id="frm-asp" action="?c=ASP&a=Guardar" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id" value="" />
               <div>
-
-
+                           
+            
                 <div class="input-field col s12">
                  <select  id="nombre" name="nombre" data-value="<?php echo $asp->nombre; ?>" required>
                    <option value="" disabled selected></option>
@@ -109,7 +109,6 @@
                     <li>
                     <hr>
 
-
                   </ul>
                 </div>
               </div>
@@ -120,6 +119,7 @@
         </main>
   </body>
   <script>
+
       $(document).ready(function(){
           $("#frm-asp").submit(function(){
               return $(this).validate();
