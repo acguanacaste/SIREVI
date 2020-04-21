@@ -1,11 +1,11 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
   <a href="?c=Visitacion&a=Reporte"><span class="hide-on-med-and-up">
-    <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+    <i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
     <a   href="?c=Visitacion&a=Reporte">
-      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+      <i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
 
@@ -23,21 +23,21 @@
             <div class="col s12 m12 l12">
 
               <fieldset>
-                <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+                <ul class="input-field col s12 m12 l12 popout " data-collapsible="accordion">
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
                   <div class="body "><span >
                     <form action="?c=Visitacion&a=Consulta_ReporteDiario_Controller" method="post">
 
             <div class="col s6 offset-s3"><span class="flow-text">
-                      <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
+                      <div class=" "><!--INICIO DEL DIV DE LA FILA-->
                         <center>
 
                           <fieldset class="input-field col s12 m5 l5">
                               <legend><h6>Fecha Inicio</h6></legend>
                           <div class="">
                              <i class="material-icons prefix">event_note</i>
-                            <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
+                            <input type="date" name="fechaInicio" id="fechaInicio" required>
                           </div>
                           </fieldset>
            <!--INICIO DE COLUMNA-->
@@ -46,7 +46,7 @@
                   <legend><h6>Fecha Final</h6></legend>
                        <div class="" >
                          <i class="material-icons prefix">event_note</i>
-                         <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                         <input type="date" name="fechaFinal" id="fechaFinal" required>
 
                        </div>
 
@@ -82,7 +82,7 @@
                       <div class="row">
                         <div class="center"><span class="flow-text">
                           <div class="input-field col s12 m12 l12">
-                          <fieldset class="z-depth-2">
+                          <fieldset class="">
                             <button title="Enviar" class=" right small btn waves-effect waves-light teal darken-4"
                               value="Buscar"  type="submit" name="action"><span class="hide-on-small-only "><font size=3>Consultar</font></span>
                               <i class=" small material-icons right">pageview</i>
@@ -111,7 +111,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-          <thead class="white-text teal darken-4 z-depth-2">
+          <thead class="white-text teal darken-4 ">
      <tr>
        <th>Ingreso</th>
        <th>Salida</th>

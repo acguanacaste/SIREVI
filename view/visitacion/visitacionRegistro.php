@@ -87,12 +87,12 @@ require_once 'config/config.php'
 
                   <div class="">
                   <div class="input-field col s12 m6 l6">
-                   <fieldset  class="z-depth-1 ">
+                   <fieldset  >
                      <legend>&nbsp;Proposito de Visitación&nbsp;</legend>
                        <div class="input-field col s12 m12 l12">
                          <select id="proposito_visita" name="proposito_visita">
                              <option id="proposito_visita" value="" disabled selected>&nbsp;Proposito de Visita</option>
-                             <option value="Visita por el dia">Por el dia</option>
+                             <option value="Visita por el dia" selected>Por el dia</option>
                              <option value="Acampando">Acampando</option>
                              <option value="Hospedado en estacion biologica">Hospedado estación biológica.</option>
                            </select>
@@ -181,14 +181,14 @@ require_once 'config/config.php'
                 </div>
               </div>
 
-              <fieldset class="input-field col s12 m7 l8 z-depth-2">
+              <fieldset class="input-field col s12 m7 l8 ">
                 <legend>Referencia de Visitacion</legend>
                       <div>
                         <div>
                           <SELECT name="referencia_visita" onChange="pagoOnChange(this)">
                          <!--<OPTION VALUE="transferencia">Transferencia</OPTION>-->
                          <option value="" disabled selected>&nbsp;Elija una opción</option>
-                         <option value="Espontaneamente en ruta">1. Espontaneamente en ruta</option>
+                         <option value="Espontaneamente en ruta" selected>1. Espontaneamente en ruta</option>
                          <option value="Referencia de alguien más">2. Referencia de alguien más</option>
                          <option value="Recomendación por amigos">3. Recomendación por amigos</option>
                          <option value="Visita reiterada">4. Visita reiterada</option>
@@ -207,7 +207,7 @@ require_once 'config/config.php'
 
                         <div id="no_name_input" style="display:none;"></div>
 
-                        <fieldset   id="nombre_referencia" style="display:;" class="z-depth-2">
+                        <fieldset   id="nombre_referencia" style="display:;" class="">
                           <div id="nombre_referencia" style="display:;">
                              <br>
                              Nombre*:
@@ -241,7 +241,7 @@ require_once 'config/config.php'
 <div class="input-field col s12 m12 l12"><!--IInicio de lineas para cantidad de personas-->
 <ul class="" data-collapsible="">
    <li>
-     <div class="center-align collapsible-header teal darken-4  white-text z-depth-3">
+     <div class="center-align collapsible-header teal darken-4  white-text ">
                     <i class=" material-icons">supervisor_account</i>Cantidad de personas</div>
 
      <div class="">
@@ -250,7 +250,7 @@ require_once 'config/config.php'
          <div class="">
           <div class=""><!--Inicio de la primea fila dentro del collapsible-->
             <div class="input-field col s12 m12 l12">
-              <fieldset class="z-depth-3">
+              <fieldset class="">
                 <legend>&nbsp;Nacionales&nbsp;</legend>
                 <div class="input-field col s6 m6 l4  ">
                   <input  id="nacional_adult" type=number name="nacional_adult" class="validate" onkeyup="sumaNacionales_Dia(); sumatoria_All(); monto_total_pagar();"  class="form-control" >
@@ -290,7 +290,7 @@ require_once 'config/config.php'
 
         <div class="">
           <div class="input-field col s12 m12 l12">
-            <fieldset class="z-depth-3">
+            <fieldset class="">
               <legend>&nbsp;Extranjeros&nbsp;</legend>
 
               <div class="input-field col s6 m4 l3  ">
@@ -319,7 +319,7 @@ require_once 'config/config.php'
 
         <div class=""><!--Tercera fila-->
           <div class="input-field col s12 m12 l12">
-            <fieldset class="z-depth-3">
+            <fieldset class="">
               <legend>Personas surfistas</legend>
               <div class=""><!--Inicio de la segunda fila-->
 
@@ -352,12 +352,12 @@ require_once 'config/config.php'
 <!--========================== Inicio de lineas de codigo para los pagos y su tipo =========================================-->
 <div class="input-field col s12 m12 l12">
 
-      <fieldset class="z-depth-3">
+      <fieldset class="">
         <legend>&nbsp;Categorías de pago&nbsp;</legend>
         <div class=""><!--Inicio de la "" -->
 
           <div class="input-field col s12 m12 l5">
-          <fieldset  class="z-depth-1">
+          <fieldset  class="">
               <legend>&nbsp;Tipo de pago&nbsp;</legend>
               <div class="col m1"></div>
 
@@ -374,7 +374,7 @@ require_once 'config/config.php'
           </div>
 
           <div class="input-field col s12 m12 l7">
-            <fieldset  class="z-depth-1 ">
+            <fieldset  class=" ">
               <legend>&nbsp;Tipo moneda&nbsp;</legend>
               <p class="input-field col s12 m4 l4">
                 <input class="with-gap" value="Colones" name="moneda" type="radio"  id="indeterminate-checkbox" checked="default" />
@@ -406,21 +406,21 @@ require_once 'config/config.php'
               <div class="row"><!---Inicio de dos columnas-->
 <!--=========================================================================================================================-->
                 <div class="input-field col s6 m4 l3">
-                  <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Nacionales</legend>
+                  <fieldset  class="input-field col s12 m12 l12  "><legend>Total Nacionales</legend>
                     <div>Colones*: <input class="teal darken-4 white-text" type="text" id="total_Nacionales_Dia"  disabled value="0">
                     </div>
               </fieldset>
             </div>
 
             <div class="input-field col s6 m4 l3">
-              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Total Extranjeros</legend>
+              <fieldset  class="input-field col s12 m12 l12  "><legend>Total Extranjeros</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Extranjeros_Dia" disabled value="0">
                 </div>
           </fieldset>
         </div>
 
         <div class="input-field col s6 m4 l3">
-          <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Surf Nacionales</legend>
+          <fieldset  class="input-field col s12 m12 l12  "><legend>Surf Nacionales</legend>
             <div>Colones*: <input class="teal darken-4 white-text"  type="text" id="total_Surf_Nacionales" disabled value="0">
             </div>
       </fieldset>
@@ -428,7 +428,7 @@ require_once 'config/config.php'
 
 
             <div class="input-field col s6 m4 l3">
-              <fieldset  class="input-field col s12 m12 l12 z-depth-2 "><legend>Surf Extranjeros</legend>
+              <fieldset  class="input-field col s12 m12 l12  "><legend>Surf Extranjeros</legend>
                 <div>Dolares*: <input class="teal darken-4 white-text"  type="text" id="total_Surf_Extranjeros" disabled value="0">
                 </div>
           </fieldset>
@@ -441,14 +441,14 @@ require_once 'config/config.php'
               <div class="col s10 offset-s1"><span>
 
                 <div class="input-field col s12 m6 l4">
-                  <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Total de personas</legend>
+                  <fieldset class="input-field col s12 m12 l12  "><legend>Total de personas</legend>
                       <div>Personas*: <input class="teal darken-4 white-text" type="text" id="total_All"  disabled value="0">
                       </div>
                   </fieldset>
               </div>
 
               <div class="input-field col s12 m6 l4">
-                <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto Campistas</legend>
+                <fieldset class="input-field col s12 m12 l12  "><legend>Monto Campistas</legend>
                     <div>Dolares*: <input class="teal darken-4 white-text" type="text"
                         name="monto_personas_camping" id="monto_personas_camping"  disabled value="0">
                     </div>
@@ -456,7 +456,7 @@ require_once 'config/config.php'
             </div>
 
               <div class="input-field col s12 m6 l4">
-                <fieldset class="input-field col s12 m12 l12 z-depth-2 "><legend>Monto a cancelar</legend>
+                <fieldset class="input-field col s12 m12 l12  "><legend>Monto a cancelar</legend>
                     <div >Colones*: <input class="teal darken-4 white-text" name="montoCancelar" type="text" id="montoCancelar" value="0"></div>
                 </fieldset>
               </div>
@@ -501,7 +501,7 @@ require_once 'config/config.php'
       </div>
 </form>
       <div class="right hide-on-large-only">
-        <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+        <a href="index.php?c=Visitacion"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
       </div>
     </div>
 <!--   <h5>El usuario, el ASP, Y EL SECTOR SON VARIABLES QUE SE INGRESARAN CON LA SESION, PENDIENTE DE IMPLEMANTAR</h5>

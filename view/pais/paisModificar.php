@@ -33,7 +33,7 @@
           <li class="search">
             <nav>
               <div class="nav-wrapper">
-                <form class="z-depth-2" >
+                <form class="" >
                   <div class="input-field">
                     <input id="search" type="search" required>
                     <label for="search"><i href="#!" class="material-icons">search</i></label>
@@ -214,7 +214,7 @@
 <!--=======================================>> Inicio del navegador layteral slideout <<==========================================-->
 <div class="row">
     <div class="col s4">
-    <div  class="z-depth-3">
+    <div  class="">
       <ul id="slide-out" class="side-nav">
         <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0px);"  style="width:390px">
           <li><div class="userView">
@@ -228,7 +228,7 @@
     <li class="search">
       <nav>
         <div class="nav-wrapper">
-          <form class="z-depth-2" >
+          <form class="" >
             <div class="input-field">
               <input id="search" type="search" required>
               <label for="search"><i href="#!" class="material-icons">search</i></label>

@@ -89,7 +89,7 @@ header("Location:?c=login&a=index");
 ?>
 	<header>
 		<div class="container grey lighten-3 col s12 m12 l1">
-			<nav class="brown top-nav z-depth-3">
+			<nav class="brown top-nav ">
 				<div class="nav-wrapper">
 
 			<!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->

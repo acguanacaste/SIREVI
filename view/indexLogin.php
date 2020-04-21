@@ -88,7 +88,7 @@ $(document).ready(function() {
 <body>
 <!--======================================================================================================================-->
 	<header>
-		<nav  class="teal darken-4 top-nav z-depth-3" style="height: 75px;" >
+		<nav  class="teal darken-4 top-nav " style="height: 75px;" >
 			<div  class="container" >
 
 					<div class="nav-wrapper">
@@ -133,7 +133,7 @@ $(document).ready(function() {
 											<div id="" class="center">
 												<ul>
 													<li>
-														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/acgPrincipal.png"></a>
+														<a class="center" href=""><img class="circle " src="assets/img/acgPrincipal.png"></a>
 														<br>
 													</li>
 												</ul>
@@ -149,7 +149,7 @@ $(document).ready(function() {
 													<div id="" class="center"><!--Div que contiene laa imagen del SINAC-->
 														<ul>
 															<li>
-																<a class="center" href=""><img class="circle z-depth-2" src="assets/img/sinac.jpg"></a>
+																<a class="center" href=""><img class="circle " src="assets/img/sinac.jpg"></a>
 															<br>
 														</li>
 													</ul>
@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 									 	<form action="action_page.php" class=""><!--Div que me contiene el fieldset de el avatar-->
 						  		 		<div class="imgcontainer "><!--Div que me contiene la linea donde estara ubicada la imagen-->
-										 		<a href="#"   class="circle waves-effect waves-teal active z-depth-3 " >
+										 		<a href="#"   class="circle waves-effect waves-teal active  " >
 								 				<i class=" large material-icons blue-grey darken-4 ">account_circle</i></a>
 				  				 		</div>
 
@@ -212,7 +212,7 @@ $(document).ready(function() {
 
 
 											<div class="input-field col s12 m12 l12">
-												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 z-depth-2" name="enviar" type="submit">Iniciar sesión</button>
+												<button style="top:-15px;" class="btn waves-effect waves-light teal darken-4 " name="enviar" type="submit">Iniciar sesión</button>
 											</div>
 							  		</div>
 	<!--=============================================================================================================================-->
@@ -237,7 +237,7 @@ $(document).ready(function() {
 									 	<div id="" class="center">
 								 		<ul>
 										 	<li>
-											 	<a class="center" href=""><img class="circle z-depth-2" src="assets/img/acgPrincipal.png"></a>
+											 	<a class="center" href=""><img class="circle " src="assets/img/acgPrincipal.png"></a>
 								 		  </li>
 								 		</ul>
 									</div>
@@ -252,7 +252,7 @@ $(document).ready(function() {
 										 	<div id="" class="center"><!--Div que contiene laa imagen del MINAE-->
 												<ul>
 													<li>
-														<a class="center" href=""><img class="circle z-depth-2" src="assets/img/MINAE.png"></a>
+														<a class="center" href=""><img class="circle " src="assets/img/MINAE.png"></a>
 															<br>
 													</li>
 												</ul>

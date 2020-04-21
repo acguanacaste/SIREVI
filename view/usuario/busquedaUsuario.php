@@ -3,7 +3,7 @@
 
   <div class="container">
     <div class="right hide-on-small-only">
-      <a href="index.php?c=Usuario"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+      <a href="index.php?c=Usuario"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
     </div>
   <h4>Usuarios</h4>
   </div>
@@ -13,7 +13,7 @@
       <div class="col s12 m12 l12">
 
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 ">
             <tr>
               <th>ID</th>
               <th>Nombre</th>
@@ -57,7 +57,7 @@
                   }; ?></td>
                   <td>
                     <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $row->id; ?>">
-                      <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
+                      <i style="center" class="center circle white small material-icons right ">edit</i>
                     </a></center>
                   </td>
                 <?php endif; ?>

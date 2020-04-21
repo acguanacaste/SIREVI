@@ -4,18 +4,18 @@
     <h4 class="header left">Módulo de Usuarios</h4>
 <?php if ($_SESSION['usuario']['puesto'] == 1):?>
     <a href="?c=Usuario&a=agregarRegistro "><span class="hide-on-med-and-up">
-      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
+      <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Nuevo Usuario</a>
 
     <div class="right hide-on-small-only">
       <a   href="?c=Usuario&a=agregarRegistro">
-        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Usuario</a>
+        <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Agregar Usuario</a>
     </div>
 <?php endif; ?>
     <!--   buscar Usuario -->
   <br><br>
     <div class="">
       <br>
-      <fieldset class="left-align input-field col m12 l6 z-depth-2">
+      <fieldset class="left-align input-field col m12 l6 ">
         <form  action="?c=Usuario&a=busquedaUsuario" method="post">
           <i class="small material-icons">book</i><input type="text" name="nombre" class="black-text" placeholder="Nombre" style="width:200px;" required>
         <center>  <input type="submit" name="name" value="Buscar" class="teal darken-4 waves-effect waves-light btn"></center>
@@ -31,7 +31,7 @@
       <!-- Inicio de mi codigo -->
 
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 ">
             <tr>
               <th>&nbsp;Id </th>
               <th>Nombre</th>
@@ -66,7 +66,7 @@
                 <td style="heigth:5px;"></td>
                 <td>
                   <center><a  title="Editar Información" href="?c=Usuario&a=Modificar&id=<?php echo $r->id; ?>">
-                    <i style="center" class="center circle white small material-icons right z-depth-2">edit</i>
+                    <i style="center" class="center circle white small material-icons right ">edit</i>
                   </a></center>
                 </td>
               <?php endif; ?>

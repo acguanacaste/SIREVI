@@ -6,12 +6,12 @@
 
   <div class="container">
     <a href="?c=Visitacion&a=agregarRegistro"><span class="hide-on-med-and-up">
-      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
+      <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Nuevo registro</a>
 
 
       <div class="right hide-on-small-only">
         <a   href="?c=Visitacion&a=agregarRegistro">
-          <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Nuevo registro</a>
+          <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Nuevo registro</a>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
       <div class="col s12 m12 l12">
 
         <fieldset>
-          <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+          <ul class="input-field col s12 m12 l12 popout " data-collapsible="accordion">
           <li>
             <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro(s)</div>
             <div class="body "><span >
@@ -95,7 +95,7 @@
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
           <table id="data-table-simple" class="responsive-table grey lighten-1 centered highlight z-depth-5">
-            <thead class="white-text teal darken-4 z-depth-2">
+            <thead class="white-text teal darken-4 ">
 <!--==================================Los valores en la vista de visitacion aun estan por aclarar cuale se deben mostrar-->
             <tr>
               <th>ID</th>
@@ -150,14 +150,14 @@
 
               <td>
                 <a  title="Editar Información"  href="?c=Visitacion&a=Modificar&id=<?php echo $r->id; ?>"><i
-                    class="white circle z-depth-3 small material-icons right">edit</i></a>
+                    class="white circle  small material-icons right">edit</i></a>
               </td>
 
             <?php if($_SESSION['usuario']['puesto']== 1 || $_SESSION['usuario']['puesto']== 2 || $_SESSION['usuario']['puesto']== 3): ?>
               <td>
               <a title="Borrar Información"  onclick="return confirm('¿Seguro de eliminar este registro?');"
                  href="?c=Visitacion&a=Eliminar&id=<?php echo $r->id; ?>">
-                  <i class="white circle z-depth-3 small material-icons right">delete</i></a>
+                  <i class="white circle  small material-icons right">delete</i></a>
               </td>
             <?php endif;?>
             </tr>

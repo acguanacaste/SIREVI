@@ -5,10 +5,10 @@
 
     <a href="index.php?c=Sector&a=agregarRegistro">
       <span class="hide-on-med-and-up">
-        <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sector</a>
+        <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Agregar Sector</a>
 
     <div class="right hide-on-small-only">
-      <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sector</a>
+      <a href="index.php?c=Sector&a=agregarRegistro"><i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Agregar Sector</a>
     </div>
   </div>
 
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-          <thead class="white-text teal darken-4 z-depth-2">
+          <thead class="white-text teal darken-4 ">
               <tr>
                 <th>Nombre</th>
                 <th>Diario</th>
@@ -36,13 +36,13 @@
 
                   <td style="">
                     <a title="Editar Información" href="?c=Sector&a=Modificar&id=<?php echo $r->id; ?>">
-                      <i class="circle white small material-icons right z-depth-2">edit</i></a>
+                      <i class="circle white small material-icons right ">edit</i></a>
                   </td>
 
                   <td>
                     <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                       href="?c=Sector&a=Eliminar&id=<?php echo $r->id; ?>">
-                    <i class=" circle white small material-icons right z-depth-2">delete</i></a>
+                    <i class=" circle white small material-icons right ">delete</i></a>
                   </td>
                   <td>
                   </td>
@@ -53,7 +53,7 @@
           <br>
           <div class="left hide-on-small-only">
             <a href="?c=Sector&a=IndexTarifas">
-              <i class="small material-icons light-blue darken-1 z-depth-2
+              <i class="small material-icons light-blue darken-1
                         btn-floating pulse">receipt</i>Ver tarifas de ingreso para los sectores</a>
           </div>
         </div><!-- Div de los tamanos -->

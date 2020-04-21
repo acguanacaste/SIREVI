@@ -15,24 +15,25 @@
       <div class="col s12 m12 l12">
 
         <fieldset>
-          <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+          <ul class="input-field col s12 m12 l12 popout" data-collapsible="accordion">
           <li>
             <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro</div>
             <div class="body "><span >
               <form action="?c=Visitacion&a=Consulta_SEMEC_Controller" method="post">
 
-                <div class="z-depth-2 "><!--INICIO DEL DIV DE LA FILA-->
+                <div class=" "><!--INICIO DEL DIV DE LA FILA-->
                   <center>
                   <div class="input-field col s12 m4 l4">
                      <i class="material-icons prefix">event_note</i>
-                    <input placeholder="Fecha Inicio"  type="text" class="datepicker" id="fechaInicio" name="fechaInicio" required>
+                     <input type="date" name="fechaInicio" id="fechaInicio" required>
+
                   </div>
 
      <!--INICIO DE COLUMNA-->
 
                 <div class="input-field col s12 m4 l4  " >
                   <i class="material-icons prefix">event_note</i>
-                  <input placeholder="Fecha Final" type="text" class="datepicker" id="fechaFinal" name="fechaFinal"  value="" required>
+                  <input type="date" name="fechaFinal" id="fechaFinal" required>
                 </div>
               </center>
               </div>
@@ -41,7 +42,7 @@
                 <div class="row">
                   <div class="center"><span class="flow-text">
                     <div class="input-field col s12 m12 l12">
-                    <fieldset class="z-depth-2">
+                    <fieldset class="">
                       <button title="Enviar" class="small btn waves-effect waves-light teal darken-4"
                         value="Buscar"  type="submit" name="action"><span class="hide-on-small-only "><font size=3>Consultar</font></span>
                         <i class=" small material-icons right">pageview</i>
@@ -75,7 +76,7 @@
         <div class="col s12 m12 l12">
             <!-- Inicio de mi codigo -->
           <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-            <thead class="white-text teal darken-4 z-depth-2">
+            <thead class="white-text teal darken-4 ">
        <tr>
          <th>AC</th>
          <th>Centro operativo</th>

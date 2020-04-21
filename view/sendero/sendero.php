@@ -5,10 +5,10 @@
 
   <a href="index.php?c=Sendero&a=agregarRegistro">
     <span class="hide-on-med-and-up">
-      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sendero</a>
+      <i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Agregar Sendero</a>
 
   <div class="right hide-on-small-only">
-    <a href="index.php?c=Sendero&a=agregarRegistro"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">playlist_add</i>Agregar Sendero</a>
+    <a href="index.php?c=Sendero&a=agregarRegistro"><i class="small material-icons blue-grey darken-2  btn-floating pulse">playlist_add</i>Agregar Sendero</a>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
     <div class="col s12 m12 l12">
       <!--Inicio de mi codigo-->
       <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 ">
             <tr>
               <th>Sendero</th>
               <th>Sector</th>
@@ -39,20 +39,20 @@
 
                 <td>
                   <a href="?c=Sendero&a=Descripcion&id=<?php echo $r->id; ?>">
-                    <i class="circle white small material-icons right z-depth-2 tooltipped"
+                    <i class="circle white small material-icons right  tooltipped"
         							data-position="top" data-delay="50" data-tooltip="Descripción">description</i></a>
                 </td>
 
                 <td>
                   <a title="Editar Información" href="?c=Sendero&a=Modificar&id=<?php echo $r->id; ?>">
-                    <i class="circle white small material-icons right z-depth-2 tooltipped"
+                    <i class="circle white small material-icons right  tooltipped"
         							data-position="top" data-delay="50" data-tooltip="Modificar">edit</i></a>
                 </td>
 
                 <td>
                   <a title="Borrar Información" onclick="return confirm('¿Estas a un paso de borrar un registro, seguro deseas continuar?');"
                     href="?c=Sendero&a=Eliminar&id=<?php echo $r->id; ?>">
-                  <i class=" circle white small material-icons right z-depth-2 tooltipped"
+                  <i class=" circle white small material-icons right  tooltipped"
                     data-position="top" data-delay="50" data-tooltip="Eliminar">delete</i></a>
                 </td>
                 <td>

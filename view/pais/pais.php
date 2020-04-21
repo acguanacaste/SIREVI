@@ -28,7 +28,7 @@
           <li class="search">
             <nav>
               <div class="nav-wrapper">
-                <form class="z-depth-2" >
+                <form class="" >
                   <div class="input-field">
                     <input id="search" type="search" required>
                     <label for="search"><i href="#!" class="material-icons">search</i></label>
@@ -187,7 +187,7 @@
                           <span class="close">&times;</span>
                           <nav>
                             <div class="nav-wrapper">
-                              <form class="z-depth-2" >
+                              <form class="" >
                                 <div class="input-field">
                                   <input id="search" type="search" required>
                                   <label for="search"><i href="#!" class="material-icons">search</i></label>

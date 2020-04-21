@@ -159,7 +159,7 @@ if (!isset($_SESSION["email"])) {
 <body>
 <header>
     <div class="container grey lighten-3"><!--aqui fue donde cambie el numero 1 por 12, 1/25/2018-->
-        <nav class="brown top-nav z-depth-3">
+        <nav class="brown top-nav ">
             <div class="nav-wrapper">
 
                 <!--		<a href="#" title="Menú"data-activates="slide-out" class="button-collapse"><i title="Menu" class=" small material-icons">menu</i></a>-->

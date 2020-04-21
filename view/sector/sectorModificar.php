@@ -64,7 +64,7 @@
                    <legend>Tarifas de admisión por el día</legend>
                    <div class=""><!--- Inicio de linea para las tarifas --->
                      <div class="input-field col s12 m12 l12">
-                       <fieldset class="z-depth-2">
+                       <fieldset class="">
                          <legend>Nacionales</legend>
                          <div class="input-field col s6 m4 l3 ">
                            <input  id="adulto_nacional" type="number" name="adulto_nacional" value="<?php echo $sector->adulto_nacional; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
@@ -85,7 +85,7 @@
 
 
                    <div class="input-field col s12 m12 l12">
-                     <fieldset class="z-depth-2">
+                     <fieldset class="">
                        <legend>Extranjeros</legend>
                        <div class="input-field col s6 m6 l6  ">
                          <input  id="adulto_extranjero" type="number" name="adulto_extranjero" value="<?php echo $sector->adulto_extranjero; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
@@ -105,7 +105,7 @@
             <div class="">
              <fieldset>
                <div class="input-field col s12 m12 l12">
-                <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                <fieldset class=" input-field col s6 m5 l5">
                 <legend>Tarifa acampar</legend>
                  <div class="">
                    <input  id="" type="number" name="tarifa_camping" value="<?php echo $sector->tarifa_camping; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
@@ -113,7 +113,7 @@
                </fieldset>
 
               <div class="input-field col s1 m1 l1"></div>
-                <fieldset class="z-depth-2 input-field col s6 m5 l5">
+                <fieldset class=" input-field col s6 m5 l5">
                   <legend>Cambio dolar</legend>
                  <div class="">
                    <input  id="" type="number" name="cambio_dolar" value="<?php echo $sector->cambio_dolar; ?>" class="validate" class="form-control" data-validacion-tipo="requerido|min:10" required>
@@ -140,7 +140,7 @@
 </fieldset>
 <br>
 <div class="right hide-on-large-only">
-  <a href="index.php?c=Sector"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
+  <a href="index.php?c=Sector"><i style="color:#00b0ff" class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>&nbsp;Página anterior</a>
 </div>
 
 <!--================================================================================================================================-->

@@ -14,7 +14,7 @@
     <div class="col s12 m12 l12">
 
       <fieldset>
-        <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+        <ul class="input-field col s12 m12 l12 popout " data-collapsible="accordion">
         <li>
           <div class="header"><i class="material-icons">info_outline</i>Utilice los campos habilitados para realizar la busqueda de registro(s)</div>
           <div class="body "><span >
@@ -89,7 +89,7 @@ $query_pais = mysql_query($sentencia_pais);
       <div class="col s12 m12 l12">
 
         <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 ">
             <tr>
               <th>ID</th>
               <th>Proposito</th>
@@ -156,7 +156,7 @@ if ($_POST):
        <div class=" right hide-on-small-only">
          <a   href="?c=Visitacion&a=AdminUser"><span class="tooltipped" data-position="top"
          data-delay="50" data-tooltip="Página anterior">
-           <i class="small material-icons blue-grey darken-2 z-depth-2 btn-floating pulse">arrow_back</i>&nbsp;Página anterior</span></a>
+           <i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>&nbsp;Página anterior</span></a>
        </div>
     </div>
   </div>

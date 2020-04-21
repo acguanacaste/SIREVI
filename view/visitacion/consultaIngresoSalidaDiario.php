@@ -1,11 +1,11 @@
 <?php if ($_SESSION['usuario']['puesto'] == 1 || $_SESSION['usuario']['puesto'] == 3 ):?>
 <div class="container">
   <a href="?c=Visitacion&a=consultaIngresoSalidaDiario"><span class="hide-on-med-and-up">
-    <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+    <i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>Página anterior</a>
 
   <div class="right hide-on-small-only">
     <a   href="?c=Visitacion&a=consultaIngresoSalidaDiario">
-      <i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página anterior</a>
+      <i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>Página anterior</a>
   </div>
 </div>
 
@@ -24,7 +24,7 @@
             <div class="col s12 m12 l12">
 
               <fieldset>
-                <ul class="input-field col s12 m12 l12 popout z-depth-3" data-collapsible="accordion">
+                <ul class="input-field col s12 m12 l12 popout " data-collapsible="accordion">
                 <li>
                   <div class="header"><i class="material-icons">info_outline</i>Seleccione la fecha de hoy para verificar visitantes dentro del parque</div>
                   <div class="body "><span >
@@ -70,7 +70,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
        <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-        <thead class="white-text teal darken-4 z-depth-2">
+        <thead class="white-text teal darken-4 ">
             <tr>
 
               <th colspan="2">Fecha</th>

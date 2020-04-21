@@ -14,7 +14,7 @@
           <div class="">
             <br>
             <div class="right hide-on-small-only">
-              <a   href="?c=Sector"><i class="small material-icons blue-grey darken-2 z-depth-1 btn-floating pulse">arrow_back</i>Página sectores</a>
+              <a   href="?c=Sector"><i class="small material-icons blue-grey darken-2  btn-floating pulse">arrow_back</i>Página sectores</a>
             </div>
             <div class="">
 
@@ -29,7 +29,7 @@
                             <fieldset>
                               <legend>Tarifas nacionales</legend>
                               <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-                                <thead class="white-text teal darken-4 z-depth-2">
+                                <thead class="white-text teal darken-4 ">
                                     <tr>
                                       <th>Sector</th>
                                       <th>Adultos </th>
@@ -57,7 +57,7 @@
                           <fieldset>
                             <legend>Tarifas extranjeros</legend>
                             <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-                              <thead class="white-text teal darken-4 z-depth-2">
+                              <thead class="white-text teal darken-4 ">
                                   <tr>
                                     <th>Sector</th>
                                     <th>Adultos </th>
@@ -92,7 +92,7 @@
                             <fieldset>
                               <legend>Tarifas nacionales</legend>
                               <table class="responsive-table grey lighten-1 centered highlight z-depth-5">
-                                 <thead class="white-text teal darken-4 z-depth-2">
+                                 <thead class="white-text teal darken-4 ">
                                      <tr>
                                        <th>Nombre de sector</th>
                                        <th>Tarifa por persona</th>

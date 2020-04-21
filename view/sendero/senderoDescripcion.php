@@ -23,7 +23,7 @@
                   <div class="row">
                     <fieldset>
                       <div class="">
-                     <fieldset  disabled class="z-depth-2">
+                     <fieldset  disabled class="">
                        <legend>Atractivo del sendero</legend>
                        <div  class="col s12 m12 l12">
                          <div>
@@ -42,7 +42,7 @@
 
 
 <div class="row">
-  <fieldset disabled class="z-depth-2">
+  <fieldset disabled class="">
 
             <div class="input-field col s12 m5 l6">
               <i class="material-icons prefix">transfer_within_a_station</i>
@@ -65,7 +65,7 @@
             <div class="row">
               <fieldset>
                 <div class="">
-               <fieldset  disabled class="z-depth-2">
+               <fieldset  disabled class="">
                  <legend>Punto inicio</legend>
                  <div  class="col s12 m12 l12">
                    <div >
@@ -85,7 +85,7 @@
          <div class="row">
            <fieldset>
              <div class="">
-            <fieldset  disabled class="z-depth-2">
+            <fieldset  disabled class="">
               <legend>Punto llegada</legend>
               <div  class="col s12 m12 l12">
                 <div>
