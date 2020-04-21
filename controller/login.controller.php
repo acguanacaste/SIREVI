@@ -11,7 +11,7 @@ class loginController{
   }
 
   public function salir(){
-      require_once 'view/logout.php';
+      require_once 'view/indexLogin.php';
   }
 
 //=====================================================================================================================================
