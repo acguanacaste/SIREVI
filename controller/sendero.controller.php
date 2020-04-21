@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Sendero.php';
+require_once 'model/sendero.php';
 
 class SenderoController{
 

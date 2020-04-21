@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Visitacion.php';
+require_once 'model/visitacion.php';
 
 class VisitacionController{
 

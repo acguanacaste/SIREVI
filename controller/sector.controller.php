@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Sector.php';
+require_once 'model/sector.php';
 
 class SectorController{
 

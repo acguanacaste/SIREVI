@@ -1,5 +1,5 @@
 <?php
-require_once 'model/Dollar.php';
+require_once 'model/dollar.php';
 
 class DollarController{
 
