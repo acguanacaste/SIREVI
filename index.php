@@ -1,6 +1,4 @@
 <?php
-require_once 'model/database.php';
-
 $controller = 'login';
 
 // Todo esta lógica hara el papel de un FrontController

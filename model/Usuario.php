@@ -1,7 +1,7 @@
 <?php
-class Usuario{
-	private $pdo;
-    public $id;
+require_once "database.php";
+class Usuario extends Database{
+	public $id;
     public $nombre;
     public $apellido;
     public $cedula;
@@ -20,19 +20,8 @@ public function __SET($k, $v){
 	        return $this->$k = $v;
 }
 
-public function __CONSTRUCT(){
-	try{
-      $this->pdo = new PDO('mysql:host=localhost;dbname=sirevi', 'root', '');
-			/*
-			require conexion.php
-			$this->pdo = new Conexion(),
-			eesto no dene de estar aqui, est clase debe de tener un propiedad bd o exteneder la clase de bd y de ahi en en constuctor conetcarse 
-			*/
-			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 			}
-			catch(Exception $e){
-				die($e->getMessage());
-				}
+public function __construct(){
+    parent::__construct();
 }
 
 /*===================================================================================================================*/

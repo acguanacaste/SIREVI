@@ -1,6 +1,6 @@
 <?php
-class Sector{
-	private $pdo;
+require_once "database.php";
+class Sector extends Database {
 
     public $id;
     public $nombre;
@@ -13,14 +13,9 @@ class Sector{
 		public $cambio_dolar;
 
 
-	public function __CONSTRUCT(){
-		try{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e){
-			die($e->getMessage());
-		}
-	}
+    public function __construct(){
+        parent::__construct();
+    }
 
 //================================  Funcion para poder ver las tarifas de cada sector ================================================
 	public function ListadoTarifas(){

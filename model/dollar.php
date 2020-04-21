@@ -1,20 +1,18 @@
 <?php
-class Dollar{
-	private $pdo;
+require_once "database.php";
+class Dollar extends Database {
+
 
     public $id;
     public $valor_dolar;
     public $fecha_cambio;
+    public $pdo;
 
 
-	public function __CONSTRUCT(){
-		try{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e){
-			die($e->getMessage());
-		}
-	}
+    public function __construct(){
+        $db = new Database();
+        $this->pdo = $db->pdo;
+    }
 
 	public function Listar(){/*Metodo que me muestra los datos qye hay en la bd*/
 		try{

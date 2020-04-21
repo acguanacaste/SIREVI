@@ -1,15 +1,19 @@
 <?php
-if (file_exists("configuration.local.php")){
-    require_once "configuration.local.php";
+$config = array();
+
+if (file_exists("config/config.ini")){
+    $config = parse_ini_file('config/config.ini', true);
+
 }else{
-  //estas son las ineas que debe de tener configuration.local.php
-    $bd = "sirevi";
-    $bdusr = “root”;
-    $bdpass = "";
-    $host = "localhost";
+  //estas son las ineas que debe de tener config.ini
+    echo "Ini not found";
+    $config['bd'] = "sirevi";
+    $config['bdusr'] = “root”;
+    $config['bdpass'] = "";
+    $config['host'] = "localhost";
 }
-$conexion = mysqli_connect($host,$bdusr,$bdpass,$bd);
-$base=new PDO("mysql:host=localhost; dbname=sirevi","root","");
+$conexion = mysqli_connect($config['host'],$config['bdusr'],$config['bdpass'],$config['bd']);
+$base=new PDO("mysql:host=".$config['host']."; dbname=".$config['bd'],$config['bdusr'],$config['bdpass']);
 $query_pais = mysqli_query($conexion, "select * from pais order by nombre ASC");
 
 $query_provincia = mysqli_query($conexion, "select * from provincia order by nombre ASC");

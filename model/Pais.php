@@ -1,23 +1,16 @@
 <?php
-class Pais{
-	private $pdo;
+require_once "database.php";
+class Pais extends Database {
+
 
     public $id;
     public $nombre;
     public $codigo;
 
 
-	public function __CONSTRUCT()
-	{
-		try
-		{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
+    public function __construct(){
+        parent::__construct();
+    }
 
 	public function Listar()
 	{

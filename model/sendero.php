@@ -1,6 +1,6 @@
 <?php
-class Sendero{
-	private $pdo;
+require_once "database.php";
+class Sendero extends Database {
 
     public $id;
     public $nombre;
@@ -16,17 +16,9 @@ class Sendero{
 		public $regulaciones;
 
 
-	public function __CONSTRUCT()
-	{
-		try
-		{
-			$this->pdo = Database::StartUp();
-		}
-		catch(Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
+    public function __construct(){
+        parent::__construct();
+    }
 
 	public function Listar()
 	{
